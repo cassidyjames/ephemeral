@@ -2,6 +2,8 @@
 
 A private-by-default, always-incognito browser. Inspired by Firefox Focus.
 
+![Screenshot](screenshot.png)
+
 ## Build
 
 ```bash
