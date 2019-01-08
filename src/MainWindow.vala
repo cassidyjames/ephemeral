@@ -41,11 +41,8 @@ public class MainWindow : Gtk.Window {
         header.show_close_button = true;
         header.has_subtitle = false;
 
-        // var header_context = header.get_style_context ();
-        // header_context.add_class ("titlebar");
-        // header_context.add_class ("default-decoration");
-
         var web_context = new WebKit.WebContext.ephemeral ();
+        web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
 
         var web_view = new WebKit.WebView.with_context (web_context);
         web_view.expand = true;
