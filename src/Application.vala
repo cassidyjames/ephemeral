@@ -34,7 +34,7 @@ public class Ephemeral : Gtk.Application {
         var quit_action = new SimpleAction ("quit", null);
 
         add_action (quit_action);
-        set_accels_for_action ("app.quit", {"Escape"});
+        set_accels_for_action ("app.quit", {"<Ctrl>Q"});
 
         const string DESKTOP_SCHEMA = "io.elementary.desktop";
         const string DARK_KEY = "prefer-dark";
