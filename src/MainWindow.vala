@@ -24,8 +24,6 @@ public class MainWindow : Gtk.Window {
         Object (
             application: application,
             border_width: 0,
-            default_height: 640,
-            default_width: 960,
             icon_name: "com.github.cassidyjames.ephemeral",
             resizable: true,
             title: "Ephemeral",
@@ -34,6 +32,9 @@ public class MainWindow : Gtk.Window {
     }
 
     construct {
+        default_height = 640;
+        default_width = 960;
+
         var protocol_regex = new Regex (".*://.*");
 
         var header = new Gtk.HeaderBar ();
