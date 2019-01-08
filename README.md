@@ -56,13 +56,6 @@ sudo ninja install
 com.github.cassidyjames.ephemeral
 ```
 
-## Build
-
-```bash
-valac --pkg gtk+-3.0 --pkg webkit2gtk-4.0 src/Application.vala
-./Application
-```
-
 [elementary OS]: https://elementary.io
 [AppCenter]: https://appcenter.elementary.io/com.github.cassidyjames.ephemeral
 
