@@ -58,7 +58,7 @@ public class Ephemeral : Gtk.Application {
 
         // TODO: Menu with other installed browsers?
         var open_button = new Gtk.Button.from_icon_name ("internet-web-browser", Gtk.IconSize.SMALL_TOOLBAR);
-        open_button.tooltip_text = "Open page in Epiphany";
+        open_button.tooltip_text = "Open page in default browser";
 
         header.pack_start (back_button);
         header.pack_start (forward_button);
@@ -92,8 +92,7 @@ public class Ephemeral : Gtk.Application {
         });
 
         open_button.clicked.connect (() => {
-            // TODO: Open in Epiphany
-            critical ("Not implemented");
+            Gtk.show_uri (null, web_view.get_uri (), 0);
         });
 
         erase_button.clicked.connect (() => {
