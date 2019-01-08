@@ -14,8 +14,6 @@
 
 Browse the Internet in private without leaving a trace of history on your computer. Ephemeral is a stripped down private browser that's perfect for avoiding persistent cookies or web trackers. Close the window and all traces of your browsing are removed from your device.
 
-![Screenshot](data/screenshot.png)
-
 <!--
 
 ## Made for [elementary OS]
