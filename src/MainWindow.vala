@@ -41,30 +41,29 @@ public class MainWindow : Gtk.Window {
         header.show_close_button = true;
         header.has_subtitle = false;
 
-        var header_context = header.get_style_context ();
-        header_context.add_class ("titlebar");
-        header_context.add_class ("default-decoration");
+        // var header_context = header.get_style_context ();
+        // header_context.add_class ("titlebar");
+        // header_context.add_class ("default-decoration");
 
         var web_context = new WebKit.WebContext.ephemeral ();
-        web_context.get_default ().set_preferred_languages (GLib.Intl.get_language_names ());
 
         var web_view = new WebKit.WebView.with_context (web_context);
         web_view.expand = true;
         web_view.height_request = 200;
         web_view.load_uri ("https://start.duckduckgo.com/");
 
-        var back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        var back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
         back_button.tooltip_text = "Back";
 
-        var forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        var forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         forward_button.sensitive = false;
         forward_button.tooltip_text = "Forward";
 
-        var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         refresh_button.tooltip_text = "Reload page";
 
-        var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
+        var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         stop_button.tooltip_text = "Stop loading";
 
         var refresh_stop_stack = new Gtk.Stack ();
@@ -76,11 +75,11 @@ public class MainWindow : Gtk.Window {
         url_entry.hexpand = true;
         url_entry.width_request = 100;
 
-        var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.SMALL_TOOLBAR);
+        var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.tooltip_text = "Erase browsing history";
 
         // TODO: Menu with other installed browsers?
-        var open_button = new Gtk.Button.from_icon_name ("internet-web-browser", Gtk.IconSize.SMALL_TOOLBAR);
+        var open_button = new Gtk.Button.from_icon_name ("internet-web-browser", Gtk.IconSize.LARGE_TOOLBAR);
         open_button.tooltip_text = "Open page in default browser";
 
         header.pack_start (back_button);
@@ -120,7 +119,7 @@ public class MainWindow : Gtk.Window {
 
         erase_button.clicked.connect (() => {
             // TODO: Close window and open new one with new WebKit context
-            critical ("Not fully implemented");
+            critical ("Not fully implemented; just closing for now.");
             close ();
         });
 
@@ -131,10 +130,13 @@ public class MainWindow : Gtk.Window {
 
             if (web_view.is_loading) {
                 refresh_stop_stack.visible_child = stop_button;
+                web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
             } else {
                 refresh_stop_stack.visible_child = refresh_button;
+                url_entry.progress_fraction = 0;
             }
         });
+
 
         url_entry.activate.connect (() => {
             var url = url_entry.text;
