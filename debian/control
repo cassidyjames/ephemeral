@@ -4,6 +4,7 @@ Priority: extra
 Maintainer: Cassidy James Blaede <c@ssidyjam.es>
 Build-Depends: debhelper (>= 9),
                libgtk-3-dev,
+               libwebkit2gtk-4.0-dev,
                meson,
                valac
 Standards-Version: 3.9.3
