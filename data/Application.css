@@ -24,3 +24,9 @@
 @define-color textColorPrimary shade(@GRAPE_100, 1.05);
 @define-color textColorPrimaryShadow alpha(shade(@colorPrimary, 0.6), 0.4);
 
+.titlebar entry {
+  background: alpha(@GRAPE_900, 0.5);
+  color: @textColorPrimary;
+  text-shadow: none;
+}
+
