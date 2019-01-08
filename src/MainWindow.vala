@@ -120,7 +120,8 @@ public class MainWindow : Gtk.Window {
 
         erase_button.clicked.connect (() => {
             // TODO: Close window and open new one with new WebKit context
-            critical ("Not implemented");
+            critical ("Not fully implemented");
+            close ();
         });
 
         web_view.load_changed.connect ((source, evt) => {
