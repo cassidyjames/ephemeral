@@ -2,7 +2,7 @@
 
 A private-by-default, always-incognito browser. Inspired by Firefox Focus.
 
-![Screenshot](screenshot.png)
+![Screenshot](data/screenshot.png)
 
 ## Build
 

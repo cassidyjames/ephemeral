@@ -1,5 +1,25 @@
-public class Ephemeral : Gtk.Application {
+/*
+* Copyright ⓒ 2019 Cassidy James Blaede (https://cassidyjames.com)
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301 USA
+*
+* Authored by: Cassidy James Blaede <c@ssidyjam.es>
+*/
 
+public class Ephemeral : Gtk.Application {
     public Ephemeral () {
         Object (
             application_id: "com.github.cassidyjames.ephemeral",
@@ -8,116 +28,37 @@ public class Ephemeral : Gtk.Application {
     }
 
     protected override void activate () {
-        var main_window = new Gtk.ApplicationWindow (this);
-        main_window.default_height = 640;
-        main_window.default_width = 960;
+        var app_window = new MainWindow (this);
+        app_window.show_all ();
 
-        var protocol_regex = new Regex (".*://.*");
+        var quit_action = new SimpleAction ("quit", null);
 
-        var header = new Gtk.HeaderBar ();
-        header.show_close_button = true;
-        header.has_subtitle = false;
+        add_action (quit_action);
+        set_accels_for_action ("app.quit", {"Escape"});
 
-        var header_context = header.get_style_context ();
-        header_context.add_class ("titlebar");
-        header_context.add_class ("default-decoration");
+        const string DESKTOP_SCHEMA = "io.elementary.desktop";
+        const string DARK_KEY = "prefer-dark";
 
-        var web_context = new WebKit.WebContext.ephemeral ();
-        web_context.get_default ().set_preferred_languages (GLib.Intl.get_language_names ());
+        var lookup = SettingsSchemaSource.get_default ().lookup (DESKTOP_SCHEMA, false);
 
-        var web_view = new WebKit.WebView.with_context (web_context);
-        web_view.expand = true;
-        web_view.height_request = 200;
-        web_view.load_uri ("https://start.duckduckgo.com/");
+        if (lookup != null) {
+            var desktop_settings = new Settings (DESKTOP_SCHEMA);
+            var gtk_settings = Gtk.Settings.get_default ();
+            desktop_settings.bind (DARK_KEY, gtk_settings, "gtk_application_prefer_dark_theme", SettingsBindFlags.DEFAULT);
+        }
 
-        var back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        back_button.sensitive = false;
-        back_button.tooltip_text = "Back";
+        var provider = new Gtk.CssProvider ();
+        provider.load_from_resource ("/com/github/cassidyjames/ephemeral/Application.css");
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
 
-        var forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        forward_button.sensitive = false;
-        forward_button.tooltip_text = "Forward";
-
-        var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        refresh_button.tooltip_text = "Reload page";
-
-        var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.SMALL_TOOLBAR);
-        stop_button.tooltip_text = "Stop loading";
-
-        var refresh_stop_stack = new Gtk.Stack ();
-        refresh_stop_stack.add (refresh_button);
-        refresh_stop_stack.add (stop_button);
-        refresh_stop_stack.visible_child = refresh_button;
-
-        var url_entry = new Gtk.Entry ();
-        url_entry.hexpand = true;
-        url_entry.width_request = 100;
-
-        var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.SMALL_TOOLBAR);
-        erase_button.tooltip_text = "Erase browsing history";
-
-        // TODO: Menu with other installed browsers?
-        var open_button = new Gtk.Button.from_icon_name ("internet-web-browser", Gtk.IconSize.SMALL_TOOLBAR);
-        open_button.tooltip_text = "Open page in default browser";
-
-        header.pack_start (back_button);
-        header.pack_start (forward_button);
-        header.pack_start (refresh_stop_stack);
-        header.pack_end (open_button);
-        header.pack_end (erase_button);
-
-        header.custom_title = url_entry;
-
-        var grid = new Gtk.Grid ();
-        grid.add (web_view);
-
-        main_window.set_titlebar (header);
-        main_window.add (grid);
-        main_window.show_all ();
-
-        back_button.clicked.connect (() => {
-            web_view.go_back ();
-        });
-
-        forward_button.clicked.connect (() => {
-            web_view.go_forward ();
-        });
-
-        refresh_button.clicked.connect (() => {
-            web_view.reload ();
-        });
-
-        stop_button.clicked.connect (() => {
-            web_view.stop_loading ();
-        });
-
-        open_button.clicked.connect (() => {
-            Gtk.show_uri (null, web_view.get_uri (), 0);
-        });
-
-        erase_button.clicked.connect (() => {
-            // TODO: Close window and open new one with new WebKit context
-            critical ("Not implemented");
-        });
-
-        web_view.load_changed.connect ((source, evt) => {
-            url_entry.text = source.get_uri ();
-            back_button.sensitive = web_view.can_go_back ();
-            forward_button.sensitive = web_view.can_go_forward ();
-
-            if (web_view.is_loading) {
-                refresh_stop_stack.visible_child = stop_button;
-            } else {
-                refresh_stop_stack.visible_child = refresh_button;
+        quit_action.activate.connect (() => {
+            if (app_window != null) {
+                app_window.destroy ();
             }
-        });
-
-        url_entry.activate.connect (() => {
-            var url = url_entry.text;
-            if (!protocol_regex.match (url)) {
-                url = "%s://%s".printf ("https", url);
-            }
-            web_view.load_uri (url);
         });
     }
 

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Ephemeral
+GenericName=Private browser
+Comment=Browse the web in private
+Categories=Network;WebBrowser;Security;GTK;
+Exec=com.github.cassidyjames.ephemeral
+Icon=com.github.cassidyjames.ephemeral
+Terminal=false
+Type=Application
+X-GNOME-Gettext-Domain=com.github.cassidyjames.ephemeral
+Keywords=private;incognito;focus;temporary;cookies;
+
