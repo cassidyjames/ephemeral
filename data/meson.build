@@ -32,9 +32,9 @@ install_data (
     rename: meson.project_name () + '.desktop'
 )
 
-# install_data (
-#     'appdata.xml',
-#     install_dir: join_paths (get_option ('datadir'), 'metainfo'),
-#     rename: meson.project_name () + '.appdata.xml'
-# )
+install_data (
+    'appdata.xml',
+    install_dir: join_paths (get_option ('datadir'), 'metainfo'),
+    rename: meson.project_name () + '.appdata.xml'
+)
 
