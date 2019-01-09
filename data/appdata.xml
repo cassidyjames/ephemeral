@@ -19,6 +19,11 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="1.0.1" date="2019-01-08">
+      <description>
+        <p>Fix links that try to open in a new window</p>
+      </description>
+    </release>
     <release version="1.0.0" date="2019-01-08">
       <description>
         <p>Initial release for AppCenter</p>
