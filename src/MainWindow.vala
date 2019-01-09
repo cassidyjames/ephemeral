@@ -78,7 +78,7 @@ public class MainWindow : Gtk.Window {
         erase_button.tooltip_text = "Erase browsing history";
 
         // TODO: Menu with other installed browsers?
-        var open_button = new Gtk.Button.from_icon_name ("internet-web-browser", Gtk.IconSize.LARGE_TOOLBAR);
+        var open_button = new Gtk.Button.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
         open_button.tooltip_text = "Open page in default browser";
 
         header.pack_start (back_button);
