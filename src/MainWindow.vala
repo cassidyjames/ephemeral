@@ -39,7 +39,12 @@ public class MainWindow : Gtk.Window {
         default_height = 640;
         default_width = 960;
 
-        var protocol_regex = new Regex (".*://.*");
+        Regex protocol_regex;
+        try {
+            protocol_regex = new Regex (".*://.*");
+        } catch (RegexError e) {
+            critical (e.message);
+        }
 
         var header = new Gtk.HeaderBar ();
         header.show_close_button = true;
@@ -78,14 +83,33 @@ public class MainWindow : Gtk.Window {
         var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.tooltip_text = "Erase browsing history";
 
-        // TODO: Menu with other installed browsers?
-        var open_button = new Gtk.Button.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
-        open_button.tooltip_text = "Open page in default browser";
+        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type ("x-scheme-handler/http");
+
+        foreach (AppInfo app_info in external_apps) {
+            if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
+                continue;
+            }
+
+            var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
+            browser_icon.pixel_size = 24;
+
+            var open_button = new Gtk.Button ();
+            open_button.image = browser_icon;
+            open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+
+            header.pack_end (open_button);
+
+            open_button.clicked.connect (() => {
+                var uris = new List<string> ();
+                uris.append (web_view.get_uri ());
+
+                app_info.launch_uris (uris, null);
+            });
+        }
 
         header.pack_start (back_button);
         header.pack_start (forward_button);
         header.pack_start (refresh_stop_stack);
-        header.pack_end (open_button);
         header.pack_end (erase_button);
 
         header.custom_title = url_entry;
@@ -118,10 +142,6 @@ public class MainWindow : Gtk.Window {
 
         stop_button.clicked.connect (() => {
             web_view.stop_loading ();
-        });
-
-        open_button.clicked.connect (() => {
-            Gtk.show_uri (null, web_view.get_uri (), 0);
         });
 
         erase_button.clicked.connect (() => {
