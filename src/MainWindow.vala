@@ -71,9 +71,11 @@ public class MainWindow : Gtk.Window {
         var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         refresh_button.tooltip_text = "Reload page";
         refresh_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>r"}, refresh_button.tooltip_text);
+        // set_dark (refresh_button);
 
         var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         stop_button.tooltip_text = "Stop loading";
+        // set_dark (stop_button);
 
         var refresh_stop_stack = new Gtk.Stack ();
         refresh_stop_stack.add (refresh_button);
@@ -135,6 +137,7 @@ public class MainWindow : Gtk.Window {
         }
 
         show_all ();
+        set_dark (header);
 
         back_button.clicked.connect (() => {
             web_view.go_back ();
@@ -265,6 +268,24 @@ public class MainWindow : Gtk.Window {
         new_window.show_all ();
 
         window.close ();
+    }
+
+    private void set_dark (Gtk.Widget widget) {
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        try {
+            var css_provider = Gtk.CssProvider.get_named (gtk_settings.gtk_theme_name, "dark");
+            widget.get_style_context ().add_provider (css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        } catch (Error e) {}
+
+        if (widget is Gtk.Container) {
+            debug ("Container: %s", widget.name);
+            var container = (Gtk.Container) widget;
+            container.forall ((child) => {
+                debug ("Child: %s", child.name);
+                set_dark (child);
+            });
+        }
     }
 }
 

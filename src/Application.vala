@@ -43,8 +43,6 @@ public class Ephemeral : Gtk.Application {
             quit ();
         });
 
-        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
-
         var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/com/github/cassidyjames/ephemeral/Application.css");
         Gtk.StyleContext.add_provider_for_screen (
