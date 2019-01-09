@@ -95,28 +95,83 @@ public class MainWindow : Gtk.Window {
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type ("x-scheme-handler/http");
-
-        // TODO: Don't dump these all into the headerbar
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
-                continue;
+                external_apps.remove (app_info);
             }
+        }
 
-            var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
-            browser_icon.pixel_size = 24;
+        if (external_apps.length () > 1) {
+            var open_button = new Gtk.MenuButton ();
+            open_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
+            open_button.tooltip_text = "Open page in…";
 
-            var open_button = new Gtk.Button ();
-            open_button.image = browser_icon;
-            open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+            var open_popover = new Gtk.Popover (open_button);
+            open_button.popover = open_popover;
+
+            var open_grid = new Gtk.Grid ();
+            open_grid.orientation = Gtk.Orientation.VERTICAL;
+
+            open_popover.add (open_grid);
 
             header.pack_end (open_button);
 
-            open_button.clicked.connect (() => {
-                var uris = new List<string> ();
-                uris.append (web_view.get_uri ());
+            foreach (AppInfo app_info in external_apps) {
+                var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
+                browser_icon.pixel_size = 16;
 
-                app_info.launch_uris (uris, null);
-            });
+                var browser_grid = new Gtk.Grid ();
+                browser_grid.margin = 3;
+                browser_grid.column_spacing = 3;
+                browser_grid.add (browser_icon);
+                browser_grid.add (new Gtk.Label (app_info.get_name ()));
+
+                var browser_button = new Gtk.Button ();
+                browser_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+                browser_button.add (browser_grid);
+
+                open_grid.add (browser_button);
+                browser_button.visible = true;
+
+                browser_button.clicked.connect (() => {
+                    var uris = new List<string> ();
+                    uris.append (web_view.get_uri ());
+
+                    try {
+                        app_info.launch_uris (uris, null);
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
+
+                    open_popover.popdown ();
+                });
+
+                browser_grid.show_all ();
+            }
+
+            open_grid.show_all ();
+        } else {
+            foreach (AppInfo app_info in external_apps) {
+                var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
+                browser_icon.pixel_size = 24;
+
+                var open_button = new Gtk.Button ();
+                open_button.image = browser_icon;
+                open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+
+                header.pack_end (open_button);
+
+                open_button.clicked.connect (() => {
+                    var uris = new List<string> ();
+                    uris.append (web_view.get_uri ());
+
+                    try {
+                        app_info.launch_uris (uris, null);
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
+                });
+            }
         }
 
         header.pack_start (back_button);
