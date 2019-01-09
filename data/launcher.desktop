@@ -8,5 +8,6 @@ Icon=com.github.cassidyjames.ephemeral
 Terminal=false
 Type=Application
 X-GNOME-Gettext-Domain=com.github.cassidyjames.ephemeral
-Keywords=private;incognito;focus;temporary;cookies;
+Keywords=WWW;web;browser;internet;private;incognito;focus;temporary;cookies;
+MimeType=x-scheme-handler/http;x-scheme-handler/https;text/html;application/xhtml+xml;application/x-extension-htm;application/x-extension-html;application/x-extension-shtml;application/x-extension-xht;application/x-extension-mhtml;
 

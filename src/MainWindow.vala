@@ -137,8 +137,8 @@ public class MainWindow : Gtk.Window {
             }
         });
 
-
         url_entry.activate.connect (() => {
+            // TODO: Search?
             var url = url_entry.text;
             if (!protocol_regex.match (url)) {
                 url = "%s://%s".printf ("https", url);
