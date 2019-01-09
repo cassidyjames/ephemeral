@@ -22,6 +22,7 @@
 public class MainWindow : Gtk.Window {
     private const string HOME = "https://start.duckduckgo.com/";
     public string uri { get; construct set; }
+    public SimpleActionGroup actions { get; construct; }
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
@@ -60,13 +61,16 @@ public class MainWindow : Gtk.Window {
         var back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
         back_button.tooltip_text = "Back";
+        back_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Left"}, back_button.tooltip_text);
 
         var forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         forward_button.sensitive = false;
         forward_button.tooltip_text = "Forward";
+        forward_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Right"}, forward_button.tooltip_text);
 
         var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         refresh_button.tooltip_text = "Reload page";
+        refresh_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>r"}, refresh_button.tooltip_text);
 
         var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         stop_button.tooltip_text = "Stop loading";
@@ -79,9 +83,12 @@ public class MainWindow : Gtk.Window {
         var url_entry = new Gtk.Entry ();
         url_entry.hexpand = true;
         url_entry.width_request = 100;
+        url_entry.tooltip_text = "Enter a URL";
+        url_entry.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, url_entry.tooltip_text);
 
         var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.tooltip_text = "Erase browsing history";
+        erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type ("x-scheme-handler/http");
 
@@ -146,10 +153,7 @@ public class MainWindow : Gtk.Window {
         });
 
         erase_button.clicked.connect (() => {
-            var new_window = new MainWindow (application);
-            new_window.show_all ();
-
-            close ();
+            erase (this);
         });
 
         web_view.load_changed.connect ((source, evt) => {
@@ -188,6 +192,79 @@ public class MainWindow : Gtk.Window {
             }
             web_view.load_uri (url);
         });
+
+        var accel_group = new Gtk.AccelGroup ();
+
+        accel_group.connect (
+            Gdk.Key.Left,
+            Gdk.ModifierType.MOD1_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                web_view.go_back ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.Right,
+            Gdk.ModifierType.MOD1_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                web_view.go_forward ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.R,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                web_view.reload ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.L,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                url_entry.grab_focus ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.W,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                erase (this);
+                return true;
+            }
+        );
+
+        add_accel_group (accel_group);
+
+        web_view.button_release_event.connect ((event) => {
+            if (event.button == 8) {
+                web_view.go_back ();
+                return true;
+            } else if (event.button == 9) {
+                web_view.go_forward ();
+                return true;
+            }
+
+            return false;
+        });
+    }
+
+    private void erase (Gtk.Window window) {
+        var new_window = new MainWindow (application);
+        new_window.show_all ();
+
+        window.close ();
     }
 }
 
