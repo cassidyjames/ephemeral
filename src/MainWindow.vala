@@ -71,11 +71,9 @@ public class MainWindow : Gtk.Window {
         var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         refresh_button.tooltip_text = "Reload page";
         refresh_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>r"}, refresh_button.tooltip_text);
-        // set_dark (refresh_button);
 
         var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         stop_button.tooltip_text = "Stop loading";
-        // set_dark (stop_button);
 
         var refresh_stop_stack = new Gtk.Stack ();
         refresh_stop_stack.add (refresh_button);
