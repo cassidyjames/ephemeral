@@ -95,8 +95,13 @@ public class MainWindow : Gtk.Window {
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type ("x-scheme-handler/http");
+        foreach (AppInfo app_info in external_apps) {
+            if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
+                external_apps.remove (app_info);
+            }
+        }
 
-        if (external_apps.length () > 2) {
+        if (external_apps.length () > 1) {
             var open_button = new Gtk.MenuButton ();
             open_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
             open_button.tooltip_text = "Open page in…";
@@ -112,10 +117,6 @@ public class MainWindow : Gtk.Window {
             header.pack_end (open_button);
 
             foreach (AppInfo app_info in external_apps) {
-                if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
-                    continue;
-                }
-
                 var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
                 browser_icon.pixel_size = 16;
 
@@ -136,7 +137,12 @@ public class MainWindow : Gtk.Window {
                     var uris = new List<string> ();
                     uris.append (web_view.get_uri ());
 
-                    app_info.launch_uris (uris, null);
+                    try {
+                        app_info.launch_uris (uris, null);
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
+
                     open_popover.popdown ();
                 });
 
@@ -146,10 +152,6 @@ public class MainWindow : Gtk.Window {
             open_grid.show_all ();
         } else {
             foreach (AppInfo app_info in external_apps) {
-                if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
-                    continue;
-                }
-
                 var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                 browser_icon.pixel_size = 24;
 
@@ -163,7 +165,11 @@ public class MainWindow : Gtk.Window {
                     var uris = new List<string> ();
                     uris.append (web_view.get_uri ());
 
-                    app_info.launch_uris (uris, null);
+                    try {
+                        app_info.launch_uris (uris, null);
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
                 });
             }
         }
