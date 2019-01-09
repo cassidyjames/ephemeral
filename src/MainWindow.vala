@@ -20,6 +20,8 @@
 */
 
 public class MainWindow : Gtk.Window {
+    private const string HOME = "https://start.duckduckgo.com/";
+
     public MainWindow (Gtk.Application application) {
         Object (
             application: application,
@@ -47,7 +49,7 @@ public class MainWindow : Gtk.Window {
         var web_view = new WebKit.WebView.with_context (web_context);
         web_view.expand = true;
         web_view.height_request = 200;
-        web_view.load_uri ("https://start.duckduckgo.com/");
+        web_view.load_uri (HOME);
 
         var back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
@@ -115,8 +117,9 @@ public class MainWindow : Gtk.Window {
         });
 
         erase_button.clicked.connect (() => {
-            // TODO: Close window and open new one with new WebKit context
-            critical ("Not fully implemented; just closing for now.");
+            var new_window = new MainWindow (application);
+            new_window.show_all ();
+
             close ();
         });
 
