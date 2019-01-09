@@ -19,6 +19,11 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="1.2.0" date="2019-01-09">
+      <description>
+        <p>Add "New Window" to headerbar, app launcher, and keyboard shortcuts</p>
+      </description>
+    </release>
     <release version="1.1.0" date="2019-01-08">
       <description>
         <p>Add several useful keyboard and mouse shortcuts</p>
