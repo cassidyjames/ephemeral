@@ -21,14 +21,16 @@
 
 public class MainWindow : Gtk.Window {
     private const string HOME = "https://start.duckduckgo.com/";
+    public string uri { get; construct set; }
 
-    public MainWindow (Gtk.Application application) {
+    public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
             application: application,
             border_width: 0,
             icon_name: "com.github.cassidyjames.ephemeral",
             resizable: true,
             title: "Ephemeral",
+            uri: _uri,
             window_position: Gtk.WindowPosition.CENTER
         );
     }
@@ -49,7 +51,6 @@ public class MainWindow : Gtk.Window {
         var web_view = new WebKit.WebView.with_context (web_context);
         web_view.expand = true;
         web_view.height_request = 200;
-        web_view.load_uri (HOME);
 
         var back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
@@ -94,6 +95,13 @@ public class MainWindow : Gtk.Window {
 
         set_titlebar (header);
         add (grid);
+
+        if (uri != null && uri != "") {
+            web_view.load_uri (uri);
+        } else {
+            web_view.load_uri (HOME);
+        }
+
         show_all ();
 
         back_button.clicked.connect (() => {

@@ -20,21 +20,28 @@
 */
 
 public class Ephemeral : Gtk.Application {
+    private bool opening_link = false;
+
     public Ephemeral () {
         Object (
             application_id: "com.github.cassidyjames.ephemeral",
-            flags: ApplicationFlags.FLAGS_NONE
+            flags: ApplicationFlags.HANDLES_OPEN
         );
     }
 
     protected override void activate () {
-        var app_window = new MainWindow (this);
-        app_window.show_all ();
+        if (!opening_link) {
+            var app_window = new MainWindow (this);
+            app_window.show_all ();
+        }
 
         var quit_action = new SimpleAction ("quit", null);
-
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Ctrl>Q"});
+
+        quit_action.activate.connect (() => {
+            quit ();
+        });
 
         Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
 
@@ -45,12 +52,17 @@ public class Ephemeral : Gtk.Application {
             provider,
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
+    }
 
-        quit_action.activate.connect (() => {
-            if (app_window != null) {
-                app_window.destroy ();
-            }
-        });
+    public override void open(File[] files, string hint) {
+        opening_link = true;
+        activate ();
+        opening_link = false;
+
+        foreach (var file in files) {
+            var app_window = new MainWindow (this, file.get_uri());
+            app_window.show_all ();
+        }
     }
 
     public static int main (string[] args) {
