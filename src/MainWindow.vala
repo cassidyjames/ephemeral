@@ -80,6 +80,10 @@ public class MainWindow : Gtk.Window {
         refresh_stop_stack.add (stop_button);
         refresh_stop_stack.visible_child = refresh_button;
 
+        var new_window_button = new Gtk.Button.from_icon_name ("window-new", Gtk.IconSize.LARGE_TOOLBAR);
+        new_window_button.tooltip_text = "Open new window";
+        new_window_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>n"}, new_window_button.tooltip_text);
+
         var url_entry = new Gtk.Entry ();
         url_entry.hexpand = true;
         url_entry.width_request = 100;
@@ -118,6 +122,7 @@ public class MainWindow : Gtk.Window {
         header.pack_start (back_button);
         header.pack_start (forward_button);
         header.pack_start (refresh_stop_stack);
+        header.pack_end (new_window_button);
         header.pack_end (erase_button);
 
         header.custom_title = url_entry;
@@ -150,6 +155,10 @@ public class MainWindow : Gtk.Window {
 
         stop_button.clicked.connect (() => {
             web_view.stop_loading ();
+        });
+
+        new_window_button.clicked.connect (() => {
+            new_window ();
         });
 
         erase_button.clicked.connect (() => {
@@ -245,6 +254,16 @@ public class MainWindow : Gtk.Window {
             }
         );
 
+        accel_group.connect (
+            Gdk.Key.N,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                new_window ();
+                return true;
+            }
+        );
+
         add_accel_group (accel_group);
 
         web_view.button_release_event.connect ((event) => {
@@ -261,10 +280,13 @@ public class MainWindow : Gtk.Window {
     }
 
     private void erase (Gtk.Window window) {
-        var new_window = new MainWindow (application);
-        new_window.show_all ();
-
+        new_window ();
         window.close ();
+    }
+
+    private void new_window () {
+        var app_window = new MainWindow (application);
+        app_window.show_all ();
     }
 }
 
