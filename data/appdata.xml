@@ -10,15 +10,20 @@
     <p>Browse the Internet in private without leaving a trace of history on your computer. Ephemeral is a stripped down private browser that's perfect for avoiding persistent cookies or web trackers. Close the window and all traces of your browsing are removed from your device.</p>
     <p>Handy features:</p>
     <ul>
-      <li>Set as your default browser for true privacy by default</li>
+      <li>Set as your default browser in System Settings → Applications for true privacy by default</li>
       <li>One-click open in any other installed browser</li>
-      <li>Hit Ctrl+Q to quit all windows</li>
+      <li>Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows</li>
     </ul>
   </description>
   <provides>
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="1.1.0" date="2019-01-08">
+      <description>
+        <p>Add several useful keyboard and mouse shortcuts</p>
+      </description>
+    </release>
     <release version="1.0.1" date="2019-01-08">
       <description>
         <p>Fix links that try to open in a new window</p>
