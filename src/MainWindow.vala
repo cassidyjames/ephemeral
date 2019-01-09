@@ -85,6 +85,7 @@ public class MainWindow : Gtk.Window {
 
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type ("x-scheme-handler/http");
 
+        // TODO: Don't dump these all into the headerbar
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
                 continue;
@@ -163,6 +164,20 @@ public class MainWindow : Gtk.Window {
                 refresh_stop_stack.visible_child = refresh_button;
                 url_entry.progress_fraction = 0;
             }
+        });
+
+        web_view.decide_policy.connect ((decision, type) => {
+            debug ("Decide policy");
+
+            if (type == WebKit.PolicyDecisionType.NEW_WINDOW_ACTION) {
+                debug ("New window");
+
+                var nav_decision = (WebKit.NavigationPolicyDecision) decision;
+                var uri = nav_decision.navigation_action.get_request ().uri;
+                web_view.load_uri (uri);
+            }
+
+            return false;
         });
 
         url_entry.activate.connect (() => {
