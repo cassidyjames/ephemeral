@@ -11,7 +11,7 @@
     <p>Handy features:</p>
     <ul>
       <li>Set as your default browser in System Settings → Applications for true privacy by default</li>
-      <li>One-click open in any other installed browser</li>
+      <li>Easily open in any other installed browser</li>
       <li>Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows</li>
     </ul>
   </description>
@@ -21,7 +21,10 @@
   <releases>
     <release version="1.2.0" date="2019-01-09">
       <description>
-        <p>Add "New Window" to headerbar, app launcher, and keyboard shortcuts</p>
+        <ul>
+          <li>Add "New Window" to headerbar, app launcher, and keyboard shortcuts</li>
+          <li>Collapse external browsers into a menu when there's more than one</li>
+        </ul>
       </description>
     </release>
     <release version="1.1.0" date="2019-01-08">
@@ -43,6 +46,9 @@
   <screenshots>
     <screenshot type="default">
       <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-many-browsers.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1">
