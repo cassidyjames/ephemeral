@@ -181,18 +181,24 @@ public class MainWindow : Gtk.Window {
         web_view.load_changed.connect ((source, event) => {
             back_button.sensitive = web_view.can_go_back ();
             forward_button.sensitive = web_view.can_go_forward ();
-
-            if (web_view.is_loading) {
-                refresh_stop_stack.visible_child = stop_button;
-                web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
-            } else {
-                refresh_stop_stack.visible_child = refresh_button;
-                url_entry.progress_fraction = 0;
-            }
+            handle_loading (
+                web_view,
+                refresh_stop_stack,
+                refresh_button,
+                stop_button,
+                url_entry
+            );
         });
 
         web_view.decide_policy.connect ((decision, type) => {
             debug ("Decide policy");
+            handle_loading (
+                web_view,
+                refresh_stop_stack,
+                refresh_button,
+                stop_button,
+                url_entry
+            );
 
             if (type == WebKit.PolicyDecisionType.NEW_WINDOW_ACTION) {
                 debug ("New window");
@@ -280,6 +286,26 @@ public class MainWindow : Gtk.Window {
 
             return false;
         });
+    }
+
+    private void handle_loading (
+        WebKit.WebView web_view,
+        Gtk.Stack refresh_stop_stack,
+        Gtk.Button refresh_button,
+        Gtk.Button stop_button,
+        Gtk.Entry url_entry
+    ) {
+        if (web_view.is_loading) {
+            refresh_stop_stack.visible_child = stop_button;
+            web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
+        } else {
+            refresh_stop_stack.visible_child = refresh_button;
+            url_entry.progress_fraction = 0;
+
+            if (!url_entry.has_focus) {
+                url_entry.text = web_view.get_uri ();
+            }
+        }
     }
 
     private void erase (Gtk.Window window) {
