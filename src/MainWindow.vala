@@ -40,13 +40,6 @@ public class MainWindow : Gtk.Window {
         default_height = 800;
         default_width = 1280;
 
-        Regex protocol_regex;
-        try {
-            protocol_regex = new Regex (".*://.*");
-        } catch (RegexError e) {
-            critical (e.message);
-        }
-
         var header = new Gtk.HeaderBar ();
         header.show_close_button = true;
         header.has_subtitle = false;
@@ -84,11 +77,7 @@ public class MainWindow : Gtk.Window {
         new_window_button.tooltip_text = "Open new window";
         new_window_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>n"}, new_window_button.tooltip_text);
 
-        var url_entry = new Gtk.Entry ();
-        url_entry.hexpand = true;
-        url_entry.width_request = 100;
-        url_entry.tooltip_text = "Enter a URL";
-        url_entry.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, url_entry.tooltip_text);
+        var url_entry = new UrlEntry (web_view);
 
         var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.tooltip_text = "Erase browsing history";
@@ -136,7 +125,7 @@ public class MainWindow : Gtk.Window {
         });
 
         new_window_button.clicked.connect (() => {
-            new_window ();
+            new_window (application);
         });
 
         erase_button.clicked.connect (() => {
@@ -169,15 +158,6 @@ public class MainWindow : Gtk.Window {
             }
 
             return false;
-        });
-
-        url_entry.activate.connect (() => {
-            // TODO: Search?
-            var url = url_entry.text;
-            if (!protocol_regex.match (url)) {
-                url = "%s://%s".printf ("https", url);
-            }
-            web_view.load_uri (url);
         });
 
         var accel_group = new Gtk.AccelGroup ();
@@ -237,7 +217,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                new_window ();
+                new_window (application);
                 return true;
             }
         );
@@ -258,11 +238,11 @@ public class MainWindow : Gtk.Window {
     }
 
     private void erase (Gtk.Window window) {
-        new_window ();
+        new_window (application);
         window.close ();
     }
 
-    private void new_window () {
+    private void new_window (Gtk.Application application) {
         var app_window = new MainWindow (application);
         app_window.show_all ();
     }
