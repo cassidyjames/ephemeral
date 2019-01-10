@@ -37,7 +37,6 @@ public class MainWindow : Gtk.Window {
     }
 
     construct {
-        critical ("MainWindow construct");
         default_height = 800;
         default_width = 1280;
 

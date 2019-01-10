@@ -20,7 +20,7 @@
 */
 
 public class UrlEntry : Gtk.Entry {
-    private const string SEARCH = "https://duckduckgo.com/?q=";
+    private const string SEARCH = "https://duckduckgo.com/?q=%s";
     public WebKit.WebView web_view { get; construct set; }
 
     public UrlEntry (WebKit.WebView _web_view) {
@@ -32,8 +32,12 @@ public class UrlEntry : Gtk.Entry {
     }
 
     construct {
-        critical ("UrlEntry construct");
-        tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, "Enter a URL or search term");
+        tooltip_text = "Enter a URL or search term";
+        tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
+
+        secondary_icon_name = "go-jump-symbolic";
+        secondary_icon_tooltip_text = "Go";
+        secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
 
         activate.connect (() => {
             // TODO: Better URL validation
@@ -41,7 +45,7 @@ public class UrlEntry : Gtk.Entry {
                 if (text.contains (".") && !text.contains (" ")) {
                     text = "%s://%s".printf ("https", text);
                 } else {
-                    text = SEARCH + text;
+                    text = SEARCH.printf (text);
                 }
             }
             web_view.load_uri (text);
@@ -51,6 +55,12 @@ public class UrlEntry : Gtk.Entry {
             text = web_view.get_uri ();
 
             return false;
+        });
+
+        icon_release.connect ((icon_pos, event) => {
+            if (icon_pos == Gtk.EntryIconPosition.SECONDARY) {
+                activate ();
+            }
         });
 
         web_view.load_changed.connect ((source, e) => {

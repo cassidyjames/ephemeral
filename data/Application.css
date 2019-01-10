@@ -30,3 +30,10 @@
   text-shadow: none;
 }
 
+.titlebar entry image {
+    color: alpha(@textColorPrimary, 0.75);
+}
+
+.titlebar entry image:hover {
+    color: @textColorPrimary;
+}
