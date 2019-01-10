@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema path="/com/github/cassidyjames/ephemeral/" id="com.github.cassidyjames.ephemeral">
+    <key name="ask-default" type="b">
+      <default>true</default>
+      <summary>Ask to be default</summary>
+      <description>Whether or not Ephemeral should ask to be the default web browser (if it isn't already)</description>
+    </key>
+  </schema>
+</schemalist>
+

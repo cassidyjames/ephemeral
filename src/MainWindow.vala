@@ -38,6 +38,8 @@ public class MainWindow : Gtk.Window {
     }
 
     construct {
+        var settings = new Settings ("com.github.cassidyjames.ephemeral");
+
         default_height = 800;
         default_width = 1280;
 
@@ -102,10 +104,17 @@ public class MainWindow : Gtk.Window {
         var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
 
         var info_bar = new Gtk.InfoBar ();
+        info_bar.message_type = Gtk.MessageType.QUESTION;
         info_bar.show_close_button = true;
+
         info_bar.get_content_area ().add (default_label);
-        info_bar.add_button ("Set as Default", Gtk.ResponseType.OK);
-        info_bar.revealed = !default_app_info.equal (app_info);
+        info_bar.add_button ("Never Ask Again", Gtk.ResponseType.REJECT);
+        info_bar.add_button ("Set as Default", Gtk.ResponseType.ACCEPT);
+
+        info_bar.revealed =
+            !default_app_info.equal (app_info) &&
+            settings.get_boolean ("ask-default") &&
+            Ephemeral.instance.ask_default_for_session;
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
@@ -122,6 +131,7 @@ public class MainWindow : Gtk.Window {
         }
 
         show_all ();
+        url_entry.grab_focus ();
 
         back_button.clicked.connect (() => {
             web_view.go_back ();
@@ -149,15 +159,18 @@ public class MainWindow : Gtk.Window {
 
         info_bar.response.connect ((response_id) => {
             switch (response_id) {
-                case Gtk.ResponseType.OK:
+                case Gtk.ResponseType.ACCEPT:
                     try {
-                        for (int i=0; i < Ephemeral.CONTENT_TYPES.length; i++) {
-                            app_info.set_as_default_for_type(Ephemeral.CONTENT_TYPES[i]);
+                        for (int i = 0; i < Ephemeral.CONTENT_TYPES.length; i++) {
+                            app_info.set_as_default_for_type (Ephemeral.CONTENT_TYPES[i]);
                         }
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
+                case Gtk.ResponseType.REJECT:
+                    settings.set_boolean ("ask-default", false);
                 case Gtk.ResponseType.CLOSE:
+                    Ephemeral.instance.ask_default_for_session = false;
                     info_bar.revealed = false;
                     break;
                 default:
