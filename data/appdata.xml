@@ -27,6 +27,11 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="3.0.0" date="2019-01-11">
+      <description>
+        <p>Fresh styles to keep things funky</p>
+      </description>
+    </release>
     <release version="2.0.1" date="2019-01-10">
       <description>
         <ul>
