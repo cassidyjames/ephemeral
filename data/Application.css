@@ -19,10 +19,15 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-@define-color colorPrimary @GRAPE_700;
+@define-color colorPrimary mix(@GRAPE_700, @BLUEBERRY_700, 0.33);
 @define-color colorAccent @GRAPE_500;
-@define-color textColorPrimary shade(@GRAPE_100, 1.05);
+@define-color textColorPrimary alpha(white, 0.9);
 @define-color textColorPrimaryShadow alpha(shade(@colorPrimary, 0.6), 0.4);
+
+.titlebar {
+  background-image: linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
+  color: @textColorPrimary;
+}
 
 .titlebar entry {
   background: alpha(@GRAPE_900, 0.5);
