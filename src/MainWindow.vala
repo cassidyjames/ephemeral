@@ -98,7 +98,7 @@ public class MainWindow : Gtk.Window {
         var default_label = new Gtk.Label ("<b>Make privacy a habit.</b> Set Ephemeral as your default browser?");
         default_label.use_markup = true;
 
-        var default_app_info = GLib.AppInfo.get_default_for_type ("x-scheme-handler/http", false);
+        var default_app_info = GLib.AppInfo.get_default_for_type (Ephemeral.CONTENT_TYPES[0], false);
         var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
 
         var info_bar = new Gtk.InfoBar ();

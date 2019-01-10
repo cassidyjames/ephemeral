@@ -29,7 +29,7 @@ public class BrowserButton : Gtk.Grid {
     }
 
     construct {
-        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type ("x-scheme-handler/http");
+        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Ephemeral.CONTENT_TYPES[0]);
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
                 external_apps.remove (app_info);
