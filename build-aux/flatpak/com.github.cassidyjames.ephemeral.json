@@ -1,0 +1,84 @@
+{
+    "app-id" : "com.github.cassidyjames.ephemeral",
+    "runtime" : "org.gnome.Platform",
+    "runtime-version" : "3.30",
+    "sdk" : "org.gnome.Sdk",
+    "command" : "com.github.cassidyjames.ephemeral",
+    "tags" : [
+        "nightly"
+    ],
+    "desktop-file-name-prefix" : "(Nightly) ",
+    "finish-args" : [
+        "--share=ipc",
+        "--share=network",
+        "--socket=x11",
+        "--socket=wayland",
+
+        "--talk-name=org.gtk.vfs",
+        "--talk-name=org.gtk.vfs.*",
+        "--talk-name=org.gnome.SettingsDaemon",
+
+        "--filesystem=home",
+        "--filesystem=xdg-run/dconf",
+        "--filesystem=xdg-config/dconf:ro",
+        "--talk-name=ca.desrt.dconf",
+        "--env=DCONF_USER_CONFIG_DIR=.config/dconf"
+    ],
+    "build-options": {
+        "cflags": "-O2",
+        "cxxflags": "-O2"
+    },
+    "cleanup": [
+        "/bin/granite-demo",
+        "/bin/peas-demo",
+        "/share/applications/granite-demo.desktop",
+        "/include",
+        "/lib/pkgconfig",
+        "/lib/peas-demo",
+        "/share/vala",
+        "/man",
+        "*.a",
+        "*.la"
+    ],
+    "modules" : [
+        {
+            "name" : "libgee",
+            "make-install-args": [
+                "girdir=/app/share/gir-1.0",
+                "typelibdir=/app/lib/girepository-1.0"
+            ],
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/GNOME/libgee.git"
+                }
+            ]
+        },
+        {
+            "name" : "granite",
+            "buildsystem" : "meson",
+            "build-options": {
+                "env": {
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_GIRDIR": "/app/share/gir-1.0",
+                    "PKG_CONFIG_GOBJECT_INTROSPECTION_1_0_TYPELIBDIR": "/app/lib/girepository-1.0"
+                }
+            },
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/elementary/granite.git"
+                }
+            ]
+        },
+        {
+            "name" : "com.github.cassidyjames.ephemeral",
+            "buildsystem" : "meson",
+            "sources" : [
+                {
+                    "type" : "git",
+                    "url" : "https://github.com/cassidyjames/ephemeral.git"
+                }
+            ]
+        }
+    ]
+}
