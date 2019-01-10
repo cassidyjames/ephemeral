@@ -21,6 +21,7 @@
 
 public class MainWindow : Gtk.Window {
     private const string HOME = "https://start.duckduckgo.com/";
+
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
 
@@ -94,7 +95,21 @@ public class MainWindow : Gtk.Window {
 
         header.custom_title = url_entry;
 
+        var default_label = new Gtk.Label ("<b>Make privacy a habit.</b> Set Ephemeral as your default browser?");
+        default_label.use_markup = true;
+
+        var default_app_info = GLib.AppInfo.get_default_for_type ("x-scheme-handler/http", false);
+        var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
+
+        var info_bar = new Gtk.InfoBar ();
+        info_bar.show_close_button = true;
+        info_bar.get_content_area ().add (default_label);
+        info_bar.add_button ("Set as Default", Gtk.ResponseType.OK);
+        info_bar.revealed = !default_app_info.equal (app_info);
+
         var grid = new Gtk.Grid ();
+        grid.orientation = Gtk.Orientation.VERTICAL;
+        grid.add (info_bar);
         grid.add (web_view);
 
         set_titlebar (header);
@@ -130,6 +145,24 @@ public class MainWindow : Gtk.Window {
 
         erase_button.clicked.connect (() => {
             erase (this);
+        });
+
+        info_bar.response.connect ((response_id) => {
+            switch (response_id) {
+                case Gtk.ResponseType.OK:
+                    try {
+                        for (int i=0; i < Ephemeral.CONTENT_TYPES.length; i++) {
+                            app_info.set_as_default_for_type(Ephemeral.CONTENT_TYPES[i]);
+                        }
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
+                case Gtk.ResponseType.CLOSE:
+                    info_bar.revealed = false;
+                    break;
+                default:
+                    assert_not_reached ();
+            }
         });
 
         web_view.load_changed.connect ((source, event) => {
