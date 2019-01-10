@@ -27,6 +27,14 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="2.0.1" date="2019-01-10">
+      <description>
+        <ul>
+          <li>More informative "set as default" infobar</li>
+          <li>Tweaked "set as default" infobar styling</li>
+        </ul>
+      </description>
+    </release>
     <release version="2.0.0" date="2019-01-10">
       <description>
         <ul>

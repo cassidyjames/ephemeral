@@ -38,3 +38,8 @@
     color: @textColorPrimary;
 }
 
+infobar button.close:not(:active) {
+  border-color: transparent;
+  box-shadow: none;
+}
+
