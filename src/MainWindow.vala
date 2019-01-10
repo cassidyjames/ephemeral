@@ -21,6 +21,7 @@
 
 public class MainWindow : Gtk.Window {
     private const string HOME = "https://start.duckduckgo.com/";
+
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
 
@@ -37,6 +38,8 @@ public class MainWindow : Gtk.Window {
     }
 
     construct {
+        var settings = new Settings ("com.github.cassidyjames.ephemeral");
+
         default_height = 800;
         default_width = 1280;
 
@@ -94,7 +97,28 @@ public class MainWindow : Gtk.Window {
 
         header.custom_title = url_entry;
 
+        var default_label = new Gtk.Label ("<b>Make privacy a habit.</b> Set Ephemeral as your default browser?");
+        default_label.use_markup = true;
+
+        var default_app_info = GLib.AppInfo.get_default_for_type (Ephemeral.CONTENT_TYPES[0], false);
+        var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
+
+        var info_bar = new Gtk.InfoBar ();
+        info_bar.message_type = Gtk.MessageType.QUESTION;
+        info_bar.show_close_button = true;
+
+        info_bar.get_content_area ().add (default_label);
+        info_bar.add_button ("Never Ask Again", Gtk.ResponseType.REJECT);
+        info_bar.add_button ("Set as Default", Gtk.ResponseType.ACCEPT);
+
+        info_bar.revealed =
+            !default_app_info.equal (app_info) &&
+            settings.get_boolean ("ask-default") &&
+            Ephemeral.instance.ask_default_for_session;
+
         var grid = new Gtk.Grid ();
+        grid.orientation = Gtk.Orientation.VERTICAL;
+        grid.add (info_bar);
         grid.add (web_view);
 
         set_titlebar (header);
@@ -107,6 +131,7 @@ public class MainWindow : Gtk.Window {
         }
 
         show_all ();
+        url_entry.grab_focus ();
 
         back_button.clicked.connect (() => {
             web_view.go_back ();
@@ -132,21 +157,48 @@ public class MainWindow : Gtk.Window {
             erase (this);
         });
 
+        info_bar.response.connect ((response_id) => {
+            switch (response_id) {
+                case Gtk.ResponseType.ACCEPT:
+                    try {
+                        for (int i = 0; i < Ephemeral.CONTENT_TYPES.length; i++) {
+                            app_info.set_as_default_for_type (Ephemeral.CONTENT_TYPES[i]);
+                        }
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
+                case Gtk.ResponseType.REJECT:
+                    settings.set_boolean ("ask-default", false);
+                case Gtk.ResponseType.CLOSE:
+                    Ephemeral.instance.ask_default_for_session = false;
+                    info_bar.revealed = false;
+                    break;
+                default:
+                    assert_not_reached ();
+            }
+        });
+
         web_view.load_changed.connect ((source, event) => {
             back_button.sensitive = web_view.can_go_back ();
             forward_button.sensitive = web_view.can_go_forward ();
-
-            if (web_view.is_loading) {
-                refresh_stop_stack.visible_child = stop_button;
-                web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
-            } else {
-                refresh_stop_stack.visible_child = refresh_button;
-                url_entry.progress_fraction = 0;
-            }
+            handle_loading (
+                web_view,
+                refresh_stop_stack,
+                refresh_button,
+                stop_button,
+                url_entry
+            );
         });
 
         web_view.decide_policy.connect ((decision, type) => {
             debug ("Decide policy");
+            handle_loading (
+                web_view,
+                refresh_stop_stack,
+                refresh_button,
+                stop_button,
+                url_entry
+            );
 
             if (type == WebKit.PolicyDecisionType.NEW_WINDOW_ACTION) {
                 debug ("New window");
@@ -234,6 +286,26 @@ public class MainWindow : Gtk.Window {
 
             return false;
         });
+    }
+
+    private void handle_loading (
+        WebKit.WebView web_view,
+        Gtk.Stack refresh_stop_stack,
+        Gtk.Button refresh_button,
+        Gtk.Button stop_button,
+        Gtk.Entry url_entry
+    ) {
+        if (web_view.is_loading) {
+            refresh_stop_stack.visible_child = stop_button;
+            web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
+        } else {
+            refresh_stop_stack.visible_child = refresh_button;
+            url_entry.progress_fraction = 0;
+
+            if (!url_entry.has_focus) {
+                url_entry.text = web_view.get_uri ();
+            }
+        }
     }
 
     private void erase (Gtk.Window window) {

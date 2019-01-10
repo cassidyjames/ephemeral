@@ -20,6 +20,18 @@
 */
 
 public class Ephemeral : Gtk.Application {
+    public const string[] CONTENT_TYPES = {
+        "x-scheme-handler/http",
+        "x-scheme-handler/https",
+        "text/html",
+        "application/x-extension-htm",
+        "application/x-extension-html",
+        "application/x-extension-shtml",
+        "application/xhtml+xml",
+        "application/x-extension-xht"
+    };
+
+    public bool ask_default_for_session = true;
     private bool opening_link = false;
 
     public Ephemeral () {
@@ -27,6 +39,16 @@ public class Ephemeral : Gtk.Application {
             application_id: "com.github.cassidyjames.ephemeral",
             flags: ApplicationFlags.HANDLES_OPEN
         );
+    }
+
+    public static Ephemeral _instance = null;
+    public static Ephemeral instance {
+        get {
+            if (_instance == null) {
+                _instance = new Ephemeral ();
+            }
+            return _instance;
+        }
     }
 
     protected override void activate () {
