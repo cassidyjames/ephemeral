@@ -200,15 +200,30 @@ public class MainWindow : Gtk.Window {
                 url_entry
             );
 
-            if (type == WebKit.PolicyDecisionType.NEW_WINDOW_ACTION) {
-                debug ("New window");
+            var nav_decision = (WebKit.NavigationPolicyDecision) decision;
+            string uri = nav_decision.navigation_action.get_request ().uri;
+            switch (type) {
+                case WebKit.PolicyDecisionType.NAVIGATION_ACTION:
+                    if (is_location (uri) && !is_dangerous (uri)) {
+                        decision.use ();
+                    } else if (!is_dangerous (uri)) {
+                        open_externally (uri);
+                    }
+                    decision.ignore ();
+                    return true;
+                case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
+                    debug ("New window");
 
-                var nav_decision = (WebKit.NavigationPolicyDecision) decision;
-                var uri = nav_decision.navigation_action.get_request ().uri;
-                web_view.load_uri (uri);
+                    if (is_location (uri) && !is_dangerous (uri)) {
+                        web_view.load_uri (uri);
+                    } else if (!is_dangerous (uri)) {
+                        open_externally (uri);
+                    }
+                    decision.ignore ();
+                    return true;
+                default:
+                    return false;
             }
-
-            return false;
         });
 
         var accel_group = new Gtk.AccelGroup ();
@@ -316,6 +331,27 @@ public class MainWindow : Gtk.Window {
     private void new_window (Gtk.Application application) {
         var app_window = new MainWindow (application);
         app_window.show_all ();
+    }
+
+    private void open_externally (string uri) {
+        try {
+            Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
+        } catch (GLib.Error e) {
+            critical (e.message);
+        }
+    }
+
+    private bool is_location (string uri) {
+        return
+            uri.has_prefix ("about:") ||
+            uri.has_prefix ("http://") ||
+            uri.has_prefix ("https://") ||
+            (uri.has_prefix ("data:") && (";" in uri)) ||
+            uri.has_prefix ("javascript:");
+    }
+
+    private bool is_dangerous (string uri) {
+        return uri.has_prefix ("file://");
     }
 }
 
