@@ -61,14 +61,14 @@ public class BrowserButton : Gtk.Grid {
                 browser_grid.add (browser_icon);
                 browser_grid.add (new Gtk.Label (app_info.get_name ()));
 
-                var browser_button = new Gtk.Button ();
-                browser_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-                browser_button.add (browser_grid);
+                var browser_item = new Gtk.Button ();
+                browser_item.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+                browser_item.add (browser_grid);
 
-                open_grid.add (browser_button);
-                browser_button.visible = true;
+                open_grid.add (browser_item);
+                browser_item.visible = true;
 
-                browser_button.clicked.connect (() => {
+                browser_item.clicked.connect (() => {
                     var uris = new List<string> ();
                     uris.append (web_view.get_uri ());
 
@@ -110,3 +110,4 @@ public class BrowserButton : Gtk.Grid {
         }
     }
 }
+
