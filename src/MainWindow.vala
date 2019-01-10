@@ -37,8 +37,8 @@ public class MainWindow : Gtk.Window {
     }
 
     construct {
-        default_height = 640;
-        default_width = 960;
+        default_height = 800;
+        default_width = 1280;
 
         Regex protocol_regex;
         try {
