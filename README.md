@@ -1,20 +1,18 @@
-[![Build Status](https://travis-ci.com/cassidyjames/anamorph.svg?branch=master)](https://travis-ci.com/cassidyjames/ephemeral)
+[![Build Status](https://travis-ci.com/cassidyjames/ephemeral.svg?branch=master)](https://travis-ci.com/cassidyjames/ephemeral)
 
 <p align="center">
   <img src="data/icons/128.svg" alt="Icon" />
 </p>
 <h1 align="center">Ephemeral</h1>
-<!--p align="center">
+<p align="center">
   <a href="https://appcenter.elementary.io/com.github.cassidyjames.ephemeral"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter" /></a>
-</p-->
+</p>
 
 ![Screenshot](data/screenshot.png)
 
 ## The always-incognito web browser
 
 Browse the Internet in private without leaving a trace of history on your computer. Ephemeral is a stripped down private browser that's perfect for avoiding persistent cookies or web trackers. Close the window and all traces of your browsing are removed from your device.
-
-<!--
 
 ## Made for [elementary OS]
 
@@ -23,8 +21,6 @@ Ephemeral is designed and developed on and for [elementary OS]. Purchasing throu
 [![Get it on AppCenter](https://appcenter.elementary.io/badge.svg)][AppCenter]
 
 Versions of Ephemeral may have been built and made available elsewhere by third-parties. These builds may have modifications or changes and **are not provided nor supported by me**. The only supported version is distributed via [AppCenter] on elementary OS.
-
--->
 
 ## Developing and Building
 
