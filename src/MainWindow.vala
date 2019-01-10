@@ -37,6 +37,7 @@ public class MainWindow : Gtk.Window {
     }
 
     construct {
+        critical ("MainWindow construct");
         default_height = 800;
         default_width = 1280;
 
@@ -132,8 +133,7 @@ public class MainWindow : Gtk.Window {
             erase (this);
         });
 
-        web_view.load_changed.connect ((source, evt) => {
-            url_entry.text = source.get_uri ();
+        web_view.load_changed.connect ((source, event) => {
             back_button.sensitive = web_view.can_go_back ();
             forward_button.sensitive = web_view.can_go_forward ();
 

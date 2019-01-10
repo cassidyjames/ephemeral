@@ -20,34 +20,43 @@
 */
 
 public class UrlEntry : Gtk.Entry {
+    private const string SEARCH = "https://duckduckgo.com/?q=";
     public WebKit.WebView web_view { get; construct set; }
 
     public UrlEntry (WebKit.WebView _web_view) {
         Object (
             hexpand: true,
-            tooltip_text: "Enter a URL",
             web_view: _web_view,
             width_request: 100
         );
     }
 
     construct {
-        Regex protocol_regex;
-        try {
-            protocol_regex = new Regex (".*://.*");
-        } catch (RegexError e) {
-            critical (e.message);
-        }
-
-        tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
+        critical ("UrlEntry construct");
+        tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, "Enter a URL or search term");
 
         activate.connect (() => {
-            // TODO: Search?
-            var url = this.text;
-            if (!protocol_regex.match (url)) {
-                url = "%s://%s".printf ("https", url);
+            // TODO: Better URL validation
+            if (!text.contains ("://")) {
+                if (text.contains (".") && !text.contains (" ")) {
+                    text = "%s://%s".printf ("https", text);
+                } else {
+                    text = SEARCH + text;
+                }
             }
-            web_view.load_uri (url);
+            web_view.load_uri (text);
+        });
+
+        focus_out_event.connect ((event) => {
+            text = web_view.get_uri ();
+
+            return false;
+        });
+
+        web_view.load_changed.connect ((source, e) => {
+            if (!has_focus) {
+                text = source.get_uri ();
+            }
         });
     }
 }
