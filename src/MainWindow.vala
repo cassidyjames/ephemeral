@@ -128,7 +128,12 @@ public class MainWindow : Gtk.Window {
         if (uri != null && uri != "") {
             web_view.load_uri (uri);
         } else {
-            web_view.load_uri (HOME);
+            // web_view.load_uri (HOME);
+            string html = ((string) resources_lookup_data (
+                "/com/github/cassidyjames/ephemeral/Welcome.html",
+                ResourceLookupFlags.NONE
+            ).get_data ());
+            web_view.load_html (html, null);
         }
 
         show_all ();

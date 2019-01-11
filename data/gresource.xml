@@ -2,6 +2,7 @@
 <gresources>
   <gresource prefix="/com/github/cassidyjames/ephemeral">
     <file alias="Application.css">Application.css</file>
+    <file alias="Welcome.html">Welcome.html</file>
   </gresource>
 </gresources>
 
