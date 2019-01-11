@@ -142,29 +142,16 @@ public class MainWindow : Gtk.Window {
         show_all ();
         url_entry.grab_focus ();
 
-        back_button.clicked.connect (() => {
-            web_view.go_back ();
-        });
-
-        forward_button.clicked.connect (() => {
-            web_view.go_forward ();
-        });
-
-        refresh_button.clicked.connect (() => {
-            web_view.reload ();
-        });
-
-        stop_button.clicked.connect (() => {
-            web_view.stop_loading ();
-        });
+        back_button.clicked.connect (web_view.go_back);
+        forward_button.clicked.connect (web_view.go_forward);
+        refresh_button.clicked.connect (web_view.reload);
+        stop_button.clicked.connect (web_view.stop_loading);
 
         new_window_button.clicked.connect (() => {
-            new_window (application);
+            new_window ();
         });
 
-        erase_button.clicked.connect (() => {
-            erase (this);
-        });
+        erase_button.clicked.connect (erase);
 
         info_bar.response.connect ((response_id) => {
             switch (response_id) {
@@ -204,7 +191,7 @@ public class MainWindow : Gtk.Window {
                             action.get_mouse_button () == 2 ||
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
-                            new_window (application, uri);
+                            new_window (uri);
                             decision.ignore ();
                             return true;
                         }
@@ -279,7 +266,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                erase (this);
+                erase ();
                 return true;
             }
         );
@@ -289,7 +276,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                new_window (application);
+                new_window ();
                 return true;
             }
         );
@@ -327,17 +314,18 @@ public class MainWindow : Gtk.Window {
         }
     }
 
-    private void erase (Gtk.Window window) {
-        new_window (application);
-        window.close ();
+    private void erase () {
+        new_window ();
+        close ();
     }
 
-    private void new_window (Gtk.Application application, string? uri = null) {
+    private void new_window (string? uri = null) {
         var app_window = new MainWindow (application, uri);
         app_window.show_all ();
     }
 
     private void open_externally (string uri) {
+        // TODO: ask for user permission
         try {
             Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
         } catch (GLib.Error e) {
