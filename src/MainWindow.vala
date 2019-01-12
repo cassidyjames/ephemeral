@@ -33,6 +33,8 @@ public class MainWindow : Gtk.Window {
     public Gtk.Button refresh_button { get; construct set; }
     public Gtk.Button stop_button { get; construct set; }
     public Gtk.Entry url_entry { get; construct set; }
+    public BrowserButton browser_button { get; construct set; }
+    public Gtk.Button erase_button { get; construct set; }
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
@@ -91,11 +93,13 @@ public class MainWindow : Gtk.Window {
 
         url_entry = new UrlEntry (web_view);
 
-        var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
+        erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
+        erase_button.sensitive = false;
         erase_button.tooltip_text = "Erase browsing history";
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
-        var browser_button = new BrowserButton (web_view);
+        browser_button = new BrowserButton (web_view);
+        browser_button.sensitive = false;
 
         header.pack_start (back_button);
         header.pack_start (forward_button);
@@ -315,6 +319,9 @@ public class MainWindow : Gtk.Window {
         debug ("Update progress");
         back_button.sensitive = web_view.can_go_back ();
         forward_button.sensitive = web_view.can_go_forward ();
+
+        browser_button.sensitive = true;
+        erase_button.sensitive = true;
 
         if (web_view.is_loading) {
             refresh_stop_stack.visible_child = stop_button;
