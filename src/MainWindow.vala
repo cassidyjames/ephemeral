@@ -25,6 +25,14 @@ public class MainWindow : Gtk.Window {
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
 
+    public WebKit.WebView web_view { get; construct set; }
+    public Gtk.Stack refresh_stop_stack { get; construct set; }
+    public Gtk.Button back_button { get; construct set; }
+    public Gtk.Button forward_button { get; construct set; }
+    public Gtk.Button refresh_button { get; construct set; }
+    public Gtk.Button stop_button { get; construct set; }
+    public Gtk.Entry url_entry { get; construct set; }
+
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
             application: application,
@@ -50,28 +58,28 @@ public class MainWindow : Gtk.Window {
         var web_context = new WebKit.WebContext.ephemeral ();
         web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
 
-        var web_view = new WebKit.WebView.with_context (web_context);
+        web_view = new WebKit.WebView.with_context (web_context);
         web_view.expand = true;
         web_view.height_request = 200;
 
-        var back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
         back_button.tooltip_text = "Back";
         back_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Left"}, back_button.tooltip_text);
 
-        var forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         forward_button.sensitive = false;
         forward_button.tooltip_text = "Forward";
         forward_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Right"}, forward_button.tooltip_text);
 
-        var refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         refresh_button.tooltip_text = "Reload page";
         refresh_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>r"}, refresh_button.tooltip_text);
 
-        var stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
+        stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         stop_button.tooltip_text = "Stop loading";
 
-        var refresh_stop_stack = new Gtk.Stack ();
+        refresh_stop_stack = new Gtk.Stack ();
         refresh_stop_stack.add (refresh_button);
         refresh_stop_stack.add (stop_button);
         refresh_stop_stack.visible_child = refresh_button;
@@ -80,7 +88,7 @@ public class MainWindow : Gtk.Window {
         new_window_button.tooltip_text = "Open new window";
         new_window_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>n"}, new_window_button.tooltip_text);
 
-        var url_entry = new UrlEntry (web_view);
+        url_entry = new UrlEntry (web_view);
 
         var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.tooltip_text = "Erase browsing history";
@@ -139,29 +147,16 @@ public class MainWindow : Gtk.Window {
         show_all ();
         url_entry.grab_focus ();
 
-        back_button.clicked.connect (() => {
-            web_view.go_back ();
-        });
-
-        forward_button.clicked.connect (() => {
-            web_view.go_forward ();
-        });
-
-        refresh_button.clicked.connect (() => {
-            web_view.reload ();
-        });
-
-        stop_button.clicked.connect (() => {
-            web_view.stop_loading ();
-        });
+        back_button.clicked.connect (web_view.go_back);
+        forward_button.clicked.connect (web_view.go_forward);
+        refresh_button.clicked.connect (web_view.reload);
+        stop_button.clicked.connect (web_view.stop_loading);
 
         new_window_button.clicked.connect (() => {
-            new_window (application);
+            new_window ();
         });
 
-        erase_button.clicked.connect (() => {
-            erase (this);
-        });
+        erase_button.clicked.connect (erase);
 
         info_bar.response.connect ((response_id) => {
             switch (response_id) {
@@ -184,51 +179,48 @@ public class MainWindow : Gtk.Window {
             }
         });
 
-        web_view.load_changed.connect ((source, event) => {
-            back_button.sensitive = web_view.can_go_back ();
-            forward_button.sensitive = web_view.can_go_forward ();
-            handle_loading (
-                web_view,
-                refresh_stop_stack,
-                refresh_button,
-                stop_button,
-                url_entry
-            );
-        });
+        web_view.load_changed.connect (update_progress);
+        web_view.notify["uri"].connect (update_progress);
+        web_view.notify["estimated-load-progress"].connect (update_progress);
+        web_view.notify["is-loading"].connect (update_progress);
 
         web_view.decide_policy.connect ((decision, type) => {
-            debug ("Decide policy");
-            handle_loading (
-                web_view,
-                refresh_stop_stack,
-                refresh_button,
-                stop_button,
-                url_entry
-            );
-
-            var nav_decision = (WebKit.NavigationPolicyDecision) decision;
-            string uri = nav_decision.navigation_action.get_request ().uri;
             switch (type) {
                 case WebKit.PolicyDecisionType.NAVIGATION_ACTION:
-                    if (is_location (uri) && !is_dangerous (uri)) {
-                        decision.use ();
-                    } else if (!is_dangerous (uri)) {
-                        open_externally (uri);
+                    var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
+                    string uri = action.get_request ().get_uri ();
+                    if (action.is_user_gesture ()) {
+                        // Middle- or ctrl-click
+                        bool has_ctrl = (action.get_modifiers () & Gdk.ModifierType.CONTROL_MASK) != 0;
+                        if (
+                            action.get_mouse_button () == 2 ||
+                            (has_ctrl && action.get_mouse_button () == 1)
+                        ) {
+                            new_window (uri);
+                            decision.ignore ();
+                            return true;
+                        }
                     }
-                    decision.ignore ();
-                    return true;
+                    break;
                 case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
                     debug ("New window");
+                    var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
+                    string uri = action.get_request ().get_uri ();
 
-                    if (is_location (uri) && !is_dangerous (uri)) {
+                    if (is_location (uri)) {
                         web_view.load_uri (uri);
-                    } else if (!is_dangerous (uri)) {
-                        open_externally (uri);
+                    } else {
+                        return false;
                     }
                     decision.ignore ();
                     return true;
-                default:
-                    return false;
+            }
+            return false;
+        });
+
+        web_view.load_failed.connect ((load_event, uri, load_error) => {
+            if (load_error is WebKit.PolicyError.CANNOT_SHOW_URI) {
+                open_externally (uri);
             }
         });
 
@@ -279,7 +271,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                erase (this);
+                erase ();
                 return true;
             }
         );
@@ -289,7 +281,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                new_window (application);
+                new_window ();
                 return true;
             }
         );
@@ -309,13 +301,11 @@ public class MainWindow : Gtk.Window {
         });
     }
 
-    private void handle_loading (
-        WebKit.WebView web_view,
-        Gtk.Stack refresh_stop_stack,
-        Gtk.Button refresh_button,
-        Gtk.Button stop_button,
-        Gtk.Entry url_entry
-    ) {
+    private void update_progress () {
+        debug ("Update progress");
+        back_button.sensitive = web_view.can_go_back ();
+        forward_button.sensitive = web_view.can_go_forward ();
+
         if (web_view.is_loading) {
             refresh_stop_stack.visible_child = stop_button;
             web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
@@ -329,17 +319,18 @@ public class MainWindow : Gtk.Window {
         }
     }
 
-    private void erase (Gtk.Window window) {
-        new_window (application);
-        window.close ();
+    private void erase () {
+        new_window ();
+        close ();
     }
 
-    private void new_window (Gtk.Application application) {
-        var app_window = new MainWindow (application);
+    private void new_window (string? uri = null) {
+        var app_window = new MainWindow (application, uri);
         app_window.show_all ();
     }
 
     private void open_externally (string uri) {
+        // TODO: ask for user permission
         try {
             Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
         } catch (GLib.Error e) {
@@ -354,10 +345,6 @@ public class MainWindow : Gtk.Window {
             uri.has_prefix ("https://") ||
             (uri.has_prefix ("data:") && (";" in uri)) ||
             uri.has_prefix ("javascript:");
-    }
-
-    private bool is_dangerous (string uri) {
-        return uri.has_prefix ("file://");
     }
 }
 
