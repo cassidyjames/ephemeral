@@ -20,15 +20,32 @@
 */
 
 public class ExternalDialog : Granite.MessageDialog {
-    public ExternalDialog () {
+    public string protocol { get; construct set; }
+
+    public ExternalDialog (string? _protocol = null) {
         Object (
-            icon_name: "web-browser",
-            title: "Open Externally"
+            image_icon: new ThemedIcon ("dialog-warning"),
+            primary_text: "Open Externally?",
+            protocol: _protocol,
+            title: "Open Externally?"
         );
     }
 
     construct {
+        string explanation = "This page is trying to open an app";
+        string implication = "Your data may not be kept private by the opened app";
 
+        if (protocol != null) {
+            explanation = "%s for “%s” links".printf (explanation, protocol);
+        }
+
+        secondary_text = "%s. %s.".printf (explanation, implication);
+
+        var cancel = add_button ("Don’t Open", Gtk.ResponseType.CANCEL) as Gtk.Button;
+        cancel.clicked.connect (() => { destroy (); });
+
+        var accept = add_button ("Open Anyway", Gtk.ResponseType.ACCEPT) as Gtk.Button;
+        accept.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }
 
