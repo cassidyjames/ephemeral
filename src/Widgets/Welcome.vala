@@ -30,9 +30,10 @@ public class Welcome : Gtk.Grid {
 
         var subtitle = new Gtk.Label ("The always-incognito web browser.");
 
-        var copy = new Gtk.Label ("Remember, Ephemeral and any browser's incognito or private mode can only do so much: they mitigate some tracking and don't store data on your device, but they won't stop your ISP, government, or determined websites from tracking you.\n\nFor the best protection, always use a VPN.");
+        var copy = new Gtk.Label ("Remember, Ephemeral and any browser’s incognito or private mode can only do so much: they mitigate some tracking and don’t store data on your device, but they won't stop your ISP, government, or determined websites from tracking you.\n\n<b>For the best protection, always use a VPN.</b>");
         copy.margin = 24;
         copy.max_width_chars = 70;
+        copy.use_markup = true;
         copy.wrap = true;
         copy.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
