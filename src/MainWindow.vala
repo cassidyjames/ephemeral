@@ -162,10 +162,6 @@ public class MainWindow : Gtk.Window {
         refresh_button.clicked.connect (web_view.reload);
         stop_button.clicked.connect (web_view.stop_loading);
 
-        url_entry.activate.connect (() => {
-            stack.visible_child_name = "web-view";
-        });
-
         new_window_button.clicked.connect (() => {
             new_window ();
         });
