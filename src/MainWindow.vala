@@ -57,6 +57,7 @@ public class MainWindow : Gtk.Window {
         header.has_subtitle = false;
 
         var web_context = new WebKit.WebContext.ephemeral ();
+        web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
         web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
 
         web_view = new WebKit.WebView.with_context (web_context);
@@ -151,11 +152,9 @@ public class MainWindow : Gtk.Window {
         if (uri != null && uri != "") {
             web_view.load_uri (uri);
             stack.visible_child_name = "web-view";
-            critical ("Loading website");
         } else {
             url_entry.grab_focus ();
             stack.visible_child_name = "welcome-view";
-            critical ("Welcome");
         }
 
         back_button.clicked.connect (web_view.go_back);
@@ -219,7 +218,6 @@ public class MainWindow : Gtk.Window {
                     }
                     break;
                 case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
-                    debug ("New window");
                     var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
                     string uri = action.get_request ().get_uri ();
 
@@ -322,7 +320,6 @@ public class MainWindow : Gtk.Window {
     }
 
     private void update_progress () {
-        debug ("Update progress");
         back_button.sensitive = web_view.can_go_back ();
         forward_button.sensitive = web_view.can_go_forward ();
 
@@ -333,7 +330,6 @@ public class MainWindow : Gtk.Window {
             refresh_stop_stack.visible_child = stop_button;
             web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
         } else {
-            debug ("Progress: %f", web_view.estimated_load_progress);
             refresh_stop_stack.visible_child = refresh_button;
             url_entry.progress_fraction = 0;
 
