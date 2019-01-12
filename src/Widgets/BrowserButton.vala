@@ -39,7 +39,11 @@ public class BrowserButton : Gtk.Grid {
         }
 
         if (external_apps.length () > 1) {
+            var list_button = new Gtk.MenuButton ();
+
             if (settings.get_string ("last-used-browser") != "") {
+                var open_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
+
                 foreach (AppInfo app_info in external_apps) {
                     if (app_info.get_id () == settings.get_string ("last-used-browser")) {
                         var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
@@ -49,11 +53,9 @@ public class BrowserButton : Gtk.Grid {
                         open_button.image = browser_icon;
                         open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
         
-                        add (open_button);
+                        open_box.pack_start (open_button, false, false, 0);
         
                         open_button.clicked.connect (() => {
-                            settings.set_string ("last-used-browser", app_info.get_id ());
-        
                             var uris = new List<string> ();
                             uris.append (web_view.get_uri ());
         
@@ -65,22 +67,28 @@ public class BrowserButton : Gtk.Grid {
                         });
                     }
                 }
+
+                list_button.image = new Gtk.Image.from_resource ("/com/github/cassidyjames/ephemeral/images/arrow-down.svg");
+                open_box.pack_end (list_button, false, false, 0);
+
+                add (open_box);
             } else {
-                var open_button = new Gtk.MenuButton ();
-                open_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
-                open_button.tooltip_text = "Open page in…";
+                list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
+                add (list_button);
+            }
 
-                var open_popover = new Gtk.Popover (open_button);
-                open_button.popover = open_popover;
+            list_button.tooltip_text = "Open page in…";
 
-                var open_grid = new Gtk.Grid ();
-                open_grid.orientation = Gtk.Orientation.VERTICAL;
+            var list_popover = new Gtk.Popover (list_button);
+            list_button.popover = list_popover;
 
-                open_popover.add (open_grid);
+            var list_grid = new Gtk.Grid ();
+            list_grid.orientation = Gtk.Orientation.VERTICAL;
 
-                add (open_button);
+            list_popover.add (list_grid);
 
-                foreach (AppInfo app_info in external_apps) {
+            foreach (AppInfo app_info in external_apps) {
+                if (app_info.get_id () != settings.get_string ("last-used-browser")) {
                     var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
                     browser_icon.pixel_size = 16;
 
@@ -94,7 +102,7 @@ public class BrowserButton : Gtk.Grid {
                     browser_item.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
                     browser_item.add (browser_grid);
 
-                    open_grid.add (browser_item);
+                    list_grid.add (browser_item);
                     browser_item.visible = true;
 
                     browser_item.clicked.connect (() => {
@@ -109,14 +117,14 @@ public class BrowserButton : Gtk.Grid {
                             critical (e.message);
                         }
 
-                        open_popover.popdown ();
+                        list_popover.popdown ();
                     });
 
                     browser_grid.show_all ();
                 }
-
-                open_grid.show_all ();
             }
+
+            list_grid.show_all ();
         } else {
             foreach (AppInfo app_info in external_apps) {
                 var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);

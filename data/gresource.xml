@@ -3,5 +3,8 @@
   <gresource prefix="/com/github/cassidyjames/ephemeral">
     <file alias="Application.css">Application.css</file>
   </gresource>
+  <gresource prefix="/com/github/cassidyjames/ephemeral/images">
+    <file alias="arrow-down.svg">images/arrow-down.svg</file>
+  </gresource>
 </gresources>
 
