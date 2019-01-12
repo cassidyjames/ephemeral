@@ -347,11 +347,28 @@ public class MainWindow : Gtk.Window {
 
     private void open_externally (string uri) {
         // TODO: ask for user permission
-        try {
-            Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
-        } catch (GLib.Error e) {
-            critical (e.message);
-        }
+        var external_dialog = new ExternalDialog ();
+        external_dialog.show_all ();
+
+        external_dialog.response.connect ((response_id) => {
+            switch (response_id) {
+                case Gtk.ResponseType.YES:
+                    try {
+                        Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
+                    break;
+                case Gtk.ResponseType.NO:
+                case Gtk.ResponseType.CLOSE:
+                case Gtk.ResponseType.DELETE_EVENT:
+                    external_dialog.close ();
+                    break;
+                default:
+                    assert_not_reached ();
+            }
+        });
+
     }
 
     private bool is_location (string uri) {

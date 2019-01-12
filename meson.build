@@ -12,6 +12,7 @@ executable(
   meson.project_name(),
   'src/Application.vala',
   'src/MainWindow.vala',
+  'src/Dialogs/ExternalDialog.vala',
   'src/Widgets/BrowserButton.vala',
   'src/Widgets/UrlEntry.vala',
   'src/Widgets/Welcome.vala',
