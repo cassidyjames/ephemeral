@@ -90,40 +90,38 @@ public class BrowserButton : Gtk.Grid {
 
             // Create a list of installed browsers
             foreach (AppInfo app_info in external_apps) {
-                if (app_info.get_id () != settings.get_string ("last-used-browser")) {
-                    var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
-                    browser_icon.pixel_size = 16;
+                var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
+                browser_icon.pixel_size = 16;
 
-                    var browser_grid = new Gtk.Grid ();
-                    browser_grid.margin = 3;
-                    browser_grid.column_spacing = 3;
-                    browser_grid.add (browser_icon);
-                    browser_grid.add (new Gtk.Label (app_info.get_name ()));
+                var browser_grid = new Gtk.Grid ();
+                browser_grid.margin = 3;
+                browser_grid.column_spacing = 3;
+                browser_grid.add (browser_icon);
+                browser_grid.add (new Gtk.Label (app_info.get_name ()));
 
-                    var browser_item = new Gtk.Button ();
-                    browser_item.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-                    browser_item.add (browser_grid);
+                var browser_item = new Gtk.Button ();
+                browser_item.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+                browser_item.add (browser_grid);
 
-                    list_grid.add (browser_item);
-                    browser_item.visible = true;
+                list_grid.add (browser_item);
+                browser_item.visible = true;
 
-                    browser_item.clicked.connect (() => {
-                        settings.set_string ("last-used-browser", app_info.get_id ());
+                browser_item.clicked.connect (() => {
+                    settings.set_string ("last-used-browser", app_info.get_id ());
 
-                        var uris = new List<string> ();
-                        uris.append (web_view.get_uri ());
+                    var uris = new List<string> ();
+                    uris.append (web_view.get_uri ());
 
-                        try {
-                            app_info.launch_uris (uris, null);
-                        } catch (GLib.Error e) {
-                            critical (e.message);
-                        }
+                    try {
+                        app_info.launch_uris (uris, null);
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
 
-                        list_popover.popdown ();
-                    });
+                    list_popover.popdown ();
+                });
 
-                    browser_grid.show_all ();
-                }
+                browser_grid.show_all ();
             }
 
             list_grid.show_all ();
