@@ -39,7 +39,6 @@ public class BrowserButton : Gtk.Grid {
         }
 
         if (external_apps.length () > 1) {
-            var open_box = new Gtk.Box (Gtk.Orientation.HORIZONTAL, 0);
             var list_button = new Gtk.MenuButton ();
             Gtk.Button open_button;
             ulong last_browser_handler_id;
@@ -54,8 +53,9 @@ public class BrowserButton : Gtk.Grid {
                         open_button = new Gtk.Button ();
                         open_button.image = browser_icon;
                         open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+                        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
         
-                        open_box.pack_start (open_button, false, false, 0);
+                        attach (open_button, 0, 0, 1, 1);
         
                         last_browser_handler_id = open_button.clicked.connect (() => {
                             var uris = new List<string> ();
@@ -71,11 +71,13 @@ public class BrowserButton : Gtk.Grid {
                 }
 
                 list_button.image = new Gtk.Image.from_resource ("/com/github/cassidyjames/ephemeral/images/arrow-down.svg");
-                open_box.pack_end (list_button, false, false, 0);
+                list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+                attach (list_button, 1, 0, 1, 1);
             } else {
                 // Show an export-icon
                 list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
-                open_box.pack_end (list_button, false, false, 0);
+                list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+                attach (list_button, 1, 0, 1, 1);
             }
 
             list_button.tooltip_text = "Open page in…";
@@ -126,18 +128,17 @@ public class BrowserButton : Gtk.Grid {
 
             list_grid.show_all ();
 
-            add (open_box);
-
             // Update open_button when the gsettings value has changed
             settings.changed["last-used-browser"].connect (() => {
                 if (open_button == null) {
                     // Initialize the button if no browser has been used before
                     open_button = new Gtk.Button ();
+                    open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
                     list_button.hide ();
                     list_button.image = new Gtk.Image.from_resource ("/com/github/cassidyjames/ephemeral/images/arrow-down.svg");
                     list_button.show_all ();
         
-                    open_box.pack_start (open_button, false, false, 0);
+                    attach (open_button, 0, 0, 1, 1);
                 } else {
                     open_button.hide ();
                 }
