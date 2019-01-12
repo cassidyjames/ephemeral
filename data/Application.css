@@ -24,7 +24,7 @@
 @define-color textColorPrimary alpha(white, 0.9);
 @define-color textColorPrimaryShadow alpha(shade(@colorPrimary, 0.6), 0.4);
 
-.titlebar {
+.titlebar:not(.default-decoration) {
   background-image: linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
   color: @textColorPrimary;
 }
