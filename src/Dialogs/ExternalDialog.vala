@@ -44,7 +44,7 @@ public class ExternalDialog : Granite.MessageDialog {
         var cancel = add_button ("Don’t Open", Gtk.ResponseType.CANCEL) as Gtk.Button;
         cancel.clicked.connect (() => { destroy (); });
 
-        var accept = add_button ("Open Anyway", Gtk.ResponseType.ACCEPT) as Gtk.Button;
+        var accept = add_button ("Open Anyway", Gtk.ResponseType.OK) as Gtk.Button;
         accept.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }

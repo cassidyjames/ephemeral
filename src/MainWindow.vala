@@ -356,9 +356,7 @@ public class MainWindow : Gtk.Window {
 
         external_dialog.response.connect ((response_id) => {
             switch (response_id) {
-                case Gtk.ResponseType.ACCEPT:
                 case Gtk.ResponseType.OK:
-                case Gtk.ResponseType.YES:
                     try {
                         Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
@@ -366,8 +364,6 @@ public class MainWindow : Gtk.Window {
                     }
                     external_dialog.close ();
                     break;
-                case Gtk.ResponseType.REJECT:
-                case Gtk.ResponseType.NO:
                 case Gtk.ResponseType.CANCEL:
                 case Gtk.ResponseType.CLOSE:
                 case Gtk.ResponseType.DELETE_EVENT:
