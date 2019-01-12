@@ -14,6 +14,7 @@ executable(
   'src/MainWindow.vala',
   'src/Widgets/BrowserButton.vala',
   'src/Widgets/UrlEntry.vala',
+  'src/Widgets/Welcome.vala',
   asresources,
   dependencies: [
     dependency('granite'),

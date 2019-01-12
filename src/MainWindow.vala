@@ -20,11 +20,10 @@
 */
 
 public class MainWindow : Gtk.Window {
-    private const string HOME = "https://start.duckduckgo.com/";
-
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
 
+    public Gtk.Stack stack { get; construct set; }
     public WebKit.WebView web_view { get; construct set; }
     public Gtk.Stack refresh_stop_stack { get; construct set; }
     public Gtk.Button back_button { get; construct set; }
@@ -32,6 +31,8 @@ public class MainWindow : Gtk.Window {
     public Gtk.Button refresh_button { get; construct set; }
     public Gtk.Button stop_button { get; construct set; }
     public Gtk.Entry url_entry { get; construct set; }
+    public BrowserButton browser_button { get; construct set; }
+    public Gtk.Button erase_button { get; construct set; }
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
@@ -90,11 +91,13 @@ public class MainWindow : Gtk.Window {
 
         url_entry = new UrlEntry (web_view);
 
-        var erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
+        erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
+        erase_button.sensitive = false;
         erase_button.tooltip_text = "Erase browsing history";
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
-        var browser_button = new BrowserButton (web_view);
+        browser_button = new BrowserButton (web_view);
+        browser_button.sensitive = false;
 
         header.pack_start (back_button);
         header.pack_start (forward_button);
@@ -125,22 +128,36 @@ public class MainWindow : Gtk.Window {
             settings.get_boolean ("ask-default") &&
             Ephemeral.instance.ask_default_for_session;
 
+        var welcome = new Welcome ();
+
+        stack = new Gtk.Stack ();
+        stack.transition_type = Gtk.StackTransitionType.UNDER_UP;
+        stack.add_named (welcome, "welcome");
+        stack.add_named (web_view, "web-view");
+        stack.visible_child_name = "welcome";
+
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
         grid.add (info_bar);
-        grid.add (web_view);
+        grid.add (stack);
 
         set_titlebar (header);
         add (grid);
 
         if (uri != null && uri != "") {
+            stack.visible_child_name = "web-view";
             web_view.load_uri (uri);
         } else {
-            web_view.load_uri (HOME);
+            stack.visible_child_name = "welcome";
         }
 
         show_all ();
-        url_entry.grab_focus ();
+
+        if (uri != null && uri != "") {
+            web_view.load_uri (uri);
+        } else {
+            url_entry.grab_focus ();
+        }
 
         back_button.clicked.connect (web_view.go_back);
         forward_button.clicked.connect (web_view.go_forward);
@@ -301,10 +318,14 @@ public class MainWindow : Gtk.Window {
         back_button.sensitive = web_view.can_go_back ();
         forward_button.sensitive = web_view.can_go_forward ();
 
+        browser_button.sensitive = true;
+        erase_button.sensitive = true;
+
         if (web_view.is_loading) {
             refresh_stop_stack.visible_child = stop_button;
             web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
         } else {
+            stack.visible_child_name = "web-view";
             refresh_stop_stack.visible_child = refresh_button;
             url_entry.progress_fraction = 0;
 

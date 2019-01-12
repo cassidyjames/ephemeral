@@ -33,6 +33,8 @@ public class UrlEntry : Gtk.Entry {
 
     construct {
         tooltip_text = "Enter a URL or search term";
+        placeholder_text = tooltip_text;
+
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
 
         secondary_icon_name = "go-jump-symbolic";
@@ -52,7 +54,12 @@ public class UrlEntry : Gtk.Entry {
         });
 
         focus_out_event.connect ((event) => {
-            text = web_view.get_uri ();
+            string uri = web_view.get_uri ();
+            if (uri == "about:blank") {
+                text = "";
+            } else {
+                text = uri ;
+            }
 
             return false;
         });
