@@ -20,8 +20,6 @@
 */
 
 public class MainWindow : Gtk.Window {
-    private const string HOME = "https://start.duckduckgo.com/";
-
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
 
