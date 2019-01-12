@@ -67,3 +67,14 @@ infobar button.close:not(:active) {
   box-shadow: none;
 }
 
+.welcome {
+  background-image: linear-gradient(120deg, @BLUEBERRY_900, @GRAPE_900 67%);
+  color: white;
+}
+
+.h1 {
+  color: inherit;
+  font-family: Raleway, "Open Sans", sans-serif;
+  font-weight: 900;
+}
+

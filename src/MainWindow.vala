@@ -25,6 +25,7 @@ public class MainWindow : Gtk.Window {
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
 
+    public Gtk.Stack stack { get; construct set; }
     public WebKit.WebView web_view { get; construct set; }
     public Gtk.Stack refresh_stop_stack { get; construct set; }
     public Gtk.Button back_button { get; construct set; }
@@ -125,27 +126,36 @@ public class MainWindow : Gtk.Window {
             settings.get_boolean ("ask-default") &&
             Ephemeral.instance.ask_default_for_session;
 
+        var welcome = new Welcome ();
+
+        stack = new Gtk.Stack ();
+        stack.transition_type = Gtk.StackTransitionType.UNDER_UP;
+        stack.add_named (welcome, "welcome");
+        stack.add_named (web_view, "web-view");
+        stack.visible_child_name = "welcome";
+
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
         grid.add (info_bar);
-        grid.add (web_view);
+        grid.add (stack);
 
         set_titlebar (header);
         add (grid);
 
         if (uri != null && uri != "") {
+            stack.visible_child_name = "web-view";
             web_view.load_uri (uri);
         } else {
-            // web_view.load_uri (HOME);
-            string html = ((string) resources_lookup_data (
-                "/com/github/cassidyjames/ephemeral/Welcome.html",
-                ResourceLookupFlags.NONE
-            ).get_data ());
-            web_view.load_html (html, null);
+            stack.visible_child_name = "welcome";
         }
 
         show_all ();
-        url_entry.grab_focus ();
+
+        if (uri != null && uri != "") {
+            web_view.load_uri (uri);
+        } else {
+            url_entry.grab_focus ();
+        }
 
         back_button.clicked.connect (web_view.go_back);
         forward_button.clicked.connect (web_view.go_forward);
@@ -310,6 +320,7 @@ public class MainWindow : Gtk.Window {
             refresh_stop_stack.visible_child = stop_button;
             web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
         } else {
+            stack.visible_child_name = "web-view";
             refresh_stop_stack.visible_child = refresh_button;
             url_entry.progress_fraction = 0;
 
