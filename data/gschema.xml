@@ -6,6 +6,12 @@
       <summary>Ask to be default</summary>
       <description>Whether or not Ephemeral should ask to be the default web browser (if it isn't already)</description>
     </key>
+
+    <key name="last-used-browser" type="s">
+      <default>""</default>
+      <summary>Last used browser</summary>
+      <description>The id of the last-used browser (the browser selected in the menu)</description>
+    </key>
   </schema>
 </schemalist>
 
