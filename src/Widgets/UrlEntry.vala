@@ -43,7 +43,10 @@ public class UrlEntry : Gtk.Entry {
 
         activate.connect (() => {
             // TODO: Better URL validation
-            if (!text.contains ("://")) {
+            if (text == "" || text == null) {
+                Gdk.beep ();
+                return;
+            } else if (!text.contains ("://")) {
                 if (text.contains (".") && !text.contains (" ")) {
                     text = "%s://%s".printf ("https", text);
                 } else {
@@ -57,8 +60,6 @@ public class UrlEntry : Gtk.Entry {
             string uri = web_view.get_uri ();
             if (uri == "about:blank") {
                 text = "";
-            } else {
-                text = uri ;
             }
 
             return false;
