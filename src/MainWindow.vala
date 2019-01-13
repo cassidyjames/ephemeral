@@ -188,7 +188,16 @@ public class MainWindow : Gtk.Window {
         });
 
         web_view.load_failed.connect ((load_event, uri, load_error) => {
-            if (load_error is WebKit.PolicyError.CANNOT_SHOW_URI) {
+            if (load_error is WebKit.PluginError.WILL_HANDLE_LOAD) {
+                // A plugin will take over
+                return false;
+            } else if (load_error is WebKit.NetworkError.CANCELLED) {
+                // Mostly initiated by JS redirects
+                return false;
+            } else if (load_error is WebKit.PolicyError.FRAME_LOAD_INTERRUPTED_BY_POLICY_CHANGE) {
+                // A frame load is cancelled because of a download
+                return false;
+            } else if (load_error is WebKit.PolicyError.CANNOT_SHOW_URI) {
                 open_externally (uri);
             } else {
                 stack.visible_child_name = "error-view";
