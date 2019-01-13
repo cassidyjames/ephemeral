@@ -57,6 +57,7 @@ public class MainWindow : Gtk.Window {
         header.has_subtitle = false;
 
         var web_context = new WebKit.WebContext.ephemeral ();
+        web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
         web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
 
         web_view = new WebKit.WebView.with_context (web_context);
@@ -128,13 +129,15 @@ public class MainWindow : Gtk.Window {
             settings.get_boolean ("ask-default") &&
             Ephemeral.instance.ask_default_for_session;
 
-        var welcome = new Welcome ();
+        var welcome_view = new WelcomeView ();
+        var error_view = new ErrorView ();
 
         stack = new Gtk.Stack ();
-        stack.transition_type = Gtk.StackTransitionType.UNDER_UP;
-        stack.add_named (welcome, "welcome");
+        stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
+        stack.add_named (welcome_view, "welcome-view");
         stack.add_named (web_view, "web-view");
-        stack.visible_child_name = "welcome";
+        stack.add_named (error_view, "error-view");
+        stack.visible_child_name = "welcome-view";
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
@@ -144,19 +147,14 @@ public class MainWindow : Gtk.Window {
         set_titlebar (header);
         add (grid);
 
-        if (uri != null && uri != "") {
-            stack.visible_child_name = "web-view";
-            web_view.load_uri (uri);
-        } else {
-            stack.visible_child_name = "welcome";
-        }
-
         show_all ();
 
         if (uri != null && uri != "") {
             web_view.load_uri (uri);
+            stack.visible_child_name = "web-view";
         } else {
             url_entry.grab_focus ();
+            stack.visible_child_name = "welcome-view";
         }
 
         back_button.clicked.connect (web_view.go_back);
@@ -199,6 +197,7 @@ public class MainWindow : Gtk.Window {
         web_view.decide_policy.connect ((decision, type) => {
             switch (type) {
                 case WebKit.PolicyDecisionType.NAVIGATION_ACTION:
+                    stack.visible_child_name = "web-view";
                     var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
                     string uri = action.get_request ().get_uri ();
                     if (action.is_user_gesture ()) {
@@ -215,7 +214,6 @@ public class MainWindow : Gtk.Window {
                     }
                     break;
                 case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
-                    debug ("New window");
                     var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
                     string uri = action.get_request ().get_uri ();
 
@@ -233,7 +231,11 @@ public class MainWindow : Gtk.Window {
         web_view.load_failed.connect ((load_event, uri, load_error) => {
             if (load_error is WebKit.PolicyError.CANNOT_SHOW_URI) {
                 open_externally (uri);
+            } else {
+                stack.visible_child_name = "error-view";
             }
+
+            return true;
         });
 
         var accel_group = new Gtk.AccelGroup ();
@@ -314,7 +316,6 @@ public class MainWindow : Gtk.Window {
     }
 
     private void update_progress () {
-        debug ("Update progress");
         back_button.sensitive = web_view.can_go_back ();
         forward_button.sensitive = web_view.can_go_forward ();
 
@@ -325,7 +326,6 @@ public class MainWindow : Gtk.Window {
             refresh_stop_stack.visible_child = stop_button;
             web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
         } else {
-            stack.visible_child_name = "web-view";
             refresh_stop_stack.visible_child = refresh_button;
             url_entry.progress_fraction = 0;
 
@@ -346,12 +346,32 @@ public class MainWindow : Gtk.Window {
     }
 
     private void open_externally (string uri) {
-        // TODO: ask for user permission
-        try {
-            Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
-        } catch (GLib.Error e) {
-            critical (e.message);
-        }
+        string protocol = uri.split ("://")[0];
+        var external_dialog = new ExternalDialog (protocol);
+        external_dialog.transient_for = (Gtk.Window) get_toplevel ();
+
+        external_dialog.response.connect ((response_id) => {
+            switch (response_id) {
+                case Gtk.ResponseType.OK:
+                    try {
+                        Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
+                    } catch (GLib.Error e) {
+                        critical (e.message);
+                    }
+                    external_dialog.close ();
+                    break;
+                case Gtk.ResponseType.CANCEL:
+                case Gtk.ResponseType.CLOSE:
+                case Gtk.ResponseType.DELETE_EVENT:
+                    external_dialog.close ();
+                    break;
+                default:
+                    assert_not_reached ();
+            }
+        });
+
+        external_dialog.run ();
+
     }
 
     private bool is_location (string uri) {
