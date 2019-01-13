@@ -62,7 +62,7 @@ infobar button {
   color: white;
 }
 
-infobar button.close:not(:active) {
+infobar button.flat:not(:active) {
   border-color: transparent;
   box-shadow: none;
 }

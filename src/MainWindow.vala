@@ -116,12 +116,15 @@ public class MainWindow : Gtk.Window {
         var default_app_info = GLib.AppInfo.get_default_for_type (Ephemeral.CONTENT_TYPES[0], false);
         var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
 
+        var never_button = new Gtk.Button.with_label ("Never Ask Again");
+        never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
         var info_bar = new Gtk.InfoBar ();
         info_bar.message_type = Gtk.MessageType.QUESTION;
         info_bar.show_close_button = true;
 
         info_bar.get_content_area ().add (default_label);
-        info_bar.add_button ("Never Ask Again", Gtk.ResponseType.REJECT);
+        info_bar.add_action_widget (never_button, Gtk.ResponseType.REJECT);
         info_bar.add_button ("Set as Default", Gtk.ResponseType.ACCEPT);
 
         info_bar.revealed =
