@@ -47,8 +47,6 @@ public class MainWindow : Gtk.Window {
     }
 
     construct {
-        var settings = new Settings ("com.github.cassidyjames.ephemeral");
-
         default_height = 800;
         default_width = 1280;
 
@@ -109,28 +107,7 @@ public class MainWindow : Gtk.Window {
 
         header.custom_title = url_entry;
 
-        var default_label = new Gtk.Label ("<b>Make privacy a habit.</b> Set Ephemeral as your default browser?\n<small>You can always change this later in <i>System Settings</i> → <i>Applications</i>.</small>");
-        default_label.use_markup = true;
-        default_label.wrap = true;
-
-        var default_app_info = GLib.AppInfo.get_default_for_type (Ephemeral.CONTENT_TYPES[0], false);
-        var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
-
-        var never_button = new Gtk.Button.with_label ("Never Ask Again");
-        never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-
-        var info_bar = new Gtk.InfoBar ();
-        info_bar.message_type = Gtk.MessageType.QUESTION;
-        info_bar.show_close_button = true;
-
-        info_bar.get_content_area ().add (default_label);
-        info_bar.add_action_widget (never_button, Gtk.ResponseType.REJECT);
-        info_bar.add_button ("Set as Default", Gtk.ResponseType.ACCEPT);
-
-        info_bar.revealed =
-            !default_app_info.equal (app_info) &&
-            settings.get_boolean ("ask-default") &&
-            Ephemeral.instance.ask_default_for_session;
+        var info_bar = new InfoBar ();
 
         var welcome_view = new WelcomeView ();
         var error_view = new ErrorView ();
@@ -170,27 +147,6 @@ public class MainWindow : Gtk.Window {
         });
 
         erase_button.clicked.connect (erase);
-
-        info_bar.response.connect ((response_id) => {
-            switch (response_id) {
-                case Gtk.ResponseType.ACCEPT:
-                    try {
-                        for (int i = 0; i < Ephemeral.CONTENT_TYPES.length; i++) {
-                            app_info.set_as_default_for_type (Ephemeral.CONTENT_TYPES[i]);
-                        }
-                    } catch (GLib.Error e) {
-                        critical (e.message);
-                    }
-                case Gtk.ResponseType.REJECT:
-                    settings.set_boolean ("ask-default", false);
-                case Gtk.ResponseType.CLOSE:
-                    Ephemeral.instance.ask_default_for_session = false;
-                    info_bar.revealed = false;
-                    break;
-                default:
-                    assert_not_reached ();
-            }
-        });
 
         web_view.load_changed.connect (update_progress);
         web_view.notify["uri"].connect (update_progress);
