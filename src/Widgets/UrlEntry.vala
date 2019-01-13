@@ -60,8 +60,6 @@ public class UrlEntry : Gtk.Entry {
             string uri = web_view.get_uri ();
             if (uri == "about:blank") {
                 text = "";
-            } else {
-                text = uri;
             }
 
             return false;
