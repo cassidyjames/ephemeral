@@ -53,9 +53,12 @@ public class BrowserButton : Gtk.Grid {
                         open_button = new Gtk.Button ();
                         open_button.image = browser_icon;
                         open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
-                        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+
+                        var open_button_context = open_button.get_style_context ();
+                        open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
+                        open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
         
-                        attach (open_button, 0, 0, 1, 1);
+                        attach (open_button, 0, 0);
         
                         last_browser_handler_id = open_button.clicked.connect (() => {
                             var uris = new List<string> ();
@@ -70,14 +73,22 @@ public class BrowserButton : Gtk.Grid {
                     }
                 }
 
-                list_button.image = new Gtk.Image.from_resource ("/com/github/cassidyjames/ephemeral/images/arrow-down.svg");
-                list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-                attach (list_button, 1, 0, 1, 1);
+                list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+
+                var list_button_context = list_button.get_style_context ();
+                list_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
+                list_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+
+                attach (list_button, 1, 0);
             } else {
                 // Show an export-icon
                 list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
-                list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
-                attach (list_button, 1, 0, 1, 1);
+
+                var list_button_context = open_button.get_style_context ();
+                list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
+                list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
+
+                attach (list_button, 1, 0);
             }
 
             list_button.tooltip_text = "Open page in…";
@@ -133,12 +144,21 @@ public class BrowserButton : Gtk.Grid {
                 if (open_button == null) {
                     // Initialize the button if no browser has been used before
                     open_button = new Gtk.Button ();
-                    open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+
+                    var open_button_context = open_button.get_style_context ();
+                    open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
+                    open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+
                     list_button.hide ();
-                    list_button.image = new Gtk.Image.from_resource ("/com/github/cassidyjames/ephemeral/images/arrow-down.svg");
+                    list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+
+                    var list_button_context = open_button.get_style_context ();
+                    list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
+                    list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
+
                     list_button.show_all ();
         
-                    attach (open_button, 0, 0, 1, 1);
+                    attach (open_button, 0, 0);
                 } else {
                     open_button.hide ();
                 }
