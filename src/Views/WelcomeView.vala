@@ -19,8 +19,8 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class Welcome : Gtk.Grid {
-    public Welcome () {
+public class WelcomeView : Gtk.Grid {
+    public WelcomeView () {
         Object ();
     }
 

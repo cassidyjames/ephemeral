@@ -12,9 +12,12 @@ executable(
   meson.project_name(),
   'src/Application.vala',
   'src/MainWindow.vala',
+  'src/Dialogs/ExternalDialog.vala',
+  'src/Views/ErrorView.vala',
+  'src/Views/WelcomeView.vala',
   'src/Widgets/BrowserButton.vala',
+  'src/Widgets/InfoBar.vala',
   'src/Widgets/UrlEntry.vala',
-  'src/Widgets/Welcome.vala',
   asresources,
   dependencies: [
     dependency('granite'),
