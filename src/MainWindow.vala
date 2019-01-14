@@ -62,7 +62,7 @@ public class MainWindow : Gtk.Window {
         web_kit_settings.allow_file_access_from_file_urls = true;
         web_kit_settings.allow_universal_access_from_file_urls = false;
         web_kit_settings.default_font_family = Gtk.Settings.get_default().gtk_font_name;
-        web_kit_settings.enable_dns_prefetching = true;
+        web_kit_settings.enable_dns_prefetching = false;
         web_kit_settings.enable_html5_database = true;
         web_kit_settings.enable_html5_local_storage = true;
         web_kit_settings.enable_java = false;
