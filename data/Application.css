@@ -79,17 +79,6 @@ infobar button.flat:not(:active) {
   color: white;
 }
 
-.welcome button:not(:active) {
-    border-color: alpha (#000, 0.3);
-    box-shadow:
-        inset 0 0 0 1px alpha (#fff, 0.05),
-        inset 0 1px 0 0 alpha (#fff, 0.35),
-        inset 0 -1px 0 0 alpha (#fff, 0.15),
-        inset 1px 0 0 0 alpha (#fff, 0.05),
-        inset -1px 0 0 0 alpha (#fff, 0.05),
-        0 1px 0 1px alpha (#fff, 0.15);
-}
-
 .h1 {
   color: inherit;
   font-family: Raleway, "Open Sans", sans-serif;
