@@ -29,6 +29,50 @@
   color: @textColorPrimary;
 }
 
+.titlebar button.raised {
+  background-image: linear-gradient(
+    120deg,
+    mix(@BLUEBERRY_700, @BLUEBERRY_500, 0.33),
+    mix(@GRAPE_700, @GRAPE_500, 0.33) 67%
+  );
+  border-color: shade(@colorPrimary, 0.75);
+  color: @textColorPrimary;
+  text-shadow: 0 1px @textColorPrimaryShadow;
+  box-shadow:
+    inset 0 0 0 1px alpha(shade(@colorPrimary, 1.4), 0.05),
+    inset 0 1px 0 0 alpha(shade(@colorPrimary, 1.4), 0.45),
+    inset 0 -1px 0 0 alpha(shade(@colorPrimary, 1.4), 0.15),
+    0 1px 0 0 alpha(shade(@colorPrimary, 1.4), 0.3);
+  -gtk-icon-shadow: 0 1px @textColorPrimaryShadow;
+}
+
+.titlebar button.raised:active,
+.titlebar button.raised:checked {
+    background-color: alpha(#000, 0.05);
+    background-image: none;
+    border-color: alpha(#000, 0.27);
+    box-shadow:
+        inset 0 0 0 1px alpha(#000, 0.05),
+        0 1px 0 0 alpha(@bg_highlight_color, 0.3);
+}
+
+.titlebar button.linked {
+  border-radius: 0;
+  border-left-width: 0;
+}
+
+.titlebar button.linked:first-child {
+  border-left-width: 1px;
+  border-top-left-radius: 2.5px;
+  border-bottom-left-radius: 2.5px;
+}
+
+.titlebar button.linked:last-child {
+  padding: 0;
+  border-top-right-radius: 2.5px;
+  border-bottom-right-radius: 2.5px;
+}
+
 .titlebar entry {
   background: alpha(@GRAPE_900, 0.5);
   color: @textColorPrimary;
@@ -84,4 +128,3 @@ infobar button.flat:not(:active) {
   font-family: Raleway, "Open Sans", sans-serif;
   font-weight: 900;
 }
-

@@ -11,6 +11,11 @@
       <summary>Warn on no network connection</summary>
       <description>Whether or not Ephemeral should warn when there is no network available connection</description>
     </key>
+    <key name="last-used-browser" type="s">
+      <default>""</default>
+      <summary>Last used browser</summary>
+      <description>The id of the last-used browser (the browser selected in the menu)</description>
+    </key>
   </schema>
 </schemalist>
 
