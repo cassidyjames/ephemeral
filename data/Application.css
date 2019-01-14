@@ -62,15 +62,15 @@
 }
 
 .titlebar button.linked:first-child {
-  padding: 0;
-  border-top-right-radius: 2.5px;
-  border-bottom-right-radius: 2.5px;
-}
-
-.titlebar button.linked:last-child {
   border-left-width: 1px;
   border-top-left-radius: 2.5px;
   border-bottom-left-radius: 2.5px;
+}
+
+.titlebar button.linked:last-child {
+  padding: 0;
+  border-top-right-radius: 2.5px;
+  border-bottom-right-radius: 2.5px;
 }
 
 .titlebar entry {
