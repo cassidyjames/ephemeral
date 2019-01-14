@@ -16,7 +16,8 @@ executable(
   'src/Views/ErrorView.vala',
   'src/Views/WelcomeView.vala',
   'src/Widgets/BrowserButton.vala',
-  'src/Widgets/InfoBar.vala',
+  'src/Widgets/DefaultInfoBar.vala',
+  'src/Widgets/NetworkInfoBar.vala',
   'src/Widgets/UrlEntry.vala',
   asresources,
   dependencies: [
