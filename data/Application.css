@@ -57,6 +57,13 @@ infobar revealer > box {
   color: white;
 }
 
+infobar.warning revealer > box {
+  background-image:
+    -gtk-icontheme("dialog-warning-symbolic"),
+    linear-gradient(60deg, @BLUEBERRY_500, @GRAPE_500 67%);
+  -gtk-icon-palette: error #fff;
+}
+
 infobar label,
 infobar button {
   color: white;

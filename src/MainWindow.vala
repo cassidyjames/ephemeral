@@ -107,7 +107,8 @@ public class MainWindow : Gtk.Window {
 
         header.custom_title = url_entry;
 
-        var info_bar = new InfoBar ();
+        var default_info_bar = new DefaultInfoBar ();
+        var network_info_bar = new NetworkInfoBar ();
 
         var welcome_view = new WelcomeView ();
         var error_view = new ErrorView ();
@@ -121,7 +122,8 @@ public class MainWindow : Gtk.Window {
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
-        grid.add (info_bar);
+        grid.add (default_info_bar);
+        grid.add (network_info_bar);
         grid.add (stack);
 
         set_titlebar (header);
