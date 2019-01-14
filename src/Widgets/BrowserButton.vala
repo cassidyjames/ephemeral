@@ -84,7 +84,7 @@ public class BrowserButton : Gtk.Grid {
                 // Show an export-icon
                 list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
 
-                var list_button_context = open_button.get_style_context ();
+                var list_button_context = list_button.get_style_context ();
                 list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
                 list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
 
