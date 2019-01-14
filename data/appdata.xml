@@ -29,6 +29,19 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="3.1.0" date="2019-01-14">
+      <description>
+        <p>Better error handling and quality of life improvements all around:</p>
+        <ul>
+          <li>New approval dialogs for external apps, e.g. appstream:// or ftp://</li>
+          <li>New warning when no network connection</li>
+          <li>Prettier errors using native views</li>
+          <li>Stopped throwing away text when unfocusing URL entry</li>
+          <li>Stopped searching when the URL entry is empty</li>
+          <li>Code cleaning to keep things smelling fresh</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.0.0" date="2019-01-12">
       <description>
         <p>Fresh styles to keep things funky, plus more:</p>
