@@ -19,8 +19,8 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class InfoBar : Gtk.InfoBar {
-    public InfoBar () {
+public class DefaultInfoBar : Gtk.InfoBar {
+    public DefaultInfoBar () {
         Object (
             message_type: Gtk.MessageType.QUESTION,
             show_close_button: true

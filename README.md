@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/cassidyjames/ephemeral.svg?branch=master)](https://travis-ci.com/cassidyjames/ephemeral)
+[![Build Status](https://travis-ci.com/cassidyjames/ephemeral.svg?branch=master)](https://travis-ci.com/cassidyjames/ephemeral) [![We practice Ethical Design](https://img.shields.io/badge/Ethical_Design-_▲_❤_-blue.svg)](https://ind.ie/ethical-design)
 
 <p align="center">
   <img src="data/icons/128.svg" alt="Icon" />

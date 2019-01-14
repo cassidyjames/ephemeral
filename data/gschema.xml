@@ -6,6 +6,11 @@
       <summary>Ask to be default</summary>
       <description>Whether or not Ephemeral should ask to be the default web browser (if it isn't already)</description>
     </key>
+    <key name="warn-network" type="b">
+      <default>true</default>
+      <summary>Warn on no network connection</summary>
+      <description>Whether or not Ephemeral should warn when there is no network available connection</description>
+    </key>
   </schema>
 </schemalist>
 
