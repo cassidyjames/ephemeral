@@ -40,8 +40,12 @@ public class BrowserButton : Gtk.Grid {
 
         if (external_apps.length () > 1) {
             var list_button = new Gtk.MenuButton ();
-            Gtk.Button open_button;
+            var open_button = new Gtk.Button ();
             ulong last_browser_handler_id;
+
+            attach (open_button, 0, 0);
+            attach (list_button, 1, 0);
+            var last_used_browser_shown = false;
 
             if (settings.get_string ("last-used-browser") != "") {
                 // Show the last-used browser
@@ -50,15 +54,13 @@ public class BrowserButton : Gtk.Grid {
                         var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                         browser_icon.pixel_size = 24;
         
-                        open_button = new Gtk.Button ();
                         open_button.image = browser_icon;
                         open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
 
                         var open_button_context = open_button.get_style_context ();
                         open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
                         open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
-        
-                        attach (open_button, 0, 0);
+                        last_used_browser_shown = true;
         
                         last_browser_handler_id = open_button.clicked.connect (() => {
                             var uris = new List<string> ();
@@ -78,17 +80,19 @@ public class BrowserButton : Gtk.Grid {
                 var list_button_context = list_button.get_style_context ();
                 list_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
                 list_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
-
-                attach (list_button, 1, 0);
             } else {
+                open_button.show.connect (() => { // Needed because of show_all () being executed after this constructor
+                    if (!last_used_browser_shown) {
+                        open_button.hide ();
+                    }
+                });
+
                 // Show an export-icon
                 list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
 
                 var list_button_context = list_button.get_style_context ();
                 list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
                 list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
-
-                attach (list_button, 1, 0);
             }
 
             list_button.tooltip_text = "Open page in…";
@@ -141,10 +145,9 @@ public class BrowserButton : Gtk.Grid {
 
             // Update open_button when the gsettings value has changed
             settings.changed["last-used-browser"].connect (() => {
-                if (open_button == null) {
-                    // Initialize the button if no browser has been used before
-                    open_button = new Gtk.Button ();
-
+                if (!last_used_browser_shown) {
+                    // Add style classes if no browser has been used before
+                    last_used_browser_shown = true;
                     var open_button_context = open_button.get_style_context ();
                     open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
                     open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
@@ -152,15 +155,13 @@ public class BrowserButton : Gtk.Grid {
                     list_button.hide ();
                     list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
 
-                    var list_button_context = open_button.get_style_context ();
-                    list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
-                    list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
+                    var list_button_context = list_button.get_style_context ();
+                    list_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
+                    list_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
 
                     list_button.show_all ();
-        
-                    attach (open_button, 0, 0);
                 } else {
-                    open_button.hide ();
+                   open_button.hide ();
                 }
 
                 // Show the last-used browser
