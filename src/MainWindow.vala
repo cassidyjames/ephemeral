@@ -60,21 +60,11 @@ public class MainWindow : Gtk.Window {
 
         var web_kit_settings = new WebKit.Settings();
         web_kit_settings.allow_file_access_from_file_urls = true;
-        web_kit_settings.allow_universal_access_from_file_urls = false;
         web_kit_settings.default_font_family = Gtk.Settings.get_default().gtk_font_name;
-        web_kit_settings.enable_dns_prefetching = false;
-        web_kit_settings.enable_html5_database = true;
-        web_kit_settings.enable_html5_local_storage = true;
         web_kit_settings.enable_java = false;
-        web_kit_settings.enable_javascript = true;
         web_kit_settings.enable_mediasource = true;
         web_kit_settings.enable_plugins = false;
-        web_kit_settings.enable_resizable_text_areas = true;
-        web_kit_settings.enable_site_specific_quirks = true;
         web_kit_settings.enable_smooth_scrolling = true;
-        web_kit_settings.javascript_can_access_clipboard = false;
-        web_kit_settings.javascript_can_open_windows_automatically = false;
-        web_kit_settings.media_playback_allows_inline = true;
 
         web_view = new WebKit.WebView.with_context (web_context);
         web_view.expand = true;
