@@ -145,47 +145,60 @@ public class BrowserButton : Gtk.Grid {
 
             // Update open_button when the gsettings value has changed
             settings.changed["last-used-browser"].connect (() => {
-                if (!last_used_browser_shown) {
-                    // Add style classes if no browser has been used before
-                    last_used_browser_shown = true;
-                    var open_button_context = open_button.get_style_context ();
-                    open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
-                    open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+                if (settings.get_string ("last-used-browser") != "") {
+                    if (!last_used_browser_shown) {
+                        // Add style classes if no browser has been used before
+                        last_used_browser_shown = true;
+                        var open_button_context = open_button.get_style_context ();
+                        open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
+                        open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
 
+                        list_button.hide ();
+                        list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+
+                        var list_button_context = list_button.get_style_context ();
+                        list_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
+                        list_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+
+                        list_button.show_all ();
+                    } else {
+                        open_button.hide ();
+                    }
+
+                    // Show the last-used browser
+                    foreach (AppInfo app_info in external_apps) {
+                        if (app_info.get_id () == settings.get_string ("last-used-browser")) {
+                            var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
+                            browser_icon.pixel_size = 24;
+            
+                            open_button.image = browser_icon;
+                            open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+                            open_button.show_all ();
+            
+                            open_button.disconnect (last_browser_handler_id);
+                            last_browser_handler_id = open_button.clicked.connect (() => {
+                                var uris = new List<string> ();
+                                uris.append (web_view.get_uri ());
+            
+                                try {
+                                    app_info.launch_uris (uris, null);
+                                } catch (GLib.Error e) {
+                                    critical (e.message);
+                                }
+                            });
+                        }
+                    }
+                } else {
+                    last_used_browser_shown = false;
+                    open_button.hide ();
                     list_button.hide ();
-                    list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+                    list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
 
                     var list_button_context = list_button.get_style_context ();
-                    list_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
-                    list_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+                    list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
+                    list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
 
                     list_button.show_all ();
-                } else {
-                   open_button.hide ();
-                }
-
-                // Show the last-used browser
-                foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == settings.get_string ("last-used-browser")) {
-                        var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
-                        browser_icon.pixel_size = 24;
-        
-                        open_button.image = browser_icon;
-                        open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
-                        open_button.show_all ();
-        
-                        open_button.disconnect (last_browser_handler_id);
-                        last_browser_handler_id = open_button.clicked.connect (() => {
-                            var uris = new List<string> ();
-                            uris.append (web_view.get_uri ());
-        
-                            try {
-                                app_info.launch_uris (uris, null);
-                            } catch (GLib.Error e) {
-                                critical (e.message);
-                            }
-                        });
-                    }
                 }
             });
         } else {
