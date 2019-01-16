@@ -48,12 +48,11 @@ public class BrowserButton : Gtk.Grid {
             var last_used_browser_shown = false;
 
             if (settings.get_string ("last-used-browser") != "") {
-                // Show the last-used browser
                 foreach (AppInfo app_info in external_apps) {
                     if (app_info.get_id () == settings.get_string ("last-used-browser")) {
                         var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                         browser_icon.pixel_size = 24;
-        
+
                         open_button.image = browser_icon;
                         open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
 
@@ -61,11 +60,11 @@ public class BrowserButton : Gtk.Grid {
                         open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
                         open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
                         last_used_browser_shown = true;
-        
+
                         last_browser_handler_id = open_button.clicked.connect (() => {
                             var uris = new List<string> ();
                             uris.append (web_view.get_uri ());
-        
+
                             try {
                                 app_info.launch_uris (uris, null);
                             } catch (GLib.Error e) {
@@ -170,16 +169,16 @@ public class BrowserButton : Gtk.Grid {
                         if (app_info.get_id () == settings.get_string ("last-used-browser")) {
                             var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                             browser_icon.pixel_size = 24;
-            
+
                             open_button.image = browser_icon;
                             open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
                             open_button.show_all ();
-            
+
                             open_button.disconnect (last_browser_handler_id);
                             last_browser_handler_id = open_button.clicked.connect (() => {
                                 var uris = new List<string> ();
                                 uris.append (web_view.get_uri ());
-            
+
                                 try {
                                     app_info.launch_uris (uris, null);
                                 } catch (GLib.Error e) {
