@@ -28,8 +28,8 @@
   background-image:
     linear-gradient(
       to bottom,
-      alpha(white, 0.2),
-      alpha(black, 0.2)
+      alpha(white, 0.1),
+      alpha(black, 0.1)
     ),
     linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
   color: @textColorPrimary;
@@ -38,8 +38,8 @@
 .titlebar button.raised {
   background-image: linear-gradient(
     to bottom,
-    alpha(white, 0.2),
-    alpha(black, 0.2)
+    alpha(white, 0.1),
+    alpha(black, 0.1)
   );
   border-color: shade(@colorPrimary, 0.75);
   color: @textColorPrimary;
