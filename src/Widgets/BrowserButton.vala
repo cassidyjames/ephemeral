@@ -21,6 +21,8 @@
 
 public class BrowserButton : Gtk.Grid {
     public WebKit.WebView web_view { get; construct set; }
+    public Gtk.MenuButton list_button {get; construct set; }
+    public Gtk.Button open_button {get; construct set; }
 
     public BrowserButton (WebKit.WebView _web_view) {
         Object (
@@ -31,6 +33,10 @@ public class BrowserButton : Gtk.Grid {
     construct {
         var settings = new Settings ("com.github.cassidyjames.ephemeral");
 
+        // REFACTOR
+        
+        // END REFACTOR
+
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Ephemeral.CONTENT_TYPES[0]);
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
@@ -39,8 +45,11 @@ public class BrowserButton : Gtk.Grid {
         }
 
         if (external_apps.length () > 1) {
-            var list_button = new Gtk.MenuButton ();
-            var open_button = new Gtk.Button ();
+            list_button = new Gtk.MenuButton ();
+            list_button.tooltip_text = "Open page in…";
+
+            open_button = new Gtk.Button ();
+
             ulong last_browser_handler_id;
 
             attach (open_button, 0, 0);
@@ -55,6 +64,7 @@ public class BrowserButton : Gtk.Grid {
 
                         open_button.image = browser_icon;
                         open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+                        open_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, open_button.tooltip_text);
 
                         var open_button_context = open_button.get_style_context ();
                         open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
@@ -86,15 +96,13 @@ public class BrowserButton : Gtk.Grid {
                     }
                 });
 
-                // Show an export-icon
+                list_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, list_button.tooltip_text);
                 list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
 
                 var list_button_context = list_button.get_style_context ();
                 list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
                 list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
             }
-
-            list_button.tooltip_text = "Open page in…";
 
             var list_popover = new Gtk.Popover (list_button);
             list_button.popover = list_popover;
@@ -192,6 +200,7 @@ public class BrowserButton : Gtk.Grid {
                     open_button.hide ();
                     list_button.hide ();
                     list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
+                    list_button.tooltip_text = "Open page in…";
 
                     var list_button_context = list_button.get_style_context ();
                     list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
@@ -224,6 +233,14 @@ public class BrowserButton : Gtk.Grid {
                     }
                 });
             }
+        }
+    }
+
+    public virtual override new signal void activate () {
+        if (open_button.visible && sensitive) {
+            open_button.activate ();
+        } else if (list_button.visible && sensitive) {
+            list_button.activate ();
         }
     }
 }
