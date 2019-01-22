@@ -28,13 +28,14 @@ public class NetworkInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var settings = new Settings ("com.github.cassidyjames.ephemeral");
+        var settings = new Settings (Ephemeral.instance.application_id);
 
         var default_label = new Gtk.Label ("<b>Network Not Available.</b> Connect to the Internet to browse the Web.");
         default_label.use_markup = true;
         default_label.wrap = true;
 
         var never_button = new Gtk.Button.with_label ("Never Warn Again");
+        never_button.halign = Gtk.Align.END;
         never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         get_content_area ().add (default_label);

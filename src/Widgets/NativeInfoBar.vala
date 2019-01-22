@@ -19,10 +19,10 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class DefaultInfoBar : Gtk.InfoBar {
-    public DefaultInfoBar () {
+public class NativeInfoBar : Gtk.InfoBar {
+    public NativeInfoBar () {
         Object (
-            message_type: Gtk.MessageType.QUESTION,
+            message_type: Gtk.MessageType.INFO,
             show_close_button: true
         );
     }
@@ -30,42 +30,41 @@ public class DefaultInfoBar : Gtk.InfoBar {
     construct {
         var settings = new Settings (Ephemeral.instance.application_id);
 
-        var default_label = new Gtk.Label ("<b>Make privacy a habit.</b> Set Ephemeral as your default browser?\n<small>You can always change this later in <i>System Settings</i> → <i>Applications</i>.</small>");
+        var default_label = new Gtk.Label ("<b>Ephemeral is a paid app designed for elementary OS.</b> Some features may not work properly when running on another OS or desktop environment.\n<small>Ephemeral is also typically funded by elementary AppCenter purchases. Consider donating if you find value in using Ephemeral on other platforms.</small>");
         default_label.use_markup = true;
         default_label.wrap = true;
 
-        var default_app_info = GLib.AppInfo.get_default_for_type (Ephemeral.CONTENT_TYPES[0], false);
-        var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
+        var dismiss_button = new Gtk.Button.with_label ("Dismiss");
+        dismiss_button.halign = Gtk.Align.END;
+        dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
-        var never_button = new Gtk.Button.with_label ("Never Ask Again");
-        never_button.halign = Gtk.Align.END;
-        never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        var donate_button = new Gtk.Button.with_label ("Donate…");
+        donate_button.tooltip_text = Ephemeral.DONATE_URL;
 
         get_content_area ().add (default_label);
-        add_action_widget (never_button, Gtk.ResponseType.REJECT);
-        add_button ("Set as Default", Gtk.ResponseType.ACCEPT);
+        add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);
+        add_action_widget (donate_button, Gtk.ResponseType.ACCEPT);
+
+        int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            !default_app_info.equal (app_info) &&
-            settings.get_boolean ("ask-default") &&
-            Ephemeral.instance.ask_default_for_session;
+            ! Ephemeral.instance.native () &&
+            (settings.get_int64 ("last-native-response") < now - Ephemeral.NOTICE_SECS) &&
+            Ephemeral.instance.warn_native_for_session;
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        for (int i = 0; i < Ephemeral.CONTENT_TYPES.length; i++) {
-                            app_info.set_as_default_for_type (Ephemeral.CONTENT_TYPES[i]);
-                        }
+                        Gtk.show_uri (get_screen (), Ephemeral.DONATE_URL, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
-                    revealed = false;
-                    break;
                 case Gtk.ResponseType.REJECT:
-                    settings.set_boolean ("ask-default", false);
+                    now = new DateTime.now_utc ().to_unix ();
+                    settings.set_int64 ("last-native-response", now);
                 case Gtk.ResponseType.CLOSE:
-                    Ephemeral.instance.ask_default_for_session = false;
+                    Ephemeral.instance.warn_native_for_session = false;
                     revealed = false;
                     break;
                 default:
