@@ -225,7 +225,6 @@ public class MainWindow : Gtk.Window {
         add (grid);
 
         show_all ();
-        update_zoom_button ();
 
         if (uri != null && uri != "") {
             web_view.load_uri (uri);
@@ -253,7 +252,6 @@ public class MainWindow : Gtk.Window {
         web_view.notify["uri"].connect (update_progress);
         web_view.notify["estimated-load-progress"].connect (update_progress);
         web_view.notify["is-loading"].connect (update_progress);
-        web_view.notify["zoom-level"].connect (update_zoom_button);
 
         web_view.decide_policy.connect ((decision, type) => {
             switch (type) {
@@ -309,6 +307,13 @@ public class MainWindow : Gtk.Window {
         });
 
         Ephemeral.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+        Ephemeral.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
+            (value, variant) => {
+                value.set_string ("%.0f%%".printf (variant.get_double () * 100));
+                return true;
+            },
+            () => { return true; }, null, null
+        );
         stack.bind_property ("visible-child-name", zoom_grid, "sensitive",
             BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
@@ -509,7 +514,6 @@ public class MainWindow : Gtk.Window {
         } else {
             Gdk.beep ();
         }
-        update_zoom_button ();
 
         return;
     }
@@ -520,20 +524,12 @@ public class MainWindow : Gtk.Window {
         } else {
             Gdk.beep ();
         }
-        update_zoom_button ();
 
         return;
     }
 
     private void zoom_default () {
         web_view.zoom_level = 1.0;
-        update_zoom_button ();
-
-        return;
-    }
-
-    private void update_zoom_button () {
-        zoom_default_button.label = "%.0f%%".printf (Ephemeral.settings.get_double ("zoom") * 100);
 
         return;
     }
