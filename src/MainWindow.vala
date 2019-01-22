@@ -283,6 +283,46 @@ public class MainWindow : Gtk.Window {
             }
         );
 
+        accel_group.connect (
+            Gdk.Key.plus,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                zoom_in ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.equal,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                zoom_in ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.minus,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                zoom_out ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.@0,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                zoom_default ();
+                return true;
+            }
+        );
+
         add_accel_group (accel_group);
 
         web_view.button_release_event.connect ((event) => {
@@ -364,6 +404,28 @@ public class MainWindow : Gtk.Window {
             uri.has_prefix ("https://") ||
             (uri.has_prefix ("data:") && (";" in uri)) ||
             uri.has_prefix ("javascript:");
+    }
+
+    private double zoom_in () {
+        if (web_view.zoom_level < 5.0) {
+            web_view.zoom_level = web_view.zoom_level + 0.1;
+        } else {
+            Gdk.beep ();
+        }
+        return web_view.zoom_level;
+    }
+
+    private double zoom_out () {
+        if (web_view.zoom_level > 0.2) {
+            web_view.zoom_level = web_view.zoom_level - 0.1;
+        } else {
+            Gdk.beep ();
+        }
+        return web_view.zoom_level;
+    }
+
+    private double zoom_default () {
+        return web_view.zoom_level = 1.0;
     }
 }
 
