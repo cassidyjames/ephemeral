@@ -389,7 +389,12 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                zoom_in ();
+                if (stack.visible_child_name == "web-view") {
+                    zoom_in ();
+                } else {
+                    Gdk.beep ();
+                }
+
                 return true;
             }
         );
@@ -399,7 +404,12 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                zoom_in ();
+                if (stack.visible_child_name == "web-view") {
+                    zoom_in ();
+                } else {
+                    Gdk.beep ();
+                }
+
                 return true;
             }
         );
@@ -409,7 +419,12 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                zoom_out ();
+                if (stack.visible_child_name == "web-view") {
+                    zoom_out ();
+                } else {
+                    Gdk.beep ();
+                }
+
                 return true;
             }
         );
@@ -419,7 +434,12 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                zoom_default ();
+                if (stack.visible_child_name == "web-view") {
+                    zoom_default ();
+                } else {
+                    Gdk.beep ();
+                }
+
                 return true;
             }
         );
