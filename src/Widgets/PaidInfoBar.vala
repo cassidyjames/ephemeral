@@ -19,10 +19,10 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class NetworkInfoBar : Gtk.InfoBar {
-    public NetworkInfoBar () {
+public class PaidInfoBar : Gtk.InfoBar {
+    public PaidInfoBar () {
         Object (
-            message_type: Gtk.MessageType.WARNING,
+            message_type: Gtk.MessageType.INFO,
             show_close_button: true
         );
     }
@@ -30,52 +30,40 @@ public class NetworkInfoBar : Gtk.InfoBar {
     construct {
         var settings = new Settings (Ephemeral.instance.application_id);
 
-        var default_label = new Gtk.Label ("<b>Network Not Available.</b> Connect to the Internet to browse the Web.");
+        var default_label = new Gtk.Label ("<b>Ephemeral is a paid app</b> funded by AppCenter purchases.\n<small>Consider purchasing or funding if you find value in using Ephemeral.</small>");
         default_label.use_markup = true;
         default_label.wrap = true;
 
-        var never_button = new Gtk.Button.with_label ("Never Warn Again");
-        never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
-
         get_content_area ().add (default_label);
-        add_action_widget (never_button, Gtk.ResponseType.REJECT);
-        add_button ("Network Settings…", Gtk.ResponseType.ACCEPT);
+        add_button ("Purchase or Fund…", Gtk.ResponseType.ACCEPT);
 
-        try_set_revealed ();
+        int64 now = new DateTime.now_utc ().to_unix ();
+
+        revealed =
+            Ephemeral.instance.get_native () &&
+            ! Ephemeral.instance.paid &&
+            (settings.get_int64 ("last-paid-response") < now - Ephemeral.NOTICE_SECS) &&
+            Ephemeral.instance.warn_paid_for_session;
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        AppInfo.launch_default_for_uri ("settings://network", null);
+                        Gtk.show_uri (get_screen (), "appstream://" + Ephemeral.instance.application_id, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
-                    break;
                 case Gtk.ResponseType.REJECT:
-                    settings.set_boolean ("warn-network", false);
+                    now = new DateTime.now_utc ().to_unix ();
+                    settings.set_int64 ("last-paid-response", now);
                 case Gtk.ResponseType.CLOSE:
+                    Ephemeral.instance.warn_paid_for_session = false;
                     revealed = false;
                     break;
                 default:
                     assert_not_reached ();
             }
         });
-
-        var network_monitor = NetworkMonitor.get_default ();
-        network_monitor.network_changed.connect (() => {
-            try_set_revealed ();
-        });
-    }
-
-    private void try_set_revealed (bool? reveal = true) {
-        var settings = new Settings ("com.github.cassidyjames.ephemeral");
-        var network_available = NetworkMonitor.get_default ().get_network_available ();
-
-        revealed =
-            reveal &&
-            settings.get_boolean ("warn-network") &&
-            !network_available;
     }
 }
 

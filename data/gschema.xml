@@ -6,6 +6,18 @@
       <summary>Ask to be default</summary>
       <description>Whether or not Ephemeral should ask to be the default web browser (if it isn't already)</description>
     </key>
+    <key name="last-native-response" type="x">
+      <!-- int64 min -->
+      <default>-9223372036854775808</default>
+      <summary>Last native response</summary>
+      <description>The last time (Unix timestamp in UTC) the user responded to the notice about running Ephemeral somewhere other than elementary OS</description>
+    </key>
+    <key name="last-paid-response" type="x">
+      <!-- int64 min -->
+      <default>-9223372036854775808</default>
+      <summary>Last paid response</summary>
+      <description>The last time (Unix timestamp in UTC) the user responded to the notice about Ephemeral being a paid app</description>
+    </key>
     <key name="warn-network" type="b">
       <default>true</default>
       <summary>Warn on no network connection</summary>

@@ -30,9 +30,15 @@ public class Ephemeral : Gtk.Application {
         "application/xhtml+xml",
         "application/x-extension-xht"
     };
+    // Once a month
+    public const int64 NOTICE_SECS = 60 * 60 * 24 * 30;
 
     public bool ask_default_for_session = true;
     private bool opening_link = false;
+
+    public bool warn_native_for_session = true;
+    public bool warn_paid_for_session = true;
+    public bool paid = false;
 
     public Ephemeral () {
         Object (
@@ -57,6 +63,15 @@ public class Ephemeral : Gtk.Application {
             app_window.show_all ();
         }
 
+        bool paid = false;
+        var appcenter_settings_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.appcenter.settings", false);
+        if (appcenter_settings_schema != null) {
+            if (appcenter_settings_schema.has_key ("paid-apps")) {
+                var appcenter_settings = new GLib.Settings ("io.elementary.appcenter.settings");
+                paid = strv_contains (appcenter_settings.get_strv ("paid-apps"), Ephemeral.instance.application_id);
+            }
+        }
+
         var quit_action = new SimpleAction ("quit", null);
         add_action (quit_action);
         set_accels_for_action ("app.quit", {"<Ctrl>Q"});
@@ -65,7 +80,9 @@ public class Ephemeral : Gtk.Application {
             quit ();
         });
 
-        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = true;
+        var gtk_settings = Gtk.Settings.get_default ();
+        gtk_settings.gtk_application_prefer_dark_theme = true;
+        gtk_settings.gtk_theme_name = "elementary";
 
         var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/com/github/cassidyjames/ephemeral/Application.css");
@@ -90,6 +107,16 @@ public class Ephemeral : Gtk.Application {
     public static int main (string[] args) {
         var app = new Ephemeral ();
         return app.run (args);
+    }
+
+    public bool get_native () {
+        var gtk_settings = Gtk.Settings.get_default ();
+
+        // TODO: Consider checking for other factors as well
+        return (
+            Environment.get_variable ("DESKTOP_SESSION") == "pantheon" &&
+            gtk_settings.gtk_theme_name == "elementary"
+        );
     }
 }
 

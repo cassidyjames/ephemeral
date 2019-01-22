@@ -38,7 +38,7 @@ public class MainWindow : Gtk.Window {
         Object (
             application: application,
             border_width: 0,
-            icon_name: "com.github.cassidyjames.ephemeral",
+            icon_name: Ephemeral.instance.application_id,
             resizable: true,
             title: "Ephemeral",
             uri: _uri,
@@ -116,6 +116,8 @@ public class MainWindow : Gtk.Window {
 
         header.custom_title = url_entry;
 
+        var paid_info_bar = new PaidInfoBar ();
+        var native_info_bar = new NativeInfoBar ();
         var default_info_bar = new DefaultInfoBar ();
         var network_info_bar = new NetworkInfoBar ();
 
@@ -131,6 +133,8 @@ public class MainWindow : Gtk.Window {
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
+        grid.add (paid_info_bar);
+        grid.add (native_info_bar);
         grid.add (default_info_bar);
         grid.add (network_info_bar);
         grid.add (stack);
@@ -319,7 +323,7 @@ public class MainWindow : Gtk.Window {
         close ();
     }
 
-    private void new_window (string? uri = null) {
+    public void new_window (string? uri = null) {
         var app_window = new MainWindow (application, uri);
         app_window.show_all ();
     }

@@ -28,7 +28,7 @@ public class DefaultInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var settings = new Settings ("com.github.cassidyjames.ephemeral");
+        var settings = new Settings (Ephemeral.instance.application_id);
 
         var default_label = new Gtk.Label ("<b>Make privacy a habit.</b> Set Ephemeral as your default browser?\n<small>You can always change this later in <i>System Settings</i> → <i>Applications</i>.</small>");
         default_label.use_markup = true;
