@@ -29,6 +29,16 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.0.0" date="2019-01-20">
+      <description>
+        <p>A couple small enhancements:</p>
+        <ul>
+          <li>You can always pick a browser from the list, but now your last-used one is remembered for next time</li>
+          <li>Ctrl+O to open the current page in another browser</li>
+          <li>Refined (ever-so-subtly less flat) HeaderBar design</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.0" date="2019-01-15">
       <description>
         <p>A couple small enhancements:</p>
