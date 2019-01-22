@@ -253,6 +253,7 @@ public class MainWindow : Gtk.Window {
         web_view.notify["uri"].connect (update_progress);
         web_view.notify["estimated-load-progress"].connect (update_progress);
         web_view.notify["is-loading"].connect (update_progress);
+        web_view.notify["zoom-level"].connect (update_zoom_button);
 
         web_view.decide_policy.connect ((decision, type) => {
             switch (type) {

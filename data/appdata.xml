@@ -35,6 +35,7 @@
         <ul>
           <li>Zoom controls are now only sensitive when the web view is visible</li>
           <li>Reported zoom level is now correct when opening a new window</li>
+          <li>Reported zoom level is now kept in sync across open windows</li>
         </ul>
       </description>
     </release>
