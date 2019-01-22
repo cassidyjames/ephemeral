@@ -22,6 +22,7 @@
 public class MainWindow : Gtk.Window {
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
+    private Gtk.Button zoom_default_button;
 
     public Gtk.Stack stack { get; construct set; }
     public WebKit.WebView web_view { get; construct set; }
@@ -30,7 +31,7 @@ public class MainWindow : Gtk.Window {
     public Gtk.Button forward_button { get; construct set; }
     public Gtk.Button refresh_button { get; construct set; }
     public Gtk.Button stop_button { get; construct set; }
-    public Gtk.Entry url_entry { get; construct set; }
+    public UrlEntry url_entry { get; construct set; }
     public BrowserButton browser_button { get; construct set; }
     public Gtk.Button erase_button { get; construct set; }
 
@@ -107,9 +108,56 @@ public class MainWindow : Gtk.Window {
         browser_button = new BrowserButton (web_view);
         browser_button.sensitive = false;
 
+        var settings_button = new Gtk.MenuButton ();
+        settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+        settings_button.tooltip_text = "Settings";
+
+        var settings_popover = new Gtk.Popover (settings_button);
+        settings_button.popover = settings_popover;
+
+        var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
+        zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
+            {"<Ctrl>Minus"},
+            "Zoom out"
+        );
+        zoom_out_button.clicked.connect (zoom_out);
+
+        zoom_default_button = new Gtk.Button.with_label ("100%");
+        zoom_default_button.tooltip_markup = Granite.markup_accel_tooltip (
+            {"<Ctrl>0"},
+            "Default zoom level"
+        );
+        zoom_default_button.clicked.connect (zoom_default);
+
+        var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
+        zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
+            {"<Ctrl>Plus"},
+            "Zoom in"
+        );
+        zoom_in_button.clicked.connect (zoom_in);
+
+        var zoom_grid = new Gtk.Grid ();
+        zoom_grid.column_homogeneous = true;
+        zoom_grid.hexpand = true;
+        zoom_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        zoom_grid.add (zoom_out_button);
+        zoom_grid.add (zoom_default_button);
+        zoom_grid.add (zoom_in_button);
+
+        var settings_popover_grid = new Gtk.Grid ();
+        settings_popover_grid.column_spacing = 6;
+        settings_popover_grid.margin = 12;
+        settings_popover_grid.row_spacing = 12;
+        settings_popover_grid.width_request = 200;
+        settings_popover_grid.add (zoom_grid);
+        settings_popover_grid.show_all ();
+
+        settings_popover.add (settings_popover_grid);
+
         header.pack_start (back_button);
         header.pack_start (forward_button);
         header.pack_start (refresh_stop_stack);
+        header.pack_end (settings_button);
         header.pack_end (browser_button);
         header.pack_end (new_window_button);
         header.pack_end (erase_button);
@@ -408,26 +456,33 @@ public class MainWindow : Gtk.Window {
             uri.has_prefix ("javascript:");
     }
 
-    private double zoom_in () {
+    private void zoom_in () {
         if (web_view.zoom_level < 5.0) {
             web_view.zoom_level = web_view.zoom_level + 0.1;
         } else {
             Gdk.beep ();
         }
-        return web_view.zoom_level;
+        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+
+        return;
     }
 
-    private double zoom_out () {
+    private void zoom_out () {
         if (web_view.zoom_level > 0.2) {
             web_view.zoom_level = web_view.zoom_level - 0.1;
         } else {
             Gdk.beep ();
         }
-        return web_view.zoom_level;
+        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+
+        return;
     }
 
-    private double zoom_default () {
-        return web_view.zoom_level = 1.0;
+    private void zoom_default () {
+        web_view.zoom_level = 1.0;
+        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+
+        return;
     }
 }
 
