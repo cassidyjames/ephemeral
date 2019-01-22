@@ -29,6 +29,15 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="3.2.1" date="2019-01-22">
+      <description>
+        <p>Fixed a few small issues with zoom:</p>
+        <ul>
+          <li>Zoom controls are now only sensitive when the web view is visible</li>
+          <li>Reported zoom level is now correct when opening a new window</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.0" date="2019-01-21">
       <description>
         <p>Zoom! And more…</p>
