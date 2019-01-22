@@ -389,12 +389,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                if (stack.visible_child_name == "web-view") {
-                    zoom_in ();
-                } else {
-                    Gdk.beep ();
-                }
-
+                zoom_in ();
                 return true;
             }
         );
@@ -404,12 +399,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                if (stack.visible_child_name == "web-view") {
-                    zoom_in ();
-                } else {
-                    Gdk.beep ();
-                }
-
+                zoom_in ();
                 return true;
             }
         );
@@ -419,12 +409,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                if (stack.visible_child_name == "web-view") {
-                    zoom_out ();
-                } else {
-                    Gdk.beep ();
-                }
-
+                zoom_out ();
                 return true;
             }
         );
@@ -434,12 +419,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                if (stack.visible_child_name == "web-view") {
-                    zoom_default ();
-                } else {
-                    Gdk.beep ();
-                }
-
+                zoom_default ();
                 return true;
             }
         );
@@ -528,7 +508,7 @@ public class MainWindow : Gtk.Window {
     }
 
     private void zoom_in () {
-        if (web_view.zoom_level < 5.0) {
+        if (web_view.zoom_level < 5.0 && stack.visible_child_name == "web-view") {
             web_view.zoom_level = web_view.zoom_level + 0.1;
         } else {
             Gdk.beep ();
@@ -538,7 +518,7 @@ public class MainWindow : Gtk.Window {
     }
 
     private void zoom_out () {
-        if (web_view.zoom_level > 0.2) {
+        if (web_view.zoom_level > 0.2 && stack.visible_child_name == "web-view") {
             web_view.zoom_level = web_view.zoom_level - 0.1;
         } else {
             Gdk.beep ();
@@ -548,7 +528,11 @@ public class MainWindow : Gtk.Window {
     }
 
     private void zoom_default () {
-        web_view.zoom_level = 1.0;
+        if (stack.visible_child_name == "web-view") {
+            web_view.zoom_level = 1.0;
+        } else {
+            Gdk.beep ();
+        }
 
         return;
     }
