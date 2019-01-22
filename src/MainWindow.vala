@@ -225,6 +225,7 @@ public class MainWindow : Gtk.Window {
         add (grid);
 
         show_all ();
+        update_zoom_button ();
 
         if (uri != null && uri != "") {
             web_view.load_uri (uri);
@@ -499,7 +500,7 @@ public class MainWindow : Gtk.Window {
         } else {
             Gdk.beep ();
         }
-        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+        update_zoom_button ();
 
         return;
     }
@@ -510,14 +511,20 @@ public class MainWindow : Gtk.Window {
         } else {
             Gdk.beep ();
         }
-        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+        update_zoom_button ();
 
         return;
     }
 
     private void zoom_default () {
         web_view.zoom_level = 1.0;
-        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+        update_zoom_button ();
+
+        return;
+    }
+
+    private void update_zoom_button () {
+        zoom_default_button.label = "%.0f%%".printf (Ephemeral.settings.get_double ("zoom") * 100);
 
         return;
     }
