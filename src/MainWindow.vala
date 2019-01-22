@@ -221,6 +221,8 @@ public class MainWindow : Gtk.Window {
             return true;
         });
 
+        Ephemeral.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+
         var accel_group = new Gtk.AccelGroup ();
 
         accel_group.connect (

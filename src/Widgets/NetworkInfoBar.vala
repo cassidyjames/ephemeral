@@ -28,8 +28,6 @@ public class NetworkInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var settings = new Settings (Ephemeral.instance.application_id);
-
         var default_label = new Gtk.Label ("<b>Network Not Available.</b> Connect to the Internet to browse the Web.");
         default_label.use_markup = true;
         default_label.wrap = true;
@@ -54,7 +52,7 @@ public class NetworkInfoBar : Gtk.InfoBar {
                     }
                     break;
                 case Gtk.ResponseType.REJECT:
-                    settings.set_boolean ("warn-network", false);
+                    Ephemeral.settings.set_boolean ("warn-network", false);
                 case Gtk.ResponseType.CLOSE:
                     revealed = false;
                     break;
@@ -70,12 +68,11 @@ public class NetworkInfoBar : Gtk.InfoBar {
     }
 
     private void try_set_revealed (bool? reveal = true) {
-        var settings = new Settings ("com.github.cassidyjames.ephemeral");
         var network_available = NetworkMonitor.get_default ().get_network_available ();
 
         revealed =
             reveal &&
-            settings.get_boolean ("warn-network") &&
+            Ephemeral.settings.get_boolean ("warn-network") &&
             !network_available;
     }
 }

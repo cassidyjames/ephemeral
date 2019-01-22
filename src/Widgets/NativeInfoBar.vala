@@ -28,8 +28,6 @@ public class NativeInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var settings = new Settings (Ephemeral.instance.application_id);
-
         var default_label = new Gtk.Label ("<b>Ephemeral is a paid app designed for elementary OS.</b> Some features may not work properly when running on another OS or desktop environment.\n<small>Ephemeral is also typically funded by elementary AppCenter purchases. Consider donating if you find value in using Ephemeral on other platforms.</small>");
         default_label.use_markup = true;
         default_label.wrap = true;
@@ -49,7 +47,7 @@ public class NativeInfoBar : Gtk.InfoBar {
 
         revealed =
             ! Ephemeral.instance.native () &&
-            (settings.get_int64 ("last-native-response") < now - Ephemeral.NOTICE_SECS) &&
+            (Ephemeral.settings.get_int64 ("last-native-response") < now - Ephemeral.NOTICE_SECS) &&
             Ephemeral.instance.warn_native_for_session;
 
         response.connect ((response_id) => {
@@ -62,7 +60,7 @@ public class NativeInfoBar : Gtk.InfoBar {
                     }
                 case Gtk.ResponseType.REJECT:
                     now = new DateTime.now_utc ().to_unix ();
-                    settings.set_int64 ("last-native-response", now);
+                    Ephemeral.settings.set_int64 ("last-native-response", now);
                 case Gtk.ResponseType.CLOSE:
                     Ephemeral.instance.warn_native_for_session = false;
                     revealed = false;

@@ -34,11 +34,13 @@ public class Ephemeral : Gtk.Application {
     public const int64 NOTICE_SECS = 60 * 60 * 24 * 30;
     public const string DONATE_URL = "https://cassidyjames.com/pay";
 
-    public bool ask_default_for_session = true;
-    private bool opening_link = false;
+    public static GLib.Settings settings;
 
+    public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
+
+    private bool opening_link = false;
 
     public Ephemeral () {
         Object (
@@ -55,6 +57,10 @@ public class Ephemeral : Gtk.Application {
             }
             return _instance;
         }
+    }
+
+    static construct {
+        settings = new Settings (Ephemeral.instance.application_id);
     }
 
     protected override void activate () {
