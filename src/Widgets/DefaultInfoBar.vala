@@ -38,6 +38,7 @@ public class DefaultInfoBar : Gtk.InfoBar {
         var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
 
         var never_button = new Gtk.Button.with_label ("Never Ask Again");
+        never_button.halign = Gtk.Align.END;
         never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         get_content_area ().add (default_label);

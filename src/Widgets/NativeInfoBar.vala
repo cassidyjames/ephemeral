@@ -35,6 +35,7 @@ public class NativeInfoBar : Gtk.InfoBar {
         default_label.wrap = true;
 
         var dismiss_button = new Gtk.Button.with_label ("Dismiss");
+        dismiss_button.halign = Gtk.Align.END;
         dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         var donate_button = new Gtk.Button.with_label ("Donate…");
