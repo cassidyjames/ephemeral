@@ -94,10 +94,6 @@ public class MainWindow : Gtk.Window {
         refresh_stop_stack.add (stop_button);
         refresh_stop_stack.visible_child = refresh_button;
 
-        var new_window_button = new Gtk.Button.from_icon_name ("window-new", Gtk.IconSize.LARGE_TOOLBAR);
-        new_window_button.tooltip_text = "Open new window";
-        new_window_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>n"}, new_window_button.tooltip_text);
-
         url_entry = new UrlEntry (web_view);
 
         erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
@@ -139,17 +135,34 @@ public class MainWindow : Gtk.Window {
         var zoom_grid = new Gtk.Grid ();
         zoom_grid.column_homogeneous = true;
         zoom_grid.hexpand = true;
+        zoom_grid.margin = 12;
         zoom_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+
         zoom_grid.add (zoom_out_button);
         zoom_grid.add (zoom_default_button);
         zoom_grid.add (zoom_in_button);
 
+        var new_window_label = new Gtk.Label ("Open new window");
+        new_window_label.halign = Gtk.Align.START;
+        new_window_label.hexpand = true;
+
+        var new_window_accel_label = new Gtk.Label (Granite.markup_accel_tooltip ({"<Ctrl>n"}));
+        new_window_accel_label.halign = Gtk.Align.END;
+        new_window_accel_label.use_markup = true;
+
+        var new_window_grid = new Gtk.Grid ();
+        new_window_grid.add (new_window_label);
+        new_window_grid.add (new_window_accel_label);
+
+        var new_window_button = new Gtk.Button ();
+        new_window_button.add (new_window_grid);
+        new_window_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
         var settings_popover_grid = new Gtk.Grid ();
-        settings_popover_grid.column_spacing = 6;
-        settings_popover_grid.margin = 12;
-        settings_popover_grid.row_spacing = 12;
         settings_popover_grid.width_request = 200;
-        settings_popover_grid.add (zoom_grid);
+
+        settings_popover_grid.attach (zoom_grid, 0, 0);
+        settings_popover_grid.attach (new_window_button, 0, 1);
         settings_popover_grid.show_all ();
 
         settings_popover.add (settings_popover_grid);
@@ -159,7 +172,6 @@ public class MainWindow : Gtk.Window {
         header.pack_start (refresh_stop_stack);
         header.pack_end (settings_button);
         header.pack_end (browser_button);
-        header.pack_end (new_window_button);
         header.pack_end (erase_button);
 
         header.custom_title = url_entry;
