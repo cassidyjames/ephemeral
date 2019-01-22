@@ -33,10 +33,6 @@ public class BrowserButton : Gtk.Grid {
     construct {
         var settings = new Settings ("com.github.cassidyjames.ephemeral");
 
-        // REFACTOR
-        
-        // END REFACTOR
-
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Ephemeral.CONTENT_TYPES[0]);
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
