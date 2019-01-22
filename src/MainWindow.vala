@@ -117,7 +117,7 @@ public class MainWindow : Gtk.Window {
 
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
         zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
-            {"<Ctrl>Minus"},
+            {"<Ctrl>minus"},
             "Zoom out"
         );
         zoom_out_button.clicked.connect (zoom_out);
@@ -131,7 +131,7 @@ public class MainWindow : Gtk.Window {
 
         var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
         zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
-            {"<Ctrl>Plus"},
+            {"<Ctrl>plus"},
             "Zoom in"
         );
         zoom_in_button.clicked.connect (zoom_in);
