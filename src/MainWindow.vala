@@ -311,8 +311,7 @@ public class MainWindow : Gtk.Window {
             (value, variant) => {
                 value.set_string ("%.0f%%".printf (variant.get_double () * 100));
                 return true;
-            },
-            () => { return true; }, null, null
+            }, () => { return true; }, null, null
         );
         stack.bind_property ("visible-child-name", zoom_grid, "sensitive",
             BindingFlags.SYNC_CREATE,
