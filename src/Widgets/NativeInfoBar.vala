@@ -19,61 +19,56 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class NetworkInfoBar : Gtk.InfoBar {
-    public NetworkInfoBar () {
+public class NativeInfoBar : Gtk.InfoBar {
+    public NativeInfoBar () {
         Object (
-            message_type: Gtk.MessageType.WARNING,
+            message_type: Gtk.MessageType.INFO,
             show_close_button: true
         );
     }
 
     construct {
-        var default_label = new Gtk.Label ("<b>Network Not Available.</b> Connect to the Internet to browse the Web.");
+        var default_label = new Gtk.Label ("<b>Ephemeral is a paid app designed for elementary OS.</b> Some features may not work properly when running on another OS or desktop environment.\n<small>Ephemeral is also typically funded by elementary AppCenter purchases. Consider donating if you find value in using Ephemeral on other platforms.</small>");
         default_label.use_markup = true;
         default_label.wrap = true;
 
-        var never_button = new Gtk.Button.with_label ("Never Warn Again");
-        never_button.halign = Gtk.Align.END;
-        never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+        var dismiss_button = new Gtk.Button.with_label ("Dismiss");
+        dismiss_button.halign = Gtk.Align.END;
+        dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
+        var donate_button = new Gtk.Button.with_label ("Donate…");
+        donate_button.tooltip_text = Ephemeral.DONATE_URL;
 
         get_content_area ().add (default_label);
-        add_action_widget (never_button, Gtk.ResponseType.REJECT);
-        add_button ("Network Settings…", Gtk.ResponseType.ACCEPT);
+        add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);
+        add_action_widget (donate_button, Gtk.ResponseType.ACCEPT);
 
-        try_set_revealed ();
+        int64 now = new DateTime.now_utc ().to_unix ();
+
+        revealed =
+            ! Ephemeral.instance.native () &&
+            (Ephemeral.settings.get_int64 ("last-native-response") < now - Ephemeral.NOTICE_SECS) &&
+            Ephemeral.instance.warn_native_for_session;
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        AppInfo.launch_default_for_uri ("settings://network", null);
+                        Gtk.show_uri (get_screen (), Ephemeral.DONATE_URL, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
-                    break;
                 case Gtk.ResponseType.REJECT:
-                    Ephemeral.settings.set_boolean ("warn-network", false);
+                    now = new DateTime.now_utc ().to_unix ();
+                    Ephemeral.settings.set_int64 ("last-native-response", now);
                 case Gtk.ResponseType.CLOSE:
+                    Ephemeral.instance.warn_native_for_session = false;
                     revealed = false;
                     break;
                 default:
                     assert_not_reached ();
             }
         });
-
-        var network_monitor = NetworkMonitor.get_default ();
-        network_monitor.network_changed.connect (() => {
-            try_set_revealed ();
-        });
-    }
-
-    private void try_set_revealed (bool? reveal = true) {
-        var network_available = NetworkMonitor.get_default ().get_network_available ();
-
-        revealed =
-            reveal &&
-            Ephemeral.settings.get_boolean ("warn-network") &&
-            !network_available;
     }
 }
 

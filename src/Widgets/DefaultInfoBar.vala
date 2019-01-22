@@ -28,8 +28,6 @@ public class DefaultInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var settings = new Settings ("com.github.cassidyjames.ephemeral");
-
         var default_label = new Gtk.Label ("<b>Make privacy a habit.</b> Set Ephemeral as your default browser?\n<small>You can always change this later in <i>System Settings</i> → <i>Applications</i>.</small>");
         default_label.use_markup = true;
         default_label.wrap = true;
@@ -38,6 +36,7 @@ public class DefaultInfoBar : Gtk.InfoBar {
         var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
 
         var never_button = new Gtk.Button.with_label ("Never Ask Again");
+        never_button.halign = Gtk.Align.END;
         never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         get_content_area ().add (default_label);
@@ -46,7 +45,7 @@ public class DefaultInfoBar : Gtk.InfoBar {
 
         revealed =
             !default_app_info.equal (app_info) &&
-            settings.get_boolean ("ask-default") &&
+            Ephemeral.settings.get_boolean ("ask-default") &&
             Ephemeral.instance.ask_default_for_session;
 
         response.connect ((response_id) => {
@@ -59,8 +58,10 @@ public class DefaultInfoBar : Gtk.InfoBar {
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
+                    revealed = false;
+                    break;
                 case Gtk.ResponseType.REJECT:
-                    settings.set_boolean ("ask-default", false);
+                    Ephemeral.settings.set_boolean ("ask-default", false);
                 case Gtk.ResponseType.CLOSE:
                     Ephemeral.instance.ask_default_for_session = false;
                     revealed = false;

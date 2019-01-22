@@ -6,16 +6,32 @@
       <summary>Ask to be default</summary>
       <description>Whether or not Ephemeral should ask to be the default web browser (if it isn't already)</description>
     </key>
-    <key name="warn-network" type="b">
-      <default>true</default>
-      <summary>Warn on no network connection</summary>
-      <description>Whether or not Ephemeral should warn when there is no network available connection</description>
+    <key name="last-native-response" type="x">
+      <!-- int64 min -->
+      <default>-9223372036854775808</default>
+      <summary>Last native response</summary>
+      <description>The last time (Unix timestamp in UTC) the user responded to the notice about running Ephemeral somewhere other than elementary OS</description>
+    </key>
+    <key name="last-paid-response" type="x">
+      <!-- int64 min -->
+      <default>-9223372036854775808</default>
+      <summary>Last paid response</summary>
+      <description>The last time (Unix timestamp in UTC) the user responded to the notice about Ephemeral being a paid app</description>
     </key>
     <key name="last-used-browser" type="s">
       <default>""</default>
       <summary>Last used browser</summary>
       <description>The id of the last-used browser (the browser selected in the menu)</description>
     </key>
+    <key name="warn-network" type="b">
+      <default>true</default>
+      <summary>Warn on no network connection</summary>
+      <description>Whether or not Ephemeral should warn when there is no network available connection</description>
+    </key>
+    <key name="zoom" type="d">
+      <default>1.0</default>
+      <summary>Zoom level</summary>
+      <description>The last-used zoom level for web pages</description>
+    </key>
   </schema>
 </schemalist>
-

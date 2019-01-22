@@ -22,6 +22,7 @@
 public class MainWindow : Gtk.Window {
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
+    private Gtk.Button zoom_default_button;
 
     public Gtk.Stack stack { get; construct set; }
     public WebKit.WebView web_view { get; construct set; }
@@ -30,7 +31,7 @@ public class MainWindow : Gtk.Window {
     public Gtk.Button forward_button { get; construct set; }
     public Gtk.Button refresh_button { get; construct set; }
     public Gtk.Button stop_button { get; construct set; }
-    public Gtk.Entry url_entry { get; construct set; }
+    public UrlEntry url_entry { get; construct set; }
     public BrowserButton browser_button { get; construct set; }
     public Gtk.Button erase_button { get; construct set; }
 
@@ -38,7 +39,7 @@ public class MainWindow : Gtk.Window {
         Object (
             application: application,
             border_width: 0,
-            icon_name: "com.github.cassidyjames.ephemeral",
+            icon_name: Ephemeral.instance.application_id,
             resizable: true,
             title: "Ephemeral",
             uri: _uri,
@@ -93,10 +94,6 @@ public class MainWindow : Gtk.Window {
         refresh_stop_stack.add (stop_button);
         refresh_stop_stack.visible_child = refresh_button;
 
-        var new_window_button = new Gtk.Button.from_icon_name ("window-new", Gtk.IconSize.LARGE_TOOLBAR);
-        new_window_button.tooltip_text = "Open new window";
-        new_window_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>n"}, new_window_button.tooltip_text);
-
         url_entry = new UrlEntry (web_view);
 
         erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
@@ -107,15 +104,102 @@ public class MainWindow : Gtk.Window {
         browser_button = new BrowserButton (web_view);
         browser_button.sensitive = false;
 
+        var settings_button = new Gtk.MenuButton ();
+        settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
+        settings_button.tooltip_text = "Menu";
+
+        var settings_popover = new Gtk.Popover (settings_button);
+        settings_button.popover = settings_popover;
+
+        var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
+        zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
+            {"<Ctrl>minus"},
+            "Zoom out"
+        );
+        zoom_out_button.clicked.connect (zoom_out);
+
+        zoom_default_button = new Gtk.Button.with_label ("100%");
+        zoom_default_button.tooltip_markup = Granite.markup_accel_tooltip (
+            {"<Ctrl>0"},
+            "Default zoom level"
+        );
+        zoom_default_button.clicked.connect (zoom_default);
+
+        var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
+        zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
+            {"<Ctrl>plus"},
+            "Zoom in"
+        );
+        zoom_in_button.clicked.connect (zoom_in);
+
+        var zoom_grid = new Gtk.Grid ();
+        zoom_grid.column_homogeneous = true;
+        zoom_grid.hexpand = true;
+        zoom_grid.margin = 12;
+        zoom_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+
+        zoom_grid.add (zoom_out_button);
+        zoom_grid.add (zoom_default_button);
+        zoom_grid.add (zoom_in_button);
+
+        var new_window_label = new Gtk.Label ("Open New Window");
+        new_window_label.halign = Gtk.Align.START;
+        new_window_label.hexpand = true;
+        new_window_label.margin_start = 6;
+
+        var new_window_accel_label = new Gtk.Label (Granite.markup_accel_tooltip ({"<Ctrl>n"}));
+        new_window_accel_label.halign = Gtk.Align.END;
+        new_window_accel_label.margin_end = 6;
+        new_window_accel_label.use_markup = true;
+
+        var new_window_grid = new Gtk.Grid ();
+        new_window_grid.add (new_window_label);
+        new_window_grid.add (new_window_accel_label);
+
+        var new_window_button = new Gtk.Button ();
+        new_window_button.add (new_window_grid);
+        new_window_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var quit_label = new Gtk.Label ("Quit All Windows");
+        quit_label.halign = Gtk.Align.START;
+        quit_label.hexpand = true;
+        quit_label.margin_start = 6;
+
+        var quit_accel_label = new Gtk.Label (Granite.markup_accel_tooltip ({"<Ctrl>q"}));
+        quit_accel_label.halign = Gtk.Align.END;
+        quit_accel_label.margin_end = 6;
+        quit_accel_label.use_markup = true;
+
+        var quit_grid = new Gtk.Grid ();
+        quit_grid.add (quit_label);
+        quit_grid.add (quit_accel_label);
+
+        var quit_button = new Gtk.Button ();
+        quit_button.add (quit_grid);
+        quit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var settings_popover_grid = new Gtk.Grid ();
+        settings_popover_grid.margin_bottom = 3;
+        settings_popover_grid.width_request = 200;
+
+        settings_popover_grid.attach (zoom_grid, 0, 0);
+        settings_popover_grid.attach (new_window_button, 0, 1);
+        settings_popover_grid.attach (quit_button, 0, 2);
+        settings_popover_grid.show_all ();
+
+        settings_popover.add (settings_popover_grid);
+
         header.pack_start (back_button);
         header.pack_start (forward_button);
         header.pack_start (refresh_stop_stack);
+        header.pack_end (settings_button);
         header.pack_end (browser_button);
-        header.pack_end (new_window_button);
         header.pack_end (erase_button);
 
         header.custom_title = url_entry;
 
+        var paid_info_bar = new PaidInfoBar ();
+        var native_info_bar = new NativeInfoBar ();
         var default_info_bar = new DefaultInfoBar ();
         var network_info_bar = new NetworkInfoBar ();
 
@@ -131,6 +215,8 @@ public class MainWindow : Gtk.Window {
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
+        grid.add (paid_info_bar);
+        grid.add (native_info_bar);
         grid.add (default_info_bar);
         grid.add (network_info_bar);
         grid.add (stack);
@@ -157,6 +243,9 @@ public class MainWindow : Gtk.Window {
             new_window ();
         });
 
+        quit_button.clicked.connect (() => {
+            application.quit ();
+        });
         erase_button.clicked.connect (erase);
 
         web_view.load_changed.connect (update_progress);
@@ -216,6 +305,8 @@ public class MainWindow : Gtk.Window {
 
             return true;
         });
+
+        Ephemeral.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
 
         var accel_group = new Gtk.AccelGroup ();
 
@@ -288,6 +379,46 @@ public class MainWindow : Gtk.Window {
             }
         );
 
+        accel_group.connect (
+            Gdk.Key.plus,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                zoom_in ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.equal,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                zoom_in ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.minus,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                zoom_out ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.@0,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                zoom_default ();
+                return true;
+            }
+        );
+
         add_accel_group (accel_group);
 
         web_view.button_release_event.connect ((event) => {
@@ -328,7 +459,7 @@ public class MainWindow : Gtk.Window {
         close ();
     }
 
-    private void new_window (string? uri = null) {
+    public void new_window (string? uri = null) {
         var app_window = new MainWindow (application, uri);
         app_window.show_all ();
     }
@@ -369,6 +500,35 @@ public class MainWindow : Gtk.Window {
             uri.has_prefix ("https://") ||
             (uri.has_prefix ("data:") && (";" in uri)) ||
             uri.has_prefix ("javascript:");
+    }
+
+    private void zoom_in () {
+        if (web_view.zoom_level < 5.0) {
+            web_view.zoom_level = web_view.zoom_level + 0.1;
+        } else {
+            Gdk.beep ();
+        }
+        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+
+        return;
+    }
+
+    private void zoom_out () {
+        if (web_view.zoom_level > 0.2) {
+            web_view.zoom_level = web_view.zoom_level - 0.1;
+        } else {
+            Gdk.beep ();
+        }
+        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+
+        return;
+    }
+
+    private void zoom_default () {
+        web_view.zoom_level = 1.0;
+        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+
+        return;
     }
 }
 

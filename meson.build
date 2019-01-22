@@ -18,6 +18,8 @@ executable(
   'src/Widgets/BrowserButton.vala',
   'src/Widgets/DefaultInfoBar.vala',
   'src/Widgets/NetworkInfoBar.vala',
+  'src/Widgets/NativeInfoBar.vala',
+  'src/Widgets/PaidInfoBar.vala',
   'src/Widgets/UrlEntry.vala',
   asresources,
   dependencies: [
