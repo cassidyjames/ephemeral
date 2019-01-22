@@ -39,7 +39,6 @@ public class Ephemeral : Gtk.Application {
 
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
-    public bool paid = false;
 
     public Ephemeral () {
         Object (
@@ -62,15 +61,6 @@ public class Ephemeral : Gtk.Application {
         if (!opening_link) {
             var app_window = new MainWindow (this);
             app_window.show_all ();
-        }
-
-        bool paid = false;
-        var appcenter_settings_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.appcenter.settings", false);
-        if (appcenter_settings_schema != null) {
-            if (appcenter_settings_schema.has_key ("paid-apps")) {
-                var appcenter_settings = new GLib.Settings ("io.elementary.appcenter.settings");
-                paid = strv_contains (appcenter_settings.get_strv ("paid-apps"), Ephemeral.instance.application_id);
-            }
         }
 
         var quit_action = new SimpleAction ("quit", null);
@@ -110,7 +100,7 @@ public class Ephemeral : Gtk.Application {
         return app.run (args);
     }
 
-    public bool get_native () {
+    public bool native () {
         string os = "";
         var file = File.new_for_path ("/etc/os-release");
         try {

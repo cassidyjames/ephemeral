@@ -34,14 +34,18 @@ public class PaidInfoBar : Gtk.InfoBar {
         default_label.use_markup = true;
         default_label.wrap = true;
 
+        var dismiss_button = new Gtk.Button.with_label ("Dismiss");
+        dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
         get_content_area ().add (default_label);
+        add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);
         add_button ("Purchase or Fund…", Gtk.ResponseType.ACCEPT);
 
         int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            Ephemeral.instance.get_native () &&
-            ! Ephemeral.instance.paid &&
+            Ephemeral.instance.native () &&
+            ! paid () &&
             (settings.get_int64 ("last-paid-response") < now - Ephemeral.NOTICE_SECS) &&
             Ephemeral.instance.warn_paid_for_session;
 
@@ -64,6 +68,18 @@ public class PaidInfoBar : Gtk.InfoBar {
                     assert_not_reached ();
             }
         });
+    }
+
+    private bool paid () {
+        var appcenter_settings_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.appcenter.settings", false);
+        if (appcenter_settings_schema != null) {
+            if (appcenter_settings_schema.has_key ("paid-apps")) {
+                var appcenter_settings = new GLib.Settings ("io.elementary.appcenter.settings");
+                return strv_contains (appcenter_settings.get_strv ("paid-apps"), Ephemeral.instance.application_id);
+            }
+        }
+
+        return false;
     }
 }
 
