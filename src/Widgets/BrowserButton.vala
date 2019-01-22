@@ -150,7 +150,6 @@ public class BrowserButton : Gtk.Grid {
                 var last_used_stack = new Gtk.Stack ();
 
                 foreach (AppInfo app_info in external_apps) {
-
                     var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                     browser_icon.pixel_size = 24;
 
