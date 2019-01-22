@@ -28,8 +28,6 @@ public class PaidInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var settings = new Settings (Ephemeral.instance.application_id);
-
         var default_label = new Gtk.Label ("<b>Ephemeral is a paid app</b> funded by AppCenter purchases.\n<small>Consider purchasing or funding if you find value in using Ephemeral.</small>");
         default_label.use_markup = true;
         default_label.wrap = true;
@@ -47,7 +45,7 @@ public class PaidInfoBar : Gtk.InfoBar {
         revealed =
             Ephemeral.instance.native () &&
             ! paid () &&
-            (settings.get_int64 ("last-paid-response") < now - Ephemeral.NOTICE_SECS) &&
+            (Ephemeral.settings.get_int64 ("last-paid-response") < now - Ephemeral.NOTICE_SECS) &&
             Ephemeral.instance.warn_paid_for_session;
 
         response.connect ((response_id) => {
@@ -60,7 +58,7 @@ public class PaidInfoBar : Gtk.InfoBar {
                     }
                 case Gtk.ResponseType.REJECT:
                     now = new DateTime.now_utc ().to_unix ();
-                    settings.set_int64 ("last-paid-response", now);
+                    Ephemeral.settings.set_int64 ("last-paid-response", now);
                 case Gtk.ResponseType.CLOSE:
                     Ephemeral.instance.warn_paid_for_session = false;
                     revealed = false;
