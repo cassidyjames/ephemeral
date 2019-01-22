@@ -60,6 +60,8 @@ public class DefaultInfoBar : Gtk.InfoBar {
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
+                    revealed = false;
+                    break;
                 case Gtk.ResponseType.REJECT:
                     settings.set_boolean ("ask-default", false);
                 case Gtk.ResponseType.CLOSE:
