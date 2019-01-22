@@ -106,7 +106,7 @@ public class MainWindow : Gtk.Window {
 
         var settings_button = new Gtk.MenuButton ();
         settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-        settings_button.tooltip_text = "Settings";
+        settings_button.tooltip_text = "Menu";
 
         var settings_popover = new Gtk.Popover (settings_button);
         settings_button.popover = settings_popover;
@@ -142,12 +142,14 @@ public class MainWindow : Gtk.Window {
         zoom_grid.add (zoom_default_button);
         zoom_grid.add (zoom_in_button);
 
-        var new_window_label = new Gtk.Label ("Open new window");
+        var new_window_label = new Gtk.Label ("Open New Window");
         new_window_label.halign = Gtk.Align.START;
         new_window_label.hexpand = true;
+        new_window_label.margin_start = 6;
 
         var new_window_accel_label = new Gtk.Label (Granite.markup_accel_tooltip ({"<Ctrl>n"}));
         new_window_accel_label.halign = Gtk.Align.END;
+        new_window_accel_label.margin_end = 6;
         new_window_accel_label.use_markup = true;
 
         var new_window_grid = new Gtk.Grid ();
@@ -158,11 +160,31 @@ public class MainWindow : Gtk.Window {
         new_window_button.add (new_window_grid);
         new_window_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
+        var quit_label = new Gtk.Label ("Quit All Windows");
+        quit_label.halign = Gtk.Align.START;
+        quit_label.hexpand = true;
+        quit_label.margin_start = 6;
+
+        var quit_accel_label = new Gtk.Label (Granite.markup_accel_tooltip ({"<Ctrl>q"}));
+        quit_accel_label.halign = Gtk.Align.END;
+        quit_accel_label.margin_end = 6;
+        quit_accel_label.use_markup = true;
+
+        var quit_grid = new Gtk.Grid ();
+        quit_grid.add (quit_label);
+        quit_grid.add (quit_accel_label);
+
+        var quit_button = new Gtk.Button ();
+        quit_button.add (quit_grid);
+        quit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
         var settings_popover_grid = new Gtk.Grid ();
+        settings_popover_grid.margin_bottom = 3;
         settings_popover_grid.width_request = 200;
 
         settings_popover_grid.attach (zoom_grid, 0, 0);
         settings_popover_grid.attach (new_window_button, 0, 1);
+        settings_popover_grid.attach (quit_button, 0, 2);
         settings_popover_grid.show_all ();
 
         settings_popover.add (settings_popover_grid);
@@ -221,6 +243,9 @@ public class MainWindow : Gtk.Window {
             new_window ();
         });
 
+        quit_button.clicked.connect (() => {
+            application.quit ();
+        });
         erase_button.clicked.connect (erase);
 
         web_view.load_changed.connect (update_progress);
