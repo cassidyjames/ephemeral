@@ -92,7 +92,6 @@ public class BrowserButton : Gtk.Grid {
                     }
                 });
 
-                list_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, list_button.tooltip_text);
                 list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
 
                 var list_button_context = list_button.get_style_context ();
@@ -158,6 +157,7 @@ public class BrowserButton : Gtk.Grid {
 
                         list_button.hide ();
                         list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+                        list_button.tooltip_text = "Open page in…";
 
                         var list_button_context = list_button.get_style_context ();
                         list_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
@@ -176,6 +176,7 @@ public class BrowserButton : Gtk.Grid {
 
                             open_button.image = browser_icon;
                             open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+                            open_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, open_button.tooltip_text);
                             open_button.show_all ();
 
                             open_button.disconnect (last_browser_handler_id);
@@ -197,6 +198,7 @@ public class BrowserButton : Gtk.Grid {
                     list_button.hide ();
                     list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
                     list_button.tooltip_text = "Open page in…";
+                    list_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, list_button.tooltip_text);
 
                     var list_button_context = list_button.get_style_context ();
                     list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
@@ -213,6 +215,7 @@ public class BrowserButton : Gtk.Grid {
                 var open_single_browser_button = new Gtk.Button ();
                 open_single_browser_button.image = browser_icon;
                 open_single_browser_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+                open_single_browser_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, open_single_browser_button.tooltip_text);
 
                 add (open_single_browser_button);
 
