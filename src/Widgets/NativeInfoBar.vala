@@ -34,8 +34,15 @@ public class NativeInfoBar : Gtk.InfoBar {
         default_label.use_markup = true;
         default_label.wrap = true;
 
+        var dismiss_button = new Gtk.Button.with_label ("Dismiss");
+        dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
+
+        var donate_button = new Gtk.Button.with_label ("Donate…");
+        donate_button.tooltip_text = Ephemeral.DONATE_URL;
+
         get_content_area ().add (default_label);
-        add_button ("Donate…", Gtk.ResponseType.ACCEPT);
+        add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);
+        add_action_widget (donate_button, Gtk.ResponseType.ACCEPT);
 
         int64 now = new DateTime.now_utc ().to_unix ();
 
@@ -48,7 +55,7 @@ public class NativeInfoBar : Gtk.InfoBar {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        Gtk.show_uri (get_screen (), "https://cassidyjames.com/pay", Gtk.get_current_event_time ());
+                        Gtk.show_uri (get_screen (), Ephemeral.DONATE_URL, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }

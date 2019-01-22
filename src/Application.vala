@@ -32,6 +32,7 @@ public class Ephemeral : Gtk.Application {
     };
     // Once a month
     public const int64 NOTICE_SECS = 60 * 60 * 24 * 30;
+    public const string DONATE_URL = "https://cassidyjames.com/pay";
 
     public bool ask_default_for_session = true;
     private bool opening_link = false;
@@ -110,12 +111,32 @@ public class Ephemeral : Gtk.Application {
     }
 
     public bool get_native () {
-        var gtk_settings = Gtk.Settings.get_default ();
+        string os = "";
+        var file = File.new_for_path ("/etc/os-release");
+        try {
+            var map = new Gee.HashMap<string, string> ();
+            var stream = new DataInputStream (file.read ());
+            string line;
+            // Read lines until end of file (null) is reached
+            while ((line = stream.read_line (null)) != null) {
+                var component = line.split ("=", 2);
+                if (component.length == 2) {
+                    map[component[0]] = component[1].replace ("\"", "");
+                }
+            }
 
-        // TODO: Consider checking for other factors as well
+            os = map["ID"];
+        } catch (GLib.Error e) {
+            critical ("Couldn't read /etc/os-release: %s", e.message);
+        }
+
+        string session = Environment.get_variable ("DESKTOP_SESSION");
+        string stylesheet = Gtk.Settings.get_default ().gtk_theme_name;
+
         return (
-            Environment.get_variable ("DESKTOP_SESSION") == "pantheon" &&
-            gtk_settings.gtk_theme_name == "elementary"
+            os == "elementary" &&
+            session == "pantheon" &&
+            stylesheet == "elementary"
         );
     }
 }
