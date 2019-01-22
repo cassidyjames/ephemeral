@@ -46,6 +46,8 @@
           <li>You can always pick a browser from the list, but now your last-used one is remembered for next time</li>
           <li>Ctrl+O to open the current page in another browser</li>
           <li>Refined (ever-so-subtly less flat) HeaderBar design</li>
+        </ul>
+      </description>
     </release>
     <release version="3.2.0" date="2019-01-21">
       <description>
