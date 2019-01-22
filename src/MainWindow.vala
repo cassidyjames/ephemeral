@@ -308,6 +308,14 @@ public class MainWindow : Gtk.Window {
         });
 
         Ephemeral.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+        stack.bind_property ("visible-child-name", zoom_grid, "sensitive",
+            BindingFlags.SYNC_CREATE,
+            (binding, srcval, ref targetval) => {
+                string visible_child_name = (string) srcval;
+                targetval.set_boolean (visible_child_name == "web-view");
+                return true;
+            }
+        );
 
         var accel_group = new Gtk.AccelGroup ();
 
