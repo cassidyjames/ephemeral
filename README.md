@@ -8,7 +8,7 @@
   <a href="https://appcenter.elementary.io/com.github.cassidyjames.ephemeral"><img src="https://appcenter.elementary.io/badge.svg" alt="Get it on AppCenter" /></a>
 </p>
 
-![Screenshot](data/screenshot.png)
+![Screenshot](data/screenshot@2x.png)
 
 ## The always-incognito web browser
 

@@ -29,6 +29,41 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.0.0" date="2019-01-20">
+      <description>
+        <p>A couple small enhancements:</p>
+        <ul>
+          <li>You can always pick a browser from the list, but now your last-used one is remembered for next time</li>
+          <li>Ctrl+O to open the current page in another browser</li>
+          <li>Refined (ever-so-subtly less flat) HeaderBar design</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.2.0" date="2019-01-15">
+      <description>
+        <p>A couple small enhancements:</p>
+        <ul>
+          <li>You can always pick a browser from the list, but now your last-used one is remembered for next time</li>
+          <li>Ctrl+O to open the current page in another browser</li>
+          <li>Refined (ever-so-subtly less flat) HeaderBar design</li>
+        </ul>
+      </description>
+    </release>
+    <release version="3.2.0" date="2019-01-21">
+      <description>
+        <p>Zoom! And more…</p>
+        <ul>
+          <li>A new menu to keep the UI tidy and balanced</li>
+          <li>Zoom in, out, and default from the new menu or with the keyboard</li>
+          <li>New Window action moved into the menu</li>
+          <li>Added a Quit All Windows action to the menu</li>
+          <li>Smooth scrolling when using the keyboard or a scrollwheel</li>
+          <li>Fixed Twitch livestreams</li>
+          <li>Fixed YouTube resolution support: now up to 4K!</li>
+          <li>Code cleaning to keep things fresh and clean</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.1.0" date="2019-01-14">
       <description>
         <p>Better error handling and quality of life improvements all around:</p>
@@ -96,10 +131,13 @@
   </releases>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot.png</image>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot@2x.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-many-browsers.png</image>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-many-browsers@2x.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-menu@2x.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1">
