@@ -307,6 +307,20 @@ public class MainWindow : Gtk.Window {
         });
 
         Ephemeral.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+        Ephemeral.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
+            (value, variant) => {
+                value.set_string ("%.0f%%".printf (variant.get_double () * 100));
+                return true;
+            }, () => { return true; }, null, null
+        );
+        stack.bind_property ("visible-child-name", zoom_grid, "sensitive",
+            BindingFlags.SYNC_CREATE,
+            (binding, srcval, ref targetval) => {
+                string visible_child_name = (string) srcval;
+                targetval.set_boolean (visible_child_name == "web-view");
+                return true;
+            }
+        );
 
         var accel_group = new Gtk.AccelGroup ();
 
@@ -494,30 +508,31 @@ public class MainWindow : Gtk.Window {
     }
 
     private void zoom_in () {
-        if (web_view.zoom_level < 5.0) {
+        if (web_view.zoom_level < 5.0 && stack.visible_child_name == "web-view") {
             web_view.zoom_level = web_view.zoom_level + 0.1;
         } else {
             Gdk.beep ();
         }
-        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
 
         return;
     }
 
     private void zoom_out () {
-        if (web_view.zoom_level > 0.2) {
+        if (web_view.zoom_level > 0.2 && stack.visible_child_name == "web-view") {
             web_view.zoom_level = web_view.zoom_level - 0.1;
         } else {
             Gdk.beep ();
         }
-        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
 
         return;
     }
 
     private void zoom_default () {
-        web_view.zoom_level = 1.0;
-        zoom_default_button.label = "%.0f%%".printf (web_view.zoom_level * 100);
+        if (stack.visible_child_name == "web-view") {
+            web_view.zoom_level = 1.0;
+        } else {
+            Gdk.beep ();
+        }
 
         return;
     }
