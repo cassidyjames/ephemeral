@@ -29,6 +29,11 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="3.2.2" date="2019-01-22">
+      <description>
+        <p>Styling fixes for non-native platforms.</p>
+      </description>
+    </release>
     <release version="3.2.1" date="2019-01-22">
       <description>
         <p>Fixed a few small issues with zoom:</p>
