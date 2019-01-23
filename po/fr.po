@@ -347,7 +347,7 @@ msgstr "Masquer"
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/Widgets/NativeInfoBar.vala:46
 msgid "Donate…"
-msgstr "Faire un don…""
+msgstr "Faire un don…"
 
 #: src/Widgets/NetworkInfoBar.vala:31
 msgid "Network Not Available."
