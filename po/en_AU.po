@@ -1,30 +1,30 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# English translations for com.github.cassidyjames.ephemeral package.
+# Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Automatically generated, 2019.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-22 23:15-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2019-01-22 23:15-0700\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_AU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
 #: data/launcher.desktop.in:3
 msgid "Ephemeral"
-msgstr ""
+msgstr "Ephemeral"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
 msgid "The always-incognito web browser"
-msgstr ""
+msgstr "The always-incognito web browser"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:10
 msgid ""
@@ -33,30 +33,34 @@ msgid ""
 "avoiding persistent cookies or web trackers. Close the window and all traces "
 "of your browsing are removed from your device."
 msgstr ""
+"Browse the Internet in private without leaving a trace of history on your "
+"computer. Ephemeral is a stripped down private browser that's perfect for "
+"avoiding persistent cookies or web trackers. Close the window and all traces "
+"of your browsing are removed from your device."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:11
 msgid "Handy features:"
-msgstr ""
+msgstr "Handy features:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:13
 msgid "Easily open pages in any other installed browser"
-msgstr ""
+msgstr "Easily open pages in any other installed browser"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:14
 msgid "Search right from the URL bar"
-msgstr ""
+msgstr "Search right from the URL bar"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
 msgid "Set as your default browser for true privacy by default"
-msgstr ""
+msgstr "Set as your default browser for true privacy by default"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:16
 msgid "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
-msgstr ""
+msgstr "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
 msgid "Ephemeral protects you in four key ways:"
-msgstr ""
+msgstr "Ephemeral protects you in four key ways:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
 msgid ""
@@ -65,6 +69,10 @@ msgid ""
 "That means history, cookies, local storage, passwords, etc. are all blown "
 "away as soon as you leave."
 msgstr ""
+"1️⃣ Always incognito. From the second you open an Ephemeral window until you "
+"close it (or hit the Erase button), Ephemeral is in private browsing mode. "
+"That means history, cookies, local storage, passwords, etc. are all blown "
+"away as soon as you leave."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:20
 msgid ""
@@ -73,6 +81,10 @@ msgid ""
 "service in one window, and other Ephemeral windows will have no idea you’re "
 "signed in."
 msgstr ""
+"2️⃣ Contained. Every Ephemeral window is a separate instance of the browser "
+"engine. This means pages are kept separate from one another. Sign into a "
+"service in one window, and other Ephemeral windows will have no idea you’re "
+"signed in."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:21
 msgid ""
@@ -80,6 +92,9 @@ msgid ""
 "third-party sources. This cuts down on advertising cookies and other "
 "unwanted forms of cross-site tracking."
 msgstr ""
+"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
+"third-party sources. This cuts down on advertising cookies and other "
+"unwanted forms of cross-site tracking."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
 msgid ""
@@ -88,12 +103,18 @@ msgid ""
 "collected—I have no idea what you do with Ephemeral, and I don't want to "
 "know!"
 msgstr ""
+"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
+"load a web page or perform a search. Even then, no usage data is ever "
+"collected—I have no idea what you do with Ephemeral, and I don't want to "
+"know!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:23
 msgid ""
 "Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — "
 "by default to avoid as much Google tracking as possible."
 msgstr ""
+"Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — "
+"by default to avoid as much Google tracking as possible."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:24
 msgid ""
@@ -102,6 +123,10 @@ msgid ""
 "passwords? Ephemeral has you covered: just hit your other browser’s icon in "
 "the header and the current page is opened up there."
 msgstr ""
+"What if you run into a site compatibility issue due to the tracking "
+"prevention, or if you want to sign into a site using another browser’s saved "
+"passwords? Ephemeral has you covered: just hit your other browser’s icon in "
+"the header and the current page is opened up there."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
 msgid ""
@@ -109,6 +134,9 @@ msgid ""
 "make privacy a habit by opening links in a private browser by default, "
 "knowing you can always jump back into a less private browser with one click."
 msgstr ""
+"The best part of Ephemeral comes when you use it as your default browser: "
+"make privacy a habit by opening links in a private browser by default, "
+"knowing you can always jump back into a less private browser with one click."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
 msgid ""
@@ -117,27 +145,31 @@ msgid ""
 "but they won't stop your ISP, government, or determined websites from "
 "tracking you. For the best protection, always use a VPN."
 msgstr ""
+"Remember, Ephemeral and any browser's incognito or private mode can only do "
+"so much: they mitigate some tracking and don't store data on your device, "
+"but they won't stop your ISP, government, or determined websites from "
+"tracking you. For the best protection, always use a VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:167
 msgid "Cassidy James Blaede"
-msgstr ""
+msgstr "Cassidy James Blaede"
 
 #: data/launcher.desktop.in:4
 msgid "Private browser"
-msgstr ""
+msgstr "Private browser"
 
 #: data/launcher.desktop.in:5
 msgid "Browse the web in private"
-msgstr ""
+msgstr "Browse the web in private"
 
 #: data/launcher.desktop.in:8
 msgid "com.github.cassidyjames.ephemeral"
-msgstr ""
+msgstr "com.github.cassidyjames.ephemeral"
 
 #: data/launcher.desktop.in:12
 msgid "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
-msgstr ""
+msgstr "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
 
 #: data/launcher.desktop.in:17
 msgid "New Window"
-msgstr ""
+msgstr "New Window"
