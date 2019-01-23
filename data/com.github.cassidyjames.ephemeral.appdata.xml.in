@@ -29,6 +29,18 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.0.0" date="2019-01-23">
+      <description>
+        <p>Lots o' goodies.</p>
+        <ul>
+          <li>The last-used browser is remembered for next time</li>
+          <li>New "Reset Preferences" menu item and dialog</li>
+          <li>Ctrl+O to open the current page in another browser</li>
+          <li>Refined (ever-so-subtly less flat) HeaderBar design</li>
+          <li>Ephemeral is now translatable!</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.2" date="2019-01-22">
       <description>
         <p>Styling fixes for non-native platforms.</p>
