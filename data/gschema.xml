@@ -18,6 +18,11 @@
       <summary>Last paid response</summary>
       <description>The last time (Unix timestamp in UTC) the user responded to the notice about Ephemeral being a paid app</description>
     </key>
+    <key name="last-used-browser" type="s">
+      <default>""</default>
+      <summary>Last used browser</summary>
+      <description>The id of the last-used browser (the browser selected in the menu)</description>
+    </key>
     <key name="warn-network" type="b">
       <default>true</default>
       <summary>Warn on no network connection</summary>
@@ -30,4 +35,3 @@
     </key>
   </schema>
 </schemalist>
-

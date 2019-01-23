@@ -426,6 +426,15 @@ public class MainWindow : Gtk.Window {
         );
 
         accel_group.connect (
+            Gdk.Key.O,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                browser_button.activate ();
+            }
+        );
+
+        accel_group.connect (
             Gdk.Key.plus,
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
