@@ -1,16 +1,16 @@
 # French translations for com.github.cassidyjames.ephemeral package.
 # Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
-# Automatically generated, 2019.
+# NathanBnm, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-23 01:47-0700\n"
-"PO-Revision-Date: 2019-01-22 23:15-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-01-23 20:45+0100\n"
+"Last-Translator: NathanBnm\n"
+"Language-Team: Français\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,12 +20,12 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
 #: data/launcher.desktop.in:3
 msgid "Ephemeral"
-msgstr ""
+msgstr "Ephemeral"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
 #: src/Views/WelcomeView.vala:31
 msgid "The always-incognito web browser"
-msgstr ""
+msgstr "Le navigateur web toujours incognito"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:10
 msgid ""
@@ -34,30 +34,34 @@ msgid ""
 "avoiding persistent cookies or web trackers. Close the window and all traces "
 "of your browsing are removed from your device."
 msgstr ""
+"Naviguez sur Internet en privé sans laisser de traces d'historique sur votre "
+"ordinateur. Ephemeral est un navigateur privé épuré qui est parfait pour "
+"éviter les cookies persistants ou les traqueurs sur le web. Fermez la fenêtre et toutes les traces "
+"de votre navigation sont supprimées de votre appareil."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:11
 msgid "Handy features:"
-msgstr ""
+msgstr "Fonctions pratiques :"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:13
 msgid "Easily open pages in any other installed browser"
-msgstr ""
+msgstr "Ouvrez facilement des pages dans n'importe quel autre navigateur installé"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:14
 msgid "Search right from the URL bar"
-msgstr ""
+msgstr "Cherchez directement dans la barre d'URL"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
 msgid "Set as your default browser for true privacy by default"
-msgstr ""
+msgstr "Définissez le comme navigateur par défaut pour une vraie confidentialité par défaut"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:16
 msgid "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
-msgstr ""
+msgstr "Appuyez sur Ctrl+W pour fermer la fenêtre courante ou Ctrl+Q pour quitter toutes les fenêtres."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
 msgid "Ephemeral protects you in four key ways:"
-msgstr ""
+msgstr "Ephemeral vous protège de quatre façons principales :"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
 msgid ""
@@ -66,6 +70,10 @@ msgid ""
 "That means history, cookies, local storage, passwords, etc. are all blown "
 "away as soon as you leave."
 msgstr ""
+"1️⃣ Toujours incognito. Dès que vous ouvrez une fenêtre Ephemeral et jusqu'à "
+"ce que vous la fermiez (ou appuyez sur le bouton Effacer), Ephemeral est en mode navigation privée."
+"Cela signifie que l'historique, les cookies, le stockage local, les mots de passe, etc. sont effacés "
+"dès que vous partez."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:20
 msgid ""
@@ -74,6 +82,10 @@ msgid ""
 "service in one window, and other Ephemeral windows will have no idea you’re "
 "signed in."
 msgstr ""
+"2️⃣ Maîtrisé. Chaque fenêtre Ephemeral est une instance séparée du moteur de navigation."
+"Cela signifie que les pages sont séparées les unes des autres. Connectez-vous à "
+"un service dans une fenêtre, et les autres fenêtres Ephemeral ne sauront pas que vous "
+"êtes connecté."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:21
 msgid ""
@@ -81,6 +93,9 @@ msgid ""
 "third-party sources. This cuts down on advertising cookies and other "
 "unwanted forms of cross-site tracking."
 msgstr ""
+"3️⃣ Pas de cookies tiers. Ephemeral bloque les cookies provenant de "
+"sources tierces. Cela permet de réduire les cookies publicitaires et autres "
+"formes indésirables de suivi entre les sites."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
 msgid ""
@@ -89,12 +104,17 @@ msgid ""
 "collected—I have no idea what you do with Ephemeral, and I don't want to "
 "know!"
 msgstr ""
+"4️⃣ Pas de télémétrie. Ephemeral ne touche pas le réseau tant que vous n'avez pas explicitement "
+"chargé une page Web ou effectué une recherche. Même là, aucune donnée d'utilisation n'est jamais "
+"recueillie — Je n'ai aucune idée de ce que vous faites avec Ephemeral, et je ne veux pas savoir !"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:23
 msgid ""
 "Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — "
 "by default to avoid as much Google tracking as possible."
 msgstr ""
+"Ephemeral utilise également DuckDuckGo — le moteur de recherche qui ne vous suit pas — "
+"par défaut pour éviter autant que possible le suivi de Google."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:24
 msgid ""
@@ -103,6 +123,10 @@ msgid ""
 "passwords? Ephemeral has you covered: just hit your other browser’s icon in "
 "the header and the current page is opened up there."
 msgstr ""
+"Que faire si vous rencontrez un problème de compatibilité de site en raison de la prévention du suivi, "
+"ou si vous voulez vous connecter à un site en utilisant les mots de passe enregistrés dans un autre navigateur ?"
+"Ephemeral vous couvre : il vous suffit d'appuyer sur l'icône de votre autre navigateur dans "
+"le menu de supérieur et la page actuelle s'y ouvre."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
 msgid ""
@@ -110,6 +134,9 @@ msgid ""
 "make privacy a habit by opening links in a private browser by default, "
 "knowing you can always jump back into a less private browser with one click."
 msgstr ""
+"La meilleure partie d'Ephemeral vient lorsque vous l'utilisez comme navigateur par défaut : "
+"prenez l'habitude de la confidentialité en ouvrant des liens dans un navigateur privé par défaut, "
+"sachant que vous pouvez toujours revenir dans un navigateur moins privé en un seul clic."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
 msgid ""
@@ -118,121 +145,127 @@ msgid ""
 "but they won't stop your ISP, government, or determined websites from "
 "tracking you. For the best protection, always use a VPN."
 msgstr ""
+"N'oubliez pas qu'Ephemeral et le mode incognito ou privé de n'importe quel navigateur ne peuvent "
+"pas faire grand-chose : ils atténuent le suivi et ne stockent pas de données sur votre appareil, "
+"mais ils n'empêchent pas votre FAI, le gouvernement ou des sites web déterminés "
+"de vous suivre. Pour une protection optimale, utilisez toujours un VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:179
 msgid "Cassidy James Blaede"
-msgstr ""
+msgstr "Cassidy James Blaede"
 
 #: data/launcher.desktop.in:4
 msgid "Private browser"
-msgstr ""
+msgstr "Navigateur privé"
 
 #: data/launcher.desktop.in:5
 msgid "Browse the web in private"
-msgstr ""
+msgstr "Naviguez sur le web en privé"
 
 #: data/launcher.desktop.in:8
 msgid "com.github.cassidyjames.ephemeral"
-msgstr ""
+msgstr "com.github.cassidyjames.ephemeral"
 
 #: data/launcher.desktop.in:12
 msgid "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
-msgstr ""
+msgstr "WWW;web;navigateur;internet;privé;incognito;focus;temporaire;cookies;"
 
 #: data/launcher.desktop.in:17
 msgid "New Window"
-msgstr ""
+msgstr "Nouvelle fenêtre"
 
 #: src/MainWindow.vala:82
 msgid "Forward"
-msgstr ""
+msgstr "Suivant"
 
 #: src/MainWindow.vala:86
 msgid "Reload page"
-msgstr ""
+msgstr "Recharger la page"
 
 #: src/MainWindow.vala:90
 msgid "Stop loading"
-msgstr ""
+msgstr "Arrêter le chargement"
 
 #: src/MainWindow.vala:101
 msgid "Erase browsing history"
-msgstr ""
+msgstr "Effacer l'historique de navigation"
 
 #: src/MainWindow.vala:117
 msgid "Zoom out"
-msgstr ""
+msgstr "Zoom arrière"
 
 #: src/MainWindow.vala:124
 msgid "Default zoom level"
-msgstr ""
+msgstr "Niveau de zoom par défaut"
 
 #: src/MainWindow.vala:131
 msgid "Zoom in"
-msgstr ""
+msgstr "Zoom avant"
 
 #: src/MainWindow.vala:145
 msgid "Open New Window"
-msgstr ""
+msgstr "Ouvrir une nouvelle fenêtre"
 
 #: src/MainWindow.vala:163
 msgid "Quit All Windows"
-msgstr ""
+msgstr "Fermer toutes les fenêtres"
 
 #: src/MainWindow.vala:184
 msgid "Reset Preferences…"
-msgstr ""
+msgstr "Réinitialiser les préférences…"
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
 msgid "Open Externally?"
-msgstr ""
+msgstr "Ouvrir en externe ?"
 
 #: src/Dialogs/ExternalDialog.vala:37
 #, c-format
 msgid "This page is trying to open an app for “%s” links."
-msgstr ""
+msgstr "Cette page tente d'ouvrir un application pour les liens « %s »."
 
 #: src/Dialogs/ExternalDialog.vala:39
 msgid "This page is trying to open an app."
-msgstr ""
+msgstr "Cette page tente d'ouvrir une application."
 
 #: src/Dialogs/ExternalDialog.vala:42
 msgid "Your data may not be kept private by the opened app."
-msgstr ""
+msgstr "Vos données peuvent ne pas être gardées privées par l'application ouverte."
 
 #: src/Dialogs/ExternalDialog.vala:46
 msgid "Don’t Open"
-msgstr ""
+msgstr "Ne pas ouvrir"
 
 #: src/Dialogs/ExternalDialog.vala:49
 msgid "Open Anyway"
-msgstr ""
+msgstr "Ouvrir quand même"
 
 #: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
 msgid "Reset Preferences?"
-msgstr ""
+msgstr "Réinitialiser les préférences ?"
 
 #: src/Dialogs/PreferencesDialog.vala:27
 msgid ""
 "Any dismissed or remembered alerts, warnings, etc. will be displayed again "
 "the next time Ephemeral is opened."
 msgstr ""
+"Toutes les alertes, rappels, avertissements, etc. rejetées ou mémorisées s'afficheront à nouveau "
+"à la prochaine ouverture d'Ephemeral."
 
 #: src/Dialogs/PreferencesDialog.vala:33
 msgid "Never Mind"
-msgstr ""
+msgstr "En fait non"
 
 #: src/Dialogs/PreferencesDialog.vala:36
 msgid "Reset Preferences"
-msgstr ""
+msgstr "Réinitialiserles préférences"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
-msgstr ""
+msgstr "Oups"
 
 #: src/Views/ErrorView.vala:31
 msgid "Could not display the page."
-msgstr ""
+msgstr "Impossible d'afficher cette page."
 
 #: src/Views/WelcomeView.vala:33
 msgid ""
@@ -241,30 +274,34 @@ msgid ""
 "but they won’t stop your ISP, government, or determined websites from "
 "tracking you."
 msgstr ""
+"N'oubliez pas qu'Ephemeral et le mode incognito ou privé de n'importe quel navigateur ne peuvent "
+"pas faire grand-chose : ils atténuent le suivi et ne stockent pas de données sur votre appareil, "
+"mais ils n'empêchent pas votre FAI, le gouvernement ou des sites web déterminés "
+"de vous suivre."
 
 #: src/Views/WelcomeView.vala:34
 msgid "For the best protection, always use a VPN."
-msgstr ""
+msgstr "Pour une protection optimale, utilisez toujours un VPN."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
 #: src/Widgets/BrowserButton.vala:46 src/Widgets/BrowserButton.vala:162
 #: src/Widgets/BrowserButton.vala:203
 msgid "Open page in…"
-msgstr ""
+msgstr "Ouvrir la page dans…"
 
 #: src/Widgets/BrowserButton.vala:63 src/Widgets/BrowserButton.vala:180
 #: src/Widgets/BrowserButton.vala:220
 #, c-format
 msgid "Open page in %s"
-msgstr ""
+msgstr "Ouvrir la page dans %s"
 
 #: src/Widgets/DefaultInfoBar.vala:31
 msgid "Make privacy a habit."
-msgstr ""
+msgstr "Faites de la confidentialité une habitude."
 
 #: src/Widgets/DefaultInfoBar.vala:32
 msgid "Set Ephemeral as your default browser?"
-msgstr ""
+msgstr "Définir Ephemeral comme navigateur par défaut ?"
 
 #. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
 #: src/Widgets/DefaultInfoBar.vala:35
@@ -272,80 +309,86 @@ msgid ""
 "You can always change this later in <i>System Settings</i> → "
 "<i>Applications</i>."
 msgstr ""
+"Vous pouvez toujours changer ceci plus tard dans <i>Paramètres du système</i> → "
+"<i>Applications</i>."
 
 #: src/Widgets/DefaultInfoBar.vala:46
 msgid "Never Ask Again"
-msgstr ""
+msgstr "Ne plus me demander"
 
 #: src/Widgets/DefaultInfoBar.vala:52
 msgid "Set as Default"
-msgstr ""
+msgstr "Définir par défaut"
 
 #: src/Widgets/NativeInfoBar.vala:31
 msgid "Ephemeral is a paid app designed for elementary OS."
-msgstr ""
+msgstr "Ephemeral est une application payante conçue pour elementary OS."
 
 #: src/Widgets/NativeInfoBar.vala:32
 msgid ""
 "Some features may not work properly when running on another OS or desktop "
 "environment."
 msgstr ""
+"Certaines fonctionnalités pourraient ne pas fonctionner correctement sur un autre "
+"système d'exploitation ou environnement de bureau."
 
 #: src/Widgets/NativeInfoBar.vala:33
 msgid ""
 "Ephemeral is also typically funded by elementary AppCenter purchases. "
 "Consider donating if you find value in using Ephemeral on other platforms."
 msgstr ""
+"Ephemeral est aussi financé par les achats dans le Centre d'Applications d'elementary. "
+"Envisagez de faire un don si vous trouvez utile d'utiliser Ephemeral sur d'autres plateformes."
 
 #: src/Widgets/NativeInfoBar.vala:41 src/Widgets/PaidInfoBar.vala:43
 msgid "Dismiss"
-msgstr ""
+msgstr "Masquer"
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/Widgets/NativeInfoBar.vala:46
 msgid "Donate…"
-msgstr ""
+msgstr "Faire un don…"
 
 #: src/Widgets/NetworkInfoBar.vala:31
 msgid "Network Not Available."
-msgstr ""
+msgstr "Réseau non disponible"
 
 #: src/Widgets/NetworkInfoBar.vala:32
 msgid "Connect to the Internet to browse the Web."
-msgstr ""
+msgstr "Connectez-vous à Internet pour naviguer sur le Web."
 
 #: src/Widgets/NetworkInfoBar.vala:38
 msgid "Never Warn Again"
-msgstr ""
+msgstr "Ne plus m'avertir"
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/Widgets/NetworkInfoBar.vala:45
 msgid "Network Settings…"
-msgstr ""
+msgstr "Paramètres réseau…"
 
 #. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
 #: src/Widgets/PaidInfoBar.vala:32
 msgid "Ephemeral is a paid app"
-msgstr ""
+msgstr "Ephemeral est une application payante"
 
 #. TRANSLATORS: This continues the previous string, with terminating punctuation
 #: src/Widgets/PaidInfoBar.vala:34
 msgid "funded by AppCenter purchases."
-msgstr ""
+msgstr "financée par les achats dans le Centre d'Applications."
 
 #: src/Widgets/PaidInfoBar.vala:35
 msgid "Consider purchasing or funding if you find value in using Ephemeral."
-msgstr ""
+msgstr "Envisagez de faire un don si vous trouvez utile d'utiliser Ephemeral."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/Widgets/PaidInfoBar.vala:50
 msgid "Purchase or Fund…"
-msgstr ""
+msgstr "Acheter ou finacer…"
 
 #: src/Widgets/UrlEntry.vala:35
 msgid "Enter a URL or search term"
-msgstr ""
+msgstr "Entrez un URL ou cherchez quelque chose"
 
 #: src/Widgets/UrlEntry.vala:41
 msgid "Go"
-msgstr ""
+msgstr "Rechercher"
