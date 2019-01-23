@@ -255,6 +255,7 @@ public class MainWindow : Gtk.Window {
         erase_button.clicked.connect (erase);
 
         new_window_button.clicked.connect (() => {
+            settings_popover.popdown ();
             new_window ();
         });
 
@@ -263,17 +264,17 @@ public class MainWindow : Gtk.Window {
         });
 
         preferences_button.clicked.connect (() => {
+            settings_popover.popdown ();
             var preferences_dialog = new PreferencesDialog ();
             preferences_dialog.transient_for = (Gtk.Window) get_toplevel ();
 
             preferences_dialog.response.connect ((response_id) => {
                 switch (response_id) {
                     case Gtk.ResponseType.OK:
-                        Ephemeral.settings.reset ("ask-default");
-                        Ephemeral.settings.reset ("last-native-response");
-                        Ephemeral.settings.reset ("last-paid-response");
-                        Ephemeral.settings.reset ("warn-network");
-                        Ephemeral.settings.reset ("zoom");
+                        string[] keys = Ephemeral.settings.list_keys ();
+                        foreach (string key in keys) {
+                            Ephemeral.settings.reset (key);
+                        }
                     case Gtk.ResponseType.CANCEL:
                     case Gtk.ResponseType.CLOSE:
                     case Gtk.ResponseType.DELETE_EVENT:
