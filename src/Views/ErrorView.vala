@@ -1,5 +1,5 @@
 /*
-* Copyright ⓒ 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -25,10 +25,10 @@ public class ErrorView : Gtk.Grid {
     }
 
     construct {
-        var title = new Gtk.Label ("Whoops");
+        var title = new Gtk.Label (_("Whoops"));
         title.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
 
-        var subtitle = new Gtk.Label ("Could not display the page.");
+        var subtitle = new Gtk.Label (_("Could not display the page."));
 
         var subtitle_context = subtitle.get_style_context ();
         subtitle_context.add_class (Granite.STYLE_CLASS_H2_LABEL);

@@ -1,0 +1,347 @@
+# Quechua translations for com.github.cassidyjames.ephemeral package.
+# Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
+# Automatically generated, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.cassidyjames.ephemeral\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-01-23 00:51-0700\n"
+"PO-Revision-Date: 2019-01-22 23:15-0700\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: qu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
+#: data/launcher.desktop.in:3
+msgid "Ephemeral"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
+#: src/Views/WelcomeView.vala:31
+msgid "The always-incognito web browser"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:10
+msgid ""
+"Browse the Internet in private without leaving a trace of history on your "
+"computer. Ephemeral is a stripped down private browser that's perfect for "
+"avoiding persistent cookies or web trackers. Close the window and all traces "
+"of your browsing are removed from your device."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:11
+msgid "Handy features:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:13
+msgid "Easily open pages in any other installed browser"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:14
+msgid "Search right from the URL bar"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
+msgid "Set as your default browser for true privacy by default"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:16
+msgid "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
+msgid "Ephemeral protects you in four key ways:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
+msgid ""
+"1️⃣ Always incognito. From the second you open an Ephemeral window until you "
+"close it (or hit the Erase button), Ephemeral is in private browsing mode. "
+"That means history, cookies, local storage, passwords, etc. are all blown "
+"away as soon as you leave."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:20
+msgid ""
+"2️⃣ Contained. Every Ephemeral window is a separate instance of the browser "
+"engine. This means pages are kept separate from one another. Sign into a "
+"service in one window, and other Ephemeral windows will have no idea you’re "
+"signed in."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:21
+msgid ""
+"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
+"third-party sources. This cuts down on advertising cookies and other "
+"unwanted forms of cross-site tracking."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
+msgid ""
+"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
+"load a web page or perform a search. Even then, no usage data is ever "
+"collected—I have no idea what you do with Ephemeral, and I don't want to "
+"know!"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:23
+msgid ""
+"Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — "
+"by default to avoid as much Google tracking as possible."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:24
+msgid ""
+"What if you run into a site compatibility issue due to the tracking "
+"prevention, or if you want to sign into a site using another browser’s saved "
+"passwords? Ephemeral has you covered: just hit your other browser’s icon in "
+"the header and the current page is opened up there."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
+msgid ""
+"The best part of Ephemeral comes when you use it as your default browser: "
+"make privacy a habit by opening links in a private browser by default, "
+"knowing you can always jump back into a less private browser with one click."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
+msgid ""
+"Remember, Ephemeral and any browser's incognito or private mode can only do "
+"so much: they mitigate some tracking and don't store data on your device, "
+"but they won't stop your ISP, government, or determined websites from "
+"tracking you. For the best protection, always use a VPN."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:167
+msgid "Cassidy James Blaede"
+msgstr ""
+
+#: data/launcher.desktop.in:4
+msgid "Private browser"
+msgstr ""
+
+#: data/launcher.desktop.in:5
+msgid "Browse the web in private"
+msgstr ""
+
+#: data/launcher.desktop.in:8
+msgid "com.github.cassidyjames.ephemeral"
+msgstr ""
+
+#: data/launcher.desktop.in:12
+msgid "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
+msgstr ""
+
+#: data/launcher.desktop.in:17
+msgid "New Window"
+msgstr ""
+
+#: src/MainWindow.vala:82
+msgid "Forward"
+msgstr ""
+
+#: src/MainWindow.vala:86
+msgid "Reload page"
+msgstr ""
+
+#: src/MainWindow.vala:90
+msgid "Stop loading"
+msgstr ""
+
+#: src/MainWindow.vala:101
+msgid "Erase browsing history"
+msgstr ""
+
+#: src/MainWindow.vala:117
+msgid "Zoom out"
+msgstr ""
+
+#: src/MainWindow.vala:124
+msgid "Default zoom level"
+msgstr ""
+
+#: src/MainWindow.vala:131
+msgid "Zoom in"
+msgstr ""
+
+#: src/MainWindow.vala:145
+msgid "Open New Window"
+msgstr ""
+
+#: src/MainWindow.vala:163
+msgid "Quit All Windows"
+msgstr ""
+
+#: src/MainWindow.vala:184
+msgid "Reset Preferences…"
+msgstr ""
+
+#: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
+msgid "Open Externally?"
+msgstr ""
+
+#: src/Dialogs/ExternalDialog.vala:37
+#, c-format
+msgid "This page is trying to open an app for “%s” links."
+msgstr ""
+
+#: src/Dialogs/ExternalDialog.vala:39
+msgid "This page is trying to open an app."
+msgstr ""
+
+#: src/Dialogs/ExternalDialog.vala:42
+msgid "Your data may not be kept private by the opened app."
+msgstr ""
+
+#: src/Dialogs/ExternalDialog.vala:46
+msgid "Don’t Open"
+msgstr ""
+
+#: src/Dialogs/ExternalDialog.vala:49
+msgid "Open Anyway"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
+msgid "Reset Preferences?"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:27
+msgid ""
+"Any dismissed or remembered alerts, warnings, etc. will be displayed again "
+"the next time Ephemeral is opened."
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:33
+msgid "Never Mind"
+msgstr ""
+
+#: src/Dialogs/PreferencesDialog.vala:36
+msgid "Reset Preferences"
+msgstr ""
+
+#: src/Views/ErrorView.vala:28
+msgid "Whoops"
+msgstr ""
+
+#: src/Views/ErrorView.vala:31
+msgid "Could not display the page."
+msgstr ""
+
+#: src/Views/WelcomeView.vala:33
+msgid ""
+"Remember, Ephemeral and any browser’s incognito or private mode can only do "
+"so much: they mitigate some tracking and don’t store data on your device, "
+"but they won’t stop your ISP, government, or determined websites from "
+"tracking you."
+msgstr ""
+
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr ""
+
+#: src/Widgets/BrowserButton.vala:42
+msgid "Open page in…"
+msgstr ""
+
+#: src/Widgets/BrowserButton.vala:95
+#, c-format
+msgid "Open page in %s"
+msgstr ""
+
+#: src/Widgets/DefaultInfoBar.vala:31
+msgid "Make privacy a habit."
+msgstr ""
+
+#: src/Widgets/DefaultInfoBar.vala:32
+msgid "Set Ephemeral as your default browser?"
+msgstr ""
+
+#. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
+#: src/Widgets/DefaultInfoBar.vala:35
+msgid ""
+"You can always change this later in <i>System Settings</i> → "
+"<i>Applications</i>."
+msgstr ""
+
+#: src/Widgets/DefaultInfoBar.vala:46
+msgid "Never Ask Again"
+msgstr ""
+
+#: src/Widgets/DefaultInfoBar.vala:52
+msgid "Set as Default"
+msgstr ""
+
+#: src/Widgets/NativeInfoBar.vala:31
+msgid "Ephemeral is a paid app designed for elementary OS."
+msgstr ""
+
+#: src/Widgets/NativeInfoBar.vala:32
+msgid ""
+"Some features may not work properly when running on another OS or desktop "
+"environment."
+msgstr ""
+
+#: src/Widgets/NativeInfoBar.vala:33
+msgid ""
+"Ephemeral is also typically funded by elementary AppCenter purchases. "
+"Consider donating if you find value in using Ephemeral on other platforms."
+msgstr ""
+
+#: src/Widgets/NativeInfoBar.vala:41 src/Widgets/PaidInfoBar.vala:43
+msgid "Dismiss"
+msgstr ""
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/Widgets/NativeInfoBar.vala:46
+msgid "Donate…"
+msgstr ""
+
+#: src/Widgets/NetworkInfoBar.vala:31
+msgid "Network Not Available."
+msgstr ""
+
+#: src/Widgets/NetworkInfoBar.vala:32
+msgid "Connect to the Internet to browse the Web."
+msgstr ""
+
+#: src/Widgets/NetworkInfoBar.vala:38
+msgid "Never Warn Again"
+msgstr ""
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/Widgets/NetworkInfoBar.vala:45
+msgid "Network Settings…"
+msgstr ""
+
+#. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
+#: src/Widgets/PaidInfoBar.vala:32
+msgid "Ephemeral is a paid app"
+msgstr ""
+
+#. TRANSLATORS: This continues the previous string, with terminating punctuation
+#: src/Widgets/PaidInfoBar.vala:34
+msgid "funded by AppCenter purchases."
+msgstr ""
+
+#: src/Widgets/PaidInfoBar.vala:35
+msgid "Consider purchasing or funding if you find value in using Ephemeral."
+msgstr ""
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/Widgets/PaidInfoBar.vala:50
+msgid "Purchase or Fund…"
+msgstr ""
+
+#: src/Widgets/UrlEntry.vala:35
+msgid "Enter a URL or search term"
+msgstr ""
+
+#: src/Widgets/UrlEntry.vala:41
+msgid "Go"
+msgstr ""

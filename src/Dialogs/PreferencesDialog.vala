@@ -1,5 +1,5 @@
 /*
-* Copyright ⓒ 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -23,17 +23,17 @@ public class PreferencesDialog : Granite.MessageDialog {
     public PreferencesDialog () {
         Object (
             image_icon: new ThemedIcon ("document-open-recent"),
-            primary_text: "Reset Preferences?",
-            secondary_text: "Any dismissed or remembered alerts, warnings, etc. will be displayed again the next time Ephemeral is opened.",
-            title: "Reset Preferences?"
+            primary_text: _("Reset Preferences?"),
+            secondary_text: _("Any dismissed or remembered alerts, warnings, etc. will be displayed again the next time Ephemeral is opened."),
+            title: _("Reset Preferences?")
         );
     }
 
     construct {
-        var cancel = add_button ("Never Mind", Gtk.ResponseType.CANCEL) as Gtk.Button;
+        var cancel = add_button (_("Never Mind"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         cancel.clicked.connect (() => { destroy (); });
 
-        var accept = add_button ("Reset Preferences", Gtk.ResponseType.OK) as Gtk.Button;
+        var accept = add_button (_("Reset Preferences"), Gtk.ResponseType.OK) as Gtk.Button;
         accept.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }

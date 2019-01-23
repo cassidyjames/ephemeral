@@ -19,15 +19,21 @@ install_data (
     rename: meson.project_name () + '.gschema.xml'
 )
 
-install_data (
-    'launcher.desktop',
-    install_dir: join_paths (get_option ('datadir'), 'applications'),
-    rename: meson.project_name () + '.desktop'
+i18n.merge_file(
+    input: 'launcher.desktop.in',
+    output: meson.project_name() + '.desktop',
+    po_dir: join_paths(meson.source_root(), 'po'),
+    type: 'desktop',
+    install: true,
+    install_dir: join_paths(get_option('datadir'), 'applications')
 )
 
-install_data (
-    'appdata.xml',
-    install_dir: join_paths (get_option ('datadir'), 'metainfo'),
-    rename: meson.project_name () + '.appdata.xml'
+i18n.merge_file(
+    input: meson.project_name() + '.appdata.xml.in',
+    output: meson.project_name() + '.appdata.xml',
+    po_dir: join_paths(meson.source_root(), 'po'),
+    type: 'xml',
+    install: true,
+    install_dir: join_paths(get_option('datadir'), 'metainfo')
 )
 
