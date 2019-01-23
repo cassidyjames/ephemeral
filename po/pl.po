@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 00:36-0700\n"
+"POT-Creation-Date: 2019-01-23 00:38-0700\n"
 "PO-Revision-Date: 2019-01-22 23:15-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -24,6 +24,7 @@ msgid "Ephemeral"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
+#: src/Views/WelcomeView.vala:31
 msgid "The always-incognito web browser"
 msgstr ""
 
@@ -232,10 +233,6 @@ msgstr ""
 
 #: src/Views/ErrorView.vala:31
 msgid "Could not display the page."
-msgstr ""
-
-#: src/Views/WelcomeView.vala:31
-msgid "The always-incognito web browser."
 msgstr ""
 
 #: src/Views/WelcomeView.vala:33

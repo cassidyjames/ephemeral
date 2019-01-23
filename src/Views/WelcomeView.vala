@@ -28,7 +28,7 @@ public class WelcomeView : Gtk.Grid {
         var title = new Gtk.Label ("Ephemeral");
         title.get_style_context ().add_class (Granite.STYLE_CLASS_H1_LABEL);
 
-        var subtitle = new Gtk.Label (_("The always-incognito web browser."));
+        var subtitle = new Gtk.Label (_("The always-incognito web browser"));
 
         string tracking_disclaimer = _("Remember, Ephemeral and any browser’s incognito or private mode can only do so much: they mitigate some tracking and don’t store data on your device, but they won’t stop your ISP, government, or determined websites from tracking you.");
         string vpn_suggestion = _("For the best protection, always use a VPN.");
