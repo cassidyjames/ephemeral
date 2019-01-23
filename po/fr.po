@@ -330,7 +330,7 @@ msgid ""
 "environment."
 msgstr ""
 "Certaines fonctionnalités pourraient ne pas fonctionner correctement sur un autre "
-"système d'exloitation ou environnement de bureau."
+"système d'exploitation ou environnement de bureau."
 
 #: src/Widgets/NativeInfoBar.vala:33
 msgid ""
