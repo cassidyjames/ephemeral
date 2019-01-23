@@ -79,7 +79,6 @@ public class Ephemeral : Gtk.Application {
 
         var gtk_settings = Gtk.Settings.get_default ();
         gtk_settings.gtk_application_prefer_dark_theme = true;
-        gtk_settings.gtk_theme_name = "elementary";
 
         if (native ()) {
             var provider = new Gtk.CssProvider ();
