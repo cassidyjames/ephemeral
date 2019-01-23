@@ -41,7 +41,7 @@ public class NetworkInfoBar : Gtk.InfoBar {
 
         get_content_area ().add (default_label);
         add_action_widget (never_button, Gtk.ResponseType.REJECT);
-        /// TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
         add_button (_("Network Settings…"), Gtk.ResponseType.ACCEPT);
 
         try_set_revealed ();
@@ -80,4 +80,3 @@ public class NetworkInfoBar : Gtk.InfoBar {
             !network_available;
     }
 }
-
