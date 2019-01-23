@@ -28,9 +28,9 @@ public class PaidInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        // TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
+        /// TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
         string title = _("Ephemeral is a paid app");
-        // TRANSLATORS: This continues the previous string, with terminating punctuation
+        /// TRANSLATORS: This continues the previous string, with terminating punctuation
         string details = _("funded by AppCenter purchases.");
         string consider_purchasing = _("Consider purchasing or funding if you find value in using Ephemeral.");
 
@@ -46,7 +46,7 @@ public class PaidInfoBar : Gtk.InfoBar {
 
         get_content_area ().add (default_label);
         add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);
-        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+        /// TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
         add_button (_("Purchase or Fund…"), Gtk.ResponseType.ACCEPT);
 
         int64 now = new DateTime.now_utc ().to_unix ();

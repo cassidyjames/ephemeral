@@ -31,7 +31,7 @@ public class DefaultInfoBar : Gtk.InfoBar {
         string habit = _("Make privacy a habit.");
         string ask_default = _("Set Ephemeral as your default browser?");
 
-        // TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
+        /// TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
         string change = _("You can always change this later in <i>System Settings</i> → <i>Applications</i>.");
 
         var default_label = new Gtk.Label ("<b>%s</b> %s\n<small>%s</small>".printf (

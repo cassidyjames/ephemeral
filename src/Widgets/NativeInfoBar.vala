@@ -42,7 +42,7 @@ public class NativeInfoBar : Gtk.InfoBar {
         dismiss_button.halign = Gtk.Align.END;
         dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
-        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+        /// TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
         var donate_button = new Gtk.Button.with_label (_("Donate…"));
         donate_button.tooltip_text = Ephemeral.DONATE_URL;
 
