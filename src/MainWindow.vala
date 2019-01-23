@@ -178,6 +178,18 @@ public class MainWindow : Gtk.Window {
         quit_button.add (quit_grid);
         quit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
+        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        separator.margin_top = separator.margin_bottom = 3;
+
+        var preferences_label = new Gtk.Label ("Reset Preferences…");
+        preferences_label.halign = Gtk.Align.START;
+        preferences_label.hexpand = true;
+        preferences_label.margin_start = preferences_label.margin_end = 6;
+
+        var preferences_button = new Gtk.Button ();
+        preferences_button.add (preferences_label);
+        preferences_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
         var settings_popover_grid = new Gtk.Grid ();
         settings_popover_grid.margin_bottom = 3;
         settings_popover_grid.width_request = 200;
@@ -185,6 +197,8 @@ public class MainWindow : Gtk.Window {
         settings_popover_grid.attach (zoom_grid, 0, 0);
         settings_popover_grid.attach (new_window_button, 0, 1);
         settings_popover_grid.attach (quit_button, 0, 2);
+        settings_popover_grid.attach (separator, 0, 3);
+        settings_popover_grid.attach (preferences_button, 0, 4);
         settings_popover_grid.show_all ();
 
         settings_popover.add (settings_popover_grid);
@@ -238,6 +252,7 @@ public class MainWindow : Gtk.Window {
         forward_button.clicked.connect (web_view.go_forward);
         refresh_button.clicked.connect (web_view.reload);
         stop_button.clicked.connect (web_view.stop_loading);
+        erase_button.clicked.connect (erase);
 
         new_window_button.clicked.connect (() => {
             new_window ();
@@ -246,7 +261,32 @@ public class MainWindow : Gtk.Window {
         quit_button.clicked.connect (() => {
             application.quit ();
         });
-        erase_button.clicked.connect (erase);
+
+        preferences_button.clicked.connect (() => {
+            var preferences_dialog = new PreferencesDialog ();
+            preferences_dialog.transient_for = (Gtk.Window) get_toplevel ();
+
+            preferences_dialog.response.connect ((response_id) => {
+                switch (response_id) {
+                    case Gtk.ResponseType.OK:
+                        Ephemeral.settings.reset ("ask-default");
+                        Ephemeral.settings.reset ("last-native-response");
+                        Ephemeral.settings.reset ("last-paid-response");
+                        Ephemeral.settings.reset ("warn-network");
+                        Ephemeral.settings.reset ("zoom");
+                    case Gtk.ResponseType.CANCEL:
+                    case Gtk.ResponseType.CLOSE:
+                    case Gtk.ResponseType.DELETE_EVENT:
+                        preferences_dialog.close ();
+                        break;
+                    default:
+                        assert_not_reached ();
+                }
+            });
+
+            preferences_dialog.run ();
+        });
+
 
         web_view.load_changed.connect (update_progress);
         web_view.notify["uri"].connect (update_progress);
