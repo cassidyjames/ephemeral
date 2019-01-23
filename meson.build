@@ -13,6 +13,7 @@ executable(
   'src/Application.vala',
   'src/MainWindow.vala',
   'src/Dialogs/ExternalDialog.vala',
+  'src/Dialogs/PreferencesDialog.vala',
   'src/Views/ErrorView.vala',
   'src/Views/WelcomeView.vala',
   'src/Widgets/BrowserButton.vala',

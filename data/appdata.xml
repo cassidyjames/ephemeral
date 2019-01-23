@@ -29,13 +29,18 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="4.0.0" date="2019-01-22">
+    <release version="3.2.2" date="2019-01-22">
       <description>
-        <p>A couple small enhancements:</p>
+        <p>Styling fixes for non-native platforms.</p>
+      </description>
+    </release>
+    <release version="3.2.1" date="2019-01-22">
+      <description>
+        <p>Fixed a few small issues with zoom:</p>
         <ul>
-          <li>You can always pick a browser from the list, but now your last-used one is remembered for next time</li>
-          <li>Ctrl+O to open the current page in another browser</li>
-          <li>Refined (ever-so-subtly less flat) HeaderBar design</li>
+          <li>Zoom controls are now only sensitive when the web view is visible</li>
+          <li>Reported zoom level is now correct when opening a new window</li>
+          <li>Reported zoom level is now kept in sync across open windows</li>
         </ul>
       </description>
     </release>
