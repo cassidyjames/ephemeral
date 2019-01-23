@@ -28,15 +28,22 @@ public class NativeInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var default_label = new Gtk.Label ("<b>Ephemeral is a paid app designed for elementary OS.</b> Some features may not work properly when running on another OS or desktop environment.\n<small>Ephemeral is also typically funded by elementary AppCenter purchases. Consider donating if you find value in using Ephemeral on other platforms.</small>");
+        string designed_for_elementary = _("Ephemeral is a paid app designed for elementary OS.");
+        string disclaimer = _("Some features may not work properly when running on another OS or desktop environment.");
+        string fund = _("Ephemeral is also typically funded by elementary AppCenter purchases. Consider donating if you find value in using Ephemeral on other platforms.");
+
+        var default_label = new Gtk.Label ("<b>%s</b> %s\n<small>%s</small>".printf (
+            designed_for_elementary, disclaimer, fund
+        ));
         default_label.use_markup = true;
         default_label.wrap = true;
 
-        var dismiss_button = new Gtk.Button.with_label ("Dismiss");
+        var dismiss_button = new Gtk.Button.with_label (_("Dismiss"));
         dismiss_button.halign = Gtk.Align.END;
         dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
-        var donate_button = new Gtk.Button.with_label ("Donate…");
+        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+        var donate_button = new Gtk.Button.with_label (_("Donate…"));
         donate_button.tooltip_text = Ephemeral.DONATE_URL;
 
         get_content_area ().add (default_label);

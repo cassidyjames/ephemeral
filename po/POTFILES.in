@@ -1,9 +1,9 @@
 data/com.github.cassidyjames.ephemeral.appdata.xml.in
 data/launcher.desktop.in
 src/Application.vala
+src/MainWindow.vala
 src/Dialogs/ExternalDialog.vala
 src/Dialogs/PreferencesDialog.vala
-src/MainWindow.vala
 src/Views/ErrorView.vala
 src/Views/WelcomeView.vala
 src/Widgets/BrowserButton.vala

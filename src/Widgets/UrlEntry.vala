@@ -32,13 +32,13 @@ public class UrlEntry : Gtk.Entry {
     }
 
     construct {
-        tooltip_text = "Enter a URL or search term";
+        tooltip_text = _("Enter a URL or search term");
         placeholder_text = tooltip_text;
 
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
 
         secondary_icon_name = "go-jump-symbolic";
-        secondary_icon_tooltip_text = "Go";
+        secondary_icon_tooltip_text = _("Go");
         secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
 
         activate.connect (() => {

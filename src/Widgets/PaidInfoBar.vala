@@ -28,17 +28,26 @@ public class PaidInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var default_label = new Gtk.Label ("<b>Ephemeral is a paid app</b> funded by AppCenter purchases.\n<small>Consider purchasing or funding if you find value in using Ephemeral.</small>");
+        // TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
+        string title = _("Ephemeral is a paid app");
+        // TRANSLATORS: This continues the previous string, with terminating punctuation
+        string details = _("funded by AppCenter purchases.");
+        string consider_purchasing = _("Consider purchasing or funding if you find value in using Ephemeral.");
+
+        var default_label = new Gtk.Label ("<b>%s</b> %s\n<small>%s</small>".printf (
+            title, details, consider_purchasing
+        ));
         default_label.use_markup = true;
         default_label.wrap = true;
 
-        var dismiss_button = new Gtk.Button.with_label ("Dismiss");
+        var dismiss_button = new Gtk.Button.with_label (_("Dismiss"));
         dismiss_button.halign = Gtk.Align.END;
         dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         get_content_area ().add (default_label);
         add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);
-        add_button ("Purchase or Fund…", Gtk.ResponseType.ACCEPT);
+        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+        add_button (_("Purchase or Fund…"), Gtk.ResponseType.ACCEPT);
 
         int64 now = new DateTime.now_utc ().to_unix ();
 

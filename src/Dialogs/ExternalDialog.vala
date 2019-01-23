@@ -25,26 +25,28 @@ public class ExternalDialog : Granite.MessageDialog {
     public ExternalDialog (string? _protocol = null) {
         Object (
             image_icon: new ThemedIcon ("dialog-warning"),
-            primary_text: "Open Externally?",
+            primary_text: _("Open Externally?"),
             protocol: _protocol,
-            title: "Open Externally?"
+            title: _("Open Externally?")
         );
     }
 
     construct {
-        string explanation = "This page is trying to open an app";
-        string implication = "Your data may not be kept private by the opened app";
-
+        string explanation;
         if (protocol != null) {
-            explanation = "%s for “%s” links".printf (explanation, protocol);
+            explanation = _("This page is trying to open an app for “%s” links.").printf (protocol);
+        } else {
+            explanation = _("This page is trying to open an app.");
         }
 
-        secondary_text = "%s. %s.".printf (explanation, implication);
+        string implication = _("Your data may not be kept private by the opened app.");
 
-        var cancel = add_button ("Don’t Open", Gtk.ResponseType.CANCEL) as Gtk.Button;
+        secondary_text = "%s %s".printf (explanation, implication);
+
+        var cancel = add_button (_("Don’t Open"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         cancel.clicked.connect (() => { destroy (); });
 
-        var accept = add_button ("Open Anyway", Gtk.ResponseType.OK) as Gtk.Button;
+        var accept = add_button (_("Open Anyway"), Gtk.ResponseType.OK) as Gtk.Button;
         accept.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }

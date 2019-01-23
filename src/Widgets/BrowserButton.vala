@@ -39,7 +39,7 @@ public class BrowserButton : Gtk.Grid {
         if (external_apps.length () > 1) {
             var open_button = new Gtk.MenuButton ();
             open_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
-            open_button.tooltip_text = "Open page in…";
+            open_button.tooltip_text = _("Open page in…");
 
             var open_popover = new Gtk.Popover (open_button);
             open_button.popover = open_popover;
@@ -92,7 +92,7 @@ public class BrowserButton : Gtk.Grid {
 
                 var open_button = new Gtk.Button ();
                 open_button.image = browser_icon;
-                open_button.tooltip_text = "Open page in %s".printf (app_info.get_name ());
+                open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
 
                 add (open_button);
 
