@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 00:51-0700\n"
+"POT-Creation-Date: 2019-01-23 01:47-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -119,7 +119,7 @@ msgid ""
 "tracking you. For the best protection, always use a VPN."
 msgstr ""
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:167
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:179
 msgid "Cassidy James Blaede"
 msgstr ""
 
@@ -246,11 +246,14 @@ msgstr ""
 msgid "For the best protection, always use a VPN."
 msgstr ""
 
-#: src/Widgets/BrowserButton.vala:42
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
+#: src/Widgets/BrowserButton.vala:46 src/Widgets/BrowserButton.vala:162
+#: src/Widgets/BrowserButton.vala:203
 msgid "Open page in…"
 msgstr ""
 
-#: src/Widgets/BrowserButton.vala:95
+#: src/Widgets/BrowserButton.vala:63 src/Widgets/BrowserButton.vala:180
+#: src/Widgets/BrowserButton.vala:220
 #, c-format
 msgid "Open page in %s"
 msgstr ""
