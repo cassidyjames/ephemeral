@@ -1,0 +1,14 @@
+data/com.github.cassidyjames.ephemeral.appdata.xml.in
+data/launcher.desktop.in
+src/Application.vala
+src/Dialogs/ExternalDialog.vala
+src/Dialogs/PreferencesDialog.vala
+src/MainWindow.vala
+src/Views/ErrorView.vala
+src/Views/WelcomeView.vala
+src/Widgets/BrowserButton.vala
+src/Widgets/DefaultInfoBar.vala
+src/Widgets/NativeInfoBar.vala
+src/Widgets/NetworkInfoBar.vala
+src/Widgets/PaidInfoBar.vala
+src/Widgets/UrlEntry.vala
