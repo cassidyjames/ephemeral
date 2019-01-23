@@ -1,5 +1,5 @@
 /*
-* Copyright ⓒ 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -79,15 +79,15 @@ public class MainWindow : Gtk.Window {
 
         forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         forward_button.sensitive = false;
-        forward_button.tooltip_text = "Forward";
+        forward_button.tooltip_text = _("Forward");
         forward_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Right"}, forward_button.tooltip_text);
 
         refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-        refresh_button.tooltip_text = "Reload page";
+        refresh_button.tooltip_text = _("Reload page");
         refresh_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>r"}, refresh_button.tooltip_text);
 
         stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
-        stop_button.tooltip_text = "Stop loading";
+        stop_button.tooltip_text = _("Stop loading");
 
         refresh_stop_stack = new Gtk.Stack ();
         refresh_stop_stack.add (refresh_button);
@@ -98,7 +98,7 @@ public class MainWindow : Gtk.Window {
 
         erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.sensitive = false;
-        erase_button.tooltip_text = "Erase browsing history";
+        erase_button.tooltip_text = _("Erase browsing history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
         browser_button = new BrowserButton (web_view);
@@ -114,21 +114,21 @@ public class MainWindow : Gtk.Window {
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
         zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
             {"<Ctrl>minus"},
-            "Zoom out"
+            _("Zoom out")
         );
         zoom_out_button.clicked.connect (zoom_out);
 
         zoom_default_button = new Gtk.Button.with_label ("100%");
         zoom_default_button.tooltip_markup = Granite.markup_accel_tooltip (
             {"<Ctrl>0"},
-            "Default zoom level"
+            _("Default zoom level")
         );
         zoom_default_button.clicked.connect (zoom_default);
 
         var zoom_in_button = new Gtk.Button.from_icon_name ("zoom-in-symbolic", Gtk.IconSize.MENU);
         zoom_in_button.tooltip_markup = Granite.markup_accel_tooltip (
             {"<Ctrl>plus"},
-            "Zoom in"
+            _("Zoom in")
         );
         zoom_in_button.clicked.connect (zoom_in);
 
@@ -142,7 +142,7 @@ public class MainWindow : Gtk.Window {
         zoom_grid.add (zoom_default_button);
         zoom_grid.add (zoom_in_button);
 
-        var new_window_label = new Gtk.Label ("Open New Window");
+        var new_window_label = new Gtk.Label (_("Open New Window"));
         new_window_label.halign = Gtk.Align.START;
         new_window_label.hexpand = true;
         new_window_label.margin_start = 6;
@@ -160,7 +160,7 @@ public class MainWindow : Gtk.Window {
         new_window_button.add (new_window_grid);
         new_window_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-        var quit_label = new Gtk.Label ("Quit All Windows");
+        var quit_label = new Gtk.Label (_("Quit All Windows"));
         quit_label.halign = Gtk.Align.START;
         quit_label.hexpand = true;
         quit_label.margin_start = 6;
@@ -181,7 +181,7 @@ public class MainWindow : Gtk.Window {
         var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
         separator.margin_top = separator.margin_bottom = 3;
 
-        var preferences_label = new Gtk.Label ("Reset Preferences…");
+        var preferences_label = new Gtk.Label (_("Reset Preferences…"));
         preferences_label.halign = Gtk.Align.START;
         preferences_label.hexpand = true;
         preferences_label.margin_start = preferences_label.margin_end = 6;
@@ -578,4 +578,3 @@ public class MainWindow : Gtk.Window {
         return;
     }
 }
-

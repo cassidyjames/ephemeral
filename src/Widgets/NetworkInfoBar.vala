@@ -1,5 +1,5 @@
 /*
-* Copyright ⓒ 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -28,17 +28,21 @@ public class NetworkInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var default_label = new Gtk.Label ("<b>Network Not Available.</b> Connect to the Internet to browse the Web.");
+        string title = _("Network Not Available.");
+        string details = _("Connect to the Internet to browse the Web.");
+
+        var default_label = new Gtk.Label ("<b>%s</b> %s".printf (title, details));
         default_label.use_markup = true;
         default_label.wrap = true;
 
-        var never_button = new Gtk.Button.with_label ("Never Warn Again");
+        var never_button = new Gtk.Button.with_label (_("Never Warn Again"));
         never_button.halign = Gtk.Align.END;
         never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         get_content_area ().add (default_label);
         add_action_widget (never_button, Gtk.ResponseType.REJECT);
-        add_button ("Network Settings…", Gtk.ResponseType.ACCEPT);
+        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+        add_button (_("Network Settings…"), Gtk.ResponseType.ACCEPT);
 
         try_set_revealed ();
 
@@ -76,4 +80,3 @@ public class NetworkInfoBar : Gtk.InfoBar {
             !network_available;
     }
 }
-

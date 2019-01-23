@@ -1,5 +1,5 @@
 /*
-* Copyright ⓒ 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -28,20 +28,28 @@ public class DefaultInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        var default_label = new Gtk.Label ("<b>Make privacy a habit.</b> Set Ephemeral as your default browser?\n<small>You can always change this later in <i>System Settings</i> → <i>Applications</i>.</small>");
+        string habit = _("Make privacy a habit.");
+        string ask_default = _("Set Ephemeral as your default browser?");
+
+        // TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
+        string change = _("You can always change this later in <i>System Settings</i> → <i>Applications</i>.");
+
+        var default_label = new Gtk.Label ("<b>%s</b> %s\n<small>%s</small>".printf (
+            habit, ask_default, change
+        ));
         default_label.use_markup = true;
         default_label.wrap = true;
 
         var default_app_info = GLib.AppInfo.get_default_for_type (Ephemeral.CONTENT_TYPES[0], false);
         var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
 
-        var never_button = new Gtk.Button.with_label ("Never Ask Again");
+        var never_button = new Gtk.Button.with_label (_("Never Ask Again"));
         never_button.halign = Gtk.Align.END;
         never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         get_content_area ().add (default_label);
         add_action_widget (never_button, Gtk.ResponseType.REJECT);
-        add_button ("Set as Default", Gtk.ResponseType.ACCEPT);
+        add_button (_("Set as Default"), Gtk.ResponseType.ACCEPT);
 
         revealed =
             !default_app_info.equal (app_info) &&
@@ -72,4 +80,3 @@ public class DefaultInfoBar : Gtk.InfoBar {
         });
     }
 }
-
