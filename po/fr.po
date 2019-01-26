@@ -184,6 +184,10 @@ msgstr "WWW;web;navigateur;internet;privé;incognito;focus;temporaire;cookies;"
 msgid "New Window"
 msgstr "Nouvelle fenêtre"
 
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr "Retour"
+
 #: src/MainWindow.vala:82
 msgid "Forward"
 msgstr "Suivant"
@@ -199,6 +203,10 @@ msgstr "Arrêter le chargement"
 #: src/MainWindow.vala:101
 msgid "Erase browsing history"
 msgstr "Effacer l'historique de navigation"
+
+#: src/MainWindow.vala:109
+msgid "Menu"
+msgstr "Menu"
 
 #: src/MainWindow.vala:117
 msgid "Zoom out"
