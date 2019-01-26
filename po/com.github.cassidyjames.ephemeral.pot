@@ -143,6 +143,10 @@ msgstr ""
 msgid "New Window"
 msgstr ""
 
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr ""
+
 #: src/MainWindow.vala:82
 msgid "Forward"
 msgstr ""
@@ -157,6 +161,10 @@ msgstr ""
 
 #: src/MainWindow.vala:101
 msgid "Erase browsing history"
+msgstr ""
+
+#: src/MainWindow.vala:109
+msgid "Menu"
 msgstr ""
 
 #: src/MainWindow.vala:117
