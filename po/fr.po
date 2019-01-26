@@ -186,7 +186,7 @@ msgstr "Nouvelle fenêtre"
 
 #: src/MainWindow.vala:77
 msgid "Back"
-msgstr "Retour"
+msgstr "Précédent"
 
 #: src/MainWindow.vala:82
 msgid "Forward"
