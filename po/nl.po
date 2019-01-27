@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 15:39-0700\n"
+"POT-Creation-Date: 2019-01-27 14:37-0700\n"
 "PO-Revision-Date: 2019-01-23 16:19+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -157,7 +157,7 @@ msgstr ""
 "daarvoor bestemde websites kunnen je nog steeds volgen. Als je dat ook wilt "
 "voorkomen, gebruik dan een VPN."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:179
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:186
 msgid "Cassidy James Blaede"
 msgstr "Cassidy James Blaede"
 
@@ -181,6 +181,10 @@ msgstr "WWW;web;browser;internet;privé;incognito;focus;tijdelijk;cookies;"
 msgid "New Window"
 msgstr "Nieuw venster"
 
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr ""
+
 #: src/MainWindow.vala:82
 msgid "Forward"
 msgstr "Vooruit"
@@ -196,6 +200,10 @@ msgstr "Stoppen met laden"
 #: src/MainWindow.vala:101
 msgid "Erase browsing history"
 msgstr "Surfgeschiedenis wissen"
+
+#: src/MainWindow.vala:109
+msgid "Menu"
+msgstr ""
 
 #: src/MainWindow.vala:117
 msgid "Zoom out"
