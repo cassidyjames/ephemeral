@@ -74,7 +74,7 @@ public class MainWindow : Gtk.Window {
 
         back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
-        back_button.tooltip_text = "Back";
+        back_button.tooltip_text = _("Back");
         back_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Left"}, back_button.tooltip_text);
 
         forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
@@ -106,7 +106,7 @@ public class MainWindow : Gtk.Window {
 
         var settings_button = new Gtk.MenuButton ();
         settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-        settings_button.tooltip_text = "Menu";
+        settings_button.tooltip_text = _("Menu");
 
         var settings_popover = new Gtk.Popover (settings_button);
         settings_button.popover = settings_popover;

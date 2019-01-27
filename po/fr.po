@@ -132,7 +132,7 @@ msgid ""
 msgstr ""
 "Que faire si vous rencontrez un problème de compatibilité de site en raison "
 "de la prévention du suivi, ou si vous voulez vous connecter à un site en "
-"utilisant les mots de passe enregistrés dans un autre navigateur ?Ephemeral "
+"utilisant les mots de passe enregistrés dans un autre navigateur ? Ephemeral "
 "vous couvre : il vous suffit d'appuyer sur l'icône de votre autre navigateur "
 "dans le menu de supérieur et la page actuelle s'y ouvre."
 
@@ -184,6 +184,10 @@ msgstr "WWW;web;navigateur;internet;privé;incognito;focus;temporaire;cookies;"
 msgid "New Window"
 msgstr "Nouvelle fenêtre"
 
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr "Précédent"
+
 #: src/MainWindow.vala:82
 msgid "Forward"
 msgstr "Suivant"
@@ -199,6 +203,10 @@ msgstr "Arrêter le chargement"
 #: src/MainWindow.vala:101
 msgid "Erase browsing history"
 msgstr "Effacer l'historique de navigation"
+
+#: src/MainWindow.vala:109
+msgid "Menu"
+msgstr "Menu"
 
 #: src/MainWindow.vala:117
 msgid "Zoom out"
@@ -259,7 +267,7 @@ msgid ""
 "Any dismissed or remembered alerts, warnings, etc. will be displayed again "
 "the next time Ephemeral is opened."
 msgstr ""
-"Toutes les alertes, rappels, avertissements, etc. rejetées ou mémorisées "
+"Toutes les alertes, rappels, avertissements, etc. rejetés ou mémorisés "
 "s'afficheront à nouveau à la prochaine ouverture d'Ephemeral."
 
 #: src/Dialogs/PreferencesDialog.vala:33
@@ -268,7 +276,7 @@ msgstr "En fait non"
 
 #: src/Dialogs/PreferencesDialog.vala:36
 msgid "Reset Preferences"
-msgstr "Réinitialiserles préférences"
+msgstr "Réinitialiser les préférences"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
