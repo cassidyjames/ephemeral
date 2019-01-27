@@ -29,6 +29,11 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.0.1" date="2019-01-27">
+      <description>
+        <p>Fixed some missed translations and updated French translations. Thanks again, @NathanBnm!</p>
+      </description>
+    </release>
     <release version="4.0.0" date="2019-01-23">
       <description>
         <p>Lots o' goodies:</p>
