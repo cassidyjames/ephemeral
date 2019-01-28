@@ -7,7 +7,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 01:47-0700\n"
 "PO-Revision-Date: 2019-01-23 16:19+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -157,7 +156,7 @@ msgstr ""
 "daarvoor bestemde websites kunnen je nog steeds volgen. Als je dat ook wilt "
 "voorkomen, gebruik dan een VPN."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:179
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:186
 msgid "Cassidy James Blaede"
 msgstr "Cassidy James Blaede"
 

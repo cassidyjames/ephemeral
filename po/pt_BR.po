@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 01:47-0700\n"
+"POT-Creation-Date: 2019-01-27 14:37-0700\n"
 "PO-Revision-Date: 2019-01-23 19:09-0200\n"
 "Last-Translator: Lucas Sanchez dos Anjos <lucassanchezanjos@yahoo.com.br>\n"
 "Language-Team: none\n"
@@ -156,7 +156,7 @@ msgstr ""
 "determinados sites de te rastrear. Para uma proteção melhor, use sempre um "
 "serviço de VPN."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:179
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:186
 msgid "Cassidy James Blaede"
 msgstr "Cassidy James Blaede"
 
@@ -180,6 +180,10 @@ msgstr "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
 msgid "New Window"
 msgstr "Nova Janela"
 
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr ""
+
 #: src/MainWindow.vala:82
 msgid "Forward"
 msgstr "Avançar"
@@ -195,6 +199,10 @@ msgstr "Interromper carregamento"
 #: src/MainWindow.vala:101
 msgid "Erase browsing history"
 msgstr "Apagar histórico de navegação"
+
+#: src/MainWindow.vala:109
+msgid "Menu"
+msgstr ""
 
 #: src/MainWindow.vala:117
 msgid "Zoom out"
