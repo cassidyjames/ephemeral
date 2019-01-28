@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 14:37-0700\n"
+"POT-Creation-Date: 2019-01-28 11:49-0700\n"
 "PO-Revision-Date: 2019-01-23 20:45+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -148,19 +148,24 @@ msgstr ""
 "toujours revenir dans un navigateur moins privé en un seul clic."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
+#, fuzzy
 msgid ""
 "Remember, Ephemeral and any browser's incognito or private mode can only do "
 "so much: they mitigate some tracking and don't store data on your device, "
 "but they won't stop your ISP, government, or determined websites from "
-"tracking you. For the best protection, always use a VPN."
+"tracking you."
 msgstr ""
 "N'oubliez pas qu'Ephemeral et le mode incognito ou privé de n'importe quel "
 "navigateur ne peuvent pas faire grand-chose : ils atténuent le suivi et ne "
 "stockent pas de données sur votre appareil, mais ils n'empêchent pas votre "
-"FAI, le gouvernement ou des sites web déterminés de vous suivre. Pour une "
-"protection optimale, utilisez toujours un VPN."
+"FAI, le gouvernement ou des sites web déterminés de vous suivre."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:186
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr "Pour une protection optimale, utilisez toujours un VPN."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:201
 msgid "Cassidy James Blaede"
 msgstr "Cassidy James Blaede"
 
@@ -298,10 +303,6 @@ msgstr ""
 "stockent pas de données sur votre appareil, mais ils n'empêchent pas votre "
 "FAI, le gouvernement ou des sites web déterminés de vous suivre."
 
-#: src/Views/WelcomeView.vala:34
-msgid "For the best protection, always use a VPN."
-msgstr "Pour une protection optimale, utilisez toujours un VPN."
-
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
 #: src/Widgets/BrowserButton.vala:46 src/Widgets/BrowserButton.vala:162
 #: src/Widgets/BrowserButton.vala:203
@@ -412,3 +413,15 @@ msgstr "Entrez un URL ou cherchez quelque chose"
 #: src/Widgets/UrlEntry.vala:41
 msgid "Go"
 msgstr "Rechercher"
+
+#~ msgid ""
+#~ "Remember, Ephemeral and any browser's incognito or private mode can only "
+#~ "do so much: they mitigate some tracking and don't store data on your "
+#~ "device, but they won't stop your ISP, government, or determined websites "
+#~ "from tracking you. For the best protection, always use a VPN."
+#~ msgstr ""
+#~ "N'oubliez pas qu'Ephemeral et le mode incognito ou privé de n'importe "
+#~ "quel navigateur ne peuvent pas faire grand-chose : ils atténuent le suivi "
+#~ "et ne stockent pas de données sur votre appareil, mais ils n'empêchent "
+#~ "pas votre FAI, le gouvernement ou des sites web déterminés de vous "
+#~ "suivre. Pour une protection optimale, utilisez toujours un VPN."

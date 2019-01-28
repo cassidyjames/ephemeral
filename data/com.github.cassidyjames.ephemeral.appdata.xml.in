@@ -23,12 +23,22 @@
     <p>Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — by default to avoid as much Google tracking as possible.</p>
     <p>What if you run into a site compatibility issue due to the tracking prevention, or if you want to sign into a site using another browser’s saved passwords? Ephemeral has you covered: just hit your other browser’s icon in the header and the current page is opened up there.</p>
     <p>The best part of Ephemeral comes when you use it as your default browser: make privacy a habit by opening links in a private browser by default, knowing you can always jump back into a less private browser with one click.</p>
-    <p>Remember, Ephemeral and any browser's incognito or private mode can only do so much: they mitigate some tracking and don't store data on your device, but they won't stop your ISP, government, or determined websites from tracking you. For the best protection, always use a VPN.</p>
+    <p>Remember, Ephemeral and any browser's incognito or private mode can only do so much: they mitigate some tracking and don't store data on your device, but they won't stop your ISP, government, or determined websites from tracking you.</p>
+    <p>For the best protection, always use a VPN.</p>
   </description>
   <provides>
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.0.2" date="2019-01-28">
+      <description>
+        <p>More translations:</p>
+        <ul>
+          <li>Lithuanian translations thanks to @welaq</li>
+          <li>Updated Dutch translations thanks to Heimen Stoffels</li>
+        </ul>
+      </description>
+    </release>
     <release version="4.0.1" date="2019-01-27">
       <description>
         <p>Fixed some missed translations and updated French translations. Thanks again, @NathanBnm!</p>

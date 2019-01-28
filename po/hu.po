@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 14:37-0700\n"
+"POT-Creation-Date: 2019-01-28 11:49-0700\n"
 "PO-Revision-Date: 2019-01-22 23:15-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -116,10 +116,15 @@ msgid ""
 "Remember, Ephemeral and any browser's incognito or private mode can only do "
 "so much: they mitigate some tracking and don't store data on your device, "
 "but they won't stop your ISP, government, or determined websites from "
-"tracking you. For the best protection, always use a VPN."
+"tracking you."
 msgstr ""
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:186
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:201
 msgid "Cassidy James Blaede"
 msgstr ""
 
@@ -248,10 +253,6 @@ msgid ""
 "so much: they mitigate some tracking and don’t store data on your device, "
 "but they won’t stop your ISP, government, or determined websites from "
 "tracking you."
-msgstr ""
-
-#: src/Views/WelcomeView.vala:34
-msgid "For the best protection, always use a VPN."
 msgstr ""
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu

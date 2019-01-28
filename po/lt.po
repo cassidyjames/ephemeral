@@ -7,17 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-27 14:37-0700\n"
+"POT-Creation-Date: 2019-01-28 11:49-0700\n"
 "PO-Revision-Date: 2019-01-28 15:47+0200\n"
+"Last-Translator: Moo\n"
 "Language-Team: \n"
+"Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.6\n"
-"Last-Translator: Moo\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"Language: lt\n"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
 #: data/launcher.desktop.in:3
@@ -147,19 +147,24 @@ msgstr ""
 "spustelėjimu pereiti į mažiau privačią naršyklę."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
+#, fuzzy
 msgid ""
 "Remember, Ephemeral and any browser's incognito or private mode can only do "
 "so much: they mitigate some tracking and don't store data on your device, "
 "but they won't stop your ISP, government, or determined websites from "
-"tracking you. For the best protection, always use a VPN."
+"tracking you."
 msgstr ""
 "Atminkite, Ephemeral ir bet kurios kitos naršyklės inkognito ar privati "
 "veiksena gali atlikti tik tiek: sumažinti sekimą ir nesaugoti duomenų jūsų "
 "įrenginyje, tačiau naršyklės nesustabdys jūsų interneto paslaugų teikėjo, "
-"vyriausybės ar pasiryžusių internetinių svetainių nuo galimybės jus sekti. "
-"Geresnei apsaugai, visada naudokite VPN."
+"vyriausybės ar pasiryžusių internetinių svetainių nuo galimybės jus sekti."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:186
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr "Geresnei apsaugai, visada naudokite VPN."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:201
 msgid "Cassidy James Blaede"
 msgstr "Cassidy James Blaede"
 
@@ -298,10 +303,6 @@ msgstr ""
 "įrenginyje, tačiau naršyklės nesustabdys jūsų interneto paslaugų teikėjo, "
 "vyriausybės ar pasiryžusių internetinių svetainių nuo galimybės jus sekti."
 
-#: src/Views/WelcomeView.vala:34
-msgid "For the best protection, always use a VPN."
-msgstr "Geresnei apsaugai, visada naudokite VPN."
-
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
 #: src/Widgets/BrowserButton.vala:46 src/Widgets/BrowserButton.vala:162
 #: src/Widgets/BrowserButton.vala:203
@@ -414,3 +415,15 @@ msgstr "Įveskite URL ar paieškos žodžius"
 #: src/Widgets/UrlEntry.vala:41
 msgid "Go"
 msgstr "Eiti"
+
+#~ msgid ""
+#~ "Remember, Ephemeral and any browser's incognito or private mode can only "
+#~ "do so much: they mitigate some tracking and don't store data on your "
+#~ "device, but they won't stop your ISP, government, or determined websites "
+#~ "from tracking you. For the best protection, always use a VPN."
+#~ msgstr ""
+#~ "Atminkite, Ephemeral ir bet kurios kitos naršyklės inkognito ar privati "
+#~ "veiksena gali atlikti tik tiek: sumažinti sekimą ir nesaugoti duomenų "
+#~ "jūsų įrenginyje, tačiau naršyklės nesustabdys jūsų interneto paslaugų "
+#~ "teikėjo, vyriausybės ar pasiryžusių internetinių svetainių nuo galimybės "
+#~ "jus sekti. Geresnei apsaugai, visada naudokite VPN."
