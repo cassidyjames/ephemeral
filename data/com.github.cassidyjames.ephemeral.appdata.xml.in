@@ -30,6 +30,11 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.0.3" date="2019-02-05">
+      <description>
+        <p>Здравствуйте! Russian translations thanks to Artem Polishchuk</p>
+      </description>
+    </release>
     <release version="4.0.2" date="2019-01-28">
       <description>
         <p>More translations:</p>
