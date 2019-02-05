@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-28 11:49-0700\n"
-"PO-Revision-Date: 2019-02-05 16:46+0200\n"
+"PO-Revision-Date: 2019-02-05 17:51+0200\n"
 "Last-Translator: Artem Polishchuk <ego.cordatus@gmail.com>\n"
 "Language-Team: русский <>\n"
 "Language: ru\n"
@@ -27,7 +27,7 @@ msgstr "Ephemeral"
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
 #: src/Views/WelcomeView.vala:31
 msgid "The always-incognito web browser"
-msgstr "Браузер всегда в режиме инкогнито"
+msgstr "Браузер, который всегда в режиме инкогнито"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:10
 msgid ""
@@ -269,8 +269,8 @@ msgid ""
 "Any dismissed or remembered alerts, warnings, etc. will be displayed again "
 "the next time Ephemeral is opened."
 msgstr ""
-"Любые отклоненные или запомненные предупреждения, предупреждения и т. Д. "
-"Будут отображаться снова при следующем открытии Ephemeral."
+"Любые отклоненные или запомненные предупреждения, предупреждения и т. д. "
+"будут отображаться снова при следующем открытии Ephemeral."
 
 #: src/Dialogs/PreferencesDialog.vala:33
 msgid "Never Mind"
@@ -326,7 +326,7 @@ msgid ""
 "You can always change this later in <i>System Settings</i> → "
 "<i>Applications</i>."
 msgstr ""
-"Вы всегда это можете изменить позже в <i>Системные настройки</i> "
+"Вы всегда это можете изменить позже в <i>Системные настройки</i> → "
 "<i>Приложения</i>."
 
 #: src/Widgets/DefaultInfoBar.vala:46
