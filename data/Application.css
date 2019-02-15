@@ -159,3 +159,7 @@ infobar button.flat:not(:active) {
   font-weight: 900;
 }
 
+popover radio {
+  margin-left: 6px;
+}
+

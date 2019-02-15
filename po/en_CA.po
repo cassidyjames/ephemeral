@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-23 15:39-0700\n"
+"POT-Creation-Date: 2019-02-15 14:31-0700\n"
 "PO-Revision-Date: 2019-01-22 23:15-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -59,78 +59,81 @@ msgstr "Set as your default browser for true privacy by default"
 msgid "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
 msgstr "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:17
+msgid "Pick between privacy-respecting search engines from the menu"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
 msgid "Ephemeral protects you in four key ways:"
 msgstr "Ephemeral protects you in four key ways:"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
-msgid ""
-"1️⃣ Always incognito. From the second you open an Ephemeral window until you "
-"close it (or hit the Erase button), Ephemeral is in private browsing mode. "
-"That means history, cookies, local storage, passwords, etc. are all blown "
-"away as soon as you leave."
-msgstr ""
-"1️⃣ Always incognito. From the second you open an Ephemeral window until you "
-"close it (or hit the Erase button), Ephemeral is in private browsing mode. "
-"That means history, cookies, local storage, passwords, etc. are all blown "
-"away as soon as you leave."
-
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:20
 msgid ""
-"2️⃣ Contained. Every Ephemeral window is a separate instance of the browser "
-"engine. This means pages are kept separate from one another. Sign into a "
-"service in one window, and other Ephemeral windows will have no idea you’re "
-"signed in."
+"1️⃣ Always incognito. From the second you open an Ephemeral window until you "
+"close it (or hit the Erase button), Ephemeral is in private browsing mode. "
+"That means history, cookies, local storage, passwords, etc. are all blown "
+"away as soon as you leave."
 msgstr ""
-"2️⃣ Contained. Every Ephemeral window is a separate instance of the browser "
-"engine. This means pages are kept separate from one another. Sign into a "
-"service in one window, and other Ephemeral windows will have no idea you’re "
-"signed in."
+"1️⃣ Always incognito. From the second you open an Ephemeral window until you "
+"close it (or hit the Erase button), Ephemeral is in private browsing mode. "
+"That means history, cookies, local storage, passwords, etc. are all blown "
+"away as soon as you leave."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:21
 msgid ""
-"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
-"third-party sources. This cuts down on advertising cookies and other "
-"unwanted forms of cross-site tracking."
+"2️⃣ Contained. Every Ephemeral window is a separate instance of the browser "
+"engine. This means pages are kept separate from one another. Sign into a "
+"service in one window, and other Ephemeral windows will have no idea you’re "
+"signed in."
 msgstr ""
-"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
-"third-party sources. This cuts down on advertising cookies and other "
-"unwanted forms of cross-site tracking."
+"2️⃣ Contained. Every Ephemeral window is a separate instance of the browser "
+"engine. This means pages are kept separate from one another. Sign into a "
+"service in one window, and other Ephemeral windows will have no idea you’re "
+"signed in."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
 msgid ""
-"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
-"load a web page or perform a search. Even then, no usage data is ever "
-"collected—I have no idea what you do with Ephemeral, and I don't want to "
-"know!"
+"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
+"third-party sources. This cuts down on advertising cookies and other "
+"unwanted forms of cross-site tracking."
 msgstr ""
-"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
-"load a web page or perform a search. Even then, no usage data is ever "
-"collected—I have no idea what you do with Ephemeral, and I don't want to "
-"know!"
+"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
+"third-party sources. This cuts down on advertising cookies and other "
+"unwanted forms of cross-site tracking."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:23
 msgid ""
-"Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — "
-"by default to avoid as much Google tracking as possible."
+"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
+"load a web page or perform a search. Even then, no usage data is ever "
+"collected—I have no idea what you do with Ephemeral, and I don't want to "
+"know!"
 msgstr ""
-"Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — "
-"by default to avoid as much Google tracking as possible."
+"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
+"load a web page or perform a search. Even then, no usage data is ever "
+"collected—I have no idea what you do with Ephemeral, and I don't want to "
+"know!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:24
 msgid ""
-"What if you run into a site compatibility issue due to the tracking "
-"prevention, or if you want to sign into a site using another browser’s saved "
-"passwords? Ephemeral has you covered: just hit your other browser’s icon in "
-"the header and the current page is opened up there."
+"Ephemeral uses Startpage.com—the world's most private search engine—by "
+"default to avoid as much Google tracking as possible. You can also choose "
+"DuckDuckGo from the menu if that’s your preference."
 msgstr ""
-"What if you run into a site compatibility issue due to the tracking "
-"prevention, or if you want to sign into a site using another browser’s saved "
-"passwords? Ephemeral has you covered: just hit your other browser’s icon in "
-"the header and the current page is opened up there."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
 msgid ""
+"What if you run into a site compatibility issue due to the tracking "
+"prevention, or if you want to sign into a site using another browser’s saved "
+"passwords? Ephemeral has you covered: just hit your other browser’s icon in "
+"the header and the current page is opened up there."
+msgstr ""
+"What if you run into a site compatibility issue due to the tracking "
+"prevention, or if you want to sign into a site using another browser’s saved "
+"passwords? Ephemeral has you covered: just hit your other browser’s icon in "
+"the header and the current page is opened up there."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
+msgid ""
 "The best part of Ephemeral comes when you use it as your default browser: "
 "make privacy a habit by opening links in a private browser by default, "
 "knowing you can always jump back into a less private browser with one click."
@@ -139,19 +142,277 @@ msgstr ""
 "make privacy a habit by opening links in a private browser by default, "
 "knowing you can always jump back into a less private browser with one click."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
+#, fuzzy
 msgid ""
 "Remember, Ephemeral and any browser's incognito or private mode can only do "
 "so much: they mitigate some tracking and don't store data on your device, "
 "but they won't stop your ISP, government, or determined websites from "
-"tracking you. For the best protection, always use a VPN."
+"tracking you."
 msgstr ""
 "Remember, Ephemeral and any browser's incognito or private mode can only do "
 "so much: they mitigate some tracking and don't store data on your device, "
 "but they won't stop your ISP, government, or determined websites from "
 "tracking you. For the best protection, always use a VPN."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:179
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:28
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:36
+msgid "All New Search + Suggestions"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:38
+msgid "The URL entry will offer to complete over 400 popular sites*"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
+msgid "New Search Engine choice in the Menu"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:40
+msgid "Switched to Startpage.com by default"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
+msgid "Happy birthday, Katie!"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
+msgid ""
+"*This data is all shipped with Ephemeral itself, and Ephemeral still does "
+"not touch the network until you explicitly navigate somewhere. The list of "
+"domains is heavily inspired by a similar feature in Firefox Focus. Domains "
+"being included in completion suggestions are not an endorsement, it simply "
+"means that domain is relatively popular."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:48
+msgid "Guten Tag! German translations thanks to Hannes Schulze"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:53
+msgid "Здравствуйте! Russian translations thanks to Artem Polishchuk"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:58
+msgid "More translations:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:60
+msgid "Lithuanian translations thanks to @welaq"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:61
+msgid "Updated Dutch translations thanks to Heimen Stoffels"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
+msgid ""
+"Fixed some missed translations and updated French translations. Thanks "
+"again, @NathanBnm!"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:72
+msgid "Lots o' goodies:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:74
+msgid "The last-used browser is remembered for next time"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:75
+msgid "New \"Reset Preferences\" menu item and dialog"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:76
+#, fuzzy
+msgid "Ctrl+O to open the current page in another browser"
+msgstr "Easily open pages in any other installed browser"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:77
+msgid "Refined (ever-so-subtly less flat) HeaderBar design"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:78
+msgid "Ephemeral is now translatable!"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:80
+msgid "Translations:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:82
+msgid ""
+"¡Hola! Spanish translations thanks to Adolfo Jayme-Barrientos and Mario "
+"Rodrigo"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:83
+msgid "salut! French translations thanks to Nathan (@NathanBnm)"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:84
+msgid ""
+"Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:85
+msgid "Hallo! Dutch translations thanks to Heimen Stoffels"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:91
+msgid "Styling fixes for non-native platforms."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:96
+msgid "Fixed a few small issues with zoom:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:98
+msgid "Zoom controls are now only sensitive when the web view is visible"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:99
+msgid "Reported zoom level is now correct when opening a new window"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:100
+msgid "Reported zoom level is now kept in sync across open windows"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:106
+msgid "Zoom! And more…"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:108
+msgid "A new menu to keep the UI tidy and balanced"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:109
+msgid "Zoom in, out, and default from the new menu or with the keyboard"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:110
+msgid "New Window action moved into the menu"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:111
+msgid "Added a Quit All Windows action to the menu"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:112
+msgid "Smooth scrolling when using the keyboard or a scrollwheel"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:113
+msgid "Fixed Twitch livestreams"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:114
+msgid "Fixed YouTube resolution support: now up to 4K!"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:115
+msgid "Code cleaning to keep things fresh and clean"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:121
+msgid "Better error handling and quality of life improvements all around:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:123
+msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:124
+msgid "New warning when no network connection"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:125
+msgid "Prettier errors using native views"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:126
+msgid "Stopped throwing away text when unfocusing URL entry"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:127
+msgid "Stopped searching when the URL entry is empty"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:128
+msgid "Code cleaning to keep things smelling fresh"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:134
+msgid "Fresh styles to keep things funky, plus more:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:136
+msgid ""
+"The new start page makes Ephemeral faster and makes it not touch the network "
+"until you're ready to browse"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:137
+msgid "Middle- or Ctrl-click a link to open it in a new window"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:138
+msgid ""
+"Displayed URLs are kept in sync for pages that manually update the URL "
+"without a page load"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:139
+msgid "Local HTML files can now be opened"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:146
+msgid "More informative \"set as default\" infobar"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:147
+msgid "Tweaked \"set as default\" infobar styling"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:154
+#, fuzzy
+msgid "Search from URL entry!"
+msgstr "Search right from the URL bar"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:155
+msgid "Asks (politely!) to be set as the default browser"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:156
+msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:163
+msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:164
+msgid "Collapse external browsers into a menu when there's more than one"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:170
+msgid "Add several useful keyboard and mouse shortcuts"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:175
+msgid "Fix links that try to open in a new window"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:180
+msgid "Initial release for AppCenter"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:224
 msgid "Cassidy James Blaede"
 msgstr "Cassidy James Blaede"
 
@@ -175,6 +436,10 @@ msgstr "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
 msgid "New Window"
 msgstr "New Window"
 
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr ""
+
 #: src/MainWindow.vala:82
 msgid "Forward"
 msgstr ""
@@ -189,6 +454,10 @@ msgstr ""
 
 #: src/MainWindow.vala:101
 msgid "Erase browsing history"
+msgstr ""
+
+#: src/MainWindow.vala:109
+msgid "Menu"
 msgstr ""
 
 #: src/MainWindow.vala:117
@@ -213,6 +482,14 @@ msgid "Quit All Windows"
 msgstr ""
 
 #: src/MainWindow.vala:184
+msgid "Startpage.com Search"
+msgstr ""
+
+#: src/MainWindow.vala:187
+msgid "DuckDuckGo Search"
+msgstr ""
+
+#: src/MainWindow.vala:193
 msgid "Reset Preferences…"
 msgstr ""
 
@@ -280,19 +557,15 @@ msgstr ""
 "but they won't stop your ISP, government, or determined websites from "
 "tracking you. For the best protection, always use a VPN."
 
-#: src/Views/WelcomeView.vala:34
-msgid "For the best protection, always use a VPN."
-msgstr ""
-
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
-#: src/Widgets/BrowserButton.vala:46 src/Widgets/BrowserButton.vala:162
-#: src/Widgets/BrowserButton.vala:203
+#: src/Widgets/BrowserButton.vala:44 src/Widgets/BrowserButton.vala:160
+#: src/Widgets/BrowserButton.vala:201
 #, fuzzy
 msgid "Open page in…"
 msgstr "New Window"
 
-#: src/Widgets/BrowserButton.vala:63 src/Widgets/BrowserButton.vala:180
-#: src/Widgets/BrowserButton.vala:220
+#: src/Widgets/BrowserButton.vala:61 src/Widgets/BrowserButton.vala:178
+#: src/Widgets/BrowserButton.vala:218
 #, fuzzy, c-format
 msgid "Open page in %s"
 msgstr "New Window"
@@ -381,13 +654,35 @@ msgstr ""
 msgid "Purchase or Fund…"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:35
+#: src/Widgets/UrlEntry.vala:37
 msgid "Enter a URL or search term"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:41
+#: src/Widgets/UrlEntry.vala:43
 msgid "Go"
 msgstr ""
+
+#: src/Widgets/UrlEntry.vala:534
+msgid "Popular website"
+msgstr ""
+
+#~ msgid ""
+#~ "Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you "
+#~ "— by default to avoid as much Google tracking as possible."
+#~ msgstr ""
+#~ "Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you "
+#~ "— by default to avoid as much Google tracking as possible."
+
+#~ msgid ""
+#~ "Remember, Ephemeral and any browser's incognito or private mode can only "
+#~ "do so much: they mitigate some tracking and don't store data on your "
+#~ "device, but they won't stop your ISP, government, or determined websites "
+#~ "from tracking you. For the best protection, always use a VPN."
+#~ msgstr ""
+#~ "Remember, Ephemeral and any browser's incognito or private mode can only "
+#~ "do so much: they mitigate some tracking and don't store data on your "
+#~ "device, but they won't stop your ISP, government, or determined websites "
+#~ "from tracking you. For the best protection, always use a VPN."
 
 #, fuzzy
 #~ msgid "The always-incognito web browser."

@@ -33,6 +33,8 @@ public class Ephemeral : Gtk.Application {
     // Once a month
     public const int64 NOTICE_SECS = 60 * 60 * 24 * 30;
     public const string DONATE_URL = "https://cassidyjames.com/pay";
+    public const string STARTPAGE = "https://www.startpage.com/do/search?q=%s&prfh=enable_stay_controlEEE0N1N";
+    public const string DDG = "https://duckduckgo.com/?q=%s&t=elementary";
 
     public static GLib.Settings settings;
 

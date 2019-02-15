@@ -74,7 +74,7 @@ public class MainWindow : Gtk.Window {
 
         back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
-        back_button.tooltip_text = "Back";
+        back_button.tooltip_text = _("Back");
         back_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Left"}, back_button.tooltip_text);
 
         forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
@@ -106,7 +106,7 @@ public class MainWindow : Gtk.Window {
 
         var settings_button = new Gtk.MenuButton ();
         settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Gtk.IconSize.LARGE_TOOLBAR);
-        settings_button.tooltip_text = "Menu";
+        settings_button.tooltip_text = _("Menu");
 
         var settings_popover = new Gtk.Popover (settings_button);
         settings_button.popover = settings_popover;
@@ -181,6 +181,15 @@ public class MainWindow : Gtk.Window {
         var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
         separator.margin_top = separator.margin_bottom = 3;
 
+        var startpage_button = new Gtk.RadioButton.with_label (null, _("Startpage.com Search"));
+        startpage_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
+        ddg_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var another_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        another_separator.margin_top = another_separator.margin_bottom = 3;
+
         var preferences_label = new Gtk.Label (_("Reset Preferences…"));
         preferences_label.halign = Gtk.Align.START;
         preferences_label.hexpand = true;
@@ -198,7 +207,10 @@ public class MainWindow : Gtk.Window {
         settings_popover_grid.attach (new_window_button, 0, 1);
         settings_popover_grid.attach (quit_button, 0, 2);
         settings_popover_grid.attach (separator, 0, 3);
-        settings_popover_grid.attach (preferences_button, 0, 4);
+        settings_popover_grid.attach (startpage_button, 0, 4);
+        settings_popover_grid.attach (ddg_button, 0, 5);
+        settings_popover_grid.attach (another_separator, 0, 6);
+        settings_popover_grid.attach (preferences_button, 0, 7);
         settings_popover_grid.show_all ();
 
         settings_popover.add (settings_popover_grid);
@@ -248,6 +260,14 @@ public class MainWindow : Gtk.Window {
             stack.visible_child_name = "welcome-view";
         }
 
+        // TODO: DRY
+        var search_engine = Ephemeral.settings.get_string ("search-engine");
+        if (search_engine == Ephemeral.STARTPAGE) {
+            startpage_button.active = true;
+        } else if (search_engine == Ephemeral.DDG) {
+            ddg_button.active = true;
+        }
+
         back_button.clicked.connect (web_view.go_back);
         forward_button.clicked.connect (web_view.go_forward);
         refresh_button.clicked.connect (web_view.reload);
@@ -257,6 +277,14 @@ public class MainWindow : Gtk.Window {
         new_window_button.clicked.connect (() => {
             settings_popover.popdown ();
             new_window ();
+        });
+
+        startpage_button.clicked.connect (() => {
+            Ephemeral.settings.set_string ("search-engine", Ephemeral.STARTPAGE);
+        });
+
+        ddg_button.clicked.connect (() => {
+            Ephemeral.settings.set_string ("search-engine", Ephemeral.DDG);
         });
 
         quit_button.clicked.connect (() => {
@@ -274,6 +302,14 @@ public class MainWindow : Gtk.Window {
                         string[] keys = Ephemeral.settings.list_keys ();
                         foreach (string key in keys) {
                             Ephemeral.settings.reset (key);
+                        }
+
+                        // TODO: DRY
+                        var current_search_engine = Ephemeral.settings.get_string ("search-engine");
+                        if (current_search_engine == Ephemeral.STARTPAGE) {
+                            startpage_button.active = true;
+                        } else if (current_search_engine == Ephemeral.DDG) {
+                            ddg_button.active = true;
                         }
                     case Gtk.ResponseType.CANCEL:
                     case Gtk.ResponseType.CLOSE:

@@ -31,8 +31,6 @@ public class BrowserButton : Gtk.Grid {
     }
 
     construct {
-        var settings = new Settings ("com.github.cassidyjames.ephemeral");
-
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Ephemeral.CONTENT_TYPES[0]);
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
@@ -53,9 +51,9 @@ public class BrowserButton : Gtk.Grid {
             attach (list_button, 1, 0);
             var last_used_browser_shown = false;
 
-            if (settings.get_string ("last-used-browser") != "") {
+            if (Ephemeral.settings.get_string ("last-used-browser") != "") {
                 foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == settings.get_string ("last-used-browser")) {
+                    if (app_info.get_id () == Ephemeral.settings.get_string ("last-used-browser")) {
                         var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                         browser_icon.pixel_size = 24;
 
@@ -127,7 +125,7 @@ public class BrowserButton : Gtk.Grid {
                 browser_item.visible = true;
 
                 browser_item.clicked.connect (() => {
-                    settings.set_string ("last-used-browser", app_info.get_id ());
+                    Ephemeral.settings.set_string ("last-used-browser", app_info.get_id ());
 
                     var uris = new List<string> ();
                     uris.append (web_view.get_uri ());
@@ -147,8 +145,8 @@ public class BrowserButton : Gtk.Grid {
             list_grid.show_all ();
 
             // Update open_button when the gsettings value has changed
-            settings.changed["last-used-browser"].connect (() => {
-                if (settings.get_string ("last-used-browser") != "") {
+            Ephemeral.settings.changed["last-used-browser"].connect (() => {
+                if (Ephemeral.settings.get_string ("last-used-browser") != "") {
                     if (!last_used_browser_shown) {
                         // Add style classes if no browser has been used before
                         last_used_browser_shown = true;
@@ -172,7 +170,7 @@ public class BrowserButton : Gtk.Grid {
 
                     // Show the last-used browser
                     foreach (AppInfo app_info in external_apps) {
-                        if (app_info.get_id () == settings.get_string ("last-used-browser")) {
+                        if (app_info.get_id () == Ephemeral.settings.get_string ("last-used-browser")) {
                             var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                             browser_icon.pixel_size = 24;
 
@@ -223,7 +221,7 @@ public class BrowserButton : Gtk.Grid {
                 add (open_single_browser_button);
 
                 open_single_browser_button.clicked.connect (() => {
-                    settings.set_string ("last-used-browser", app_info.get_id ());
+                    Ephemeral.settings.set_string ("last-used-browser", app_info.get_id ());
 
                     var uris = new List<string> ();
                     uris.append (web_view.get_uri ());
