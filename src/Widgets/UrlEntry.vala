@@ -20,7 +20,6 @@
 */
 
 public class UrlEntry : Gtk.Entry {
-
     private const string SEARCH = "https://www.startpage.com/do/search?query=%s&t=dark";
     public WebKit.WebView web_view { get; construct set; }
 
