@@ -20,8 +20,6 @@
 */
 
 public class UrlEntry : Gtk.Entry {
-    private const string SEARCH = "https://duckduckgo.com/?q=%s";
-
     private Gtk.ListStore list_store { get; set; }
     private Gtk.TreeIter iter { get; set; }
 
@@ -492,6 +490,8 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("zillow.com", "Zillow");
 
         activate.connect (() => {
+            var search_engine = Ephemeral.settings.get_string ("search-engine");
+
             // TODO: Better URL validation
             if (text == "" || text == null) {
                 Gdk.beep ();
@@ -500,7 +500,7 @@ public class UrlEntry : Gtk.Entry {
                 if (text.contains (".") && !text.contains (" ")) {
                     text = "%s://%s".printf ("https", text);
                 } else {
-                    text = SEARCH.printf (text);
+                    text = search_engine.printf (text);
                 }
             }
             web_view.load_uri (text);

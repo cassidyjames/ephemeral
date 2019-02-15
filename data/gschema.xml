@@ -23,6 +23,11 @@
       <summary>Last used browser</summary>
       <description>The id of the last-used browser (the browser selected in the menu)</description>
     </key>
+    <key name="search-engine" type="s">
+      <default>"https://www.startpage.com/do/search?q=%s&amp;prfh=enable_stay_controlEEE0N1N"</default>
+      <summary>Search engine</summary>
+      <description>A search string using "%s" as a placeholder for a query</description>
+    </key>
     <key name="warn-network" type="b">
       <default>true</default>
       <summary>Warn on no network connection</summary>
@@ -35,3 +40,4 @@
     </key>
   </schema>
 </schemalist>
+
