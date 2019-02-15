@@ -20,8 +20,6 @@
 */
 
 public class UrlEntry : Gtk.Entry {
-    private const string SEARCH = "https://duckduckgo.com/?q=%s";
-
     private Gtk.ListStore list_store { get; set; }
     private Gtk.TreeIter iter { get; set; }
 
