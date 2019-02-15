@@ -50,7 +50,7 @@ msgstr "Abra con facilidad sitios en otros navegadores instalados"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:14
 msgid "Search right from the URL bar"
-msgstr "Realice búsquedas directo de la barra de URL"
+msgstr "Realice búsquedas directamente desde la barra de direcciones"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
 msgid "Set as your default browser for true privacy by default"
