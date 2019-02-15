@@ -260,6 +260,7 @@ public class MainWindow : Gtk.Window {
             stack.visible_child_name = "welcome-view";
         }
 
+        // TODO: DRY
         var search_engine = Ephemeral.settings.get_string ("search-engine");
         if (search_engine == Ephemeral.STARTPAGE) {
             startpage_button.active = true;
@@ -303,6 +304,7 @@ public class MainWindow : Gtk.Window {
                             Ephemeral.settings.reset (key);
                         }
 
+                        // TODO: DRY
                         var current_search_engine = Ephemeral.settings.get_string ("search-engine");
                         if (current_search_engine == Ephemeral.STARTPAGE) {
                             startpage_button.active = true;
