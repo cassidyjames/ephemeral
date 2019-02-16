@@ -311,7 +311,7 @@ msgstr "S'ha mogut l'acció Nova Finestra dins del menú"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:111
 msgid "Added a Quit All Windows action to the menu"
-msgstr "Afegida l'acció Tancar totes les finestres al menu"
+msgstr "S'ha afegit l'acció Tancar totes les finestres al menu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:112
 msgid "Smooth scrolling when using the keyboard or a scrollwheel"
@@ -319,11 +319,11 @@ msgstr "Desplaçament suau mitjançant el teclat o el ratolí"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:113
 msgid "Fixed Twitch livestreams"
-msgstr "Corregits les transmissions en directe de Twitch"
+msgstr "S'han corregit les transmissions en directe de Twitch"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:114
 msgid "Fixed YouTube resolution support: now up to 4K!"
-msgstr "Corregit la compatibilitat amb les resolucions de YouTube: ara fins 4K!"
+msgstr "S'ha corregit la compatibilitat amb les resolucions de YouTube: ara fins 4K!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:115
 msgid "Code cleaning to keep things fresh and clean"
@@ -331,95 +331,99 @@ msgstr "Neteja de codi per mantindre les coses netes i ordenades"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:121
 msgid "Better error handling and quality of life improvements all around:"
-msgstr ""
+msgstr "Millor control d'errors i millores de la qualitat a tots els llocs:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:123
 msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
-msgstr ""
+msgstr "Nous diàlegs de confirmació per aplicacions externes, p.e. appstream:// o ftp://"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:124
 msgid "New warning when no network connection"
-msgstr ""
+msgstr "Nou avís quan no hi ha connexió a la xarxa"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:125
 msgid "Prettier errors using native views"
-msgstr ""
+msgstr "Errors més bonics utilitzant les vistes natives"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:126
 msgid "Stopped throwing away text when unfocusing URL entry"
-msgstr ""
+msgstr "S'ha deixat de llançar text quan l'entrada d'URL perd el focus"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:127
 msgid "Stopped searching when the URL entry is empty"
-msgstr ""
+msgstr "S'ha deixat de cercar quan l'entrada d'URL està buida"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:128
 msgid "Code cleaning to keep things smelling fresh"
-msgstr ""
+msgstr "Neteja de codi per mantindre les coses amb olor a fresc"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:134
 msgid "Fresh styles to keep things funky, plus more:"
-msgstr ""
+msgstr "Nous estils per mantindre les coses a la moda, i a més:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:136
 msgid ""
 "The new start page makes Ephemeral faster and makes it not touch the network "
 "until you're ready to browse"
 msgstr ""
+"La nova pàgina d'inici fa Ephemeral més ràpid i que no toque la xarxa "
+"fins que estigueu preparats per navegar"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:137
 msgid "Middle- or Ctrl-click a link to open it in a new window"
-msgstr ""
+msgstr "Féu Ctrl-click o click amb el botó del mig per obrir un enllaç a una nova finestra"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:138
 msgid ""
 "Displayed URLs are kept in sync for pages that manually update the URL "
 "without a page load"
 msgstr ""
+"Les URLs mostrades es mantenen sincronitzades per aquelles pàgines que actualizen manualment "
+"la URL sense carregar la pàgina"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:139
 msgid "Local HTML files can now be opened"
-msgstr ""
+msgstr "Ara es poden obrir els fitxers HTML locals"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:146
 msgid "More informative \"set as default\" infobar"
-msgstr ""
+msgstr "Barra \"establiu per defecte\" més informativa"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:147
 msgid "Tweaked \"set as default\" infobar styling"
-msgstr ""
+msgstr "S'ha modifica l'estil de la barra \"establiu per defecte\""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:154
 msgid "Search from URL entry!"
-msgstr ""
+msgstr "Cerquey des de l'entrada d'URL!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:155
 msgid "Asks (politely!) to be set as the default browser"
-msgstr ""
+msgstr "Demana (educadament!) per que l'establiu com el navegador per defecte"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:156
 msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
-msgstr ""
+msgstr "Obriu enllaços no soportats (com els de l'AppCenter) a l'aplicació per defecte del sistema"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:163
 msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
-msgstr ""
+msgstr "S'ha afegit \"Nova Finestra\" a la barra de capçalera, al llançador i a les dreceres de teclat"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:164
 msgid "Collapse external browsers into a menu when there's more than one"
-msgstr ""
+msgstr "Comprimits els navegadors externs a un menú quan hi ha més d´'un"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:170
 msgid "Add several useful keyboard and mouse shortcuts"
-msgstr ""
+msgstr "Afegits algunes dreceres útils de teclat i ratolí"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:175
 msgid "Fix links that try to open in a new window"
-msgstr ""
+msgstr "Corregits enllaços que tracten d'obrir una nova finestra"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:180
 msgid "Initial release for AppCenter"
-msgstr ""
+msgstr "Versió inicial per l'AppCenter"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:224
 msgid "Cassidy James Blaede"
