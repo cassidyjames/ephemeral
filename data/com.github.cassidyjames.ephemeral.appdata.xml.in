@@ -33,6 +33,16 @@
   <releases>
     <release version="4.1.1" date="2019-02-21">
       <description>
+        <p>URL Entry Fixes</p>
+        <ul>
+          <li>Updated and corrected several autocomplete domains</li>
+          <li>No longer attempt to force HTTPS on protocol-less domains—fixes several popular sites</li>
+          <li>Strip whitespace from URL entry before navigating—fixes instances where trying to navigate to a domain would perform a search</li>
+        </ul>
+      </description>
+    </release>
+    <release version="4.1.1" date="2019-02-21">
+      <description>
         <p>URL Suggestion Fixes</p>
         <ul>
           <li>Corrected joinmastodon.org TLD</li>
