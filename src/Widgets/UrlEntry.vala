@@ -59,7 +59,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("247sports.com");
         add_suggestion ("6pm.com", "6pm");
         add_suggestion ("aa.com", "American Airlines");
-        add_suggestion ("aarp.com", "AARP");
+        add_suggestion ("aarp.org", "AARP");
         add_suggestion ("abc.go.com", "ABC");
         add_suggestion ("abcnews.go.com", "ABC News");
         add_suggestion ("abs-cbnnews.com", "ABS-CBN News");
@@ -339,7 +339,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("popsugar.com", "POPSUGAR");
         add_suggestion ("potterybarn.com", "Pottery Barn");
         add_suggestion ("priceline.com", "Priceline");
-        add_suggestion ("pudue.edu", "Purdue University");
+        add_suggestion ("purdue.edu", "Purdue University");
         add_suggestion ("puri.sm", "Purism");
         add_suggestion ("qq.com", "QQ.com");
         add_suggestion ("qualtrics.com");
@@ -352,7 +352,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("redbox.com");
         add_suggestion ("reddit.com", "Reddit");
         add_suggestion ("redfin.com", "Redfin");
-        add_suggestion ("refactorintui.com", "Refactoring UI");
+        add_suggestion ("refactoringui.com", "Refactoring UI");
         add_suggestion ("reference.com", "Reference.com");
         add_suggestion ("refinery29.com", "Refinery29");
         add_suggestion ("rei.com", "REI");
