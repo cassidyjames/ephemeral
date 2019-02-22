@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-15 14:31-0700\n"
+"POT-Creation-Date: 2019-02-21 23:18-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -622,6 +622,6 @@ msgstr ""
 msgid "Go"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:534
+#: src/Widgets/UrlEntry.vala:531
 msgid "Popular website"
 msgstr ""
