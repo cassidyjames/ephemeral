@@ -31,6 +31,18 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.1.1" date="2019-02-21">
+      <description>
+        <p>URL Suggestion Fixes</p>
+        <ul>
+          <li>Corrected joinmastodon.org TLD</li>
+          <li>Added additional useful sites</li>
+          <li>Added descriptions for more sites</li>
+          <li>Removed dead sites</li>
+          <li>Updated translations</li>
+        </ul>
+      </description>
+    </release>
     <release version="4.1.0" date="2019-02-15">
       <description>
         <p>All New Search + Suggestions</p>
