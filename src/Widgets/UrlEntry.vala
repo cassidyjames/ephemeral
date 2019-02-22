@@ -486,6 +486,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("zendesk.com", "Zendesk");
         add_suggestion ("zergnet.com", "ZergNet");
         add_suggestion ("zillow.com", "Zillow");
+        add_suggestion ("zulily.com", "Zulily");
 
         activate.connect (() => {
             var search_engine = Ephemeral.settings.get_string ("search-engine");
@@ -496,7 +497,8 @@ public class UrlEntry : Gtk.Entry {
                 return;
             } else if (!text.contains ("://")) {
                 if (text.contains (".") && !text.contains (" ")) {
-                    text = "%s://%s".printf ("https", text);
+                    // TODO: Try HTTPS, and fall back to HTTP?
+                    text = "%s://%s".printf ("http", text);
                 } else {
                     text = search_engine.printf (text);
                 }
