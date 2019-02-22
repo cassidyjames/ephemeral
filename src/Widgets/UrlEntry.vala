@@ -321,6 +321,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("oracle.com", "Oracle");
         add_suggestion ("orbitz.com");
         add_suggestion ("overstock.com", "Overstock");
+        add_suggestion ("pandora.com", "Pandora");
         add_suggestion ("patch.com", "Patch");
         add_suggestion ("patheos.com", "Patheos");
         add_suggestion ("paypal.com", "PayPal");
