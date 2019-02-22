@@ -489,6 +489,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("zulily.com", "Zulily");
 
         activate.connect (() => {
+            text = text.strip ();
             var search_engine = Ephemeral.settings.get_string ("search-engine");
 
             // TODO: Better URL validation
