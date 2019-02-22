@@ -78,15 +78,13 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("answers.com", "Answers");
         add_suggestion ("aol.com", "AOL");
         add_suggestion ("appcenter.elementary.io", "elementary AppCenter");
-        add_suggestion ("archive.org");
-        add_suggestion ("arstechnica.com");
+        add_suggestion ("archive.org", "Internet Archive");
         add_suggestion ("arstechnica.com", "Ars Technica");
         add_suggestion ("att.com", "AT&T");
         add_suggestion ("audible.com", "Audible");
         add_suggestion ("autotrader.com", "Autotrader");
         add_suggestion ("azlyrics.com", "AZLyrics");
         add_suggestion ("babycenter.com", "BabyCenter");
-        add_suggestion ("backpage.com");
         add_suggestion ("baidu.com", "Baidu");
         add_suggestion ("bankofamerica.com", "Bank of America");
         add_suggestion ("bankrate.com");
@@ -132,7 +130,6 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("cnn.com", "CNN");
         add_suggestion ("comcast.net", "Comcast");
         add_suggestion ("comenity.net");
-        add_suggestion ("conservativetribune.com");
         add_suggestion ("consumerreports.org", "Consumer Reports");
         add_suggestion ("costco.com", "Costco");
         add_suggestion ("coupons.com", "Coupons.com");
@@ -187,7 +184,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("facebook.com", "Facebook");
         add_suggestion ("fandango.com", "Fandango");
         add_suggestion ("fanduel.com", "FanDuel");
-        add_suggestion ("fanfiction.net");
+        add_suggestion ("fast.com", "Fast.com");
         add_suggestion ("fedex.com", "FedEx");
         add_suggestion ("feedly.com", "Feedly");
         add_suggestion ("fidelity.com", "Fidelity Investments");
@@ -207,7 +204,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("genius.com");
         add_suggestion ("gettogether.community", "Get Together");
         add_suggestion ("gfycat.com", "Gfycat");
-        add_suggestion ("giphy.com");
+        add_suggestion ("giphy.com", "Giphy");
         add_suggestion ("github.com", "GitHub");
         add_suggestion ("gizmodo.com", "Gizmodo");
         add_suggestion ("glassdoor.com", "Glassdoor");
@@ -381,13 +378,14 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("simple.com", "Simple");
         add_suggestion ("skype.com");
         add_suggestion ("slate.com", "Slate");
+        add_suggestion ("slides.google.com", "Google Slides");
         add_suggestion ("slideshare.net");
         add_suggestion ("slimbook.es", "SLIMBOOK");
         add_suggestion ("soundcloud.com", "SoundCloud");
         add_suggestion ("sourceforge.net", "SourceForge");
         add_suggestion ("southwest.com", "Southwest Airlines");
         add_suggestion ("spectrum.com", "Spectrum");
-        add_suggestion ("speedtest.net");
+        add_suggestion ("speedtest.net", "Speedtest");
         add_suggestion ("sprint.com", "Sprint");
         add_suggestion ("squarespace.com", "Squarespace");
         add_suggestion ("squareup.com", "Square");
