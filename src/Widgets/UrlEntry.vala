@@ -56,7 +56,7 @@ public class UrlEntry : Gtk.Entry {
         completion.pack_start (cell, false);
         completion.add_attribute (cell, "text", 1);
 
-        add_suggestion ("247sports.com");
+        add_suggestion ("247sports.com", "247Sports");
         add_suggestion ("6pm.com", "6pm");
         add_suggestion ("aa.com", "American Airlines");
         add_suggestion ("aarp.org", "AARP");
@@ -87,7 +87,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("babycenter.com", "BabyCenter");
         add_suggestion ("baidu.com", "Baidu");
         add_suggestion ("bankofamerica.com", "Bank of America");
-        add_suggestion ("bankrate.com");
+        add_suggestion ("bankrate.com", "Bankrate");
         add_suggestion ("barclaycardus.com", "Barclays US");
         add_suggestion ("barnesandnoble.com", "Barnes & Noble");
         add_suggestion ("bbc.com", "BBC");
@@ -98,13 +98,13 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("bhphotovideo.com", "B&H Photo");
         add_suggestion ("biblegateway.com", "BibleGateway.com");
         add_suggestion ("bing.com", "Bing");
-        add_suggestion ("bizjournals.com");
+        add_suggestion ("bizjournals.com", "The Business Journals");
         add_suggestion ("blogger.com", "Blogger");
         add_suggestion ("blogspot.com", "Blogspot");
         add_suggestion ("bloomberg.com", "Bloomberg");
         add_suggestion ("bn.com", "Barnes & Noble");
-        add_suggestion ("bodybuilding.com");
-        add_suggestion ("booking.com");
+        add_suggestion ("bodybuilding.com", "Bodybuilding.com");
+        add_suggestion ("booking.com", "Booking.com");
         add_suggestion ("box.com", "Box");
         add_suggestion ("buffer.com", "Buffer");
         add_suggestion ("businessinsider.com", "Business Insider");
@@ -112,7 +112,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("capitalone360.com", "Capital One Bank");
         add_suggestion ("capitalone.com", "Capital One");
         add_suggestion ("careerbuilder.com", "CareerBuilder");
-        add_suggestion ("cars.com");
+        add_suggestion ("cars.com", "Cars.com");
         add_suggestion ("cartoonnetwork.com", "Cartoon Network");
         add_suggestion ("cash.app", "Cash App");
         add_suggestion ("cassidyjames.com", "Cassidy James");
@@ -122,14 +122,14 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("chase.com", "Chase");
         add_suggestion ("chicagotribune.com", "Chicago Tribune");
         add_suggestion ("chron.com", "The Houston Chronicle");
-        add_suggestion ("citibankonline.com");
+        add_suggestion ("citibankonline.com", "Banking with Citi");
         add_suggestion ("citi.com", "Citi");
         add_suggestion ("cloudflare.com", "Cloudflare");
         add_suggestion ("cnbc.com", "CNBC");
         add_suggestion ("cnet.com", "CNET");
         add_suggestion ("cnn.com", "CNN");
         add_suggestion ("comcast.net", "Comcast");
-        add_suggestion ("comenity.net");
+        add_suggestion ("comenity.net", "Comenity");
         add_suggestion ("consumerreports.org", "Consumer Reports");
         add_suggestion ("costco.com", "Costco");
         add_suggestion ("coupons.com", "Coupons.com");
@@ -158,16 +158,16 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("do.co", "DigitalOcean");
         add_suggestion ("docs.google.com", "Google Docs");
         add_suggestion ("dominos.com", "Domino's");
-        add_suggestion ("draftkings.com");
+        add_suggestion ("draftkings.com", "DraftKings");
         add_suggestion ("dribbble.com", "Dribbble");
         add_suggestion ("drive.google.com", "Google Drive");
         add_suggestion ("dropbox.com", "Dropbox");
-        add_suggestion ("drugs.com");
+        add_suggestion ("drugs.com", "Drugs.com");
         add_suggestion ("duckduckgo.com", "DuckDuckGo");
-        add_suggestion ("earthlink.net");
+        add_suggestion ("earthlink.net", "EarthLink");
         add_suggestion ("ebates.com", "Ebates");
         add_suggestion ("ebay.com", "eBay");
-        add_suggestion ("edmunds.com");
+        add_suggestion ("edmunds.com", "Edmunds");
         add_suggestion ("eff.org", "Electronic Frontier Foundation");
         add_suggestion ("ehow.com", "eHow");
         add_suggestion ("elementary.io", "elementary");
@@ -184,6 +184,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("facebook.com", "Facebook");
         add_suggestion ("fandango.com", "Fandango");
         add_suggestion ("fanduel.com", "FanDuel");
+        add_suggestion ("fanfiction.net", "FanFiction");
         add_suggestion ("fast.com", "Fast.com");
         add_suggestion ("fedex.com", "FedEx");
         add_suggestion ("feedly.com", "Feedly");
@@ -201,7 +202,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("gamestop.com", "GameStop");
         add_suggestion ("gap.com", "Gap");
         add_suggestion ("gawker.com", "Gawker");
-        add_suggestion ("genius.com");
+        add_suggestion ("genius.com", "Genius");
         add_suggestion ("gettogether.community", "Get Together");
         add_suggestion ("gfycat.com", "Gfycat");
         add_suggestion ("giphy.com", "Giphy");
@@ -210,13 +211,13 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("glassdoor.com", "Glassdoor");
         add_suggestion ("gmail.com", "Gmail");
         add_suggestion ("gofundme.com", "GoFundMe");
-        add_suggestion ("goodhousekeeping.com");
+        add_suggestion ("goodhousekeeping.com", "Good Housekeeping");
         add_suggestion ("goodreads.com", "Goodreads");
         add_suggestion ("google.com", "Google");
         add_suggestion ("greatergood.com", "GreaterGood");
         add_suggestion ("groupon.com", "Groupon");
-        add_suggestion ("harvard.edu");
-        add_suggestion ("healthcare.gov");
+        add_suggestion ("harvard.edu", "Harvard University");
+        add_suggestion ("healthcare.gov", "HealthCare.gov");
         add_suggestion ("hilton.com", "Hilton");
         add_suggestion ("hm.com", "H&M");
         add_suggestion ("homedepot.com", "The Home Depot");
@@ -234,8 +235,8 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("imdb.com", "Internet Movie Database");
         add_suggestion ("imgur.com", "Imgur");
         add_suggestion ("indeed.com", "Indeed");
-        add_suggestion ("independent.co.uk");
-        add_suggestion ("indiatimes.com");
+        add_suggestion ("independent.co.uk", "The Independent");
+        add_suggestion ("indiatimes.com", "Indiatimes");
         add_suggestion ("indiegogo.com", "Indiegogo");
         add_suggestion ("ind.ie", "Indie");
         add_suggestion ("instagram.com", "Instagram");
@@ -253,7 +254,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("jupiterbroadcasting.com", "Jupiter Broadcasting");
         add_suggestion ("kbb.com", "Kelly Blue Book");
         add_suggestion ("kickstarter.com", "Kickstarter");
-        add_suggestion ("kinja.com");
+        add_suggestion ("kinja.com", "Kinja");
         add_suggestion ("kmart.com", "Kmart");
         add_suggestion ("kohls.com", "Khol's");
         add_suggestion ("kotaku.com", "Kotaku");
@@ -267,9 +268,9 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("linuxacademy.com", "Linux Academy");
         add_suggestion ("linuxunplugged.com", "LINUX Unplugged");
         add_suggestion ("littlethings.com", "LittleThings");
-        add_suggestion ("liveleak.com");
-        add_suggestion ("livestrong.com");
-        add_suggestion ("livingsocial.com");
+        add_suggestion ("liveleak.com", "LiveLeak");
+        add_suggestion ("livestrong.com", "Livestrong");
+        add_suggestion ("livingsocial.com", "LivingSocial");
         add_suggestion ("llbean.com", "L.L.Bean");
         add_suggestion ("lunduke.com", "Bryan Lunduke");
         add_suggestion ("lowes.com", "Lowes");
@@ -278,39 +279,39 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("mapquest.com", "MapQuest");
         add_suggestion ("marketwatch.com", "MarketWatch");
         add_suggestion ("marriott.com", "Marriott");
-        add_suggestion ("marthastewart.com");
+        add_suggestion ("marthastewart.com", "Martha Stewart");
         add_suggestion ("mashable.com", "Mashable");
         add_suggestion ("match.com", "Match.com");
         add_suggestion ("mayoclinic.org", "Mayo Clinic");
         add_suggestion ("medium.com", "Medium");
         add_suggestion ("meetup.com", "Meetup");
-        add_suggestion ("merriam-webster.com");
-        add_suggestion ("mic.com");
-        add_suggestion ("michaels.com");
+        add_suggestion ("merriam-webster.com", "Dictionary by Merriam-Webster");
+        add_suggestion ("mic.com", "Mic");
+        add_suggestion ("michaels.com", "Michaels");
         add_suggestion ("mint.com", "Mint");
-        add_suggestion ("mit.edu");
+        add_suggestion ("mit.edu", "Massachusetts Institute of Technology");
         add_suggestion ("mlb.com", "MLB");
         add_suggestion ("monster.com", "Monster Jobs");
-        add_suggestion ("mozilla.org");
-        add_suggestion ("msnbc.com");
+        add_suggestion ("mozilla.org", "Mozilla");
+        add_suggestion ("msnbc.com", "NBC News");
         add_suggestion ("msn.com", "Microsoft Live");
         add_suggestion ("myfitnesspal.com", "MyFitnessPal");
-        add_suggestion ("nationalgeographic.com");
-        add_suggestion ("naver.com");
+        add_suggestion ("nationalgeographic.com", "National Geographic");
+        add_suggestion ("naver.com", "NAVER");
         add_suggestion ("nba.com", "NBA");
         add_suggestion ("nbc.com", "NBC");
         add_suggestion ("nbcnews.com", "NBC News");
         add_suggestion ("nbcsports.com", "NBC Sports");
-        add_suggestion ("nesn.com");
+        add_suggestion ("nesn.com", "NESN");
         add_suggestion ("newegg.com", "Newegg");
         add_suggestion ("nextdoor.com", "Nextdoor");
-        add_suggestion ("nhl.com");
+        add_suggestion ("nhl.com", "National Hockey League");
         add_suggestion ("nih.gov", "National Institutes of Health");
         add_suggestion ("nike.com", "Nike");
-        add_suggestion ("noaa.gov");
+        add_suggestion ("noaa.gov", "National Oceanic and Atmospheric Administration");
         add_suggestion ("nordstrom.com", "Nordstrom");
         add_suggestion ("npr.org", "NPR");
-        add_suggestion ("ny.gov");
+        add_suggestion ("ny.gov", "New York State");
         add_suggestion ("nypost.com", "New York Post");
         add_suggestion ("nytimes.com", "New York Times");
         add_suggestion ("office365.com", "Office 365");
@@ -319,8 +320,9 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("omgubuntu.co.uk", "OMG! Ubuntu!");
         add_suggestion ("opentable.com", "OpenTable");
         add_suggestion ("oracle.com", "Oracle");
-        add_suggestion ("orbitz.com");
+        add_suggestion ("orbitz.com", "Orbitz");
         add_suggestion ("overstock.com", "Overstock");
+        add_suggestion ("pandora.com", "Pandora");
         add_suggestion ("patch.com", "Patch");
         add_suggestion ("patheos.com", "Patheos");
         add_suggestion ("paypal.com", "PayPal");
@@ -328,9 +330,8 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("pcmag.com", "PCMag.com");
         add_suggestion ("people.com", "PEOPLE");
         add_suggestion ("phoronix.com", "Phoronix");
-        add_suggestion ("photobucket.com", "Photobucket");
         add_suggestion ("pinterest.com", "Pinterest");
-        add_suggestion ("playstation.com");
+        add_suggestion ("playstation.com", "PlayStation");
         add_suggestion ("pnc.com", "PNC");
         add_suggestion ("pof.com", "POF");
         add_suggestion ("pogo.com", "Pogo.com");
@@ -341,14 +342,14 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("purdue.edu", "Purdue University");
         add_suggestion ("puri.sm", "Purism");
         add_suggestion ("qq.com", "QQ.com");
-        add_suggestion ("qualtrics.com");
+        add_suggestion ("qualtrics.com", "Qualtrics");
         add_suggestion ("quizlet.com", "Quizlet");
         add_suggestion ("quora.com", "Quora");
         add_suggestion ("qvc.com", "QVC");
-        add_suggestion ("ravelry.com");
-        add_suggestion ("realsimple.com");
+        add_suggestion ("ravelry.com", "Ravelry");
+        add_suggestion ("realsimple.com", "Real Simple");
         add_suggestion ("realtor.com", "Realtor.com");
-        add_suggestion ("redbox.com");
+        add_suggestion ("redbox.com", "Redbox");
         add_suggestion ("reddit.com", "Reddit");
         add_suggestion ("redfin.com", "Redfin");
         add_suggestion ("refactoringui.com", "Refactoring UI");
@@ -359,7 +360,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("reuters.com", "Reuters");
         add_suggestion ("roblox.com", "Roblox");
         add_suggestion ("rollingstone.com", "Rolling Stone");
-        add_suggestion ("rotoworld.com");
+        add_suggestion ("rotoworld.com", "Rotoworld");
         add_suggestion ("rottentomatoes.com", "Rotten Tomatoes");
         add_suggestion ("salesforce.com", "Salesforce");
         add_suggestion ("salon.com", "Salon.com");
@@ -375,10 +376,10 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("shutterfly.com", "Shutterfly");
         add_suggestion ("si.com", "Sports Illustrated");
         add_suggestion ("simple.com", "Simple");
-        add_suggestion ("skype.com");
+        add_suggestion ("skype.com", "Skype");
         add_suggestion ("slate.com", "Slate");
         add_suggestion ("slides.google.com", "Google Slides");
-        add_suggestion ("slideshare.net");
+        add_suggestion ("slideshare.net", "SlideShare");
         add_suggestion ("slimbook.es", "SLIMBOOK");
         add_suggestion ("soundcloud.com", "SoundCloud");
         add_suggestion ("sourceforge.net", "SourceForge");
@@ -389,7 +390,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("squarespace.com", "Squarespace");
         add_suggestion ("squareup.com", "Square");
         add_suggestion ("stackoverflow.com", "Stack Overflow");
-        add_suggestion ("stanford.edu");
+        add_suggestion ("stanford.edu", "Stanford University");
         add_suggestion ("staples.com", "Staples");
         add_suggestion ("starbucks.com", "Starbucks");
         add_suggestion ("startpage.com", "Startpage.com");
@@ -406,7 +407,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("techcrunch.com", "TechCrunch");
         add_suggestion ("telegraph.co.uk", "The Telegraph");
         add_suggestion ("theatlantic.com", "The Atlantic");
-        add_suggestion ("thefreedictionary.com");
+        add_suggestion ("thefreedictionary.com", "The Free Dictionary");
         add_suggestion ("theguardian.com", "The Guardian");
         add_suggestion ("thekitchn.com", "Kitchn");
         add_suggestion ("theonion.com", "The Onion");
@@ -416,16 +417,16 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("theverge.com", "The Verge");
         add_suggestion ("thinkgeek.com", "ThinkGeek");
         add_suggestion ("ticketmaster.com", "Ticketmaster");
-        add_suggestion ("tickld.com");
+        add_suggestion ("tickld.com", "tickld.com");
         add_suggestion ("tigerdirect.com", "TigerDirect.com");
-        add_suggestion ("timeanddate.com");
+        add_suggestion ("timeanddate.com", "timeanddate.com");
         add_suggestion ("time.com", "TIME");
         add_suggestion ("timewarnercable.com", "Spectrum");
         add_suggestion ("t-mobile.com", "T-Mobile");
         add_suggestion ("tmobile.com", "T-Mobile");
         add_suggestion ("tmz.com", "TMZ");
         add_suggestion ("today.com", "TODAY");
-        add_suggestion ("tomshardware.com");
+        add_suggestion ("tomshardware.com", "Tom's Hardware");
         add_suggestion ("topix.com", "Topix");
         add_suggestion ("tripadvisor.com", "TripAdvisor");
         add_suggestion ("trulia.com", "Trulia");
@@ -437,7 +438,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("unsplash.com", "Unsplash");
         add_suggestion ("ups.com", "UPS");
         add_suggestion ("urbandictionary.com", "Urban Dictionary");
-        add_suggestion ("urbanoutfitters.com");
+        add_suggestion ("urbanoutfitters.com", "Urban Outfitters");
         add_suggestion ("usaa.com", "USAA");
         add_suggestion ("usatoday.com", "USA Today");
         add_suggestion ("usbank.com", "US Bank");
@@ -445,7 +446,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("usnews.com", "US News & World Report");
         add_suggestion ("usps.com", "USPS");
         add_suggestion ("valadoc.org", "Valadoc");
-        add_suggestion ("vanguard.com");
+        add_suggestion ("vanguard.com", "Vanguard");
         add_suggestion ("verizon.com", "Verizon");
         add_suggestion ("vice.com", "VICE");
         add_suggestion ("vimeo.com", "Vimeo");
@@ -485,8 +486,10 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("zendesk.com", "Zendesk");
         add_suggestion ("zergnet.com", "ZergNet");
         add_suggestion ("zillow.com", "Zillow");
+        add_suggestion ("zulily.com", "Zulily");
 
         activate.connect (() => {
+            text = text.strip ();
             var search_engine = Ephemeral.settings.get_string ("search-engine");
 
             // TODO: Better URL validation
@@ -495,7 +498,8 @@ public class UrlEntry : Gtk.Entry {
                 return;
             } else if (!text.contains ("://")) {
                 if (text.contains (".") && !text.contains (" ")) {
-                    text = "%s://%s".printf ("https", text);
+                    // TODO: Try HTTPS, and fall back to HTTP?
+                    text = "%s://%s".printf ("http", text);
                 } else {
                     text = search_engine.printf (text);
                 }
