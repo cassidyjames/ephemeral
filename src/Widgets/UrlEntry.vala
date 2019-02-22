@@ -202,7 +202,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("gamestop.com", "GameStop");
         add_suggestion ("gap.com", "Gap");
         add_suggestion ("gawker.com", "Gawker");
-        add_suggestion ("genius.com");
+        add_suggestion ("genius.com", "Genius");
         add_suggestion ("gettogether.community", "Get Together");
         add_suggestion ("gfycat.com", "Gfycat");
         add_suggestion ("giphy.com", "Giphy");
@@ -211,7 +211,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("glassdoor.com", "Glassdoor");
         add_suggestion ("gmail.com", "Gmail");
         add_suggestion ("gofundme.com", "GoFundMe");
-        add_suggestion ("goodhousekeeping.com");
+        add_suggestion ("goodhousekeeping.com", "Good Housekeeping");
         add_suggestion ("goodreads.com", "Goodreads");
         add_suggestion ("google.com", "Google");
         add_suggestion ("greatergood.com", "GreaterGood");
@@ -331,7 +331,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("people.com", "PEOPLE");
         add_suggestion ("phoronix.com", "Phoronix");
         add_suggestion ("pinterest.com", "Pinterest");
-        add_suggestion ("playstation.com");
+        add_suggestion ("playstation.com", "PlayStation");
         add_suggestion ("pnc.com", "PNC");
         add_suggestion ("pof.com", "POF");
         add_suggestion ("pogo.com", "Pogo.com");
