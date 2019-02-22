@@ -56,7 +56,7 @@ public class UrlEntry : Gtk.Entry {
         completion.pack_start (cell, false);
         completion.add_attribute (cell, "text", 1);
 
-        add_suggestion ("247sports.com");
+        add_suggestion ("247sports.com", "247Sports");
         add_suggestion ("6pm.com", "6pm");
         add_suggestion ("aa.com", "American Airlines");
         add_suggestion ("aarp.org", "AARP");
@@ -235,7 +235,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("imdb.com", "Internet Movie Database");
         add_suggestion ("imgur.com", "Imgur");
         add_suggestion ("indeed.com", "Indeed");
-        add_suggestion ("independent.co.uk");
+        add_suggestion ("independent.co.uk", "The Independent");
         add_suggestion ("indiatimes.com", "Indiatimes");
         add_suggestion ("indiegogo.com", "Indiegogo");
         add_suggestion ("ind.ie", "Indie");
@@ -296,7 +296,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("msnbc.com", "NBC News");
         add_suggestion ("msn.com", "Microsoft Live");
         add_suggestion ("myfitnesspal.com", "MyFitnessPal");
-        add_suggestion ("nationalgeographic.com");
+        add_suggestion ("nationalgeographic.com", "National Geographic");
         add_suggestion ("naver.com", "NAVER");
         add_suggestion ("nba.com", "NBA");
         add_suggestion ("nbc.com", "NBC");
@@ -407,7 +407,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("techcrunch.com", "TechCrunch");
         add_suggestion ("telegraph.co.uk", "The Telegraph");
         add_suggestion ("theatlantic.com", "The Atlantic");
-        add_suggestion ("thefreedictionary.com");
+        add_suggestion ("thefreedictionary.com", "The Free Dictionary");
         add_suggestion ("theguardian.com", "The Guardian");
         add_suggestion ("thekitchn.com", "Kitchn");
         add_suggestion ("theonion.com", "The Onion");
@@ -426,7 +426,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("tmobile.com", "T-Mobile");
         add_suggestion ("tmz.com", "TMZ");
         add_suggestion ("today.com", "TODAY");
-        add_suggestion ("tomshardware.com");
+        add_suggestion ("tomshardware.com", "Tom's Hardware");
         add_suggestion ("topix.com", "Topix");
         add_suggestion ("tripadvisor.com", "TripAdvisor");
         add_suggestion ("trulia.com", "Trulia");
