@@ -129,7 +129,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("cnet.com", "CNET");
         add_suggestion ("cnn.com", "CNN");
         add_suggestion ("comcast.net", "Comcast");
-        add_suggestion ("comenity.net"), "Comenity";
+        add_suggestion ("comenity.net", "Comenity");
         add_suggestion ("consumerreports.org", "Consumer Reports");
         add_suggestion ("costco.com", "Costco");
         add_suggestion ("coupons.com", "Coupons.com");
