@@ -354,7 +354,6 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("refactorintui.com", "Refactoring UI");
         add_suggestion ("reference.com", "Reference.com");
         add_suggestion ("refinery29.com", "Refinery29");
-        add_suggestion ("regnok.com");
         add_suggestion ("rei.com", "REI");
         add_suggestion ("retailmenot.com", "RetailMeNot");
         add_suggestion ("reuters.com", "Reuters");
