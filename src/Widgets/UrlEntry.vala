@@ -329,7 +329,6 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("pcmag.com", "PCMag.com");
         add_suggestion ("people.com", "PEOPLE");
         add_suggestion ("phoronix.com", "Phoronix");
-        add_suggestion ("photobucket.com", "Photobucket");
         add_suggestion ("pinterest.com", "Pinterest");
         add_suggestion ("playstation.com");
         add_suggestion ("pnc.com", "PNC");
