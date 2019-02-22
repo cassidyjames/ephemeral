@@ -184,6 +184,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("facebook.com", "Facebook");
         add_suggestion ("fandango.com", "Fandango");
         add_suggestion ("fanduel.com", "FanDuel");
+        add_suggestion ("fanfiction.net", "FanFiction");
         add_suggestion ("fast.com", "Fast.com");
         add_suggestion ("fedex.com", "FedEx");
         add_suggestion ("feedly.com", "Feedly");
