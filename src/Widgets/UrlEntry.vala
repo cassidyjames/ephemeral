@@ -252,7 +252,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("jcrew.com", "J.Crew");
         add_suggestion ("jet.com", "Jet.com");
         add_suggestion ("jezebel.com", "Jezebel");
-        add_suggestion ("joinmastodon.com", "The Mastodon Project");
+        add_suggestion ("joinmastodon.org", "The Mastodon Project");
         add_suggestion ("jupiterbroadcasting.com", "Jupiter Broadcasting");
         add_suggestion ("kbb.com", "Kelly Blue Book");
         add_suggestion ("kickstarter.com", "Kickstarter");
