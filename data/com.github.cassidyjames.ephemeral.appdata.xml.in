@@ -14,21 +14,54 @@
       <li>Search right from the URL bar</li>
       <li>Set as your default browser for true privacy by default</li>
       <li>Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows</li>
+      <li>Pick between privacy-respecting search engines from the menu</li>
     </ul>
     <p>Ephemeral protects you in four key ways:</p>
     <p>1️⃣ Always incognito. From the second you open an Ephemeral window until you close it (or hit the Erase button), Ephemeral is in private browsing mode. That means history, cookies, local storage, passwords, etc. are all blown away as soon as you leave.</p>
     <p>2️⃣ Contained. Every Ephemeral window is a separate instance of the browser engine. This means pages are kept separate from one another. Sign into a service in one window, and other Ephemeral windows will have no idea you’re signed in.</p>
     <p>3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from third-party sources. This cuts down on advertising cookies and other unwanted forms of cross-site tracking.</p>
     <p>4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly load a web page or perform a search. Even then, no usage data is ever collected—I have no idea what you do with Ephemeral, and I don't want to know!</p>
-    <p>Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — by default to avoid as much Google tracking as possible.</p>
+    <p>Ephemeral uses Startpage.com—the world's most private search engine—by default to avoid as much Google tracking as possible. You can also choose DuckDuckGo from the menu if that’s your preference.</p>
     <p>What if you run into a site compatibility issue due to the tracking prevention, or if you want to sign into a site using another browser’s saved passwords? Ephemeral has you covered: just hit your other browser’s icon in the header and the current page is opened up there.</p>
     <p>The best part of Ephemeral comes when you use it as your default browser: make privacy a habit by opening links in a private browser by default, knowing you can always jump back into a less private browser with one click.</p>
-    <p>Remember, Ephemeral and any browser's incognito or private mode can only do so much: they mitigate some tracking and don't store data on your device, but they won't stop your ISP, government, or determined websites from tracking you. For the best protection, always use a VPN.</p>
+    <p>Remember, Ephemeral and any browser's incognito or private mode can only do so much: they mitigate some tracking and don't store data on your device, but they won't stop your ISP, government, or determined websites from tracking you.</p>
+    <p>For the best protection, always use a VPN.</p>
   </description>
   <provides>
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.1.0" date="2019-02-15">
+      <description>
+        <p>All New Search + Suggestions</p>
+        <ul>
+          <li>The URL entry will offer to complete over 400 popular sites*</li>
+          <li>New Search Engine choice in the Menu</li>
+          <li>Switched to Startpage.com by default</li>
+          <li>Happy birthday, Katie!</li>
+        </ul>
+        <p>*This data is all shipped with Ephemeral itself, and Ephemeral still does not touch the network until you explicitly navigate somewhere. The list of domains is heavily inspired by a similar feature in Firefox Focus. Domains being included in completion suggestions are not an endorsement, it simply means that domain is relatively popular.</p>
+      </description>
+    </release>
+    <release version="4.0.4" date="2019-02-12">
+      <description>
+        <p>Guten Tag! German translations thanks to Hannes Schulze</p>
+      </description>
+    </release>
+    <release version="4.0.3" date="2019-02-05">
+      <description>
+        <p>Здравствуйте! Russian translations thanks to Artem Polishchuk</p>
+      </description>
+    </release>
+    <release version="4.0.2" date="2019-01-28">
+      <description>
+        <p>More translations:</p>
+        <ul>
+          <li>Lithuanian translations thanks to @welaq</li>
+          <li>Updated Dutch translations thanks to Heimen Stoffels</li>
+        </ul>
+      </description>
+    </release>
     <release version="4.0.1" date="2019-01-27">
       <description>
         <p>Fixed some missed translations and updated French translations. Thanks again, @NathanBnm!</p>

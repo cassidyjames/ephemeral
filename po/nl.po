@@ -9,6 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-02-15 14:31-0700\n"
 "PO-Revision-Date: 2019-02-21 14:38+0100\n"
+"PO-Revision-Date: 2019-01-28 14:05+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
 "Language: nl\n"
@@ -508,6 +509,7 @@ msgstr "Startpage.com-zoekmachine"
 #: src/MainWindow.vala:187
 msgid "DuckDuckGo Search"
 msgstr "DuckDuckGo-zoekmachine"
+
 
 #: src/MainWindow.vala:193
 msgid "Reset Preferences…"
