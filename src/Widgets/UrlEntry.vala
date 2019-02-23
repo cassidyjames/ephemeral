@@ -505,6 +505,7 @@ public class UrlEntry : Gtk.Entry {
                 }
             }
             web_view.load_uri (text);
+            web_view.grab_focus ();
         });
 
         focus_out_event.connect ((event) => {
