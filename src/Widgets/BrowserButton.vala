@@ -20,12 +20,14 @@
 */
 
 public class BrowserButton : Gtk.Grid {
+    public Gtk.Window main_window { get; construct set; }
     public WebKit.WebView web_view { get; construct set; }
     public Gtk.MenuButton list_button {get; construct set; }
     public Gtk.Button open_button {get; construct set; }
 
-    public BrowserButton (WebKit.WebView _web_view) {
+    public BrowserButton (Gtk.Window _main_window, WebKit.WebView _web_view) {
         Object (
+            main_window: _main_window,
             web_view: _web_view
         );
     }
@@ -72,6 +74,9 @@ public class BrowserButton : Gtk.Grid {
 
                             try {
                                 app_info.launch_uris (uris, null);
+                                if (Ephemeral.settings.get_boolean ("close-when-opening-externally")) {
+                                    main_window.close ();
+                                }
                             } catch (GLib.Error e) {
                                 critical (e.message);
                             }
@@ -104,6 +109,12 @@ public class BrowserButton : Gtk.Grid {
             var list_grid = new Gtk.Grid ();
             list_grid.orientation = Gtk.Orientation.VERTICAL;
 
+            var close_check = new Gtk.CheckButton.with_label (_("Close Window When Opening Externally"));
+            close_check.margin_bottom = 3;
+            close_check.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+            Ephemeral.settings.bind ("close-when-opening-externally", close_check, "active", SettingsBindFlags.DEFAULT);
+
             list_popover.add (list_grid);
 
             // Create a list of installed browsers
@@ -132,6 +143,9 @@ public class BrowserButton : Gtk.Grid {
 
                     try {
                         app_info.launch_uris (uris, null);
+                        if (Ephemeral.settings.get_boolean ("close-when-opening-externally")) {
+                            main_window.close ();
+                        }
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
@@ -142,6 +156,11 @@ public class BrowserButton : Gtk.Grid {
                 browser_grid.show_all ();
             }
 
+            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+            separator.margin_top = separator.margin_bottom = 3;
+
+            list_grid.add (separator);
+            list_grid.add (close_check);
             list_grid.show_all ();
 
             // Update open_button when the gsettings value has changed
@@ -186,6 +205,9 @@ public class BrowserButton : Gtk.Grid {
 
                                 try {
                                     app_info.launch_uris (uris, null);
+                                    if (Ephemeral.settings.get_boolean ("close-when-opening-externally")) {
+                                        main_window.close ();
+                                    }
                                 } catch (GLib.Error e) {
                                     critical (e.message);
                                 }
@@ -228,6 +250,9 @@ public class BrowserButton : Gtk.Grid {
 
                     try {
                         app_info.launch_uris (uris, null);
+                        if (Ephemeral.settings.get_boolean ("close-when-opening-externally")) {
+                            main_window.close ();
+                        }
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
