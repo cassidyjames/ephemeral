@@ -101,7 +101,7 @@ public class MainWindow : Gtk.Window {
         erase_button.tooltip_text = _("Erase browsing history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
-        browser_button = new BrowserButton (web_view);
+        browser_button = new BrowserButton (this, web_view);
         browser_button.sensitive = false;
 
         var settings_button = new Gtk.MenuButton ();
