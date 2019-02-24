@@ -31,6 +31,15 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="4.2.0" date="2019-02-23">
+      <description>
+        <p>Blaze It</p>
+        <ul>
+          <li>New option to close the window when opening a page in an external browser</li>
+          <li>The web view is now focused when navigating</li>
+        </ul>
+      </description>
+    </release>
     <release version="4.1.2" date="2019-02-22">
       <description>
         <p>URL Entry Fixes</p>
