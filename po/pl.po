@@ -134,7 +134,7 @@ msgid ""
 msgstr ""
 "Co jeśli masz problem z kompatybilnością strony z powodu blokady trackerów "
 "albo chcesz zalogować się z wykorzystaniem hasła zapisanego w innej "
-"przeglądarce? Ephemeral o to zadba: po prostu kliknij ikonę tej przeglądarki "
+"przeglądarce? Z Ephemeral to żaden kłopot: po prostu kliknij ikonę innej przeglądarki "
 "w nagłówku aplikacji, a aktualna strona zostanie w niej otwarta."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
@@ -144,7 +144,7 @@ msgid ""
 "knowing you can always jump back into a less private browser with one click."
 msgstr ""
 "Najlepsze w Ephemeral dostajesz, kiedy używasz go jako Twoją domyślną "
-"przeglądarkę: uczyń prywatność nawykiem poprzez otwieranie linków domyślnie "
+"przeglądarkę: uczyń prywatność nawykiem przez otwieranie linków domyślnie "
 "w prywatnej przeglądarce, wiedząc że zawsze możesz jednym kliknięciem wrócić "
 "do zwykłej przeglądarki."
 
@@ -156,7 +156,7 @@ msgid ""
 "tracking you."
 msgstr ""
 "Pamiętaj, Ephemeral czy tryb prywatny jakiejkolwiek innej przeglądarki "
-"nie może wszystkiego: blokuje elementy śledzące i nie przechowuje danych na "
+"nie może wszystkiego: blokuje część śledzenia i nie przechowuje danych na "
 "Twoim urządzeniu, ale nie powstrzyma Twojego dostawcy, rządu czy najbardziej "
 "upartych stron przed śledzeniem Cię."
 
@@ -195,8 +195,8 @@ msgid ""
 "being included in completion suggestions are not an endorsement, it simply "
 "means that domain is relatively popular."
 msgstr ""
-"*Te dane są wbudowane w Ephemeral, więc Ephemeral nie korzysta z sieci "
-"dopóki wyraźnie tego nie chcesz. Lista jest mocno inspirowana podobną "
+"*Te dane są wbudowane w Ephemeral, więc Ephemeral nadal nie korzysta z sieci "
+"dopóki wyraźnie tego nie zechcesz. Lista jest mocno inspirowana podobną "
 "funkcją w Firefox Focus. Obecność domeny w propozycjach nie oznacza, że ją "
 "popieramy — jest po prostu względnie popularna."
 
@@ -250,7 +250,7 @@ msgstr "Poprawiony (troszkę mniej płaski) wygląd nagłówka"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:78
 msgid "Ephemeral is now translatable!"
-msgstr "Ephemeral teraz może być tłumaczony!"
+msgstr "Teraz Ephemeral może być tłumaczony!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:80
 msgid "Translations:"
@@ -290,12 +290,12 @@ msgstr "Poprawiono kilka małych błędów skalowania."
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:98
 msgid "Zoom controls are now only sensitive when the web view is visible"
 msgstr ""
-"Kontrolki skalowania są teraz aktywne tylko wtedy, kiedy obszar strony jest "
+"Kontrola skalowania są teraz aktywna tylko wtedy, kiedy obszar strony jest "
 "widoczny."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:99
 msgid "Reported zoom level is now correct when opening a new window"
-msgstr "Podawana zkala jest teraz poprawna po otwarciu nowego okna"
+msgstr "Podawana skala jest teraz poprawna po otwarciu nowego okna"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:100
 msgid "Reported zoom level is now kept in sync across open windows"
@@ -341,7 +341,7 @@ msgstr "Porządki w kodzie dla zachowania świeżości"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:121
 msgid "Better error handling and quality of life improvements all around:"
-msgstr "Lepsza obsługa błędów i różne poprawki użyteczności:"
+msgstr "Lepsza obsługa błędów i różne poprawki jakości:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:123
 msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
@@ -392,16 +392,16 @@ msgid ""
 "Displayed URLs are kept in sync for pages that manually update the URL "
 "without a page load"
 msgstr ""
-"Wyświetlene adresy URL są synchronizowane na stronach aktualizujących "
+"Wyświetlane adresy URL są synchronizowane na stronach aktualizujących "
 "adres bez przeładowywania""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:139
 msgid "Local HTML files can now be opened"
-msgstr "Lokalne pliki HTML mogą być teraz otwierane"
+msgstr "Lokalne pliki HTML teraz mogą być otwierane"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:146
 msgid "More informative \"set as default\" infobar"
-msgstr "Bardziej informatywny pasek „ustaw jako domyślną”"
+msgstr "Bardziej informatywny tekst paska „ustaw jako domyślną”"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:147
 msgid "Tweaked \"set as default\" infobar styling"
@@ -418,8 +418,8 @@ msgstr "Pyta (grzecznie!) o ustawienie jako domyślną przeglądarkę"
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:156
 msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
 msgstr ""
-"Otwieranie niewspieranych linków (jak te do AppCenter) w domyślnej aplikacji "
-"systemu."
+"Otwieranie niewspieranych linków (jak te do AppCenter) w systemowo domyślnej "
+"aplikacji."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:163
 msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
@@ -493,7 +493,7 @@ msgstr "Menu"
 
 #: src/MainWindow.vala:117
 msgid "Zoom out"
-msgstr "Zmniejsz"
+msgstr "Pomniejsz"
 
 #: src/MainWindow.vala:124
 msgid "Default zoom level"
@@ -538,7 +538,7 @@ msgstr "Ta strona chce otworzyć inną aplikację."
 
 #: src/Dialogs/ExternalDialog.vala:42
 msgid "Your data may not be kept private by the opened app."
-msgstr "Twoje dane mogą nie być chronione przez otwieraną applikację."
+msgstr "Twoje dane mogą nie być chronione przez otwieraną aplikację."
 
 #: src/Dialogs/ExternalDialog.vala:46
 msgid "Don’t Open"
@@ -584,9 +584,9 @@ msgid ""
 "tracking you."
 msgstr ""
 "Pamiętaj, Ephemeral czy tryb prywatny jakiejkolwiek innej przeglądarki "
-"nie może wszystkiego: blokuje elementy śledzące i nie przechowuje danych na "
-"Twoim urządzeniu, ale nie powstrzyma Twojego dostawcy, rządu czy najbardziej "
-"upartych stron przed śledzeniem Cię."
+"nie może wszystkiego: blokuje część śledzenia i nie przechowuje danych na "
+"Twoim urządzeniu, ale nie powstrzyma Twojego dostawcy internetu, rządu czy "
+"najbardziej upartych stron przed śledzeniem Cię."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
 #: src/Widgets/BrowserButton.vala:44 src/Widgets/BrowserButton.vala:160
