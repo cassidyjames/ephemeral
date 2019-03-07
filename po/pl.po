@@ -393,7 +393,7 @@ msgid ""
 "without a page load"
 msgstr ""
 "Wyświetlane adresy URL są synchronizowane na stronach aktualizujących "
-"adres bez przeładowywania""
+"adres bez przeładowywania"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:139
 msgid "Local HTML files can now be opened"
