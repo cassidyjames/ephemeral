@@ -433,7 +433,7 @@ msgstr "Ukrywanie zewnętrznych przeglądarek w menu jeśli jest więcej niż je
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:170
 msgid "Add several useful keyboard and mouse shortcuts"
-msgstr "Dodano kilka przydatnych skrótów klawiszowych"
+msgstr "Dodano kilka przydatnych skrótów klawiatury i myszy"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:175
 msgid "Fix links that try to open in a new window"
@@ -461,7 +461,9 @@ msgstr "com.github.cassidyjames.ephemeral"
 
 #: data/launcher.desktop.in:12
 msgid "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
-msgstr "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
+msgstr ""
+"WWW;sieć;przeglądarka;internet;prywatna;incognito;focus;tymczasowa;"
+"ciasteczka;"
 
 #: data/launcher.desktop.in:17
 msgid "New Window"
@@ -513,11 +515,11 @@ msgstr "Zamknij wszystkie okna"
 
 #: src/MainWindow.vala:184
 msgid "Startpage.com Search"
-msgstr "Wyszukiwarka Startpage.com"
+msgstr "Wyszukiwanie Startpage.com"
 
 #: src/MainWindow.vala:187
 msgid "DuckDuckGo Search"
-msgstr "Wyszukiwarka DuckDuckGo"
+msgstr "Wyszukiwanie DuckDuckGo"
 
 #: src/MainWindow.vala:193
 msgid "Reset Preferences…"
@@ -670,7 +672,7 @@ msgstr "Nie ostrzegaj więcej"
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/Widgets/NetworkInfoBar.vala:45
 msgid "Network Settings…"
-msgstr "Ustawienia sieciowe…"
+msgstr "Ustawienia sieci…"
 
 #. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
 #: src/Widgets/PaidInfoBar.vala:32
@@ -689,7 +691,7 @@ msgstr "Rozważ zakup lub wsparcie, jeśli cenisz korzystanie z Ephemeral."
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/Widgets/PaidInfoBar.vala:50
 msgid "Purchase or Fund…"
-msgstr "Kup lub wesprzyj…"
+msgstr "Kup albo wesprzyj…"
 
 #: src/Widgets/UrlEntry.vala:37
 msgid "Enter a URL or search term"
