@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-19 12:49+0100\n"
+"POT-Creation-Date: 2019-03-19 17:13+0000\n"
 "PO-Revision-Date: 2019-03-19 15:10+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -67,7 +67,9 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:17
 msgid "Pick between privacy-respecting search engines from the menu"
-msgstr "Choisissez parmi les moteurs de recherche respectueux de la vie privée dans le menu"
+msgstr ""
+"Choisissez parmi les moteurs de recherche respectueux de la vie privée dans "
+"le menu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
 msgid "Ephemeral protects you in four key ways:"
@@ -126,8 +128,8 @@ msgid ""
 "DuckDuckGo from the menu if that’s your preference."
 msgstr ""
 "Ephemeral utilise par défaut Startpage.com - le moteur de recherche le plus "
-"privé au monde - pour éviter autant que possible le suivi Google. Vous pouvez "
-"également choisir DuckDuckGo dans le menu si c'est votre préférence."
+"privé au monde - pour éviter autant que possible le suivi Google. Vous "
+"pouvez également choisir DuckDuckGo dans le menu si c'est votre préférence."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
 msgid ""
@@ -179,7 +181,8 @@ msgstr "Ça s'enflamme"
 msgid ""
 "New option to close the window when opening a page in an external browser"
 msgstr ""
-"Nouvelle option pour fermer la fenêtre lors de l'ouverture d'une page dans un navigateur externe"
+"Nouvelle option pour fermer la fenêtre lors de l'ouverture d'une page dans "
+"un navigateur externe"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
 msgid "The web view is now focused when navigating"
@@ -198,16 +201,17 @@ msgid ""
 "No longer attempt to force HTTPS on protocol-less domains—fixes several "
 "popular sites"
 msgstr ""
-"Ne force plus le HTTPS sur les domaines sans protocole - résout "
-"les problèmes avec plusieurs sites populaires"
+"Ne force plus le HTTPS sur les domaines sans protocole - résout les "
+"problèmes avec plusieurs sites populaires"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:49
 msgid ""
 "Strip whitespace from URL entry before navigating—fixes instances where "
 "trying to navigate to a domain would perform a search"
 msgstr ""
-"Suppression de l'espace blanc du champ de saisie de l'URL : correction des cas où "
-"la recherche d'un nom de domaine doit être effectuée en essayant de naviguer vers un domaine"
+"Suppression de l'espace blanc du champ de saisie de l'URL : correction des "
+"cas où la recherche d'un nom de domaine doit être effectuée en essayant de "
+"naviguer vers un domaine"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:55
 msgid "URL Suggestion Fixes"
@@ -239,7 +243,9 @@ msgstr "Nouveau système de recherche + Suggestions"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:69
 msgid "The URL entry will offer to complete over 400 popular sites*"
-msgstr "L'entrée de l'URL proposera de compléter le champ avec plus de 400 sites populaires*."
+msgstr ""
+"L'entrée de l'URL proposera de compléter le champ avec plus de 400 sites "
+"populaires*."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:70
 msgid "New Search Engine choice in the Menu"
@@ -262,10 +268,11 @@ msgid ""
 "means that domain is relatively popular."
 msgstr ""
 "*Ces données sont toutes incluses dans Ephemeral lui-même, et Ephemeral ne "
-"se connecte pas au réseau tant que vous ne naviguez pas explicitement quelque part. "
-"La liste des domaines est fortement inspirée d'une fonctionnalité similaire dans "
-"Firefox Focus. Les domaines inclus dans les suggestions ne représentent pas un soutien, "
-"cela signifie simplement que le domaine est relativement populaire."
+"se connecte pas au réseau tant que vous ne naviguez pas explicitement "
+"quelque part. La liste des domaines est fortement inspirée d'une "
+"fonctionnalité similaire dans Firefox Focus. Les domaines inclus dans les "
+"suggestions ne représentent pas un soutien, cela signifie simplement que le "
+"domaine est relativement populaire."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:79
 msgid "Guten Tag! German translations thanks to Hannes Schulze"
@@ -292,8 +299,8 @@ msgid ""
 "Fixed some missed translations and updated French translations. Thanks "
 "again, @NathanBnm!"
 msgstr ""
-"Correction de certaines traductions manquantes et mise à jour des traductions françaises. "
-"Merci encore @NathanBnm !"
+"Correction de certaines traductions manquantes et mise à jour des "
+"traductions françaises. Merci encore @NathanBnm !"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:103
 msgid "Lots o' goodies:"
@@ -315,7 +322,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:108
 msgid "Refined (ever-so-subtly less flat) HeaderBar design"
-msgstr "Design de la barre supérieur amélioré (toujours aussi subtilement moins plat)"
+msgstr ""
+"Design de la barre supérieur amélioré (toujours aussi subtilement moins plat)"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:109
 #, fuzzy
@@ -330,7 +338,8 @@ msgstr "Traductions :"
 msgid ""
 "¡Hola! Spanish translations thanks to Adolfo Jayme-Barrientos and Mario "
 "Rodrigo"
-msgstr "¡Hola! Traductions espagnoles grâce à Adolfo Jayme-Barrientos et Mario "
+msgstr ""
+"¡Hola! Traductions espagnoles grâce à Adolfo Jayme-Barrientos et Mario "
 "Rodrigo"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:114
@@ -340,8 +349,7 @@ msgstr "Salut ! Traductions françaises grâce à Nathan (@NathanBnm)"
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:115
 msgid ""
 "Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
-msgstr ""
-"Olá! Traductions portuguaises (Brésil) grâce à Lucas Sanchez dos Anjos"
+msgstr "Olá! Traductions portuguaises (Brésil) grâce à Lucas Sanchez dos Anjos"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:116
 msgid "Hallo! Dutch translations thanks to Heimen Stoffels"
@@ -357,15 +365,21 @@ msgstr "Correction de quelques petit soucis avec le zoom :"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:129
 msgid "Zoom controls are now only sensitive when the web view is visible"
-msgstr "Les contrôle de zoom sont maintenant sensibles uniquement quand la vue web est visible"
+msgstr ""
+"Les contrôle de zoom sont maintenant sensibles uniquement quand la vue web "
+"est visible"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:130
 msgid "Reported zoom level is now correct when opening a new window"
-msgstr "Le niveau de zoom affiché est maintenant correct lors de l'ouverture d'une nouvelle fenêtre"
+msgstr ""
+"Le niveau de zoom affiché est maintenant correct lors de l'ouverture d'une "
+"nouvelle fenêtre"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:131
 msgid "Reported zoom level is now kept in sync across open windows"
-msgstr "Le niveau de zoom affiché est maintenant synchronisé entre les fenêtres ouvertes."
+msgstr ""
+"Le niveau de zoom affiché est maintenant synchronisé entre les fenêtres "
+"ouvertes."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:137
 msgid "Zoom! And more…"
@@ -377,7 +391,9 @@ msgstr "Nouveau menu pour rendre l'interface ordonnée et équilibrée"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:140
 msgid "Zoom in, out, and default from the new menu or with the keyboard"
-msgstr "Zomme avant, arrière et zoom par défaut via le nouveau menu ou avec le clavier"
+msgstr ""
+"Zomme avant, arrière et zoom par défaut via le nouveau menu ou avec le "
+"clavier"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:141
 msgid "New Window action moved into the menu"
@@ -389,7 +405,8 @@ msgstr "Ajout d'une action « Quitter toutes les fenêtres » dans le menu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:143
 msgid "Smooth scrolling when using the keyboard or a scrollwheel"
-msgstr "Défilement en continu à l'aide du clavier ou de la molette de défilement"
+msgstr ""
+"Défilement en continu à l'aide du clavier ou de la molette de défilement"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:144
 msgid "Fixed Twitch livestreams"
@@ -397,7 +414,8 @@ msgstr "Correction des lives Twitch"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:145
 msgid "Fixed YouTube resolution support: now up to 4K!"
-msgstr "Correction du support de la résolution de YouTube : Maintenant jusqu'en 4K !"
+msgstr ""
+"Correction du support de la résolution de YouTube : Maintenant jusqu'en 4K !"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:146
 msgid "Code cleaning to keep things fresh and clean"
@@ -409,7 +427,9 @@ msgstr "Meilleure gestion des erreurs et améliorations :"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:154
 msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
-msgstr "Nouvelle boîte de dialogue de confirmation pour les applications externes, par exemple appstream:// ou ftp://"
+msgstr ""
+"Nouvelle boîte de dialogue de confirmation pour les applications externes, "
+"par exemple appstream:// ou ftp://"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:155
 msgid "New warning when no network connection"
@@ -421,7 +441,9 @@ msgstr "Les erreurs utilisent maintenant les vues natives"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:157
 msgid "Stopped throwing away text when unfocusing URL entry"
-msgstr "Arrêt du rejet du texte lorsque le champ de saisie d'URL n'est pas sélectionné"
+msgstr ""
+"Arrêt du rejet du texte lorsque le champ de saisie d'URL n'est pas "
+"sélectionné"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:158
 msgid "Stopped searching when the URL entry is empty"
@@ -440,12 +462,14 @@ msgid ""
 "The new start page makes Ephemeral faster and makes it not touch the network "
 "until you're ready to browse"
 msgstr ""
-"La nouvelle page d'accueil rend Ephemeral plus rapide et vous permet de ne pas "
-"toucher le réseau jusqu'à ce que vous soyez prêt à naviguer sur le web"
+"La nouvelle page d'accueil rend Ephemeral plus rapide et vous permet de ne "
+"pas toucher le réseau jusqu'à ce que vous soyez prêt à naviguer sur le web"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:168
 msgid "Middle- or Ctrl-click a link to open it in a new window"
-msgstr "Cliquez au milieu ou Ctrl-cliquez sur un lien pour l'ouvrir dans une nouvelle fenêtre"
+msgstr ""
+"Cliquez au milieu ou Ctrl-cliquez sur un lien pour l'ouvrir dans une "
+"nouvelle fenêtre"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:169
 msgid ""
@@ -474,19 +498,25 @@ msgstr "Cherchez directement dans la barre d'URL"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:186
 msgid "Asks (politely!) to be set as the default browser"
-msgstr "Vous demande (poliment !) d'être défini en tant que navigateur par défaut"
+msgstr ""
+"Vous demande (poliment !) d'être défini en tant que navigateur par défaut"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:187
 msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
-msgstr "Ouvrez les liens non supportés (comme ceux du Centre d'Applications) dans l'application du système par défaut"
+msgstr ""
+"Ouvrez les liens non supportés (comme ceux du Centre d'Applications) dans "
+"l'application du système par défaut"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:194
 msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
-msgstr "Ajout de « Nouvelle fenêtre » dans la barre supérieure, le lanceur d'application et dans les raccourcis claviers"
+msgstr ""
+"Ajout de « Nouvelle fenêtre » dans la barre supérieure, le lanceur "
+"d'application et dans les raccourcis claviers"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:195
 msgid "Collapse external browsers into a menu when there's more than one"
-msgstr "Réduit les navigateurs externes dans un menu lorsqu'il y en a plus d'un"
+msgstr ""
+"Réduit les navigateurs externes dans un menu lorsqu'il y en a plus d'un"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:201
 msgid "Add several useful keyboard and mouse shortcuts"
