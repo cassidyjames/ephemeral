@@ -623,7 +623,7 @@ msgstr "Recherche sur Startpage.com"
 
 #: src/MainWindow.vala:187
 msgid "DuckDuckGo Search"
-msgstr "Rechercher sur DuckDuckGo"
+msgstr "Recherche sur DuckDuckGo"
 
 #: src/MainWindow.vala:193
 msgid "Reset Preferences…"
@@ -813,23 +813,3 @@ msgstr "Rechercher"
 #: src/Widgets/UrlEntry.vala:536
 msgid "Popular website"
 msgstr "Sites populaires"
-
-#~ msgid ""
-#~ "Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you "
-#~ "— by default to avoid as much Google tracking as possible."
-#~ msgstr ""
-#~ "Ephemeral utilise également DuckDuckGo — le moteur de recherche qui ne "
-#~ "vous suit pas — par défaut pour éviter autant que possible le suivi de "
-#~ "Google."
-
-#~ msgid ""
-#~ "Remember, Ephemeral and any browser's incognito or private mode can only "
-#~ "do so much: they mitigate some tracking and don't store data on your "
-#~ "device, but they won't stop your ISP, government, or determined websites "
-#~ "from tracking you. For the best protection, always use a VPN."
-#~ msgstr ""
-#~ "N'oubliez pas qu'Ephemeral et le mode incognito ou privé de n'importe "
-#~ "quel navigateur ne peuvent pas faire grand-chose : ils atténuent le suivi "
-#~ "et ne stockent pas de données sur votre appareil, mais ils n'empêchent "
-#~ "pas votre FAI, le gouvernement ou des sites web déterminés de vous "
-#~ "suivre. Pour une protection optimale, utilisez toujours un VPN."
