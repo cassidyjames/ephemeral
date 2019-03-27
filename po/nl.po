@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-03-22 13:09-0600\n"
-"PO-Revision-Date: 2019-02-21 14:38+0100\n"
+"PO-Revision-Date: 2019-03-25 13:06+0100\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
 "Language: nl\n"
@@ -168,81 +168,83 @@ msgid "For the best protection, always use a VPN."
 msgstr "Als je dat ook wilt voorkomen, gebruik dan een VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:36
-#, fuzzy
 msgid "Translation updates"
-msgstr "Vertalingen:"
+msgstr "Bijgewerkte vertalingen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:38
 msgid "Cześć! Translated to Polish thanks to Paweł Jerzy Przybysz"
-msgstr ""
+msgstr "Cześć! Poolse vertaling, met dank aan Paweł Jerzy Przybysz"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
-#, fuzzy
 msgid "Updated French translations thanks to @NathanBnm"
-msgstr "salut! Franse vertaling met dank aan Nathan (@NathanBnm)"
+msgstr "Franse vertaling bijgewerkt, met dank aan @NathanBnm"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:40
-#, fuzzy
 msgid "Updated Lithuanian translations thanks to @welaq"
-msgstr "Litouwse vertaling, met dank aan @welaq"
+msgstr "Litouwse vertaling bijgewerkt, met dank aan @welaq"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:46
 msgid "Blaze It"
-msgstr ""
+msgstr "Vernietigen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:48
-msgid ""
-"New option to close the window when opening a page in an external browser"
+msgid "New option to close the window when opening a page in an external browser"
 msgstr ""
+"Optie toegevoegd om het venster te sluiten als de pagina wordt geopend in een "
+"externe browser"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:49
 msgid "The web view is now focused when navigating"
-msgstr ""
+msgstr "De webweergave wordt nu gefocust tijdens het surfen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:55
 msgid "URL Entry Fixes"
-msgstr ""
+msgstr "Foutoplossingen aangaande url-invoer"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:57
 msgid "Updated and corrected several autocomplete domains"
 msgstr ""
+"Verscheidene domeinnamen voor auto-aanvullen bijgewerkt en/of gerepareerd"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:58
 msgid ""
 "No longer attempt to force HTTPS on protocol-less domains—fixes several "
 "popular sites"
 msgstr ""
+"Geen afgedwongen HTTPS meer op protocolloze domeinnamen - dit repareert "
+"verscheidene populaire sites"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:59
 msgid ""
-"Strip whitespace from URL entry before navigating—fixes instances where "
-"trying to navigate to a domain would perform a search"
+"Strip whitespace from URL entry before navigating—fixes instances where trying "
+"to navigate to a domain would perform a search"
 msgstr ""
+"Witruimte wordt uit de url gehaald voorafgaand aan het surfen - dit lost "
+"problemen op met url-invoer waarbij een zoekopdracht werd uitgevoerd"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:65
 msgid "URL Suggestion Fixes"
-msgstr ""
+msgstr "URL-aanvullingsoplossingen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
 msgid "Corrected joinmastodon.org TLD"
-msgstr ""
+msgstr "joinmastodon.org TLD gerepareerd"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:68
 msgid "Added additional useful sites"
-msgstr ""
+msgstr "Extra handige sites toegevoegd"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:69
 msgid "Added descriptions for more sites"
-msgstr ""
+msgstr "Bij meer sites omschrijvingen toegevoegd"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:70
 msgid "Removed dead sites"
-msgstr ""
+msgstr "Verdwenen sites verwijderd"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:71
-#, fuzzy
 msgid "Updated translations"
-msgstr "Meer vertalingen:"
+msgstr "Bijgewerkte vertalingen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:77
 msgid "All New Search + Suggestions"
@@ -680,7 +682,7 @@ msgstr "Pagina openen met %s"
 
 #: src/Widgets/BrowserButton.vala:102
 msgid "Close Window When Opening Externally"
-msgstr ""
+msgstr "Venster sluiten als pagina extern wordt geopend"
 
 #: src/Widgets/DefaultInfoBar.vala:31
 msgid "Make privacy a habit."
