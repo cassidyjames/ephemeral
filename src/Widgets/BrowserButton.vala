@@ -20,12 +20,14 @@
 */
 
 public class BrowserButton : Gtk.Grid {
+    public Gtk.Window main_window { get; construct set; }
     public WebKit.WebView web_view { get; construct set; }
     public Gtk.MenuButton list_button {get; construct set; }
     public Gtk.Button open_button {get; construct set; }
 
-    public BrowserButton (WebKit.WebView _web_view) {
+    public BrowserButton (Gtk.Window _main_window, WebKit.WebView _web_view) {
         Object (
+            main_window: _main_window,
             web_view: _web_view
         );
     }
@@ -67,14 +69,7 @@ public class BrowserButton : Gtk.Grid {
                         last_used_browser_shown = true;
 
                         last_browser_handler_id = open_button.clicked.connect (() => {
-                            var uris = new List<string> ();
-                            uris.append (web_view.get_uri ());
-
-                            try {
-                                app_info.launch_uris (uris, null);
-                            } catch (GLib.Error e) {
-                                critical (e.message);
-                            }
+                            try_opening (app_info, web_view.get_uri ());
                         });
                     }
                 }
@@ -104,6 +99,12 @@ public class BrowserButton : Gtk.Grid {
             var list_grid = new Gtk.Grid ();
             list_grid.orientation = Gtk.Orientation.VERTICAL;
 
+            var close_check = new Gtk.CheckButton.with_label (_("Close Window When Opening Externally"));
+            close_check.margin_bottom = 3;
+            close_check.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+            Ephemeral.settings.bind ("close-when-opening-externally", close_check, "active", SettingsBindFlags.DEFAULT);
+
             list_popover.add (list_grid);
 
             // Create a list of installed browsers
@@ -126,22 +127,18 @@ public class BrowserButton : Gtk.Grid {
 
                 browser_item.clicked.connect (() => {
                     Ephemeral.settings.set_string ("last-used-browser", app_info.get_id ());
-
-                    var uris = new List<string> ();
-                    uris.append (web_view.get_uri ());
-
-                    try {
-                        app_info.launch_uris (uris, null);
-                    } catch (GLib.Error e) {
-                        critical (e.message);
-                    }
-
+                    try_opening (app_info, web_view.get_uri ());
                     list_popover.popdown ();
                 });
 
                 browser_grid.show_all ();
             }
 
+            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+            separator.margin_top = separator.margin_bottom = 3;
+
+            list_grid.add (separator);
+            list_grid.add (close_check);
             list_grid.show_all ();
 
             // Update open_button when the gsettings value has changed
@@ -181,14 +178,7 @@ public class BrowserButton : Gtk.Grid {
 
                             open_button.disconnect (last_browser_handler_id);
                             last_browser_handler_id = open_button.clicked.connect (() => {
-                                var uris = new List<string> ();
-                                uris.append (web_view.get_uri ());
-
-                                try {
-                                    app_info.launch_uris (uris, null);
-                                } catch (GLib.Error e) {
-                                    critical (e.message);
-                                }
+                                try_opening (app_info, web_view.get_uri ());
                             });
                         }
                     }
@@ -222,17 +212,23 @@ public class BrowserButton : Gtk.Grid {
 
                 open_single_browser_button.clicked.connect (() => {
                     Ephemeral.settings.set_string ("last-used-browser", app_info.get_id ());
-
-                    var uris = new List<string> ();
-                    uris.append (web_view.get_uri ());
-
-                    try {
-                        app_info.launch_uris (uris, null);
-                    } catch (GLib.Error e) {
-                        critical (e.message);
-                    }
+                    try_opening (app_info, web_view.get_uri ());
                 });
             }
+        }
+    }
+
+    private void try_opening (AppInfo app_info, string uri) {
+        var uris = new List<string> ();
+        uris.append (uri);
+
+        try {
+            app_info.launch_uris (uris, null);
+            if (Ephemeral.settings.get_boolean ("close-when-opening-externally")) {
+                main_window.close ();
+            }
+        } catch (GLib.Error e) {
+            critical (e.message);
         }
     }
 

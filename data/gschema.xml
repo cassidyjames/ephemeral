@@ -6,6 +6,11 @@
       <summary>Ask to be default</summary>
       <description>Whether or not Ephemeral should ask to be the default web browser (if it isn't already)</description>
     </key>
+    <key name="close-when-opening-externally" type="b">
+      <default>false</default>
+      <summary>Close when opening externally</summary>
+      <description>Whether or not the current Ephemeral window should be closed when opening a link in an external browser</description>
+    </key>
     <key name="last-native-response" type="x">
       <!-- int64 min -->
       <default>-9223372036854775808</default>
