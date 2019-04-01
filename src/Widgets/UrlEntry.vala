@@ -57,12 +57,9 @@ public class UrlEntry : Gtk.Entry {
         completion.pack_start (cell, false);
         completion.add_attribute (cell, "text", 1);
 
-        var favorites = Ephemeral.settings.get_value ("favorite-websites");
-        var favorite_iter = new GLib.VariantIter (favorites);
-        string favorite_domain;
-
-        while (favorite_iter.next ("s", out favorite_domain)) {
-            add_suggestion (favorite_domain, null, _("Favorite website"));
+        var favorites = Ephemeral.settings.get_strv ("favorite-websites");
+        foreach (var favorite in favorites) {
+            add_suggestion (favorite, null, _("Favorite website"));
         }
 
         add_suggestion ("247sports.com", "247Sports");
@@ -542,16 +539,36 @@ public class UrlEntry : Gtk.Entry {
                 if (has_focus) {
                     activate ();
                 } else {
-                    critical ("Pinning not yet persistent.");
                     var uri = new Soup.URI (text);
-                    add_suggestion (uri.get_host (), null, _("Favorite website"));
+                    string favorite = uri.get_host ();
+
+                    if (favorite in favorites) {
+                        debug ("%s is already a favorite, so removing…", favorite);
+                        string[] pruned_favorites = {};
+                        foreach (string existing_favorite in favorites) {
+                            if (existing_favorite != favorite) {
+                                pruned_favorites += existing_favorite;
+                            }
+                        }
+
+                        favorites = pruned_favorites;
+                    } else {
+                        debug ("%s is not a favorite, so adding…", favorite);
+                        favorites += favorite;
+                        add_suggestion (favorite, null, _("Favorite website"));
+                    }
+
+                    Ephemeral.settings.set_strv ("favorite-websites", favorites);
+                    set_secondary_icon ();
                 }
+
             }
         });
 
         web_view.load_changed.connect ((source, e) => {
             if (!has_focus) {
                 text = source.get_uri ();
+                set_secondary_icon ();
             }
         });
     }
@@ -561,6 +578,7 @@ public class UrlEntry : Gtk.Entry {
       string? name = null,
       string? reason = _("Popular website")
     ) {
+        debug ("Adding %s to suggestions…", domain);
         Gtk.TreeIter iter;
         list_store.append (out iter);
 
@@ -580,11 +598,22 @@ public class UrlEntry : Gtk.Entry {
             secondary_icon_tooltip_text = _("Go");
             secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
         } else {
-            critical ("Doesn't check if already favorited or not.");
+            var favorites = Ephemeral.settings.get_strv ("favorite-websites");
+            var uri = new Soup.URI (text);
+            string new_favorite = uri.get_host ();
 
-            secondary_icon_name = "non-starred-symbolic";
-            secondary_icon_tooltip_text = _("Add Website to Suggestions");
-            secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>d"}, secondary_icon_tooltip_text);
+            if (new_favorite in favorites) {
+                debug ("Current site is a favorite.");
+                secondary_icon_name = "starred-symbolic";
+                secondary_icon_tooltip_text = _("Remove Website from Suggestions");
+                secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>d"}, secondary_icon_tooltip_text);
+            } else {
+                debug ("Current site is not a favorite.");
+                secondary_icon_name = "non-starred-symbolic";
+                secondary_icon_tooltip_text = _("Add Website to Suggestions");
+                secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>d"}, secondary_icon_tooltip_text);
+            }
         }
     }
 }
+
