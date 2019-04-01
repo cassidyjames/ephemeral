@@ -57,6 +57,14 @@ public class UrlEntry : Gtk.Entry {
         completion.pack_start (cell, false);
         completion.add_attribute (cell, "text", 1);
 
+        var favorites = Ephemeral.settings.get_value ("favorite-websites");
+        var favorite_iter = new GLib.VariantIter (favorites);
+        string favorite_domain;
+
+        while (favorite_iter.next ("s", out favorite_domain)) {
+            add_suggestion (favorite_domain, null, _("Favorite website"));
+        }
+
         add_suggestion ("247sports.com", "247Sports");
         add_suggestion ("6pm.com", "6pm");
         add_suggestion ("aa.com", "American Airlines");
@@ -535,9 +543,7 @@ public class UrlEntry : Gtk.Entry {
                     activate ();
                 } else {
                     critical ("Pinning not yet persistent.");
-
                     var uri = new Soup.URI (text);
-
                     add_suggestion (uri.get_host (), null, _("Favorite website"));
                 }
             }
@@ -574,7 +580,6 @@ public class UrlEntry : Gtk.Entry {
             secondary_icon_tooltip_text = _("Go");
             secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
         } else {
-            var uri = new Soup.URI (text);
             critical ("Doesn't check if already favorited or not.");
 
             secondary_icon_name = "non-starred-symbolic";
