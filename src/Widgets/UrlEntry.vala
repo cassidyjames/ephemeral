@@ -39,18 +39,19 @@ public class UrlEntry : Gtk.Entry {
 
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
 
-        secondary_icon_name = "go-jump-symbolic";
-        secondary_icon_tooltip_text = _("Go");
-        secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
+        primary_icon_name = "system-search-symbolic";
+        primary_icon_tooltip_text = _("Enter a URL or search term");
+        primary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, primary_icon_tooltip_text);
+
+        list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
 
         var completion = new Gtk.EntryCompletion ();
         completion.inline_completion = true;
-        set_completion (completion);
-
-     list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
         completion.minimum_key_length = 3;
         completion.model = list_store;
         completion.text_column = 0;
+
+        set_completion (completion);
 
         var cell = new Gtk.CellRendererText ();
         completion.pack_start (cell, false);
@@ -488,6 +489,8 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("zillow.com", "Zillow");
         add_suggestion ("zulily.com", "Zulily");
 
+        set_secondary_icon ();
+
         activate.connect (() => {
             text = text.strip ();
             var search_engine = Ephemeral.settings.get_string ("search-engine");
@@ -508,18 +511,35 @@ public class UrlEntry : Gtk.Entry {
             web_view.grab_focus ();
         });
 
+        focus_in_event.connect ((event) => {
+            set_secondary_icon ();
+
+            return false;
+        });
+
         focus_out_event.connect ((event) => {
             string uri = web_view.get_uri ();
             if (uri == "about:blank") {
                 text = "";
             }
+            set_secondary_icon ();
 
             return false;
         });
 
         icon_release.connect ((icon_pos, event) => {
-            if (icon_pos == Gtk.EntryIconPosition.SECONDARY) {
-                activate ();
+            if (icon_pos == Gtk.EntryIconPosition.PRIMARY) {
+                grab_focus ();
+            } else if (icon_pos == Gtk.EntryIconPosition.SECONDARY) {
+                if (has_focus) {
+                    activate ();
+                } else {
+                    critical ("Pinning not yet persistent.");
+
+                    var uri = new Soup.URI (text);
+
+                    add_suggestion (uri.get_host (), null, _("Favorite website"));
+                }
             }
         });
 
@@ -546,5 +566,20 @@ public class UrlEntry : Gtk.Entry {
         }
 
         list_store.set (iter, 0, domain, 1, description);
+    }
+
+    private void set_secondary_icon () {
+        if (this.has_focus) {
+            secondary_icon_name = "go-jump-symbolic";
+            secondary_icon_tooltip_text = _("Go");
+            secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
+        } else {
+            var uri = new Soup.URI (text);
+            critical ("Doesn't check if already favorited or not.");
+
+            secondary_icon_name = "non-starred-symbolic";
+            secondary_icon_tooltip_text = _("Add Website to Suggestions");
+            secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>d"}, secondary_icon_tooltip_text);
+        }
     }
 }
