@@ -187,6 +187,9 @@ public class MainWindow : Gtk.Window {
         var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
         ddg_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
+        var custom_search_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("Custom Search Engine…"));
+        custom_search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
         var another_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
         another_separator.margin_top = another_separator.margin_bottom = 3;
 
@@ -203,14 +206,16 @@ public class MainWindow : Gtk.Window {
         settings_popover_grid.margin_bottom = 3;
         settings_popover_grid.width_request = 200;
 
-        settings_popover_grid.attach (zoom_grid, 0, 0);
-        settings_popover_grid.attach (new_window_button, 0, 1);
-        settings_popover_grid.attach (quit_button, 0, 2);
-        settings_popover_grid.attach (separator, 0, 3);
-        settings_popover_grid.attach (startpage_button, 0, 4);
-        settings_popover_grid.attach (ddg_button, 0, 5);
-        settings_popover_grid.attach (another_separator, 0, 6);
-        settings_popover_grid.attach (preferences_button, 0, 7);
+        int settings_row = 0;
+        settings_popover_grid.attach (zoom_grid, 0, settings_row++);
+        settings_popover_grid.attach (new_window_button, 0, settings_row++);
+        settings_popover_grid.attach (quit_button, 0, settings_row++);
+        settings_popover_grid.attach (separator, 0, settings_row++);
+        settings_popover_grid.attach (startpage_button, 0, settings_row++);
+        settings_popover_grid.attach (ddg_button, 0, settings_row++);
+        settings_popover_grid.attach (custom_search_button, 0, settings_row++);
+        settings_popover_grid.attach (another_separator, 0, settings_row++);
+        settings_popover_grid.attach (preferences_button, 0, settings_row++);
         settings_popover_grid.show_all ();
 
         settings_popover.add (settings_popover_grid);
@@ -260,13 +265,11 @@ public class MainWindow : Gtk.Window {
             stack.visible_child_name = "welcome-view";
         }
 
-        // TODO: DRY
-        var search_engine = Ephemeral.settings.get_string ("search-engine");
-        if (search_engine == Ephemeral.STARTPAGE) {
-            startpage_button.active = true;
-        } else if (search_engine == Ephemeral.DDG) {
-            ddg_button.active = true;
-        }
+        set_search_engine_active (
+            startpage_button,
+            ddg_button,
+            custom_search_button
+        );
 
         back_button.clicked.connect (web_view.go_back);
         forward_button.clicked.connect (web_view.go_forward);
@@ -274,21 +277,58 @@ public class MainWindow : Gtk.Window {
         stop_button.clicked.connect (web_view.stop_loading);
         erase_button.clicked.connect (erase);
 
+        settings_button.clicked.connect (() => {
+            set_search_engine_active (
+                startpage_button,
+                ddg_button,
+                custom_search_button
+            );
+        });
+
         new_window_button.clicked.connect (() => {
             settings_popover.popdown ();
             new_window ();
         });
 
+        quit_button.clicked.connect (() => {
+            application.quit ();
+        });
+
         startpage_button.clicked.connect (() => {
-            Ephemeral.settings.set_string ("search-engine", Ephemeral.STARTPAGE);
+            if (startpage_button.active) {
+                Ephemeral.settings.set_string ("search-engine", Ephemeral.STARTPAGE);
+            }
         });
 
         ddg_button.clicked.connect (() => {
-            Ephemeral.settings.set_string ("search-engine", Ephemeral.DDG);
+            if (ddg_button.active) {
+                Ephemeral.settings.set_string ("search-engine", Ephemeral.DDG);
+            }
         });
 
-        quit_button.clicked.connect (() => {
-            application.quit ();
+        custom_search_button.clicked.connect (() => {
+            if (custom_search_button.active) {
+                var custom_search_dialog = new CustomSearchDialog ();
+                custom_search_dialog.transient_for = (Gtk.Window) get_toplevel ();
+
+                custom_search_dialog.response.connect ((response_id) => {
+                    switch (response_id) {
+                        case Gtk.ResponseType.OK:
+                            debug ("Search engine set in dialog.");
+                        case Gtk.ResponseType.CANCEL:
+                        case Gtk.ResponseType.CLOSE:
+                        case Gtk.ResponseType.DELETE_EVENT:
+                            custom_search_dialog.close ();
+                            break;
+                        default:
+                            assert_not_reached ();
+                    }
+                });
+
+                custom_search_dialog.run ();
+                custom_search_dialog.destroy ();
+                settings_popover.popdown ();
+            }
         });
 
         preferences_button.clicked.connect (() => {
@@ -304,13 +344,11 @@ public class MainWindow : Gtk.Window {
                             Ephemeral.settings.reset (key);
                         }
 
-                        // TODO: DRY
-                        var current_search_engine = Ephemeral.settings.get_string ("search-engine");
-                        if (current_search_engine == Ephemeral.STARTPAGE) {
-                            startpage_button.active = true;
-                        } else if (current_search_engine == Ephemeral.DDG) {
-                            ddg_button.active = true;
-                        }
+                        set_search_engine_active (
+                            startpage_button,
+                            ddg_button,
+                            custom_search_button
+                        );
                     case Gtk.ResponseType.CANCEL:
                     case Gtk.ResponseType.CLOSE:
                     case Gtk.ResponseType.DELETE_EVENT:
@@ -322,6 +360,7 @@ public class MainWindow : Gtk.Window {
             });
 
             preferences_dialog.run ();
+            preferences_dialog.destroy ();
         });
 
 
@@ -581,6 +620,7 @@ public class MainWindow : Gtk.Window {
         });
 
         external_dialog.run ();
+        external_dialog.destroy ();
 
     }
 
@@ -622,4 +662,20 @@ public class MainWindow : Gtk.Window {
 
         return;
     }
+
+    private void set_search_engine_active (
+        Gtk.RadioButton startpage_button,
+        Gtk.RadioButton ddg_button,
+        Gtk.RadioButton custom_search_button
+    ) {
+        var search_engine = Ephemeral.settings.get_string ("search-engine");
+        if (search_engine == Ephemeral.STARTPAGE) {
+            startpage_button.active = true;
+        } else if (search_engine == Ephemeral.DDG) {
+            ddg_button.active = true;
+        } else {
+            custom_search_button.active = true;
+        }
+    }
 }
+
