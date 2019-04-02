@@ -43,8 +43,8 @@ public class UrlEntry : Gtk.Entry {
         primary_icon_tooltip_text = _("Enter a URL or search term");
         primary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, primary_icon_tooltip_text);
 
-        var favorites = Ephemeral.settings.get_strv ("favorite-websites");
-        reset_suggestions (favorites);
+        var initial_favorites = Ephemeral.settings.get_strv ("favorite-websites");
+        reset_suggestions (initial_favorites);
         set_secondary_icon ();
 
         activate.connect (() => {
@@ -163,7 +163,8 @@ public class UrlEntry : Gtk.Entry {
         completion.pack_start (cell, false);
         completion.add_attribute (cell, "text", 1);
 
-        foreach (var favorite in favorites) {
+        var current_favorites = Ephemeral.settings.get_strv ("favorite-websites");
+        foreach (var favorite in current_favorites) {
             add_suggestion (favorite, null, _("Favorite website"));
         }
 
@@ -606,11 +607,11 @@ public class UrlEntry : Gtk.Entry {
             secondary_icon_tooltip_text = _("Go");
             secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
         } else {
-            var favorites = Ephemeral.settings.get_strv ("favorite-websites");
+            var current_favorites = Ephemeral.settings.get_strv ("favorite-websites");
             var uri = new Soup.URI (text);
             string domain = uri.get_host ();
 
-            if (domain in favorites) {
+            if (domain in current_favorites) {
                 debug ("%s is a favorite, showing filled star.", domain);
                 secondary_icon_name = "starred-symbolic";
                 secondary_icon_tooltip_text = _("Remove Website from Suggestions");
