@@ -75,9 +75,13 @@ public class UrlEntry : Gtk.Entry {
 
         focus_out_event.connect ((event) => {
             string uri = web_view.get_uri ();
-            if (uri == "about:blank") {
+
+            if (uri == null || uri == "about:blank") {
                 text = "";
+            } else if (text == "") {
+                text = uri;
             }
+
             set_secondary_icon ();
 
             return false;
@@ -91,28 +95,31 @@ public class UrlEntry : Gtk.Entry {
                     activate ();
                 } else {
                     var current_favorites = Ephemeral.settings.get_strv ("favorite-websites");
-                    var uri = new Soup.URI (text);
-                    string favorite = uri.get_host ();
+                    var uri = new Soup.URI (web_view.get_uri ());
 
-                    if (favorite in current_favorites) {
-                        debug ("%s is already a favorite, so removing…", favorite);
-                        string[] pruned_favorites = {};
-                        foreach (string existing_favorite in current_favorites) {
-                            if (existing_favorite != favorite) {
-                                pruned_favorites += existing_favorite;
+                    if (uri != null) {
+                        string favorite = uri.get_host ();
+
+                        if (favorite in current_favorites) {
+                            debug ("%s is already a favorite, so removing…", favorite);
+                            string[] pruned_favorites = {};
+                            foreach (string existing_favorite in current_favorites) {
+                                if (existing_favorite != favorite) {
+                                    pruned_favorites += existing_favorite;
+                                }
                             }
+
+                            current_favorites = pruned_favorites;
+                            reset_suggestions (current_favorites);
+                        } else {
+                            debug ("%s is not a favorite, so adding…", favorite);
+                            current_favorites += favorite;
+                            reset_suggestions (current_favorites);
                         }
 
-                        current_favorites = pruned_favorites;
-                        reset_suggestions (current_favorites);
-                    } else {
-                        debug ("%s is not a favorite, so adding…", favorite);
-                        current_favorites += favorite;
-                        reset_suggestions (current_favorites);
+                        Ephemeral.settings.set_strv ("favorite-websites", current_favorites);
+                        set_secondary_icon ();
                     }
-
-                    Ephemeral.settings.set_strv ("favorite-websites", current_favorites);
-                    set_secondary_icon ();
                 }
 
             }
@@ -148,7 +155,10 @@ public class UrlEntry : Gtk.Entry {
     private void reset_suggestions (string[] favorites = {}) {
         debug ("Resetting suggestions…");
 
-        list_store.clear ();
+        if (list_store is Gtk.ListStore) {
+            list_store.clear ();
+        }
+
         list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
 
         var completion = new Gtk.EntryCompletion ();
@@ -607,17 +617,20 @@ public class UrlEntry : Gtk.Entry {
             secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
         } else {
             var current_favorites = Ephemeral.settings.get_strv ("favorite-websites");
-            var uri = new Soup.URI (text);
-            string domain = uri.get_host ();
+            var uri = new Soup.URI (web_view.get_uri ());
 
-            if (domain in current_favorites) {
-                debug ("%s is a favorite, showing filled star.", domain);
-                secondary_icon_name = "starred";
-                secondary_icon_tooltip_text = _("Remove Website from Suggestions");
-            } else {
-                debug ("%s is not a favorite, showing empty star.", domain);
-                secondary_icon_name = "non-starred-symbolic";
-                secondary_icon_tooltip_text = _("Add Website to Suggestions");
+            if (uri != null) {
+                string domain = uri.get_host ();
+
+                if (domain in current_favorites) {
+                    debug ("%s is a favorite, showing filled star.", domain);
+                    secondary_icon_name = "starred";
+                    secondary_icon_tooltip_text = _("Remove Website from Suggestions");
+                } else {
+                    debug ("%s is not a favorite, showing empty star.", domain);
+                    secondary_icon_name = "non-starred-symbolic";
+                    secondary_icon_tooltip_text = _("Add Website to Suggestions");
+                }
             }
         }
     }
