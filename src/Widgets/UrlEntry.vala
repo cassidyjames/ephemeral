@@ -21,7 +21,7 @@
 
 public class UrlEntry : Gtk.Entry {
     private Gtk.ListStore list_store { get; set; }
-    private Gtk.TreeIter iter { get; set; }
+    // private Gtk.TreeIter iter { get; set; }
 
     public WebKit.WebView web_view { get; construct set; }
 
@@ -43,6 +43,112 @@ public class UrlEntry : Gtk.Entry {
         primary_icon_tooltip_text = _("Enter a URL or search term");
         primary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, primary_icon_tooltip_text);
 
+        var favorites = Ephemeral.settings.get_strv ("favorite-websites");
+        reset_suggestions (favorites);
+        set_secondary_icon ();
+
+        activate.connect (() => {
+            text = text.strip ();
+            var search_engine = Ephemeral.settings.get_string ("search-engine");
+
+            // TODO: Better URL validation
+            if (text == "" || text == null) {
+                Gdk.beep ();
+                return;
+            } else if (!text.contains ("://")) {
+                if (text.contains (".") && !text.contains (" ")) {
+                    // TODO: Try HTTPS, and fall back to HTTP?
+                    text = "%s://%s".printf ("http", text);
+                } else {
+                    text = search_engine.printf (text);
+                }
+            }
+            web_view.load_uri (text);
+            web_view.grab_focus ();
+        });
+
+        focus_in_event.connect ((event) => {
+            set_secondary_icon ();
+
+            return false;
+        });
+
+        focus_out_event.connect ((event) => {
+            string uri = web_view.get_uri ();
+            if (uri == "about:blank") {
+                text = "";
+            }
+            set_secondary_icon ();
+
+            return false;
+        });
+
+        icon_release.connect ((icon_pos, event) => {
+            if (icon_pos == Gtk.EntryIconPosition.PRIMARY) {
+                grab_focus ();
+            } else if (icon_pos == Gtk.EntryIconPosition.SECONDARY) {
+                if (has_focus) {
+                    activate ();
+                } else {
+                    var current_favorites = Ephemeral.settings.get_strv ("favorite-websites");
+                    var uri = new Soup.URI (text);
+                    string favorite = uri.get_host ();
+
+                    if (favorite in current_favorites) {
+                        debug ("%s is already a favorite, so removing…", favorite);
+                        string[] pruned_favorites = {};
+                        foreach (string existing_favorite in current_favorites) {
+                            if (existing_favorite != favorite) {
+                                pruned_favorites += existing_favorite;
+                            }
+                        }
+
+                        current_favorites = pruned_favorites;
+                        reset_suggestions (current_favorites);
+                    } else {
+                        debug ("%s is not a favorite, so adding…", favorite);
+                        current_favorites += favorite;
+                        reset_suggestions (current_favorites);
+                    }
+
+                    Ephemeral.settings.set_strv ("favorite-websites", current_favorites);
+                    set_secondary_icon ();
+                }
+
+            }
+        });
+
+        web_view.load_changed.connect ((source, e) => {
+            if (!has_focus) {
+                text = source.get_uri ();
+                set_secondary_icon ();
+            }
+        });
+    }
+
+    private void add_suggestion (
+      string domain,
+      string? name = null,
+      string? reason = _("Popular website")
+    ) {
+        debug ("Adding %s to suggestions…", domain);
+        Gtk.TreeIter iter;
+        list_store.append (out iter);
+
+        string description;
+        if (name != null) {
+            description = "%s – %s".printf (name, reason);
+        } else {
+             description = reason;
+        }
+
+        list_store.set (iter, 0, domain, 1, description);
+    }
+
+    private void reset_suggestions (string[] favorites = {}) {
+        debug ("Resetting suggestions…");
+
+        list_store.clear ();
         list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
 
         var completion = new Gtk.EntryCompletion ();
@@ -57,7 +163,6 @@ public class UrlEntry : Gtk.Entry {
         completion.pack_start (cell, false);
         completion.add_attribute (cell, "text", 1);
 
-        var favorites = Ephemeral.settings.get_strv ("favorite-websites");
         foreach (var favorite in favorites) {
             add_suggestion (favorite, null, _("Favorite website"));
         }
@@ -493,125 +598,26 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("zergnet.com", "ZergNet");
         add_suggestion ("zillow.com", "Zillow");
         add_suggestion ("zulily.com", "Zulily");
-
-        set_secondary_icon ();
-
-        activate.connect (() => {
-            text = text.strip ();
-            var search_engine = Ephemeral.settings.get_string ("search-engine");
-
-            // TODO: Better URL validation
-            if (text == "" || text == null) {
-                Gdk.beep ();
-                return;
-            } else if (!text.contains ("://")) {
-                if (text.contains (".") && !text.contains (" ")) {
-                    // TODO: Try HTTPS, and fall back to HTTP?
-                    text = "%s://%s".printf ("http", text);
-                } else {
-                    text = search_engine.printf (text);
-                }
-            }
-            web_view.load_uri (text);
-            web_view.grab_focus ();
-        });
-
-        focus_in_event.connect ((event) => {
-            set_secondary_icon ();
-
-            return false;
-        });
-
-        focus_out_event.connect ((event) => {
-            string uri = web_view.get_uri ();
-            if (uri == "about:blank") {
-                text = "";
-            }
-            set_secondary_icon ();
-
-            return false;
-        });
-
-        icon_release.connect ((icon_pos, event) => {
-            if (icon_pos == Gtk.EntryIconPosition.PRIMARY) {
-                grab_focus ();
-            } else if (icon_pos == Gtk.EntryIconPosition.SECONDARY) {
-                if (has_focus) {
-                    activate ();
-                } else {
-                    var uri = new Soup.URI (text);
-                    string favorite = uri.get_host ();
-
-                    if (favorite in favorites) {
-                        debug ("%s is already a favorite, so removing…", favorite);
-                        string[] pruned_favorites = {};
-                        foreach (string existing_favorite in favorites) {
-                            if (existing_favorite != favorite) {
-                                pruned_favorites += existing_favorite;
-                            }
-                        }
-
-                        favorites = pruned_favorites;
-                    } else {
-                        debug ("%s is not a favorite, so adding…", favorite);
-                        favorites += favorite;
-                        add_suggestion (favorite, null, _("Favorite website"));
-                    }
-
-                    Ephemeral.settings.set_strv ("favorite-websites", favorites);
-                    set_secondary_icon ();
-                }
-
-            }
-        });
-
-        web_view.load_changed.connect ((source, e) => {
-            if (!has_focus) {
-                text = source.get_uri ();
-                set_secondary_icon ();
-            }
-        });
-    }
-
-    private void add_suggestion (
-      string domain,
-      string? name = null,
-      string? reason = _("Popular website")
-    ) {
-        debug ("Adding %s to suggestions…", domain);
-        Gtk.TreeIter iter;
-        list_store.append (out iter);
-
-        string description;
-        if (name != null) {
-            description = "%s – %s".printf (name, reason);
-        } else {
-             description = reason;
-        }
-
-        list_store.set (iter, 0, domain, 1, description);
     }
 
     private void set_secondary_icon () {
-        if (this.has_focus) {
+        if (this.has_focus || text == "") {
             secondary_icon_name = "go-jump-symbolic";
             secondary_icon_tooltip_text = _("Go");
             secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
         } else {
             var favorites = Ephemeral.settings.get_strv ("favorite-websites");
             var uri = new Soup.URI (text);
-            string new_favorite = uri.get_host ();
+            string domain = uri.get_host ();
 
-            if (new_favorite in favorites) {
-                debug ("Current site is a favorite.");
+            if (domain in favorites) {
+                debug ("%s is a favorite, showing filled star.", domain);
                 secondary_icon_name = "starred-symbolic";
                 secondary_icon_tooltip_text = _("Remove Website from Suggestions");
-                secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>d"}, secondary_icon_tooltip_text);
             } else {
-                debug ("Current site is not a favorite.");
+                debug ("%s is not a favorite, showing empty star.", domain);
                 secondary_icon_name = "non-starred-symbolic";
                 secondary_icon_tooltip_text = _("Add Website to Suggestions");
-                secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>d"}, secondary_icon_tooltip_text);
             }
         }
     }
