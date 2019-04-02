@@ -86,11 +86,11 @@
 }
 
 .titlebar entry image {
-    color: alpha(@textColorPrimary, 0.75);
+    color: @textColorPrimary;
 }
 
 .titlebar entry image:hover {
-    color: @textColorPrimary;
+    color: alpha(@textColorPrimary, 0.75);
 }
 
 infobar revealer > box {

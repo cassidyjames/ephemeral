@@ -612,7 +612,7 @@ public class UrlEntry : Gtk.Entry {
 
             if (domain in current_favorites) {
                 debug ("%s is a favorite, showing filled star.", domain);
-                secondary_icon_name = "starred-symbolic";
+                secondary_icon_name = "starred";
                 secondary_icon_tooltip_text = _("Remove Website from Suggestions");
             } else {
                 debug ("%s is not a favorite, showing empty star.", domain);
