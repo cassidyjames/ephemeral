@@ -24,7 +24,7 @@ public class PreferencesDialog : Granite.MessageDialog {
         Object (
             image_icon: new ThemedIcon ("document-open-recent"),
             primary_text: _("Reset Preferences?"),
-            secondary_text: _("All favorite websites will be removed. Any dismissed or remembered alerts, warnings, etc. will be displayed again the next time Ephemeral is opened."),
+            secondary_text: _("All added website suggestions will be removed. Any dismissed or remembered alerts, warnings, etc. will be displayed again the next time Ephemeral is opened."),
             title: _("Reset Preferences?")
         );
     }
