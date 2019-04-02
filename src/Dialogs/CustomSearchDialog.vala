@@ -24,12 +24,14 @@ public class CustomSearchDialog : Granite.MessageDialog {
         Object (
             image_icon: new ThemedIcon ("system-search"),
             primary_text: _("Set a Custom Search Engine"),
-            secondary_text: _("Searches from the URL entry will be sent to this site. `%s` will be replaced with the search query."),
+            secondary_text: _("Searches from the URL entry will be sent to this custom URL. <b>%s</b> will be replaced with the search query."),
             title: _("Custom Search Engine")
         );
     }
 
     construct {
+        secondary_label.use_markup = true;
+
         var cancel = add_button (_("Never Mind"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         cancel.clicked.connect (() => { destroy (); });
 
