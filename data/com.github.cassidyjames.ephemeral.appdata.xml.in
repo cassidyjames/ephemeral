@@ -33,14 +33,18 @@
   <releases>
     <release version="5.0.0" date="2019-04-01">
       <description>
-        <p>No Foolin'</p>
+        <p>No foolin'. Two major new features:</p>
         <ul>
           <li>🔍️ New Custom Search Engine setting in the Menu</li>
           <li>⭐️ Add your own websites to the suggestions using the new button in the URL entry</li>
-          <li>Various URL entry fixes and improvements</li>
+        </ul>
+        <p>Plus the usual iterative improvements:</p>
+        <ul>
+          <li>Various URL entry fixes and tweaks</li>
           <li>Updated Dutch translations thanks to Heimen Stoffels</li>
           <li>Updated French translations thanks to @NathanBnm</li>
         </ul>
+        <p>Translations for new features will appear in future updates as translators have a chance to do their thing.</p>
       </description>
     </release>
     <release version="4.2.1" date="2019-03-22">
