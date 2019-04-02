@@ -21,7 +21,7 @@
 
 public class UrlEntry : Gtk.Entry {
     private Gtk.ListStore list_store { get; set; }
-    // private Gtk.TreeIter iter { get; set; }
+    private Gtk.TreeIter iter { get; set; }
 
     public WebKit.WebView web_view { get; construct set; }
 
@@ -163,8 +163,7 @@ public class UrlEntry : Gtk.Entry {
         completion.pack_start (cell, false);
         completion.add_attribute (cell, "text", 1);
 
-        var current_favorites = Ephemeral.settings.get_strv ("favorite-websites");
-        foreach (var favorite in current_favorites) {
+        foreach (var favorite in favorites) {
             add_suggestion (favorite, null, _("Favorite website"));
         }
 
