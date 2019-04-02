@@ -86,11 +86,11 @@
 }
 
 .titlebar entry image {
-    color: alpha(@textColorPrimary, 0.75);
+    color: @textColorPrimary;
 }
 
 .titlebar entry image:hover {
-    color: @textColorPrimary;
+    color: alpha(@textColorPrimary, 0.75);
 }
 
 infobar revealer > box {
@@ -161,5 +161,14 @@ infobar button.flat:not(:active) {
 
 popover radio {
   margin-left: 6px;
+}
+
+checkbutton.menuitem {
+  padding: 6px 12px;
+}
+
+checkbutton.menuitem check {
+  margin-left: 1px;
+  margin-right: 1px;
 }
 

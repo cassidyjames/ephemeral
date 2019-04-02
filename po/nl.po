@@ -116,6 +116,7 @@ msgstr ""
 "Ephemeral en ik wil het niet weten ook!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:24
+#, fuzzy
 msgid ""
 "Ephemeral uses Startpage.com—the world's most private search engine—by default "
 "to avoid as much Google tracking as possible. You can also choose DuckDuckGo "
@@ -127,6 +128,7 @@ msgstr ""
 "voor DuckDuckGo kiezen, of je eigen zoekmachine instellen."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
+#, fuzzy
 msgid ""
 "What if you run into a site compatibility issue due to the tracking "
 "prevention, or if you want to sign into a site using another browser’s saved "
@@ -383,7 +385,8 @@ msgid "salut! French translations thanks to Nathan (@NathanBnm)"
 msgstr "salut! Franse vertaling met dank aan Nathan (@NathanBnm)"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:141
-msgid "Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
+msgid ""
+"Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
 msgstr ""
 "Olá! Braziliaans-Portugese vertaling, met dank aan Lucas Sanchez dos Anjos"
 
@@ -406,8 +409,8 @@ msgstr "Zoombediening is nu alleen bruikbaar als de webweergave zichtbaar is"
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:156
 msgid "Reported zoom level is now correct when opening a new window"
 msgstr ""
-"Doorgegeven zoomniveau is nu juist ingesteld tijdens het openen van een nieuw "
-"venster"
+"Doorgegeven zoomniveau is nu juist ingesteld tijdens het openen van een "
+"nieuw venster"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:157
 msgid "Reported zoom level is now kept in sync across open windows"
@@ -424,7 +427,8 @@ msgstr "Een nieuw menu om de werkomgeving netjes te houden"
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:166
 msgid "Zoom in, out, and default from the new menu or with the keyboard"
 msgstr ""
-"Zoom in, uit en terug naar standaard via het nieuwe menu of met het toetsenbord"
+"Zoom in, uit en terug naar standaard via het nieuwe menu of met het "
+"toetsenbord"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:167
 msgid "New Window action moved into the menu"
@@ -470,7 +474,8 @@ msgstr "Mooiere foutopmaakvensters"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:183
 msgid "Stopped throwing away text when unfocusing URL entry"
-msgstr "Tekst wordt niet meer weggegooid bij het ontfocussen van de locatiebalk"
+msgstr ""
+"Tekst wordt niet meer weggegooid bij het ontfocussen van de locatiebalk"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:184
 msgid "Stopped searching when the URL entry is empty"
@@ -489,8 +494,8 @@ msgid ""
 "The new start page makes Ephemeral faster and makes it not touch the network "
 "until you're ready to browse"
 msgstr ""
-"De nieuwe startpagina versnelt Ephemeral en doet niks met je netwerk totdat je "
-"ergens heen navigeert"
+"De nieuwe startpagina versnelt Ephemeral en doet niks met je netwerk totdat "
+"je ergens heen navigeert"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:194
 msgid "Middle- or Ctrl-click a link to open it in a new window"
@@ -534,7 +539,8 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:220
 msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
 msgstr ""
-"\"Nieuw venster\" toegevoegd aan kopbalk (HeaderBar), appstarter en sneltoetsen"
+"\"Nieuw venster\" toegevoegd aan kopbalk (HeaderBar), appstarter en "
+"sneltoetsen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:221
 msgid "Collapse external browsers into a menu when there's more than one"
@@ -666,6 +672,7 @@ msgid "Reset Preferences?"
 msgstr "Standaardwaarden herstellen?"
 
 #: src/Dialogs/PreferencesDialog.vala:27
+#, fuzzy
 msgid ""
 "All added website suggestions will be removed. Any dismissed or remembered "
 "alerts, warnings, etc. will be displayed again the next time Ephemeral is "
@@ -833,6 +840,11 @@ msgstr "Website verwijderen uit suggesties"
 #: src/Widgets/UrlEntry.vala:632
 msgid "Add Website to Suggestions"
 msgstr "Website toevoegen aan suggesties"
+
+#: src/Widgets/UrlEntry.vala:632
+#, fuzzy
+msgid "Add Website to Suggestions"
+msgstr "Geheel nieuwe zoekfunctie en -suggesties"
 
 #~ msgid ""
 #~ "Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you — "
