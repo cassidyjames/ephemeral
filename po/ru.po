@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-04-01 22:53-0600\n"
-"PO-Revision-Date: 2019-02-05 17:51+0200\n"
+"PO-Revision-Date: 2019-04-02 10:40+0300\n"
 "Last-Translator: Artem Polishchuk <ego.cordatus@gmail.com>\n"
 "Language-Team: русский <>\n"
 "Language: ru\n"
@@ -16,8 +16,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 3.30.1\n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
 #: data/launcher.desktop.in:3
@@ -56,7 +56,7 @@ msgstr "Поиск прямо из адресной строки"
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
 msgid "Set as your default browser for true privacy by default"
 msgstr ""
-"Установить в качестве браузера по умолчанию для лучше приватности по "
+"Установить в качестве браузера по умолчанию для лучшей приватности по "
 "умолчанию"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:16
@@ -67,7 +67,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:17
 msgid "Pick between privacy-respecting search engines from the menu"
-msgstr ""
+msgstr "Выберите из меню между поисковыми системами уважающими частную жизнь"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
 msgid "Ephemeral protects you in four key ways:"
@@ -82,8 +82,8 @@ msgid ""
 msgstr ""
 "1️⃣ Как только вы откроете окно в Ephemeral и пока не закроете его (или не "
 "нажмете кнопку «Стереть»), Ephemeral будет находится в приватном режиме "
-"просмотра. Это означает, что история, куки-файлы, локальное хранилище, "
-"пароли и т.д. будут тотчас уничтожены когда вы закончите."
+"просмотра. Это означает, что история, куки-файлы, локальное хранилище, пароли "
+"и т.д. будут тотчас уничтожены когда вы закончите."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:21
 msgid ""
@@ -98,20 +98,19 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
 msgid ""
-"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
-"third-party sources. This cuts down on advertising cookies and other "
-"unwanted forms of cross-site tracking."
+"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from third-"
+"party sources. This cuts down on advertising cookies and other unwanted forms "
+"of cross-site tracking."
 msgstr ""
 "3️⃣ Нет сторонних куки. По умолчанию Ephemeral блокирует файлы куки из "
-"сторонних источников. Это сокращает количество рекламных куки-файлов и "
-"другие нежелательные формы межсайтового отслеживания."
+"сторонних источников. Это сокращает количество рекламных куки-файлов и другие "
+"нежелательные формы межсайтового отслеживания."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:23
 msgid ""
 "4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
 "load a web page or perform a search. Even then, no usage data is ever "
-"collected—I have no idea what you do with Ephemeral, and I don't want to "
-"know!"
+"collected—I have no idea what you do with Ephemeral, and I don't want to know!"
 msgstr ""
 "4️⃣ Нет телеметрии. Ephemeral не отправляет никакие запросы в сеть, пока вы "
 "явно не загрузите веб-страницу или не выполните поиск. Даже в этом случае "
@@ -125,9 +124,12 @@ msgid ""
 "DuckDuckGo from the menu if that’s your preference, or even set your own "
 "entirely custom search engine."
 msgstr ""
+"По умолчанию Ephemeral использует Startpage.com — самую приватную поисковую "
+"систему в мире — чтобы избежать максимально возможного отслеживания Google. "
+"Вы также можете выбрать DuckDuckGo из меню, если это ваше предпочтение, или "
+"даже установить свою собственную систему поиска."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
-#, fuzzy
 msgid ""
 "What if you run into a site compatibility issue due to the tracking "
 "prevention, or if you want to sign into a site using another browser’s saved "
@@ -137,9 +139,9 @@ msgid ""
 msgstr ""
 "Что делать, если вы столкнулись с проблемой совместимости сайта из-за "
 "предотвращения отслеживания или если вы хотите войти на сайт с помощью "
-"сохраненных паролей другого браузера? В Ephemeral есть информация о вас: "
-"просто нажмите значок другого браузера в заголовке, и в нём откроется "
-"текущая страница."
+"сохраненных паролей другого браузера? Ephemeral позаботился об этом: просто "
+"нажмите значок другого браузера в заголовке и в нём откроется текущая "
+"страница."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
 msgid ""
@@ -149,20 +151,20 @@ msgid ""
 msgstr ""
 "Наибольшая эффективность Ephemeral достигается, когда вы используете его в "
 "качестве браузера по умолчанию: сделайте конфиденциальность привычкой, "
-"открывая ссылки в приватном браузере по умолчанию, зная, что вы всегда "
-"можете вернуться к менее приватному браузеру одним щелчком мыши."
+"открывая ссылки в приватном браузере по умолчанию, зная, что вы всегда можете "
+"вернуться к менее приватному браузеру одним щелчком мыши."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
 msgid ""
 "Remember, Ephemeral and any browser's incognito or private mode can only do "
-"so much: they mitigate some tracking and don't store data on your device, "
-"but they won't stop your ISP, government, or determined websites from "
-"tracking you."
+"so much: they mitigate some tracking and don't store data on your device, but "
+"they won't stop your ISP, government, or determined websites from tracking "
+"you."
 msgstr ""
-"Помните, что Ephemeral и режим инкогнито или приватный режим другого "
-"браузера могут сделать очень многое, но не всё: они уменьшают некоторое "
-"отслеживание и не сохраняют данные на вашем устройстве, но они не помешают "
-"вашему провайдеру, правительству или определенным веб-сайтам отслеживать вас."
+"Помните, что Ephemeral и режим инкогнито или приватный режим другого браузера "
+"могут сделать очень многое, но не всё: они уменьшают некоторое отслеживание и "
+"не сохраняют данные на вашем устройстве, но они не помешают вашему "
+"провайдеру, правительству или определенным веб-сайтам отслеживать вас."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:28
 #: src/Views/WelcomeView.vala:34
@@ -298,8 +300,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:100
 msgid ""
-"*This data is all shipped with Ephemeral itself, and Ephemeral still does "
-"not touch the network until you explicitly navigate somewhere. The list of "
+"*This data is all shipped with Ephemeral itself, and Ephemeral still does not "
+"touch the network until you explicitly navigate somewhere. The list of "
 "domains is heavily inspired by a similar feature in Firefox Focus. Domains "
 "being included in completion suggestions are not an endorsement, it simply "
 "means that domain is relatively popular."
@@ -323,8 +325,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:124
 msgid ""
-"Fixed some missed translations and updated French translations. Thanks "
-"again, @NathanBnm!"
+"Fixed some missed translations and updated French translations. Thanks again, "
+"@NathanBnm!"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:129
@@ -340,22 +342,20 @@ msgid "New \"Reset Preferences\" menu item and dialog"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:133
-#, fuzzy
 msgid "Ctrl+O to open the current page in another browser"
-msgstr "Без труда открывайте страницы в любом другом установленном браузере"
+msgstr "Ctrl+O чтобы открыть текущую страницу в другом браузере"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:134
 msgid "Refined (ever-so-subtly less flat) HeaderBar design"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:135
-#, fuzzy
 msgid "Ephemeral is now translatable!"
-msgstr "Ephemeral — платное приложение"
+msgstr "Ephemeral теперь переводимый!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:137
 msgid "Translations:"
-msgstr ""
+msgstr "Переводы:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:139
 msgid ""
@@ -368,8 +368,7 @@ msgid "salut! French translations thanks to Nathan (@NathanBnm)"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:141
-msgid ""
-"Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
+msgid "Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:142
@@ -493,13 +492,12 @@ msgid "Tweaked \"set as default\" infobar styling"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:211
-#, fuzzy
 msgid "Search from URL entry!"
-msgstr "Поиск прямо из адресной строки"
+msgstr "Поиск из URL записи!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:212
 msgid "Asks (politely!) to be set as the default browser"
-msgstr ""
+msgstr "Спрашивать (вежливо!) установить браузером по умолчанию"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:213
 msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
@@ -595,15 +593,15 @@ msgstr "Закрыть все окна"
 
 #: src/MainWindow.vala:184
 msgid "Startpage.com Search"
-msgstr ""
+msgstr "Startpage.com поиск"
 
 #: src/MainWindow.vala:187
 msgid "DuckDuckGo Search"
-msgstr ""
+msgstr "DuckDuckGo поиск"
 
 #: src/MainWindow.vala:190
 msgid "Custom Search Engine…"
-msgstr ""
+msgstr "Пользовательская поисковая система..."
 
 #: src/MainWindow.vala:196
 msgid "Reset Preferences…"
@@ -639,14 +637,14 @@ msgid "Reset Preferences?"
 msgstr "Сбросить настройки?"
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
 msgid ""
 "All added website suggestions will be removed. Any dismissed or remembered "
 "alerts, warnings, etc. will be displayed again the next time Ephemeral is "
 "opened."
 msgstr ""
-"Любые отклоненные или запомненные предупреждения, предупреждения и т. д. "
-"будут отображаться снова при следующем открытии Ephemeral."
+"Все добавленные предложения сайта будут удалены. Любые отклоненные или "
+"запомненные предупреждения, предупреждения и так далее будут отображаться "
+"снова при следующем открытии Ephemeral."
 
 #: src/Dialogs/PreferencesDialog.vala:33
 msgid "Never Mind"
@@ -667,14 +665,14 @@ msgstr "Не удалось отобразить страницу."
 #: src/Views/WelcomeView.vala:33
 msgid ""
 "Remember, Ephemeral and any browser’s incognito or private mode can only do "
-"so much: they mitigate some tracking and don’t store data on your device, "
-"but they won’t stop your ISP, government, or determined websites from "
-"tracking you."
+"so much: they mitigate some tracking and don’t store data on your device, but "
+"they won’t stop your ISP, government, or determined websites from tracking "
+"you."
 msgstr ""
-"Помните, что Ephemeral и режим инкогнито или приватный режим другого "
-"браузера могут сделать очень многое, но не всё: они уменьшают некоторое "
-"отслеживание и не сохраняют данные на вашем устройстве, но они не помешают "
-"вашему провайдеру, правительству или определенным веб-сайтам отслеживать вас."
+"Помните, что Ephemeral и режим инкогнито или приватный режим другого браузера "
+"могут сделать очень многое, но не всё: они уменьшают некоторое отслеживание и "
+"не сохраняют данные на вашем устройстве, но они не помешают вашему "
+"провайдеру, правительству или определенным веб-сайтам отслеживать вас."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
 #: src/Widgets/BrowserButton.vala:46 src/Widgets/BrowserButton.vala:157
@@ -690,7 +688,7 @@ msgstr "Открыть страницу в %s"
 
 #: src/Widgets/BrowserButton.vala:102
 msgid "Close Window When Opening Externally"
-msgstr ""
+msgstr "Закрыть окно при открытии извне"
 
 #: src/Widgets/DefaultInfoBar.vala:31
 msgid "Make privacy a habit."
@@ -703,8 +701,8 @@ msgstr "Установить Ephemeral в качестве браузера по
 #. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
 #: src/Widgets/DefaultInfoBar.vala:35
 msgid ""
-"You can always change this later in <i>System Settings</i> → "
-"<i>Applications</i>."
+"You can always change this later in <i>System Settings</i> → <i>Applications</"
+"i>."
 msgstr ""
 "Вы всегда это можете изменить позже в <i>Системные настройки</i> → "
 "<i>Приложения</i>."
@@ -735,8 +733,8 @@ msgid ""
 "Consider donating if you find value in using Ephemeral on other platforms."
 msgstr ""
 "Ephemeral также обычно финансируется за счет покупок в elementary AppCenter. "
-"Рассмотрите возможность пожертвования, если вы находите полезным "
-"использовать Ephemeral на других платформах."
+"Рассмотрите возможность пожертвования, если вы находите полезным использовать "
+"Ephemeral на других платформах."
 
 #: src/Widgets/NativeInfoBar.vala:41 src/Widgets/PaidInfoBar.vala:43
 msgid "Dismiss"
@@ -777,8 +775,8 @@ msgstr "финансируется за счет покупок в AppCenter."
 #: src/Widgets/PaidInfoBar.vala:35
 msgid "Consider purchasing or funding if you find value in using Ephemeral."
 msgstr ""
-"Рассмотрите возможность покупки или финансирования, если вы находите "
-"полезным использовать Ephemeral."
+"Рассмотрите возможность покупки или финансирования, если вы находите полезным "
+"использовать Ephemeral."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/Widgets/PaidInfoBar.vala:50
@@ -791,11 +789,11 @@ msgstr "Введите URL или поисковый запрос"
 
 #: src/Widgets/UrlEntry.vala:139
 msgid "Popular website"
-msgstr ""
+msgstr "Популярный сайт"
 
 #: src/Widgets/UrlEntry.vala:177
 msgid "Favorite website"
-msgstr ""
+msgstr "Любимый сайт"
 
 #: src/Widgets/UrlEntry.vala:616
 msgid "Go"
@@ -803,16 +801,15 @@ msgstr "Перейти"
 
 #: src/Widgets/UrlEntry.vala:628
 msgid "Remove Website from Suggestions"
-msgstr ""
+msgstr "Удалить сайт из предложений"
 
 #: src/Widgets/UrlEntry.vala:632
 msgid "Add Website to Suggestions"
-msgstr ""
+msgstr "Добавить сайт в предложения"
 
 #~ msgid ""
 #~ "Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you "
 #~ "— by default to avoid as much Google tracking as possible."
 #~ msgstr ""
 #~ "Ephemeral также использует DuckDuckGo по умолчанию — поисковую систему, "
-#~ "которая не отслеживает вас, чтобы максимально избежать отслеживания "
-#~ "Google."
+#~ "которая не отслеживает вас, чтобы максимально избежать отслеживания Google."
