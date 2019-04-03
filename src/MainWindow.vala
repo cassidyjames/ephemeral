@@ -204,18 +204,18 @@ public class MainWindow : Gtk.Window {
 
         var settings_popover_grid = new Gtk.Grid ();
         settings_popover_grid.margin_bottom = 3;
+        settings_popover_grid.orientation = Gtk.Orientation.VERTICAL;
         settings_popover_grid.width_request = 200;
 
-        int settings_row = 0;
-        settings_popover_grid.attach (zoom_grid, 0, settings_row++);
-        settings_popover_grid.attach (new_window_button, 0, settings_row++);
-        settings_popover_grid.attach (quit_button, 0, settings_row++);
-        settings_popover_grid.attach (separator, 0, settings_row++);
-        settings_popover_grid.attach (startpage_button, 0, settings_row++);
-        settings_popover_grid.attach (ddg_button, 0, settings_row++);
-        settings_popover_grid.attach (custom_search_button, 0, settings_row++);
-        settings_popover_grid.attach (another_separator, 0, settings_row++);
-        settings_popover_grid.attach (preferences_button, 0, settings_row++);
+        settings_popover_grid.add (zoom_grid);
+        settings_popover_grid.add (new_window_button);
+        settings_popover_grid.add (quit_button);
+        settings_popover_grid.add (separator);
+        settings_popover_grid.add (startpage_button);
+        settings_popover_grid.add (ddg_button);
+        settings_popover_grid.add (custom_search_button);
+        settings_popover_grid.add (another_separator);
+        settings_popover_grid.add (preferences_button);
         settings_popover_grid.show_all ();
 
         settings_popover.add (settings_popover_grid);
