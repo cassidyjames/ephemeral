@@ -22,6 +22,7 @@ executable(
     join_paths('src', 'Views', 'WelcomeView.vala'),
     join_paths('src', 'Widgets', 'BrowserButton.vala'),
     join_paths('src', 'Widgets', 'DefaultInfoBar.vala'),
+    join_paths('src', 'Widgets', 'IllustrativeDialog.vala'),
     join_paths('src', 'Widgets', 'NativeInfoBar.vala'),
     join_paths('src', 'Widgets', 'NetworkInfoBar.vala'),
     join_paths('src', 'Widgets', 'PaidInfoBar.vala'),
