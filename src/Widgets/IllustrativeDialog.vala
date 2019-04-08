@@ -83,6 +83,7 @@ public class IllustrativeDialog : Gtk.Dialog {
 
         set {
             image.set_from_gicon (value, Gtk.IconSize.INVALID);
+            image.margin_bottom = 12;
             image.pixel_size = 64;
         }
     }
