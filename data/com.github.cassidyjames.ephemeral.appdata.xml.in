@@ -312,8 +312,8 @@
   <url type="help">https://cassidyjames.com/support</url>
   <!--url type="contact">https://cassidyjames.com/support</url-->
   <custom>
-    <value key="x-appcenter-color-primary">@GRAPE_900</value>
-    <value key="x-appcenter-color-primary-text">@GRAPE_100</value>
+    <value key="x-appcenter-color-primary">#452981</value>
+    <value key="x-appcenter-color-primary-text">#e4c6fa</value>
     <value key="x-appcenter-suggested-price">9</value>
   </custom>
 </component>
