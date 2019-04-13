@@ -366,7 +366,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:131
 msgid "Guten Tag! German translations thanks to Hannes Schulze"
-msgstr "Guten Tag! Traductions en alllemand grâce à Hannes Shulze"
+msgstr "Guten Tag! Traductions en allemand grâce à Hannes Shulze"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:136
 msgid "Здравствуйте! Russian translations thanks to Artem Polishchuk"
