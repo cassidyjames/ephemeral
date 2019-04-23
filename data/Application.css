@@ -172,3 +172,6 @@ checkbutton.menuitem check {
   margin-right: 1px;
 }
 
+dzlsuggestionpopover row {
+  padding: 5px;
+}

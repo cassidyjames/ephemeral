@@ -21,8 +21,7 @@
 */
 
 public class UrlEntry : Dazzle.SuggestionEntry {
-    private Gtk.ListStore list_store { get; set; }
-    private Gtk.TreeIter iter { get; set; }
+    private ListStore list_store { get; set; }
 
     public WebKit.WebView web_view { get; construct set; }
 
@@ -35,7 +34,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
     }
 
     construct {
-        tooltip_text = _("Enter a URL or search term");
+        var tooltip_text = _("Enter a URL or search term");
         placeholder_text = tooltip_text;
 
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
@@ -47,6 +46,14 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         var initial_favorites = Ephemeral.settings.get_strv ("favorite-websites");
         reset_suggestions (initial_favorites);
         set_secondary_icon ();
+
+        notify["text"].connect (() => {
+            if (text == "") {
+                placeholder_text = tooltip_text;
+            } else {
+                placeholder_text = null;
+            }
+        });
 
         activate.connect (() => {
             text = text.strip ();
@@ -66,6 +73,17 @@ public class UrlEntry : Dazzle.SuggestionEntry {
             }
             web_view.load_uri (text);
             web_view.grab_focus ();
+        });
+
+        suggestion_activated.connect (() => {
+            text = get_suggestion ().id;
+
+            activate ();
+        });
+
+        move_suggestion.connect (() => {
+            text = get_suggestion ().id;
+            set_position (-1);
         });
 
         focus_in_event.connect ((event) => {
@@ -140,8 +158,11 @@ public class UrlEntry : Dazzle.SuggestionEntry {
       string? reason = _("Popular website")
     ) {
         debug ("Adding %s to suggestions…", domain);
-        Gtk.TreeIter iter;
-        list_store.append (out iter);
+
+        var suggestion = new Dazzle.Suggestion ();
+        suggestion.id = domain;
+        suggestion.title = domain;
+        suggestion.icon_name = "web-browser-symbolic";
 
         string description;
         if (name != null) {
@@ -149,30 +170,21 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         } else {
              description = reason;
         }
+        suggestion.subtitle = description;
 
-        list_store.set (iter, 0, domain, 1, description);
+        list_store.append (suggestion);
     }
 
     private void reset_suggestions (string[] favorites = {}) {
         debug ("Resetting suggestions…");
 
-        if (list_store is Gtk.ListStore) {
-            list_store.clear ();
+        if (list_store is ListStore) {
+            list_store.remove_all ();
         }
 
-        list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
+        list_store = new ListStore (typeof (Dazzle.Suggestion));
 
-        var completion = new Gtk.EntryCompletion ();
-        completion.inline_completion = true;
-        completion.minimum_key_length = 3;
-        completion.model = list_store;
-        completion.text_column = 0;
-
-        set_completion (completion);
-
-        var cell = new Gtk.CellRendererText ();
-        completion.pack_start (cell, false);
-        completion.add_attribute (cell, "text", 1);
+        set_model (list_store);
 
         foreach (var favorite in favorites) {
             add_suggestion (favorite, null, _("Favorite website"));
@@ -202,7 +214,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         add_suggestion ("appcenter.elementary.io", "elementary AppCenter");
         add_suggestion ("archive.org", "Internet Archive");
         add_suggestion ("arstechnica.com", "Ars Technica");
-        add_suggestion ("att.com", "AT&T");
+        add_suggestion ("att.com", "AT&amp;T");
         add_suggestion ("audible.com", "Audible");
         add_suggestion ("autotrader.com", "Autotrader");
         add_suggestion ("azlyrics.com", "AZLyrics");
@@ -211,20 +223,20 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         add_suggestion ("bankofamerica.com", "Bank of America");
         add_suggestion ("bankrate.com", "Bankrate");
         add_suggestion ("barclaycardus.com", "Barclays US");
-        add_suggestion ("barnesandnoble.com", "Barnes & Noble");
+        add_suggestion ("barnesandnoble.com", "Barnes &amp; Noble");
         add_suggestion ("bbc.com", "BBC");
         add_suggestion ("bbc.co.uk", "BBC");
-        add_suggestion ("bedbathandbeyond.com", "Bed Bath & Beyond");
+        add_suggestion ("bedbathandbeyond.com", "Bed Bath &amp; Beyond");
         add_suggestion ("bestbuy.com", "Best Buy");
         add_suggestion ("betanews.com", "BetaNews");
-        add_suggestion ("bhphotovideo.com", "B&H Photo");
+        add_suggestion ("bhphotovideo.com", "B&amp;H Photo");
         add_suggestion ("biblegateway.com", "BibleGateway.com");
         add_suggestion ("bing.com", "Bing");
         add_suggestion ("bizjournals.com", "The Business Journals");
         add_suggestion ("blogger.com", "Blogger");
         add_suggestion ("blogspot.com", "Blogspot");
         add_suggestion ("bloomberg.com", "Bloomberg");
-        add_suggestion ("bn.com", "Barnes & Noble");
+        add_suggestion ("bn.com", "Barnes &amp; Noble");
         add_suggestion ("bodybuilding.com", "Bodybuilding.com");
         add_suggestion ("booking.com", "Booking.com");
         add_suggestion ("box.com", "Box");
@@ -341,7 +353,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         add_suggestion ("harvard.edu", "Harvard University");
         add_suggestion ("healthcare.gov", "HealthCare.gov");
         add_suggestion ("hilton.com", "Hilton");
-        add_suggestion ("hm.com", "H&M");
+        add_suggestion ("hm.com", "H&amp;M");
         add_suggestion ("homedepot.com", "The Home Depot");
         add_suggestion ("hootsuite.com", "Hootsuite");
         add_suggestion ("hotels.com", "Hotels.com");
@@ -437,7 +449,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         add_suggestion ("nypost.com", "New York Post");
         add_suggestion ("nytimes.com", "New York Times");
         add_suggestion ("office365.com", "Office 365");
-        add_suggestion ("officedepot.com", "Office Depot & OfficeMax");
+        add_suggestion ("officedepot.com", "Office Depot &amp; OfficeMax");
         add_suggestion ("okcupid.com", "OKCupid");
         add_suggestion ("omgubuntu.co.uk", "OMG! Ubuntu!");
         add_suggestion ("opentable.com", "OpenTable");
@@ -565,7 +577,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         add_suggestion ("usatoday.com", "USA Today");
         add_suggestion ("usbank.com", "US Bank");
         add_suggestion ("usmagazine.com", "Us Weekly");
-        add_suggestion ("usnews.com", "US News & World Report");
+        add_suggestion ("usnews.com", "US News &amp; World Report");
         add_suggestion ("usps.com", "USPS");
         add_suggestion ("valadoc.org", "Valadoc");
         add_suggestion ("vanguard.com", "Vanguard");
