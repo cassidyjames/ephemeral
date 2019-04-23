@@ -17,9 +17,10 @@
 * Boston, MA 02110-1301 USA
 *
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
+*              Hannes Schulze <haschu0103@gmail.com>
 */
 
-public class UrlEntry : Gtk.Entry {
+public class UrlEntry : Dazzle.SuggestionEntry {
     private Gtk.ListStore list_store { get; set; }
     private Gtk.TreeIter iter { get; set; }
 
