@@ -29,13 +29,14 @@ Development is targeted at [elementary OS] Juno. If you want to hack on and buil
 * libgranite-dev
 * libgtk-3-dev
 * libwebkit2gtk-4.0-dev
+* libdazzle-1.0-dev
 * meson
 * valac
 
 You can install them on elementary OS Juno with:
 
 ```shell
-sudo apt install elementary-sdk libwebkit2gtk-4.0-dev
+sudo apt install elementary-sdk libwebkit2gtk-4.0-dev libdazzle-1.0-dev
 ```
 
 Run `meson build` to configure the build environment and run `ninja` to build:
