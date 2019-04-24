@@ -56,9 +56,13 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         });
 
         var changed_event = changed.connect (() => {
-            filter_suggestions.begin (text.strip (), (obj, res) => {
-                filter_suggestions.end(res);
-            });
+            if (text.length >= 2) {
+                filter_suggestions.begin (text.strip (), (obj, res) => {
+                    filter_suggestions.end(res);
+                });
+            } else {
+                set_model (new ListStore (typeof (Dazzle.Suggestion)));
+            }
         });
 
         activate_suggestion.connect (() => {
