@@ -56,7 +56,6 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         });
 
         var changed_event = changed.connect (() => {
-            print ("test\n");
             filter_suggestions.begin (text.strip (), (obj, res) => {
                 filter_suggestions.end(res);
             });
