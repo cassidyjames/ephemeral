@@ -179,22 +179,15 @@ public class UrlEntry : Dazzle.SuggestionEntry {
     }
 
     private async void filter_suggestions (string search) {
-        ThreadFunc<bool> run = () => {
-            var filtered_list_store = new ListStore (typeof (Dazzle.Suggestion));
-            for (int i = 0; i < list_store.get_n_items (); i++) {
-                var suggestion = list_store.get_item (i) as Dazzle.Suggestion;
-                if (suggestion.id.contains (search) ||
-                    suggestion.title.contains (search)) {
-                    filtered_list_store.append (suggestion);
-                }
+        var filtered_list_store = new ListStore (typeof (Dazzle.Suggestion));
+        for (int i = 0; i < list_store.get_n_items (); i++) {
+            var suggestion = list_store.get_item (i) as Dazzle.Suggestion;
+            if (suggestion.id.contains (search) ||
+                suggestion.title.contains (search)) {
+                filtered_list_store.append (suggestion);
             }
-            Idle.add(() => {
-                set_model (filtered_list_store);
-                return false;
-            });
-            return true;
-        };
-        new Thread<bool>("filter-suggestions-thread", run);
+        }
+        set_model (filtered_list_store);
     }
 
     private void add_suggestion (
