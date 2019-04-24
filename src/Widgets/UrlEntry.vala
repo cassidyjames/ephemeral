@@ -47,15 +47,13 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         reset_suggestions (initial_favorites);
         set_secondary_icon ();
 
-        notify["text"].connect (() => {
+        var changed_event = changed.connect (() => {
             if (text == "") {
                 placeholder_text = tooltip_text;
             } else {
                 placeholder_text = null;
             }
-        });
 
-        var changed_event = changed.connect (() => {
             if (text.length >= 2) {
                 filter_suggestions.begin (text.strip (), (obj, res) => {
                     filter_suggestions.end(res);
@@ -92,6 +90,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         });
 
         move_suggestion.connect ((amount) => {
+            // Workaround because suggestion_selected isn't available
             var current_index = 0;
             for (var i = 0; i < get_model ().get_n_items (); i++) {
                 var item = get_model ().get_item (i) as Dazzle.Suggestion;
@@ -106,6 +105,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
                 new_item = get_suggestion ();
             }
 
+            // Update text to the selected domain name
             SignalHandler.block (this, changed_event);
             text = (new_item as Dazzle.Suggestion).id;
             SignalHandler.unblock (this, changed_event);
