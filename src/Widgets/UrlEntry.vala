@@ -52,14 +52,17 @@ public class UrlEntry : Dazzle.SuggestionEntry {
                 placeholder_text = tooltip_text;
             } else {
                 placeholder_text = null;
-
-                filter_suggestions.begin (text.strip (), (obj, res) => {
-                    filter_suggestions.end(res);
-                });
             }
         });
 
-        activate.connect (() => {
+        var changed_event = changed.connect (() => {
+            print ("test\n");
+            filter_suggestions.begin (text.strip (), (obj, res) => {
+                filter_suggestions.end(res);
+            });
+        });
+
+        activate_suggestion.connect (() => {
             text = text.strip ();
             var search_engine = Ephemeral.settings.get_string ("search-engine");
 
@@ -82,11 +85,27 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         suggestion_activated.connect (() => {
             text = get_suggestion ().id;
 
-            activate ();
+            activate_suggestion ();
         });
 
-        move_suggestion.connect (() => {
-            text = get_suggestion ().id;
+        move_suggestion.connect ((amount) => {
+            var current_index = 0;
+            for (var i = 0; i < get_model ().get_n_items (); i++) {
+                var item = get_model ().get_item (i) as Dazzle.Suggestion;
+                if (item.id == get_suggestion ().id)  {
+                    current_index = i;
+                    break;
+                }
+            }
+
+            var new_item = get_model ().get_item (current_index + amount);
+            if (new_item == null) {
+                new_item = get_suggestion ();
+            }
+
+            SignalHandler.block (this, changed_event);
+            text = (new_item as Dazzle.Suggestion).id;
+            SignalHandler.unblock (this, changed_event);
             set_position (-1);
         });
 
