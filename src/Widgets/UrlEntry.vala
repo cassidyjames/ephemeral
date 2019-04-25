@@ -49,39 +49,40 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         reset_suggestions (initial_favorites);
         set_secondary_icon ();
 
-        var changed_event = changed.connect (() => {
+        changed.connect (() => {
+            // Update placeholder
             if (text == "") {
                 placeholder_text = tooltip_text;
             } else {
                 placeholder_text = null;
             }
+        });
 
-            if (text.length >= 2) {
-                filter_suggestions (text.strip (), false);
-            } else {
-                set_model (new ListStore (typeof (Dazzle.Suggestion)));
-            }
+        // We need to block this event handler sometimes, so we store its
+        // id in a variable
+        var changed_event = changed.connect (() => {
+            filter_suggestions (text.strip (), !(text.length >= 2));
 
             last_text = text;
         });
 
         activate_suggestion.connect (() => {
+            // Format the currently selected id as a url and load it
             if (text == "" || text == null) {
                 Gdk.beep ();
                 return;
             }
 
             string url;
-            format_url (text, out url);
+            format_url (get_suggestion ().id, out url);
 
             web_view.load_uri (url);
             web_view.grab_focus ();
         });
 
         suggestion_activated.connect (() => {
+            // Set the text to the current suggestion's one
             text = get_suggestion ().id;
-
-            activate_suggestion ();
         });
 
         move_suggestion.connect ((amount) => {
@@ -95,27 +96,14 @@ public class UrlEntry : Dazzle.SuggestionEntry {
                 }
             }
 
-            var new_index = current_index + amount;
-            var new_text = "";
-
-            if (new_index == -1) {
-                new_text = last_text;
-            } else {
-                var new_item = get_model ().get_item (new_index);
-                if (new_item == null) {
-                    new_item = get_suggestion ();
-                }
-
-                if (new_item is Dazzle.Suggestion) {
-                    new_text = (new_item as Dazzle.Suggestion).id;
-                } else {
-                    new_text = "";
-                }
+            var new_item = get_model ().get_item (current_index + amount);
+            if (new_item == null) {
+                new_item = get_suggestion ();
             }
 
             // Update text to the selected domain name
             SignalHandler.block (this, changed_event);
-            text = new_text;
+            text = (new_item as Dazzle.Suggestion).id;
             SignalHandler.unblock (this, changed_event);
             set_position (-1);
         });
@@ -179,10 +167,12 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         });
 
         web_view.load_changed.connect ((source, e) => {
+            SignalHandler.block (this, changed_event);
             if (!has_focus) {
                 text = source.get_uri ();
                 set_secondary_icon ();
             }
+            SignalHandler.unblock (this, changed_event);
         });
     }
 
