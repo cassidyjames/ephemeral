@@ -210,14 +210,15 @@ public class UrlEntry : Dazzle.SuggestionEntry {
     private void add_suggestion (
       string domain,
       string? name = null,
-      string? reason = _("Popular website")
+      string? reason = _("Popular website"),
+      string? icon = "web-browser-symbolic"
     ) {
         debug ("Adding %s to suggestions…", domain);
 
         var suggestion = new Dazzle.Suggestion ();
         suggestion.id = domain;
         suggestion.title = domain;
-        suggestion.icon_name = "web-browser-symbolic";
+        suggestion.icon_name = icon;
 
         string description;
         if (name != null) {
@@ -242,7 +243,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         set_model (new ListStore (typeof (Dazzle.Suggestion)));
 
         foreach (var favorite in favorites) {
-            add_suggestion (favorite, null, _("Favorite website"));
+            add_suggestion (favorite, null, _("Favorite website"), "non-starred-symbolic");
         }
 
         add_suggestion ("247sports.com", "247Sports");
