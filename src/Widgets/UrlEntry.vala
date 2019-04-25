@@ -57,9 +57,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
             }
 
             if (text.length >= 2) {
-                filter_suggestions.begin (text.strip (), (obj, res) => {
-                    filter_suggestions.end(res);
-                });
+                filter_suggestions (text.strip (), false);
             } else {
                 set_model (new ListStore (typeof (Dazzle.Suggestion)));
             }
@@ -68,22 +66,15 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         });
 
         activate_suggestion.connect (() => {
-            text = text.strip ();
-            var search_engine = Ephemeral.settings.get_string ("search-engine");
-
-            // TODO: Better URL validation
             if (text == "" || text == null) {
                 Gdk.beep ();
                 return;
-            } else if (!text.contains ("://")) {
-                if (text.contains (".") && !text.contains (" ")) {
-                    // TODO: Try HTTPS, and fall back to HTTP?
-                    text = "%s://%s".printf ("http", text);
-                } else {
-                    text = search_engine.printf (text);
-                }
             }
-            web_view.load_uri (text);
+
+            string url;
+            format_url (text, out url);
+
+            web_view.load_uri (url);
             web_view.grab_focus ();
         });
 
@@ -195,13 +186,41 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         });
     }
 
-    private async void filter_suggestions (string search) {
+    private bool format_url (string input, out string formatted_url) {
+        var search_engine = Ephemeral.settings.get_string ("search-engine");
+
+        // TODO: Better URL validation
+        if (!input.contains ("://")) {
+            if (input.contains (".") && !input.contains (" ")) {
+                // TODO: Try HTTPS, and fall back to HTTP?
+                formatted_url = "%s://%s".printf ("http", text);
+                return true;
+            } else {
+                formatted_url = search_engine.printf (text);
+                return false;
+            }
+        } else {
+            formatted_url = input;
+            return true;
+        }
+    }
+
+    private void filter_suggestions (string search, bool is_empty) {
         var filtered_list_store = new ListStore (typeof (Dazzle.Suggestion));
-        for (int i = 0; i < list_store.get_n_items (); i++) {
-            var suggestion = list_store.get_item (i) as Dazzle.Suggestion;
-            if (suggestion.id.contains (search) ||
-                suggestion.title.contains (search)) {
-                filtered_list_store.append (suggestion);
+        var current_suggestion = new Dazzle.Suggestion ();
+        string formatted_url;
+        var is_url = format_url (search, out formatted_url);
+        current_suggestion.id = search;
+        current_suggestion.title = (is_url ? "Go to \"%s\"" : "Search for \"%s\"").printf (search);
+        current_suggestion.icon_name = "system-search-symbolic";
+        filtered_list_store.append (current_suggestion);
+        if (!is_empty) {
+            for (int i = 0; i < list_store.get_n_items (); i++) {
+                var suggestion = list_store.get_item (i) as Dazzle.Suggestion;
+                if (suggestion.id.contains (search) ||
+                    suggestion.title.contains (search)) {
+                    filtered_list_store.append (suggestion);
+                }
             }
         }
         set_model (filtered_list_store);
