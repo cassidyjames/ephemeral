@@ -22,6 +22,7 @@
 
 public class UrlEntry : Dazzle.SuggestionEntry {
     private ListStore list_store { get; set; }
+    private string    last_text { get; set; }
 
     public WebKit.WebView web_view { get; construct set; }
 
@@ -61,6 +62,8 @@ public class UrlEntry : Dazzle.SuggestionEntry {
             } else {
                 set_model (new ListStore (typeof (Dazzle.Suggestion)));
             }
+
+            last_text = text;
         });
 
         activate_suggestion.connect (() => {
@@ -100,14 +103,23 @@ public class UrlEntry : Dazzle.SuggestionEntry {
                 }
             }
 
-            var new_item = get_model ().get_item (current_index + amount);
-            if (new_item == null) {
-                new_item = get_suggestion ();
+            var new_index = current_index + amount;
+            var new_text = "";
+
+            if (new_index == -1) {
+                new_text = last_text;
+            } else {
+                var new_item = get_model ().get_item (new_index);
+                if (new_item == null) {
+                    new_item = get_suggestion ();
+                }
+
+                new_text = (new_item as Dazzle.Suggestion).id;
             }
 
             // Update text to the selected domain name
             SignalHandler.block (this, changed_event);
-            text = (new_item as Dazzle.Suggestion).id;
+            text = new_text;
             SignalHandler.unblock (this, changed_event);
             set_position (-1);
         });
