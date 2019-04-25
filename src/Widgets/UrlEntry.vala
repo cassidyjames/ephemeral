@@ -37,6 +37,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
     construct {
         var tooltip_text = _("Enter a URL or search term");
         placeholder_text = tooltip_text;
+        last_text = "";
 
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
 
@@ -114,7 +115,11 @@ public class UrlEntry : Dazzle.SuggestionEntry {
                     new_item = get_suggestion ();
                 }
 
-                new_text = (new_item as Dazzle.Suggestion).id;
+                if (new_item is Dazzle.Suggestion) {
+                    new_text = (new_item as Dazzle.Suggestion).id;
+                } else {
+                    new_text = "";
+                }
             }
 
             // Update text to the selected domain name
@@ -234,7 +239,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
 
         list_store = new ListStore (typeof (Dazzle.Suggestion));
 
-        set_model (list_store);
+        set_model (new ListStore (typeof (Dazzle.Suggestion)));
 
         foreach (var favorite in favorites) {
             add_suggestion (favorite, null, _("Favorite website"));
