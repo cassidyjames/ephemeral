@@ -42,7 +42,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
 
         primary_icon_name = "system-search-symbolic";
-        primary_icon_tooltip_text = _("Enter a URL or search term");
+        primary_icon_tooltip_text = tooltip_text;
         primary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, primary_icon_tooltip_text);
 
         var initial_favorites = Ephemeral.settings.get_strv ("favorite-websites");
@@ -201,7 +201,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         string formatted_url;
         var is_url = format_url (search, out formatted_url);
         current_suggestion.id = search;
-        current_suggestion.title = (is_url ? "Go to \"%s\"" : "Search for \"%s\"").printf (search);
+        current_suggestion.title = (is_url ? _("Go to \"%s\"") : _("Search for \"%s\"")).printf (search);
         current_suggestion.icon_name = "system-search-symbolic";
         filtered_list_store.append (current_suggestion);
         if (!is_empty) {
