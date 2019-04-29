@@ -31,6 +31,12 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="5.0.3" date="2019-04-08">
+      <description>
+        <p>Updated Catalan translations thanks to Mario Rodrigo.</p>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="5.0.2" date="2019-04-02">
       <description>
         <p>Minor updates</p>
@@ -306,8 +312,8 @@
   <url type="help">https://cassidyjames.com/support</url>
   <!--url type="contact">https://cassidyjames.com/support</url-->
   <custom>
-    <value key="x-appcenter-color-primary">@GRAPE_900</value>
-    <value key="x-appcenter-color-primary-text">@GRAPE_100</value>
+    <value key="x-appcenter-color-primary">#452981</value>
+    <value key="x-appcenter-color-primary-text">#e4c6fa</value>
     <value key="x-appcenter-suggested-price">9</value>
   </custom>
 </component>
