@@ -252,7 +252,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         set_model (new ListStore (typeof (Dazzle.Suggestion)));
 
         foreach (var favorite in favorites) {
-            add_suggestion (favorite, null, _("Favorite website"), "non-starred-symbolic");
+            add_suggestion (favorite, null, _("Favorite website"), "starred-symbolic");
         }
 
         add_suggestion ("247sports.com", "247Sports");
