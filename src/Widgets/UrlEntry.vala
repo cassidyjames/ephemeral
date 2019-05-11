@@ -205,12 +205,20 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         current_suggestion.icon_name = "system-search-symbolic";
         filtered_list_store.append (current_suggestion);
         if (!is_empty) {
+            Dazzle.Suggestion[] secondary_suggestions = { };
             for (int i = 0; i < list_store.get_n_items (); i++) {
                 var suggestion = list_store.get_item (i) as Dazzle.Suggestion;
-                if (suggestion.id.contains (search) ||
-                    suggestion.title.contains (search)) {
+                if (Regex.match_simple ("^%s".printf (search), suggestion.id) ||
+                    Regex.match_simple ("^%s".printf (search), suggestion.title)) {
                     filtered_list_store.append (suggestion);
                 }
+                if (Regex.match_simple (".%s".printf (search), suggestion.id) ||
+                    Regex.match_simple (".%s".printf (search), suggestion.title)) {
+                    secondary_suggestions += suggestion;
+                }
+            }
+            foreach (var suggestion in secondary_suggestions) {
+                filtered_list_store.append (suggestion);
             }
         }
         set_model (filtered_list_store);
