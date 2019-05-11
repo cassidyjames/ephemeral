@@ -201,7 +201,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         string formatted_url;
         var is_url = format_url (search, out formatted_url);
         current_suggestion.id = search;
-        current_suggestion.title = (is_url ? _("Go to \"%s\"") : _("Search for \"%s\"")).printf (search);
+        current_suggestion.title = (is_url ? _("Go to \"%s\"") : _("Search for \"%s\"")).printf (Markup.escape_text (search));
         current_suggestion.icon_name = "system-search-symbolic";
         filtered_list_store.append (current_suggestion);
         if (!is_empty) {
