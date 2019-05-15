@@ -368,6 +368,7 @@ public class MainWindow : Gtk.Window {
         web_view.notify["uri"].connect (update_progress);
         web_view.notify["estimated-load-progress"].connect (update_progress);
         web_view.notify["is-loading"].connect (update_progress);
+        web_view.script_dialog.connect (on_script_dialog);
 
         web_view.decide_policy.connect ((decision, type) => {
             switch (type) {
@@ -677,5 +678,10 @@ public class MainWindow : Gtk.Window {
             custom_search_button.active = true;
         }
     }
-}
 
+    private bool on_script_dialog (WebKit.ScriptDialog dialog) {
+        var message_dialog = new ScriptDialog (dialog);
+        message_dialog.show ();
+        return true;
+    }
+}

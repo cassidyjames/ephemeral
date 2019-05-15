@@ -18,6 +18,7 @@ executable(
     join_paths('src', 'Dialogs', 'CustomSearchDialog.vala'),
     join_paths('src', 'Dialogs', 'ExternalDialog.vala'),
     join_paths('src', 'Dialogs', 'PreferencesDialog.vala'),
+    join_paths('src', 'Dialogs', 'ScriptDialog.vala'),
     join_paths('src', 'Views', 'ErrorView.vala'),
     join_paths('src', 'Views', 'WelcomeView.vala'),
     join_paths('src', 'Widgets', 'BrowserButton.vala'),
