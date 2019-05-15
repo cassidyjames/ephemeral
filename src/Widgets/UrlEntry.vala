@@ -17,11 +17,12 @@
 * Boston, MA 02110-1301 USA
 *
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
+*              Hannes Schulze <haschu0103@gmail.com>
 */
 
-public class UrlEntry : Gtk.Entry {
-    private Gtk.ListStore list_store { get; set; }
-    private Gtk.TreeIter iter { get; set; }
+public class UrlEntry : Dazzle.SuggestionEntry {
+    private ListStore list_store { get; set; }
+    private string    last_text { get; set; }
 
     public WebKit.WebView web_view { get; construct set; }
 
@@ -34,37 +35,77 @@ public class UrlEntry : Gtk.Entry {
     }
 
     construct {
-        tooltip_text = _("Enter a URL or search term");
+        var tooltip_text = _("Enter a URL or search term");
         placeholder_text = tooltip_text;
+        last_text = "";
 
         tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, tooltip_text);
 
         primary_icon_name = "system-search-symbolic";
-        primary_icon_tooltip_text = _("Enter a URL or search term");
+        primary_icon_tooltip_text = tooltip_text;
         primary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, primary_icon_tooltip_text);
 
         var initial_favorites = Ephemeral.settings.get_strv ("favorite-websites");
         reset_suggestions (initial_favorites);
         set_secondary_icon ();
 
-        activate.connect (() => {
-            text = text.strip ();
-            var search_engine = Ephemeral.settings.get_string ("search-engine");
+        changed.connect (() => {
+            // Update placeholder
+            if (text == "") {
+                placeholder_text = tooltip_text;
+            } else {
+                placeholder_text = null;
+            }
+        });
 
-            // TODO: Better URL validation
+        // We need to block this event handler sometimes, so we store its
+        // id in a variable
+        var changed_event = changed.connect (() => {
+            filter_suggestions (text.strip (), !(text.length >= 2));
+
+            last_text = text;
+        });
+
+        activate_suggestion.connect (() => {
+            // Format the currently selected id as a url and load it
             if (text == "" || text == null) {
                 Gdk.beep ();
                 return;
-            } else if (!text.contains ("://")) {
-                if (text.contains (".") && !text.contains (" ")) {
-                    // TODO: Try HTTPS, and fall back to HTTP?
-                    text = "%s://%s".printf ("http", text);
-                } else {
-                    text = search_engine.printf (text);
+            }
+
+            string url;
+            format_url (get_suggestion ().id, out url);
+
+            web_view.load_uri (url);
+            web_view.grab_focus ();
+        });
+
+        suggestion_activated.connect (() => {
+            // Set the text to the current suggestion's one
+            text = get_suggestion ().id;
+        });
+
+        move_suggestion.connect ((amount) => {
+            // Workaround because suggestion_selected isn't available
+            var current_index = 0;
+            for (var i = 0; i < get_model ().get_n_items (); i++) {
+                var item = get_model ().get_item (i) as Dazzle.Suggestion;
+                if (item.id == get_suggestion ().id)  {
+                    current_index = i;
+                    break;
                 }
             }
-            web_view.load_uri (text);
-            web_view.grab_focus ();
+
+            var new_item = get_model ().get_item (current_index + amount);
+            if (new_item == null) {
+                new_item = get_suggestion ();
+            }
+
+            // Update text to the selected domain name
+            SignalHandler.block (this, changed_event);
+            text = (new_item as Dazzle.Suggestion).id;
+            SignalHandler.unblock (this, changed_event);
+            set_position (-1);
         });
 
         focus_in_event.connect ((event) => {
@@ -126,21 +167,75 @@ public class UrlEntry : Gtk.Entry {
         });
 
         web_view.load_changed.connect ((source, e) => {
+            SignalHandler.block (this, changed_event);
             if (!has_focus) {
                 text = source.get_uri ();
                 set_secondary_icon ();
             }
+            SignalHandler.unblock (this, changed_event);
         });
+    }
+
+    private bool format_url (string input, out string formatted_url) {
+        var search_engine = Ephemeral.settings.get_string ("search-engine");
+
+        // TODO: Better URL validation
+        if (!input.contains ("://")) {
+            if (input.contains (".") && !input.contains (" ")) {
+                // TODO: Try HTTPS, and fall back to HTTP?
+                formatted_url = "%s://%s".printf ("http", text);
+                return true;
+            } else {
+                formatted_url = search_engine.printf (text);
+                return false;
+            }
+        } else {
+            formatted_url = input;
+            return true;
+        }
+    }
+
+    private void filter_suggestions (string search, bool is_empty) {
+        var filtered_list_store = new ListStore (typeof (Dazzle.Suggestion));
+        var current_suggestion = new Dazzle.Suggestion ();
+        string formatted_url;
+        var is_url = format_url (search, out formatted_url);
+        current_suggestion.id = search;
+        current_suggestion.title = (is_url ? _("Go to \"%s\"") : _("Search for \"%s\"")).printf (Markup.escape_text (search));
+        current_suggestion.icon_name = "system-search-symbolic";
+        filtered_list_store.append (current_suggestion);
+        if (!is_empty) {
+            Dazzle.Suggestion[] secondary_suggestions = { };
+            for (int i = 0; i < list_store.get_n_items (); i++) {
+                var suggestion = list_store.get_item (i) as Dazzle.Suggestion;
+                if (Regex.match_simple ("^%s".printf (search), suggestion.id) ||
+                    Regex.match_simple ("^%s".printf (search), suggestion.title)) {
+                    filtered_list_store.append (suggestion);
+                }
+                if (Regex.match_simple (".%s".printf (search), suggestion.id) ||
+                    Regex.match_simple (".%s".printf (search), suggestion.title)) {
+                    secondary_suggestions += suggestion;
+                }
+            }
+            foreach (var suggestion in secondary_suggestions) {
+                filtered_list_store.append (suggestion);
+            }
+        }
+        set_model (filtered_list_store);
     }
 
     private void add_suggestion (
       string domain,
       string? name = null,
-      string? reason = _("Popular website")
+      string? reason = _("Popular website"),
+      string? icon = "web-browser-symbolic"
     ) {
         debug ("Adding %s to suggestions…", domain);
-        Gtk.TreeIter iter;
-        list_store.append (out iter);
+
+        var suggestion = new Dazzle.Suggestion ();
+        suggestion.id = domain;
+        suggestion.title = domain;
+        suggestion.icon_name = icon;
 
         string description;
         if (name != null) {
@@ -148,33 +243,24 @@ public class UrlEntry : Gtk.Entry {
         } else {
              description = reason;
         }
+        suggestion.subtitle = description;
 
-        list_store.set (iter, 0, domain, 1, description);
+        list_store.append (suggestion);
     }
 
     private void reset_suggestions (string[] favorites = {}) {
         debug ("Resetting suggestions…");
 
-        if (list_store is Gtk.ListStore) {
-            list_store.clear ();
+        if (list_store is ListStore) {
+            list_store.remove_all ();
         }
 
-        list_store = new Gtk.ListStore (2, typeof (string), typeof (string));
+        list_store = new ListStore (typeof (Dazzle.Suggestion));
 
-        var completion = new Gtk.EntryCompletion ();
-        completion.inline_completion = true;
-        completion.minimum_key_length = 3;
-        completion.model = list_store;
-        completion.text_column = 0;
-
-        set_completion (completion);
-
-        var cell = new Gtk.CellRendererText ();
-        completion.pack_start (cell, false);
-        completion.add_attribute (cell, "text", 1);
+        set_model (new ListStore (typeof (Dazzle.Suggestion)));
 
         foreach (var favorite in favorites) {
-            add_suggestion (favorite, null, _("Favorite website"));
+            add_suggestion (favorite, null, _("Favorite website"), "starred-symbolic");
         }
 
         add_suggestion ("247sports.com", "247Sports");
@@ -201,7 +287,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("appcenter.elementary.io", "elementary AppCenter");
         add_suggestion ("archive.org", "Internet Archive");
         add_suggestion ("arstechnica.com", "Ars Technica");
-        add_suggestion ("att.com", "AT&T");
+        add_suggestion ("att.com", "AT&amp;T");
         add_suggestion ("audible.com", "Audible");
         add_suggestion ("autotrader.com", "Autotrader");
         add_suggestion ("azlyrics.com", "AZLyrics");
@@ -210,20 +296,20 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("bankofamerica.com", "Bank of America");
         add_suggestion ("bankrate.com", "Bankrate");
         add_suggestion ("barclaycardus.com", "Barclays US");
-        add_suggestion ("barnesandnoble.com", "Barnes & Noble");
+        add_suggestion ("barnesandnoble.com", "Barnes &amp; Noble");
         add_suggestion ("bbc.com", "BBC");
         add_suggestion ("bbc.co.uk", "BBC");
-        add_suggestion ("bedbathandbeyond.com", "Bed Bath & Beyond");
+        add_suggestion ("bedbathandbeyond.com", "Bed Bath &amp; Beyond");
         add_suggestion ("bestbuy.com", "Best Buy");
         add_suggestion ("betanews.com", "BetaNews");
-        add_suggestion ("bhphotovideo.com", "B&H Photo");
+        add_suggestion ("bhphotovideo.com", "B&amp;H Photo");
         add_suggestion ("biblegateway.com", "BibleGateway.com");
         add_suggestion ("bing.com", "Bing");
         add_suggestion ("bizjournals.com", "The Business Journals");
         add_suggestion ("blogger.com", "Blogger");
         add_suggestion ("blogspot.com", "Blogspot");
         add_suggestion ("bloomberg.com", "Bloomberg");
-        add_suggestion ("bn.com", "Barnes & Noble");
+        add_suggestion ("bn.com", "Barnes &amp; Noble");
         add_suggestion ("bodybuilding.com", "Bodybuilding.com");
         add_suggestion ("booking.com", "Booking.com");
         add_suggestion ("box.com", "Box");
@@ -340,7 +426,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("harvard.edu", "Harvard University");
         add_suggestion ("healthcare.gov", "HealthCare.gov");
         add_suggestion ("hilton.com", "Hilton");
-        add_suggestion ("hm.com", "H&M");
+        add_suggestion ("hm.com", "H&amp;M");
         add_suggestion ("homedepot.com", "The Home Depot");
         add_suggestion ("hootsuite.com", "Hootsuite");
         add_suggestion ("hotels.com", "Hotels.com");
@@ -436,7 +522,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("nypost.com", "New York Post");
         add_suggestion ("nytimes.com", "New York Times");
         add_suggestion ("office365.com", "Office 365");
-        add_suggestion ("officedepot.com", "Office Depot & OfficeMax");
+        add_suggestion ("officedepot.com", "Office Depot &amp; OfficeMax");
         add_suggestion ("okcupid.com", "OKCupid");
         add_suggestion ("omgubuntu.co.uk", "OMG! Ubuntu!");
         add_suggestion ("opentable.com", "OpenTable");
@@ -564,7 +650,7 @@ public class UrlEntry : Gtk.Entry {
         add_suggestion ("usatoday.com", "USA Today");
         add_suggestion ("usbank.com", "US Bank");
         add_suggestion ("usmagazine.com", "Us Weekly");
-        add_suggestion ("usnews.com", "US News & World Report");
+        add_suggestion ("usnews.com", "US News &amp; World Report");
         add_suggestion ("usps.com", "USPS");
         add_suggestion ("valadoc.org", "Valadoc");
         add_suggestion ("vanguard.com", "Vanguard");

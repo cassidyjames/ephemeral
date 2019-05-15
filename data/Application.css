@@ -172,3 +172,10 @@ checkbutton.menuitem check {
   margin-right: 1px;
 }
 
+dzlsuggestionpopover row {
+  padding: 5px;
+}
+
+dzlsuggestionpopover row image {
+  -gtk-icon-palette: warning #fff;
+}
