@@ -368,6 +368,7 @@ public class MainWindow : Gtk.Window {
         web_view.notify["uri"].connect (update_progress);
         web_view.notify["estimated-load-progress"].connect (update_progress);
         web_view.notify["is-loading"].connect (update_progress);
+        web_view.script_dialog.connect (on_script_dialog);
 
         web_view.decide_policy.connect ((decision, type) => {
             switch (type) {
@@ -676,6 +677,30 @@ public class MainWindow : Gtk.Window {
         } else {
             custom_search_button.active = true;
         }
+    }
+
+    private bool on_script_dialog (WebKit.ScriptDialog dialog) {
+        var message_dialog = new ScriptDialog (dialog);
+
+        switch (dialog.get_dialog_type ()) {
+            case WebKit.ScriptDialogType.ALERT:
+                message_dialog.run ();
+                message_dialog.destroy ();
+                break;
+            case WebKit.ScriptDialogType.CONFIRM:
+            case WebKit.ScriptDialogType.BEFORE_UNLOAD_CONFIRM:
+                dialog.confirm_set_confirmed (message_dialog.run () == Gtk.ResponseType.OK);
+                message_dialog.destroy ();
+                break;
+            case WebKit.ScriptDialogType.PROMPT:
+                message_dialog.run ();
+                message_dialog.destroy ();
+                break;
+            default:
+                break;
+        }
+
+        return true;
     }
 }
 
