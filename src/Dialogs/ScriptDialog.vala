@@ -35,19 +35,22 @@ public class ScriptDialog : Granite.MessageDialog {
     construct {
         switch (dialog_info.get_dialog_type ()) {
             case WebKit.ScriptDialogType.ALERT:
-                var cancel = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
-                cancel.clicked.connect (() => { destroy (); });
+                var cancel_button = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
+                cancel_button.clicked.connect (() => { destroy (); });
                 break;
             case WebKit.ScriptDialogType.CONFIRM:
             case WebKit.ScriptDialogType.BEFORE_UNLOAD_CONFIRM:
-                var ok = add_button (_("OK"), Gtk.ResponseType.OK) as Gtk.Button;
-                ok.clicked.connect (() => {
+                var cancel_button = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
+
+                var ok_button = add_button (_("Confirm"), Gtk.ResponseType.OK) as Gtk.Button;
+                ok_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+                cancel_button.clicked.connect (() => { destroy (); });
+                ok_button.clicked.connect (() => {
                     dialog_info.confirm_set_confirmed (true);
                     destroy ();
                 });
 
-                var cancel = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
-                cancel.clicked.connect (() => { destroy (); });
                 break;
             case WebKit.ScriptDialogType.PROMPT:
                 var prompt_entry = new Gtk.Entry ();
@@ -56,14 +59,17 @@ public class ScriptDialog : Granite.MessageDialog {
 
                 custom_bin.add (prompt_entry);
 
-                var ok = add_button (_("OK"), Gtk.ResponseType.OK) as Gtk.Button;
-                ok.clicked.connect (() => {
+                var cancel_button = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
+
+                var ok_button = add_button (_("Confirm"), Gtk.ResponseType.OK) as Gtk.Button;
+                ok_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
+
+                cancel_button.clicked.connect (() => { destroy (); });
+                ok_button.clicked.connect (() => {
                     dialog_info.prompt_set_text (prompt_entry.text);
                     destroy ();
                 });
 
-                var cancel = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
-                cancel.clicked.connect (() => { destroy (); });
                 break;
             default:
                 break;
