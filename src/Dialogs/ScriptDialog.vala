@@ -24,7 +24,6 @@ public class ScriptDialog : Granite.MessageDialog {
 
     public ScriptDialog (WebKit.ScriptDialog dialog) {
         Object (
-            image_icon: new ThemedIcon ("dialog-information"),
             title: _("Message From Page"),
             primary_text: _("Message From Page"),
             secondary_text: dialog.get_message (),
@@ -35,11 +34,16 @@ public class ScriptDialog : Granite.MessageDialog {
     construct {
         switch (dialog_info.get_dialog_type ()) {
             case WebKit.ScriptDialogType.ALERT:
+                image_icon = new ThemedIcon ("dialog-information");
+
                 var cancel_button = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
                 cancel_button.clicked.connect (() => { destroy (); });
+
                 break;
             case WebKit.ScriptDialogType.CONFIRM:
             case WebKit.ScriptDialogType.BEFORE_UNLOAD_CONFIRM:
+                image_icon = new ThemedIcon ("dialog-question");
+
                 var cancel_button = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
 
                 var ok_button = add_button (_("Confirm"), Gtk.ResponseType.OK) as Gtk.Button;
@@ -53,6 +57,8 @@ public class ScriptDialog : Granite.MessageDialog {
 
                 break;
             case WebKit.ScriptDialogType.PROMPT:
+                image_icon = new ThemedIcon ("dialog-question");
+
                 var prompt_entry = new Gtk.Entry ();
                 prompt_entry.show ();
                 prompt_entry.text = dialog_info.prompt_get_default_text ();
