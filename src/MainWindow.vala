@@ -681,9 +681,7 @@ public class MainWindow : Gtk.Window {
 
     private bool on_script_dialog (WebKit.ScriptDialog dialog) {
         var message_dialog = new ScriptDialog (dialog);
-        message_dialog.run ();
-        message_dialog.destroy ();
+        message_dialog.show ();
         return true;
     }
 }
-
