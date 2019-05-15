@@ -684,22 +684,18 @@ public class MainWindow : Gtk.Window {
 
         switch (dialog.get_dialog_type ()) {
             case WebKit.ScriptDialogType.ALERT:
+            case WebKit.ScriptDialogType.PROMPT:
                 message_dialog.run ();
-                message_dialog.destroy ();
                 break;
             case WebKit.ScriptDialogType.CONFIRM:
             case WebKit.ScriptDialogType.BEFORE_UNLOAD_CONFIRM:
                 dialog.confirm_set_confirmed (message_dialog.run () == Gtk.ResponseType.OK);
-                message_dialog.destroy ();
-                break;
-            case WebKit.ScriptDialogType.PROMPT:
-                message_dialog.run ();
-                message_dialog.destroy ();
                 break;
             default:
                 break;
         }
 
+        message_dialog.destroy ();
         return true;
     }
 }
