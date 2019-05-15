@@ -41,7 +41,10 @@ public class ScriptDialog : Granite.MessageDialog {
             case WebKit.ScriptDialogType.CONFIRM:
             case WebKit.ScriptDialogType.BEFORE_UNLOAD_CONFIRM:
                 var ok = add_button (_("OK"), Gtk.ResponseType.OK) as Gtk.Button;
-                ok.clicked.connect (() => { destroy (); });
+                ok.clicked.connect (() => {
+                    dialog_info.confirm_set_confirmed (true);
+                    destroy ();
+                });
 
                 var cancel = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
                 cancel.clicked.connect (() => { destroy (); });

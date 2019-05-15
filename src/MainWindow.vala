@@ -681,20 +681,7 @@ public class MainWindow : Gtk.Window {
 
     private bool on_script_dialog (WebKit.ScriptDialog dialog) {
         var message_dialog = new ScriptDialog (dialog);
-
-        switch (dialog.get_dialog_type ()) {
-            case WebKit.ScriptDialogType.ALERT:
-            case WebKit.ScriptDialogType.PROMPT:
-                message_dialog.run ();
-                break;
-            case WebKit.ScriptDialogType.CONFIRM:
-            case WebKit.ScriptDialogType.BEFORE_UNLOAD_CONFIRM:
-                dialog.confirm_set_confirmed (message_dialog.run () == Gtk.ResponseType.OK);
-                break;
-            default:
-                break;
-        }
-
+        message_dialog.run ();
         message_dialog.destroy ();
         return true;
     }
