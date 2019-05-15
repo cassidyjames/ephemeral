@@ -31,6 +31,21 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="5.1.0" date="2019-05-15">
+      <description>
+        <p>Some great UI refinements!</p>
+        <ul>
+          <li>URL entry suggestions are much snazzier thanks to Hannes Schulze</li>
+          <li>JavaScript alerts now follow the elementary HIG thanks to David Hewitt</li>
+        </ul>
+        <p>Translation updates</p>
+        <ul>
+          <li>Ciao! Translated to Italian thanks to @meliurwen</li>
+          <li>Updated French translations thanks to @NathanBnm</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="5.0.3" date="2019-04-08">
       <description>
         <p>Updated Catalan translations thanks to Mario Rodrigo.</p>
