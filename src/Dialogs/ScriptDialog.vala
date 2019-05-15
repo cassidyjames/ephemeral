@@ -61,6 +61,7 @@ public class ScriptDialog : Granite.MessageDialog {
 
                 var prompt_entry = new Gtk.Entry ();
                 prompt_entry.show ();
+                prompt_entry.activates_default = true;
                 prompt_entry.text = dialog_info.prompt_get_default_text ();
 
                 custom_bin.add (prompt_entry);
@@ -68,6 +69,7 @@ public class ScriptDialog : Granite.MessageDialog {
                 var cancel_button = add_button (_("Close"), Gtk.ResponseType.CANCEL) as Gtk.Button;
 
                 var ok_button = add_button (_("Confirm"), Gtk.ResponseType.OK) as Gtk.Button;
+                ok_button.grab_default ();
                 ok_button.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);
 
                 cancel_button.clicked.connect (() => { destroy (); });
