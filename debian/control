@@ -3,6 +3,7 @@ Section: x11
 Priority: extra
 Maintainer: Cassidy James Blaede <c@ssidyjam.es>
 Build-Depends: debhelper (>= 9),
+               libdazzle-1.0-dev,
                libgranite-dev,
                libgtk-3-dev,
                libwebkit2gtk-4.0-dev,
