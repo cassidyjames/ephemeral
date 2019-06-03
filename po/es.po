@@ -174,7 +174,7 @@ msgstr "Para la mejor protección, utilice siempre una VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:36
 msgid "Some great UI refinements!"
-msgstr "Algunas mejoras en la IGU geniales!"
+msgstr "¡Algunas mejoras en la IGU geniales!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:38
 #, fuzzy
