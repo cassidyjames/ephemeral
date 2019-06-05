@@ -751,11 +751,11 @@ msgstr "Missatge de la pàgina"
 #: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
 #: src/Dialogs/ScriptDialog.vala:69
 msgid "Close"
-msgstr "Tanqueu"
+msgstr "Tanca"
 
 #: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
 msgid "Confirm"
-msgstr "Confirmeu"
+msgstr "Confirma"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
@@ -890,12 +890,12 @@ msgstr "Escriviu una adreça o cerqueu un terme"
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Go to \"%s\""
-msgstr "Vés a \"%\""
+msgstr "Vés a «%»"
 
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Search for \"%s\""
-msgstr "Cerca \"%s\""
+msgstr "Cerca «%s»"
 
 #: src/Widgets/UrlEntry.vala:230
 msgid "Popular website"
