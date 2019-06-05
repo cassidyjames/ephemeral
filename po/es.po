@@ -193,7 +193,7 @@ msgstr "Actualizaciones a las traducciones"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
 msgid "Ciao! Translated to Italian thanks to @meliurwen"
-msgstr "Ciao! Traducido a Italiano gracias a @meliurwen"
+msgstr "Ciao! Traducido a italiano gracias a @meliurwen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:44
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:86
@@ -440,7 +440,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:181
 msgid "salut! French translations thanks to Nathan (@NathanBnm)"
-msgstr "Salut! Traducción al francés de Nathan (@NathanBnm)"
+msgstr "Salut ! Traducción al francés de Nathan (@NathanBnm)"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:182
 msgid ""
@@ -895,12 +895,12 @@ msgstr "Escriba un URL o un término de búsqueda"
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Go to \"%s\""
-msgstr "Ir a \"%s\""
+msgstr "Ir a «%s»"
 
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Search for \"%s\""
-msgstr "Buscar \"%\""
+msgstr "Buscar «%»"
 
 #: src/Widgets/UrlEntry.vala:230
 msgid "Popular website"
