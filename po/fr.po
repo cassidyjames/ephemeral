@@ -178,16 +178,15 @@ msgstr "Pour une protection optimale, utilisez toujours un VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:36
 msgid "Some great UI refinements!"
-msgstr ""
+msgstr "Quelques améliorations de l'interface !"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:38
-#, fuzzy
 msgid "URL entry suggestions are much snazzier thanks to Hannes Schulze"
-msgstr "Guten Tag! Traductions en allemand grâce à Hannes Shulze"
+msgstr "Les suggestions d'entrée d'URL sont beaucoup plus rapides grâce à Hannes Shulze"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
-msgstr ""
+msgstr "Les alertes JavaScript suivent désormais les directives d'elementary OS en terme d'interface (HIG) grâce à David Hewitt"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
@@ -197,7 +196,7 @@ msgstr "Mises à jour des traductions"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
 msgid "Ciao! Translated to Italian thanks to @meliurwen"
-msgstr ""
+msgstr "Ciao! Traduction en italien grâce à @meliurwen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:44
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:86
@@ -770,16 +769,16 @@ msgstr "Réinitialiser les préférences"
 
 #: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
 msgid "Message From Page"
-msgstr ""
+msgstr "Message de la page"
 
 #: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
 #: src/Dialogs/ScriptDialog.vala:69
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 #: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
@@ -915,12 +914,12 @@ msgstr "Entrez un URL ou cherchez quelque chose"
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Go to \"%s\""
-msgstr ""
+msgstr "Aller vers « %s »"
 
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Search for \"%s\""
-msgstr ""
+msgstr "Rechercher pour « %s »"
 
 #: src/Widgets/UrlEntry.vala:230
 msgid "Popular website"
