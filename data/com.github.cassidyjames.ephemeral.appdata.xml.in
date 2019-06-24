@@ -31,6 +31,16 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="5.1.1" date="2019-06-24">
+      <description>
+        <p>Translation updates</p>
+        <ul>
+          <li>Updated Catalán and Spanish translations thanks to Mario Rodrigo</li>
+          <li>Updated French translations thanks to @NathanBnm</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="5.1.0" date="2019-05-15">
       <description>
         <p>Some great UI refinements!</p>
