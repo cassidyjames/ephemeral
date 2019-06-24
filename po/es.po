@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-15 12:32-0600\n"
 "PO-Revision-Date: 2019-04-02 18:56-0600\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
+"Last-Translator: Mario Rodrigo\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -174,7 +174,7 @@ msgstr "Para la mejor protección, utilice siempre una VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:36
 msgid "Some great UI refinements!"
-msgstr ""
+msgstr "¡Algunas mejoras en la IGU geniales!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:38
 #, fuzzy
@@ -183,7 +183,7 @@ msgstr "Guten Tag! Traducción al alemán de Hannes Schulze"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
-msgstr ""
+msgstr "Las alertas de JavaScript ahora siguen el HIG de elementary gracias a David Hewitt"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
@@ -193,7 +193,7 @@ msgstr "Actualizaciones a las traducciones"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
 msgid "Ciao! Translated to Italian thanks to @meliurwen"
-msgstr ""
+msgstr "Ciao! Traducido a italiano gracias a @meliurwen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:44
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:86
@@ -230,7 +230,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:60
 msgid "Code cleanup"
-msgstr ""
+msgstr "Limpieza de código"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:69
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:85
@@ -440,7 +440,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:181
 msgid "salut! French translations thanks to Nathan (@NathanBnm)"
-msgstr "Salut ! Traducción al francés de Nathan (@NathanBnm)"
+msgstr "Salut ! Traducción al francés de Nathan (@NathanBnm)"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:182
 msgid ""
@@ -750,16 +750,16 @@ msgstr "Restablecer preferencias"
 
 #: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
 msgid "Message From Page"
-msgstr ""
+msgstr "Mensaje de la página"
 
 #: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
 #: src/Dialogs/ScriptDialog.vala:69
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
@@ -895,12 +895,12 @@ msgstr "Escriba un URL o un término de búsqueda"
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Go to \"%s\""
-msgstr ""
+msgstr "Ir a «%s»"
 
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Search for \"%s\""
-msgstr ""
+msgstr "Buscar «%»"
 
 #: src/Widgets/UrlEntry.vala:230
 msgid "Popular website"

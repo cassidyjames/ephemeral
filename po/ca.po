@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-15 12:32-0600\n"
-"PO-Revision-Date: 2019-01-22 23:15-0700\n"
+"PO-Revision-Date: 2019-06-03 23:15+0100\n"
 "Last-Translator: Mario Rodrigo\n"
 "Language-Team: none\n"
 "Language: ca\n"
@@ -170,7 +170,7 @@ msgstr "Per la millor protección, utilitzeu sempre una VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:36
 msgid "Some great UI refinements!"
-msgstr ""
+msgstr "Algunes millores en la IGU genials!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:38
 #, fuzzy
@@ -179,7 +179,7 @@ msgstr "Guten Tag! Traduccions alemanyes gràcies a Hannes Schulze"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
-msgstr ""
+msgstr "Las alertes de JavaScript ara segueixen l'HIG d'elementary gràcies a David Hewitt"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
@@ -189,7 +189,7 @@ msgstr "Traduccions actualitzades"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
 msgid "Ciao! Translated to Italian thanks to @meliurwen"
-msgstr ""
+msgstr "Ciao! Traduccions a italià gràcies a @meliurwen"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:44
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:86
@@ -255,7 +255,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:82
 msgid "Plus the usual iterative improvements:"
-msgstr "A més de les millores iteratives habituals"
+msgstr "A més de les millores iteratives habituals:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:84
 msgid "Various URL entry fixes and tweaks"
@@ -746,16 +746,16 @@ msgstr "Reinicialitza les preferències"
 
 #: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
 msgid "Message From Page"
-msgstr ""
+msgstr "Missatge de la pàgina"
 
 #: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
 #: src/Dialogs/ScriptDialog.vala:69
 msgid "Close"
-msgstr ""
+msgstr "Tanca"
 
 #: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
 msgid "Confirm"
-msgstr ""
+msgstr "Confirma"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
@@ -890,12 +890,12 @@ msgstr "Escriviu una adreça o cerqueu un terme"
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Go to \"%s\""
-msgstr ""
+msgstr "Vés a «%»"
 
 #: src/Widgets/UrlEntry.vala:204
 #, c-format
 msgid "Search for \"%s\""
-msgstr ""
+msgstr "Cerca «%s»"
 
 #: src/Widgets/UrlEntry.vala:230
 msgid "Popular website"
