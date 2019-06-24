@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-15 12:32-0600\n"
+"POT-Creation-Date: 2019-06-24 13:21-0600\n"
 "PO-Revision-Date: 2019-03-19 15:10+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -182,11 +182,15 @@ msgstr "Quelques améliorations de l'interface !"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:38
 msgid "URL entry suggestions are much snazzier thanks to Hannes Schulze"
-msgstr "Les suggestions d'entrée d'URL sont beaucoup plus rapides grâce à Hannes Shulze"
+msgstr ""
+"Les suggestions d'entrée d'URL sont beaucoup plus rapides grâce à Hannes "
+"Shulze"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
-msgstr "Les alertes JavaScript suivent désormais les directives d'elementary OS en terme d'interface (HIG) grâce à David Hewitt"
+msgstr ""
+"Les alertes JavaScript suivent désormais les directives d'elementary OS en "
+"terme d'interface (HIG) grâce à David Hewitt"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67

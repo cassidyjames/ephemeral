@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-15 12:32-0600\n"
+"POT-Creation-Date: 2019-06-24 13:21-0600\n"
 "PO-Revision-Date: 2019-04-02 18:56-0600\n"
 "Last-Translator: Mario Rodrigo\n"
 "Language-Team: none\n"
@@ -183,7 +183,9 @@ msgstr "Guten Tag! Traducción al alemán de Hannes Schulze"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
-msgstr "Las alertas de JavaScript ahora siguen el HIG de elementary gracias a David Hewitt"
+msgstr ""
+"Las alertas de JavaScript ahora siguen el HIG de elementary gracias a David "
+"Hewitt"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
