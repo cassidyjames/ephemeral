@@ -19,6 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
+@define-color base_color mix(@GRAPE_900, @BLUEBERRY_900, 0.125);
 @define-color colorPrimary mix(@GRAPE_700, @BLUEBERRY_700, 0.33);
 @define-color colorAccent @GRAPE_500;
 @define-color textColorPrimary alpha(white, 0.9);
