@@ -19,13 +19,14 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class MainWindow : Gtk.Window {
+public class Ephemeral.MainWindow : Gtk.Window {
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
     private Gtk.Button zoom_default_button;
 
     public Gtk.Stack stack { get; construct set; }
-    public WebKit.WebView web_view { get; construct set; }
+    // public WebKit.WebView web_view { get; construct set; }
+    public WebView web_view { get; construct set; }
     public Gtk.Stack refresh_stop_stack { get; construct set; }
     public Gtk.Button back_button { get; construct set; }
     public Gtk.Button forward_button { get; construct set; }
@@ -39,7 +40,7 @@ public class MainWindow : Gtk.Window {
         Object (
             application: application,
             border_width: 0,
-            icon_name: Ephemeral.instance.application_id,
+            icon_name: Application.instance.application_id,
             resizable: true,
             title: "Ephemeral",
             uri: _uri,
@@ -55,22 +56,7 @@ public class MainWindow : Gtk.Window {
         header.show_close_button = true;
         header.has_subtitle = false;
 
-        var web_context = new WebKit.WebContext.ephemeral ();
-        web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
-        web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
-
-        var web_kit_settings = new WebKit.Settings();
-        web_kit_settings.allow_file_access_from_file_urls = true;
-        web_kit_settings.default_font_family = Gtk.Settings.get_default().gtk_font_name;
-        web_kit_settings.enable_java = false;
-        web_kit_settings.enable_mediasource = true;
-        web_kit_settings.enable_plugins = false;
-        web_kit_settings.enable_smooth_scrolling = true;
-
-        web_view = new WebKit.WebView.with_context (web_context);
-        web_view.expand = true;
-        web_view.height_request = 200;
-        web_view.settings = web_kit_settings;
+        web_view = new WebView ();
 
         back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
@@ -296,13 +282,13 @@ public class MainWindow : Gtk.Window {
 
         startpage_button.clicked.connect (() => {
             if (startpage_button.active) {
-                Ephemeral.settings.set_string ("search-engine", Ephemeral.STARTPAGE);
+                Application.settings.set_string ("search-engine", Application.STARTPAGE);
             }
         });
 
         ddg_button.clicked.connect (() => {
             if (ddg_button.active) {
-                Ephemeral.settings.set_string ("search-engine", Ephemeral.DDG);
+                Application.settings.set_string ("search-engine", Application.DDG);
             }
         });
 
@@ -339,9 +325,9 @@ public class MainWindow : Gtk.Window {
             preferences_dialog.response.connect ((response_id) => {
                 switch (response_id) {
                     case Gtk.ResponseType.OK:
-                        string[] keys = Ephemeral.settings.list_keys ();
+                        string[] keys = Application.settings.list_keys ();
                         foreach (string key in keys) {
-                            Ephemeral.settings.reset (key);
+                            Application.settings.reset (key);
                         }
 
                         set_search_engine_active (
@@ -368,7 +354,6 @@ public class MainWindow : Gtk.Window {
         web_view.notify["uri"].connect (update_progress);
         web_view.notify["estimated-load-progress"].connect (update_progress);
         web_view.notify["is-loading"].connect (update_progress);
-        web_view.script_dialog.connect (on_script_dialog);
 
         web_view.decide_policy.connect ((decision, type) => {
             switch (type) {
@@ -423,8 +408,8 @@ public class MainWindow : Gtk.Window {
             return true;
         });
 
-        Ephemeral.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
-        Ephemeral.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
+        Application.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+        Application.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
             (value, variant) => {
                 value.set_string ("%.0f%%".printf (variant.get_double () * 100));
                 return true;
@@ -551,18 +536,6 @@ public class MainWindow : Gtk.Window {
         );
 
         add_accel_group (accel_group);
-
-        web_view.button_release_event.connect ((event) => {
-            if (event.button == 8) {
-                web_view.go_back ();
-                return true;
-            } else if (event.button == 9) {
-                web_view.go_forward ();
-                return true;
-            }
-
-            return false;
-        });
     }
 
     private void update_progress () {
@@ -669,19 +642,14 @@ public class MainWindow : Gtk.Window {
         Gtk.RadioButton ddg_button,
         Gtk.RadioButton custom_search_button
     ) {
-        var search_engine = Ephemeral.settings.get_string ("search-engine");
-        if (search_engine == Ephemeral.STARTPAGE) {
+        var search_engine = Application.settings.get_string ("search-engine");
+        if (search_engine == Application.STARTPAGE) {
             startpage_button.active = true;
-        } else if (search_engine == Ephemeral.DDG) {
+        } else if (search_engine == Application.DDG) {
             ddg_button.active = true;
         } else {
             custom_search_button.active = true;
         }
     }
-
-    private bool on_script_dialog (WebKit.ScriptDialog dialog) {
-        var message_dialog = new ScriptDialog (dialog);
-        message_dialog.show ();
-        return true;
-    }
 }
+

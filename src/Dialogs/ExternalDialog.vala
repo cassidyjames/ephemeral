@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class ExternalDialog : Granite.MessageDialog {
+public class Ephemeral.ExternalDialog : Granite.MessageDialog {
     public string protocol { get; construct set; }
 
     public ExternalDialog (string? _protocol = null) {

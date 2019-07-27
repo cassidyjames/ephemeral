@@ -20,7 +20,7 @@
 *              Hannes Schulze <haschu0103@gmail.com>
 */
 
-public class UrlEntry : Dazzle.SuggestionEntry {
+public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
     private ListStore list_store { get; set; }
     private string    last_text { get; set; }
 
@@ -45,7 +45,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
         primary_icon_tooltip_text = tooltip_text;
         primary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, primary_icon_tooltip_text);
 
-        var initial_favorites = Ephemeral.settings.get_strv ("favorite-websites");
+        var initial_favorites = Application.settings.get_strv ("favorite-websites");
         reset_suggestions (initial_favorites);
         set_secondary_icon ();
 
@@ -135,7 +135,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
                 if (has_focus) {
                     activate ();
                 } else {
-                    var current_favorites = Ephemeral.settings.get_strv ("favorite-websites");
+                    var current_favorites = Application.settings.get_strv ("favorite-websites");
                     var uri = new Soup.URI (web_view.get_uri ());
 
                     if (uri != null) {
@@ -158,7 +158,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
                             reset_suggestions (current_favorites);
                         }
 
-                        Ephemeral.settings.set_strv ("favorite-websites", current_favorites);
+                        Application.settings.set_strv ("favorite-websites", current_favorites);
                         set_secondary_icon ();
                     }
                 }
@@ -177,7 +177,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
     }
 
     private bool format_url (string input, out string formatted_url) {
-        var search_engine = Ephemeral.settings.get_string ("search-engine");
+        var search_engine = Application.settings.get_string ("search-engine");
 
         // TODO: Better URL validation
         if (!input.contains ("://")) {
@@ -702,7 +702,7 @@ public class UrlEntry : Dazzle.SuggestionEntry {
             secondary_icon_tooltip_text = _("Go");
             secondary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, secondary_icon_tooltip_text);
         } else {
-            var current_favorites = Ephemeral.settings.get_strv ("favorite-websites");
+            var current_favorites = Application.settings.get_strv ("favorite-websites");
             var uri = new Soup.URI (web_view.get_uri ());
 
             if (uri != null) {

@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class NativeInfoBar : Gtk.InfoBar {
+public class Ephemeral.NativeInfoBar : Gtk.InfoBar {
     public NativeInfoBar () {
         Object (
             message_type: Gtk.MessageType.INFO,
@@ -44,7 +44,7 @@ public class NativeInfoBar : Gtk.InfoBar {
 
         // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
         var donate_button = new Gtk.Button.with_label (_("Donate…"));
-        donate_button.tooltip_text = Ephemeral.DONATE_URL;
+        donate_button.tooltip_text = Application.DONATE_URL;
 
         get_content_area ().add (default_label);
         add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);
@@ -53,23 +53,23 @@ public class NativeInfoBar : Gtk.InfoBar {
         int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            ! Ephemeral.instance.native () &&
-            (Ephemeral.settings.get_int64 ("last-native-response") < now - Ephemeral.NOTICE_SECS) &&
-            Ephemeral.instance.warn_native_for_session;
+            ! Application.instance.native () &&
+            (Application.settings.get_int64 ("last-native-response") < now - Application.NOTICE_SECS) &&
+            Application.instance.warn_native_for_session;
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        Gtk.show_uri (get_screen (), Ephemeral.DONATE_URL, Gtk.get_current_event_time ());
+                        Gtk.show_uri (get_screen (), Application.DONATE_URL, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
                 case Gtk.ResponseType.REJECT:
                     now = new DateTime.now_utc ().to_unix ();
-                    Ephemeral.settings.set_int64 ("last-native-response", now);
+                    Application.settings.set_int64 ("last-native-response", now);
                 case Gtk.ResponseType.CLOSE:
-                    Ephemeral.instance.warn_native_for_session = false;
+                    Application.instance.warn_native_for_session = false;
                     revealed = false;
                     break;
                 default:
@@ -78,3 +78,4 @@ public class NativeInfoBar : Gtk.InfoBar {
         });
     }
 }
+

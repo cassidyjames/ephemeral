@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class ErrorView : Gtk.Grid {
+public class Ephemeral.ErrorView : Gtk.Grid {
     public ErrorView () {
         Object ();
     }
