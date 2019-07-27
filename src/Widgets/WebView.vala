@@ -64,15 +64,15 @@ public class Ephemeral.WebView : WebKit.WebView {
         Gdk.Event event,
         WebKit.HitTestResult hit_test_result
     ) {
-        // var context = hit_test_result.get_context ();
+        // if (hit_test_result.context_is_link ()) {
+        //     debug ("Intercepting context menu since it’s a link");
 
-        if (hit_test_result.context_is_link ()) {
-            critical ("Link!");
+        //     context_menu.remove_all ();
+        //     context_menu.append ();
+        // }
 
-            return true;
-        }
-
-        return true;
+        debug ("Leaving context menu as-is");
+        return false;
     }
 
     private bool on_script_dialog (WebKit.ScriptDialog dialog) {

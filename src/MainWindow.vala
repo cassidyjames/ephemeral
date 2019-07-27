@@ -372,18 +372,28 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             return true;
                         }
                     }
+                    decision.use ();
                     break;
                 case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
                     var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
                     string uri = action.get_request ().get_uri ();
 
+                    if (action.is_user_gesture ()) {
+                        // Middle- or ctrl-click
+                        bool has_ctrl = (action.get_modifiers () & Gdk.ModifierType.CONTROL_MASK) != 0;
+                        if (
+                            action.get_mouse_button () == 2 ||
+                            (has_ctrl && action.get_mouse_button () == 1)
+                        ) {
+                            new_window (uri);
+                            decision.ignore ();
+                            return true;
+                        }
+                    }
+
                     if (is_location (uri)) {
                         web_view.load_uri (uri);
-                    } else {
-                        return false;
                     }
-                    decision.ignore ();
-                    return true;
             }
             return false;
         });
