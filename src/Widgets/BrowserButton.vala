@@ -21,11 +21,11 @@
 
 public class Ephemeral.BrowserButton : Gtk.Grid {
     public Gtk.Window main_window { get; construct set; }
-    public WebKit.WebView web_view { get; construct set; }
+    public WebView web_view { get; construct set; }
     public Gtk.MenuButton list_button {get; construct set; }
     public Gtk.Button open_button {get; construct set; }
 
-    public BrowserButton (Gtk.Window _main_window, WebKit.WebView _web_view) {
+    public BrowserButton (Gtk.Window _main_window, WebView _web_view) {
         Object (
             main_window: _main_window,
             web_view: _web_view
@@ -240,4 +240,3 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         }
     }
 }
-
