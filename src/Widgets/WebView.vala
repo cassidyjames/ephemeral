@@ -43,6 +43,7 @@ public class Ephemeral.WebView : WebKit.WebView {
         settings = webkit_settings;
         web_context = webkit_web_context;
 
+        context_menu.connect (on_context_menu);
         script_dialog.connect (on_script_dialog);
 
         button_release_event.connect ((event) => {
@@ -58,9 +59,26 @@ public class Ephemeral.WebView : WebKit.WebView {
         });
     }
 
+    private bool on_context_menu (
+        WebKit.ContextMenu context_menu,
+        Gdk.Event event,
+        WebKit.HitTestResult hit_test_result
+    ) {
+        // var context = hit_test_result.get_context ();
+
+        if (hit_test_result.context_is_link ()) {
+            critical ("Link!");
+
+            return true;
+        }
+
+        return true;
+    }
+
     private bool on_script_dialog (WebKit.ScriptDialog dialog) {
         var message_dialog = new ScriptDialog (dialog);
         message_dialog.show ();
+
         return true;
     }
 }
