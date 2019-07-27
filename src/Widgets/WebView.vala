@@ -68,12 +68,18 @@ public class Ephemeral.WebView : WebKit.WebView {
             debug ("Intercepting context menu since it’s a link");
             context_menu.remove_all ();
 
-            var new_window_action = new Gtk.Action ("new-window", _("Open in New _Window"), null, null);
+            var new_window_action = new SimpleAction ("new-window", null);
+            var new_window_item = new WebKit.ContextMenuItem.from_gaction (
+                new_window_action,
+                _("Open Link in New _Window"),
+                null
+            );
+
+            context_menu.append (new_window_item);
+
             new_window_action.activate.connect (() => {
                 Application.instance.new_window (hit_test_result.link_uri);
             });
-
-            context_menu.append (new WebKit.ContextMenuItem (new_window_action));
         } else {
             debug ("Leaving context menu as-is");
         }
