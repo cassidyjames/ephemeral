@@ -22,19 +22,18 @@
 public class Ephemeral.MainWindow : Gtk.Window {
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
-    private Gtk.Button zoom_default_button;
 
-    public Gtk.Stack stack { get; construct set; }
-    // public WebKit.WebView web_view { get; construct set; }
-    public WebView web_view { get; construct set; }
-    public Gtk.Stack refresh_stop_stack { get; construct set; }
-    public Gtk.Button back_button { get; construct set; }
-    public Gtk.Button forward_button { get; construct set; }
-    public Gtk.Button refresh_button { get; construct set; }
-    public Gtk.Button stop_button { get; construct set; }
-    public UrlEntry url_entry { get; construct set; }
-    public BrowserButton browser_button { get; construct set; }
-    public Gtk.Button erase_button { get; construct set; }
+    private Gtk.Button zoom_default_button;
+    private Gtk.Stack stack;
+    private WebView web_view;
+    private Gtk.Stack refresh_stop_stack;
+    private Gtk.Button back_button;
+    private Gtk.Button forward_button;
+    private Gtk.Button refresh_button;
+    private Gtk.Button stop_button;
+    private UrlEntry url_entry;
+    private BrowserButton browser_button;
+    private Gtk.Button erase_button;
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (

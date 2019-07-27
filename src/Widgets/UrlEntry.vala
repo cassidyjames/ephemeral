@@ -22,11 +22,11 @@
 
 public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
     private ListStore list_store { get; set; }
-    private string    last_text { get; set; }
+    private string last_text { get; set; }
 
-    public WebKit.WebView web_view { get; construct set; }
+    public WebView web_view { get; construct set; }
 
-    public UrlEntry (WebKit.WebView _web_view) {
+    public UrlEntry (WebView _web_view) {
         Object (
             hexpand: true,
             web_view: _web_view,
