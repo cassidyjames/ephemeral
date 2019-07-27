@@ -65,7 +65,7 @@ public class Ephemeral.WebView : WebKit.WebView {
         WebKit.HitTestResult hit_test_result
     ) {
         if (hit_test_result.context_is_link ()) {
-            debug ("Intercepting context menu since it’s a link");
+            debug ("Intercepting and rebuilding context menu since it’s a link");
             context_menu.remove_all ();
 
             var new_window_action = new SimpleAction ("new-window", null);
@@ -76,10 +76,12 @@ public class Ephemeral.WebView : WebKit.WebView {
             );
 
             context_menu.append (new_window_item);
+            context_menu.append (new WebKit.ContextMenuItem.from_stock_action (WebKit.ContextMenuAction.COPY_LINK_TO_CLIPBOARD));
 
             new_window_action.activate.connect (() => {
                 Application.instance.new_window (hit_test_result.link_uri);
             });
+
         } else {
             debug ("Leaving context menu as-is");
         }
