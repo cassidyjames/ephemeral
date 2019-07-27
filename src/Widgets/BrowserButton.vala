@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class BrowserButton : Gtk.Grid {
+public class Ephemeral.BrowserButton : Gtk.Grid {
     public Gtk.Window main_window { get; construct set; }
     public WebKit.WebView web_view { get; construct set; }
     public Gtk.MenuButton list_button {get; construct set; }
@@ -33,7 +33,7 @@ public class BrowserButton : Gtk.Grid {
     }
 
     construct {
-        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Ephemeral.CONTENT_TYPES[0]);
+        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Ephemeral.Application.CONTENT_TYPES[0]);
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
                 external_apps.remove (app_info);
@@ -53,9 +53,9 @@ public class BrowserButton : Gtk.Grid {
             attach (list_button, 1, 0);
             var last_used_browser_shown = false;
 
-            if (Ephemeral.settings.get_string ("last-used-browser") != "") {
+            if (Ephemeral.Application.settings.get_string ("last-used-browser") != "") {
                 foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == Ephemeral.settings.get_string ("last-used-browser")) {
+                    if (app_info.get_id () == Ephemeral.Application.settings.get_string ("last-used-browser")) {
                         var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                         browser_icon.pixel_size = 24;
 
@@ -103,7 +103,7 @@ public class BrowserButton : Gtk.Grid {
             close_check.margin_bottom = 3;
             close_check.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-            Ephemeral.settings.bind ("close-when-opening-externally", close_check, "active", SettingsBindFlags.DEFAULT);
+            Ephemeral.Application.settings.bind ("close-when-opening-externally", close_check, "active", SettingsBindFlags.DEFAULT);
 
             list_popover.add (list_grid);
 
@@ -126,7 +126,7 @@ public class BrowserButton : Gtk.Grid {
                 browser_item.visible = true;
 
                 browser_item.clicked.connect (() => {
-                    Ephemeral.settings.set_string ("last-used-browser", app_info.get_id ());
+                    Ephemeral.Application.settings.set_string ("last-used-browser", app_info.get_id ());
                     try_opening (app_info, web_view.get_uri ());
                     list_popover.popdown ();
                 });
@@ -142,8 +142,8 @@ public class BrowserButton : Gtk.Grid {
             list_grid.show_all ();
 
             // Update open_button when the gsettings value has changed
-            Ephemeral.settings.changed["last-used-browser"].connect (() => {
-                if (Ephemeral.settings.get_string ("last-used-browser") != "") {
+            Ephemeral.Application.settings.changed["last-used-browser"].connect (() => {
+                if (Ephemeral.Application.settings.get_string ("last-used-browser") != "") {
                     if (!last_used_browser_shown) {
                         // Add style classes if no browser has been used before
                         last_used_browser_shown = true;
@@ -167,7 +167,7 @@ public class BrowserButton : Gtk.Grid {
 
                     // Show the last-used browser
                     foreach (AppInfo app_info in external_apps) {
-                        if (app_info.get_id () == Ephemeral.settings.get_string ("last-used-browser")) {
+                        if (app_info.get_id () == Ephemeral.Application.settings.get_string ("last-used-browser")) {
                             var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
                             browser_icon.pixel_size = 24;
 
@@ -211,7 +211,7 @@ public class BrowserButton : Gtk.Grid {
                 add (open_single_browser_button);
 
                 open_single_browser_button.clicked.connect (() => {
-                    Ephemeral.settings.set_string ("last-used-browser", app_info.get_id ());
+                    Ephemeral.Application.settings.set_string ("last-used-browser", app_info.get_id ());
                     try_opening (app_info, web_view.get_uri ());
                 });
             }
@@ -224,7 +224,7 @@ public class BrowserButton : Gtk.Grid {
 
         try {
             app_info.launch_uris (uris, null);
-            if (Ephemeral.settings.get_boolean ("close-when-opening-externally")) {
+            if (Ephemeral.Application.settings.get_boolean ("close-when-opening-externally")) {
                 main_window.close ();
             }
         } catch (GLib.Error e) {

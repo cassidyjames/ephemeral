@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class PreferencesDialog : Granite.MessageDialog {
+public class Ephemeral.PreferencesDialog : Granite.MessageDialog {
     public PreferencesDialog () {
         Object (
             image_icon: new ThemedIcon ("document-open-recent"),

@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class NetworkInfoBar : Gtk.InfoBar {
+public class Ephemeral.NetworkInfoBar : Gtk.InfoBar {
     public NetworkInfoBar () {
         Object (
             message_type: Gtk.MessageType.WARNING,
@@ -56,7 +56,7 @@ public class NetworkInfoBar : Gtk.InfoBar {
                     }
                     break;
                 case Gtk.ResponseType.REJECT:
-                    Ephemeral.settings.set_boolean ("warn-network", false);
+                    Ephemeral.Application.settings.set_boolean ("warn-network", false);
                 case Gtk.ResponseType.CLOSE:
                     revealed = false;
                     break;
@@ -76,7 +76,8 @@ public class NetworkInfoBar : Gtk.InfoBar {
 
         revealed =
             reveal &&
-            Ephemeral.settings.get_boolean ("warn-network") &&
+            Ephemeral.Application.settings.get_boolean ("warn-network") &&
             !network_available;
     }
 }
+

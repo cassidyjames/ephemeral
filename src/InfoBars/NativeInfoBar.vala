@@ -19,8 +19,8 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class PaidInfoBar : Gtk.InfoBar {
-    public PaidInfoBar () {
+public class Ephemeral.NativeInfoBar : Gtk.InfoBar {
+    public NativeInfoBar () {
         Object (
             message_type: Gtk.MessageType.INFO,
             show_close_button: true
@@ -28,14 +28,12 @@ public class PaidInfoBar : Gtk.InfoBar {
     }
 
     construct {
-        // TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
-        string title = _("Ephemeral is a paid app");
-        // TRANSLATORS: This continues the previous string, with terminating punctuation
-        string details = _("funded by AppCenter purchases.");
-        string consider_purchasing = _("Consider purchasing or funding if you find value in using Ephemeral.");
+        string designed_for_elementary = _("Ephemeral is a paid app designed for elementary OS.");
+        string disclaimer = _("Some features may not work properly when running on another OS or desktop environment.");
+        string fund = _("Ephemeral is also typically funded by elementary AppCenter purchases. Consider donating if you find value in using Ephemeral on other platforms.");
 
         var default_label = new Gtk.Label ("<b>%s</b> %s\n<small>%s</small>".printf (
-            title, details, consider_purchasing
+            designed_for_elementary, disclaimer, fund
         ));
         default_label.use_markup = true;
         default_label.wrap = true;
@@ -44,32 +42,34 @@ public class PaidInfoBar : Gtk.InfoBar {
         dismiss_button.halign = Gtk.Align.END;
         dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
+        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+        var donate_button = new Gtk.Button.with_label (_("Donate…"));
+        donate_button.tooltip_text = Ephemeral.Application.DONATE_URL;
+
         get_content_area ().add (default_label);
         add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);
-        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
-        add_button (_("Purchase or Fund…"), Gtk.ResponseType.ACCEPT);
+        add_action_widget (donate_button, Gtk.ResponseType.ACCEPT);
 
         int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            Ephemeral.instance.native () &&
-            ! paid () &&
-            (Ephemeral.settings.get_int64 ("last-paid-response") < now - Ephemeral.NOTICE_SECS) &&
-            Ephemeral.instance.warn_paid_for_session;
+            ! Ephemeral.Application.instance.native () &&
+            (Ephemeral.Application.settings.get_int64 ("last-native-response") < now - Ephemeral.Application.NOTICE_SECS) &&
+            Ephemeral.Application.instance.warn_native_for_session;
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        Gtk.show_uri (get_screen (), "appstream://" + Ephemeral.instance.application_id, Gtk.get_current_event_time ());
+                        Gtk.show_uri (get_screen (), Ephemeral.Application.DONATE_URL, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
                 case Gtk.ResponseType.REJECT:
                     now = new DateTime.now_utc ().to_unix ();
-                    Ephemeral.settings.set_int64 ("last-paid-response", now);
+                    Ephemeral.Application.settings.set_int64 ("last-native-response", now);
                 case Gtk.ResponseType.CLOSE:
-                    Ephemeral.instance.warn_paid_for_session = false;
+                    Ephemeral.Application.instance.warn_native_for_session = false;
                     revealed = false;
                     break;
                 default:
@@ -77,16 +77,5 @@ public class PaidInfoBar : Gtk.InfoBar {
             }
         });
     }
-
-    private bool paid () {
-        var appcenter_settings_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.appcenter.settings", false);
-        if (appcenter_settings_schema != null) {
-            if (appcenter_settings_schema.has_key ("paid-apps")) {
-                var appcenter_settings = new GLib.Settings ("io.elementary.appcenter.settings");
-                return strv_contains (appcenter_settings.get_strv ("paid-apps"), Ephemeral.instance.application_id);
-            }
-        }
-
-        return false;
-    }
 }
+

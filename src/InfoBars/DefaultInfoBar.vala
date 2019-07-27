@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class DefaultInfoBar : Gtk.InfoBar {
+public class Ephemeral.DefaultInfoBar : Gtk.InfoBar {
     public DefaultInfoBar () {
         Object (
             message_type: Gtk.MessageType.QUESTION,
@@ -40,7 +40,7 @@ public class DefaultInfoBar : Gtk.InfoBar {
         default_label.use_markup = true;
         default_label.wrap = true;
 
-        var default_app_info = GLib.AppInfo.get_default_for_type (Ephemeral.CONTENT_TYPES[0], false);
+        var default_app_info = GLib.AppInfo.get_default_for_type (Ephemeral.Application.CONTENT_TYPES[0], false);
         var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
 
         var never_button = new Gtk.Button.with_label (_("Never Ask Again"));
@@ -53,15 +53,15 @@ public class DefaultInfoBar : Gtk.InfoBar {
 
         revealed =
             !default_app_info.equal (app_info) &&
-            Ephemeral.settings.get_boolean ("ask-default") &&
-            Ephemeral.instance.ask_default_for_session;
+            Ephemeral.Application.settings.get_boolean ("ask-default") &&
+            Ephemeral.Application.instance.ask_default_for_session;
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        for (int i = 0; i < Ephemeral.CONTENT_TYPES.length; i++) {
-                            app_info.set_as_default_for_type (Ephemeral.CONTENT_TYPES[i]);
+                        for (int i = 0; i < Ephemeral.Application.CONTENT_TYPES.length; i++) {
+                            app_info.set_as_default_for_type (Ephemeral.Application.CONTENT_TYPES[i]);
                         }
                     } catch (GLib.Error e) {
                         critical (e.message);
@@ -69,9 +69,9 @@ public class DefaultInfoBar : Gtk.InfoBar {
                     revealed = false;
                     break;
                 case Gtk.ResponseType.REJECT:
-                    Ephemeral.settings.set_boolean ("ask-default", false);
+                    Ephemeral.Application.settings.set_boolean ("ask-default", false);
                 case Gtk.ResponseType.CLOSE:
-                    Ephemeral.instance.ask_default_for_session = false;
+                    Ephemeral.Application.instance.ask_default_for_session = false;
                     revealed = false;
                     break;
                 default:
@@ -80,3 +80,4 @@ public class DefaultInfoBar : Gtk.InfoBar {
         });
     }
 }
+

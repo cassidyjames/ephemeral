@@ -25,21 +25,22 @@ public class MainWindow : Gtk.Window {
     private Gtk.Button zoom_default_button;
 
     public Gtk.Stack stack { get; construct set; }
-    public WebKit.WebView web_view { get; construct set; }
+    // public WebKit.WebView web_view { get; construct set; }
+    public Ephemeral.WebView web_view { get; construct set; }
     public Gtk.Stack refresh_stop_stack { get; construct set; }
     public Gtk.Button back_button { get; construct set; }
     public Gtk.Button forward_button { get; construct set; }
     public Gtk.Button refresh_button { get; construct set; }
     public Gtk.Button stop_button { get; construct set; }
-    public UrlEntry url_entry { get; construct set; }
-    public BrowserButton browser_button { get; construct set; }
+    public Ephemeral.UrlEntry url_entry { get; construct set; }
+    public Ephemeral.BrowserButton browser_button { get; construct set; }
     public Gtk.Button erase_button { get; construct set; }
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
             application: application,
             border_width: 0,
-            icon_name: Ephemeral.instance.application_id,
+            icon_name: Ephemeral.Application.instance.application_id,
             resizable: true,
             title: "Ephemeral",
             uri: _uri,
@@ -55,22 +56,7 @@ public class MainWindow : Gtk.Window {
         header.show_close_button = true;
         header.has_subtitle = false;
 
-        var web_context = new WebKit.WebContext.ephemeral ();
-        web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
-        web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
-
-        var web_kit_settings = new WebKit.Settings();
-        web_kit_settings.allow_file_access_from_file_urls = true;
-        web_kit_settings.default_font_family = Gtk.Settings.get_default().gtk_font_name;
-        web_kit_settings.enable_java = false;
-        web_kit_settings.enable_mediasource = true;
-        web_kit_settings.enable_plugins = false;
-        web_kit_settings.enable_smooth_scrolling = true;
-
-        web_view = new WebKit.WebView.with_context (web_context);
-        web_view.expand = true;
-        web_view.height_request = 200;
-        web_view.settings = web_kit_settings;
+        web_view = new Ephemeral.WebView ();
 
         back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
@@ -94,14 +80,14 @@ public class MainWindow : Gtk.Window {
         refresh_stop_stack.add (stop_button);
         refresh_stop_stack.visible_child = refresh_button;
 
-        url_entry = new UrlEntry (web_view);
+        url_entry = new Ephemeral.UrlEntry (web_view);
 
         erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.sensitive = false;
         erase_button.tooltip_text = _("Erase browsing history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
-        browser_button = new BrowserButton (this, web_view);
+        browser_button = new Ephemeral.BrowserButton (this, web_view);
         browser_button.sensitive = false;
 
         var settings_button = new Gtk.MenuButton ();
@@ -229,13 +215,13 @@ public class MainWindow : Gtk.Window {
 
         header.custom_title = url_entry;
 
-        var paid_info_bar = new PaidInfoBar ();
-        var native_info_bar = new NativeInfoBar ();
-        var default_info_bar = new DefaultInfoBar ();
-        var network_info_bar = new NetworkInfoBar ();
+        var paid_info_bar = new Ephemeral.PaidInfoBar ();
+        var native_info_bar = new Ephemeral.NativeInfoBar ();
+        var default_info_bar = new Ephemeral.DefaultInfoBar ();
+        var network_info_bar = new Ephemeral.NetworkInfoBar ();
 
-        var welcome_view = new WelcomeView ();
-        var error_view = new ErrorView ();
+        var welcome_view = new Ephemeral.WelcomeView ();
+        var error_view = new Ephemeral.ErrorView ();
 
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
@@ -296,19 +282,19 @@ public class MainWindow : Gtk.Window {
 
         startpage_button.clicked.connect (() => {
             if (startpage_button.active) {
-                Ephemeral.settings.set_string ("search-engine", Ephemeral.STARTPAGE);
+                Ephemeral.Application.settings.set_string ("search-engine", Ephemeral.Application.STARTPAGE);
             }
         });
 
         ddg_button.clicked.connect (() => {
             if (ddg_button.active) {
-                Ephemeral.settings.set_string ("search-engine", Ephemeral.DDG);
+                Ephemeral.Application.settings.set_string ("search-engine", Ephemeral.Application.DDG);
             }
         });
 
         custom_search_button.clicked.connect (() => {
             if (custom_search_button.active) {
-                var custom_search_dialog = new CustomSearchDialog ();
+                var custom_search_dialog = new Ephemeral.CustomSearchDialog ();
                 custom_search_dialog.transient_for = (Gtk.Window) get_toplevel ();
 
                 custom_search_dialog.response.connect ((response_id) => {
@@ -333,15 +319,15 @@ public class MainWindow : Gtk.Window {
 
         preferences_button.clicked.connect (() => {
             settings_popover.popdown ();
-            var preferences_dialog = new PreferencesDialog ();
+            var preferences_dialog = new Ephemeral.PreferencesDialog ();
             preferences_dialog.transient_for = (Gtk.Window) get_toplevel ();
 
             preferences_dialog.response.connect ((response_id) => {
                 switch (response_id) {
                     case Gtk.ResponseType.OK:
-                        string[] keys = Ephemeral.settings.list_keys ();
+                        string[] keys = Ephemeral.Application.settings.list_keys ();
                         foreach (string key in keys) {
-                            Ephemeral.settings.reset (key);
+                            Ephemeral.Application.settings.reset (key);
                         }
 
                         set_search_engine_active (
@@ -368,7 +354,6 @@ public class MainWindow : Gtk.Window {
         web_view.notify["uri"].connect (update_progress);
         web_view.notify["estimated-load-progress"].connect (update_progress);
         web_view.notify["is-loading"].connect (update_progress);
-        web_view.script_dialog.connect (on_script_dialog);
 
         web_view.decide_policy.connect ((decision, type) => {
             switch (type) {
@@ -423,8 +408,8 @@ public class MainWindow : Gtk.Window {
             return true;
         });
 
-        Ephemeral.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
-        Ephemeral.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
+        Ephemeral.Application.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+        Ephemeral.Application.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
             (value, variant) => {
                 value.set_string ("%.0f%%".printf (variant.get_double () * 100));
                 return true;
@@ -597,7 +582,7 @@ public class MainWindow : Gtk.Window {
 
     private void open_externally (string uri) {
         string protocol = uri.split ("://")[0];
-        var external_dialog = new ExternalDialog (protocol);
+        var external_dialog = new Ephemeral.ExternalDialog (protocol);
         external_dialog.transient_for = (Gtk.Window) get_toplevel ();
 
         external_dialog.response.connect ((response_id) => {
@@ -669,19 +654,14 @@ public class MainWindow : Gtk.Window {
         Gtk.RadioButton ddg_button,
         Gtk.RadioButton custom_search_button
     ) {
-        var search_engine = Ephemeral.settings.get_string ("search-engine");
-        if (search_engine == Ephemeral.STARTPAGE) {
+        var search_engine = Ephemeral.Application.settings.get_string ("search-engine");
+        if (search_engine == Ephemeral.Application.STARTPAGE) {
             startpage_button.active = true;
-        } else if (search_engine == Ephemeral.DDG) {
+        } else if (search_engine == Ephemeral.Application.DDG) {
             ddg_button.active = true;
         } else {
             custom_search_button.active = true;
         }
     }
-
-    private bool on_script_dialog (WebKit.ScriptDialog dialog) {
-        var message_dialog = new ScriptDialog (dialog);
-        message_dialog.show ();
-        return true;
-    }
 }
+

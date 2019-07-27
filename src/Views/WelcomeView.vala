@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class WelcomeView : Gtk.Grid {
+public class Ephemeral.WelcomeView : Gtk.Grid {
     public WelcomeView () {
         Object ();
     }

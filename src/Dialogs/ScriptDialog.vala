@@ -19,7 +19,7 @@
 * Authored by: David Hewitt <davidmhewitt@gmail.com>
 */
 
-public class ScriptDialog : Granite.MessageDialog {
+public class Ephemeral.ScriptDialog : Granite.MessageDialog {
     public WebKit.ScriptDialog dialog_info { get; construct; }
 
     public ScriptDialog (WebKit.ScriptDialog dialog) {
