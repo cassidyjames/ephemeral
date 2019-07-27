@@ -84,3 +84,4 @@ public class Ephemeral.ScriptDialog : Granite.MessageDialog {
         }
     }
 }
+

@@ -56,7 +56,7 @@ public class Ephemeral.NetworkInfoBar : Gtk.InfoBar {
                     }
                     break;
                 case Gtk.ResponseType.REJECT:
-                    Ephemeral.Application.settings.set_boolean ("warn-network", false);
+                    Application.settings.set_boolean ("warn-network", false);
                 case Gtk.ResponseType.CLOSE:
                     revealed = false;
                     break;
@@ -76,7 +76,7 @@ public class Ephemeral.NetworkInfoBar : Gtk.InfoBar {
 
         revealed =
             reveal &&
-            Ephemeral.Application.settings.get_boolean ("warn-network") &&
+            Application.settings.get_boolean ("warn-network") &&
             !network_available;
     }
 }

@@ -40,7 +40,7 @@ public class Ephemeral.CustomSearchDialog : Granite.MessageDialog {
 
         var search_entry = new Gtk.Entry ();
         search_entry.activates_default = true;
-        search_entry.text = Ephemeral.Application.settings.get_string ("search-engine");
+        search_entry.text = Application.settings.get_string ("search-engine");
         search_entry.bind_property ("text", accept, "sensitive", BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
                 string text = (string) srcval;
@@ -61,7 +61,7 @@ public class Ephemeral.CustomSearchDialog : Granite.MessageDialog {
         set_default_response (Gtk.ResponseType.OK);
 
         accept.clicked.connect (() => {
-            Ephemeral.Application.settings.set_string ("search-engine", search_entry.text);
+            Application.settings.set_string ("search-engine", search_entry.text);
         });
     }
 }

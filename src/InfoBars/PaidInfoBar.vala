@@ -52,24 +52,24 @@ public class Ephemeral.PaidInfoBar : Gtk.InfoBar {
         int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            Ephemeral.Application.instance.native () &&
+            Application.instance.native () &&
             ! paid () &&
-            (Ephemeral.Application.settings.get_int64 ("last-paid-response") < now - Ephemeral.Application.NOTICE_SECS) &&
-            Ephemeral.Application.instance.warn_paid_for_session;
+            (Application.settings.get_int64 ("last-paid-response") < now - Application.NOTICE_SECS) &&
+            Application.instance.warn_paid_for_session;
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        Gtk.show_uri (get_screen (), "appstream://" + Ephemeral.Application.instance.application_id, Gtk.get_current_event_time ());
+                        Gtk.show_uri (get_screen (), "appstream://" + Application.instance.application_id, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
                 case Gtk.ResponseType.REJECT:
                     now = new DateTime.now_utc ().to_unix ();
-                    Ephemeral.Application.settings.set_int64 ("last-paid-response", now);
+                    Application.settings.set_int64 ("last-paid-response", now);
                 case Gtk.ResponseType.CLOSE:
-                    Ephemeral.Application.instance.warn_paid_for_session = false;
+                    Application.instance.warn_paid_for_session = false;
                     revealed = false;
                     break;
                 default:
@@ -83,7 +83,7 @@ public class Ephemeral.PaidInfoBar : Gtk.InfoBar {
         if (appcenter_settings_schema != null) {
             if (appcenter_settings_schema.has_key ("paid-apps")) {
                 var appcenter_settings = new GLib.Settings ("io.elementary.appcenter.settings");
-                return strv_contains (appcenter_settings.get_strv ("paid-apps"), Ephemeral.Application.instance.application_id);
+                return strv_contains (appcenter_settings.get_strv ("paid-apps"), Application.instance.application_id);
             }
         }
 

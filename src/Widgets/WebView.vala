@@ -44,10 +44,22 @@ public class Ephemeral.WebView : WebKit.WebView {
         web_context = webkit_web_context;
 
         script_dialog.connect (on_script_dialog);
+
+        button_release_event.connect ((event) => {
+            if (event.button == 8) {
+                go_back ();
+                return true;
+            } else if (event.button == 9) {
+                go_forward ();
+                return true;
+            }
+
+            return false;
+        });
     }
 
     private bool on_script_dialog (WebKit.ScriptDialog dialog) {
-        var message_dialog = new Ephemeral.ScriptDialog (dialog);
+        var message_dialog = new ScriptDialog (dialog);
         message_dialog.show ();
         return true;
     }
