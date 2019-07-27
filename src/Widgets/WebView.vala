@@ -64,14 +64,20 @@ public class Ephemeral.WebView : WebKit.WebView {
         Gdk.Event event,
         WebKit.HitTestResult hit_test_result
     ) {
-        // if (hit_test_result.context_is_link ()) {
-        //     debug ("Intercepting context menu since it’s a link");
+        if (hit_test_result.context_is_link ()) {
+            debug ("Intercepting context menu since it’s a link");
+            context_menu.remove_all ();
 
-        //     context_menu.remove_all ();
-        //     context_menu.append ();
-        // }
+            var new_window_action = new Gtk.Action ("new-window", _("Open in New _Window"), null, null);
+            new_window_action.activate.connect (() => {
+                Application.instance.new_window (hit_test_result.link_uri);
+            });
 
-        debug ("Leaving context menu as-is");
+            context_menu.append (new WebKit.ContextMenuItem (new_window_action));
+        } else {
+            debug ("Leaving context menu as-is");
+        }
+
         return false;
     }
 

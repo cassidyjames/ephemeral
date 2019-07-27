@@ -138,5 +138,10 @@ public class Ephemeral.Application : Gtk.Application {
             stylesheet == "elementary"
         );
     }
+
+    public void new_window (string? uri = null) {
+        var app_window = new MainWindow (this, uri);
+        app_window.show_all ();
+    }
 }
 
