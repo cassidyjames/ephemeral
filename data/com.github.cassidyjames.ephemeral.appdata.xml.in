@@ -337,8 +337,8 @@
   <url type="help">https://cassidyjames.com/support</url>
   <!--url type="contact">https://cassidyjames.com/support</url-->
   <custom>
-    <value key="x-appcenter-color-primary">#452981</value>
-    <value key="x-appcenter-color-primary-text">#e4c6fa</value>
+    <value key="x-appcenter-color-primary">#3b2a7d</value>
+    <value key="x-appcenter-color-primary-text">#fff</value>
     <value key="x-appcenter-suggested-price">9</value>
   </custom>
 </component>
