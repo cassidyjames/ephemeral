@@ -573,7 +573,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void open_externally (string uri) {
-        string protocol = uri.split ("://")[0].split (":")[0];
+        string? protocol = Uri.parse_scheme (uri);
+
         var external_dialog = new ExternalDialog (protocol);
         external_dialog.transient_for = (Gtk.Window) get_toplevel ();
 

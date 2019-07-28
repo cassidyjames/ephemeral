@@ -20,21 +20,21 @@
 */
 
 public class Ephemeral.ExternalDialog : Granite.MessageDialog {
-    public string protocol { get; construct set; }
+    public string? protocol { get; construct set; }
 
     public ExternalDialog (string? _protocol = null) {
         Object (
             image_icon: new ThemedIcon ("dialog-warning"),
-            primary_text: _("Open Externally?"),
+            primary_text: _("Open Link Externally?"),
             protocol: _protocol,
-            title: _("Open Externally?")
+            title: _("Open Link Externally?")
         );
     }
 
     construct {
         string explanation;
         if (protocol != null) {
-            explanation = _("This page is trying to open an app for “%s” links.").printf (protocol);
+            explanation = _("This page is trying to open an app for <b>%s</b> links.").printf (protocol);
         } else {
             explanation = _("This page is trying to open an app.");
         }
@@ -42,6 +42,7 @@ public class Ephemeral.ExternalDialog : Granite.MessageDialog {
         string implication = _("Your data may not be kept private by the opened app.");
 
         secondary_text = "%s %s".printf (explanation, implication);
+        secondary_label.use_markup = true;
 
         var cancel = add_button (_("Don’t Open"), Gtk.ResponseType.CANCEL) as Gtk.Button;
         cancel.clicked.connect (() => { destroy (); });
