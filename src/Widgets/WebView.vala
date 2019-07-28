@@ -43,6 +43,7 @@ public class Ephemeral.WebView : WebKit.WebView {
         settings = webkit_settings;
         web_context = webkit_web_context;
 
+        context_menu.connect (on_context_menu);
         script_dialog.connect (on_script_dialog);
 
         button_release_event.connect ((event) => {
@@ -58,9 +59,40 @@ public class Ephemeral.WebView : WebKit.WebView {
         });
     }
 
+    private bool on_context_menu (
+        WebKit.ContextMenu context_menu,
+        Gdk.Event event,
+        WebKit.HitTestResult hit_test_result
+    ) {
+        if (hit_test_result.context_is_link ()) {
+            debug ("Intercepting and rebuilding context menu since it’s a link");
+            context_menu.remove_all ();
+
+            var new_window_action = new SimpleAction ("new-window", null);
+            var new_window_item = new WebKit.ContextMenuItem.from_gaction (
+                new_window_action,
+                _("Open Link in New _Window"),
+                null
+            );
+
+            context_menu.append (new_window_item);
+            context_menu.append (new WebKit.ContextMenuItem.from_stock_action (WebKit.ContextMenuAction.COPY_LINK_TO_CLIPBOARD));
+
+            new_window_action.activate.connect (() => {
+                Application.instance.new_window (hit_test_result.link_uri);
+            });
+
+        } else {
+            debug ("Leaving context menu as-is");
+        }
+
+        return false;
+    }
+
     private bool on_script_dialog (WebKit.ScriptDialog dialog) {
         var message_dialog = new ScriptDialog (dialog);
         message_dialog.show ();
+
         return true;
     }
 }
