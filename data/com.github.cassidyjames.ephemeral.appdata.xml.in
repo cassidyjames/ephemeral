@@ -32,7 +32,7 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="5.2.0" date="2019-07-28">
+    <release version="5.2.1" date="2019-07-28">
       <description>
         <p>Summer cleaning! Because that’s a thing, right?</p>
         <ul>
