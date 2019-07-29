@@ -487,8 +487,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
             }, () => { return true; }, null, null
         );
 
-        Application.settings.bind ("enable-javascript", js_revealer, "reveal-child", SettingsBindFlags.INVERT_BOOLEAN);
         Application.settings.bind ("enable-javascript", js_switch, "active", SettingsBindFlags.DEFAULT);
+        js_switch.bind_property ("active", js_revealer, "reveal-child", BindingFlags.INVERT_BOOLEAN);
 
         stack.bind_property ("visible-child-name", zoom_grid, "sensitive",
             BindingFlags.SYNC_CREATE,
