@@ -121,11 +121,47 @@ public class Ephemeral.MainWindow : Gtk.Window {
         zoom_grid.column_homogeneous = true;
         zoom_grid.hexpand = true;
         zoom_grid.margin = 12;
+        zoom_grid.margin_bottom = 6;
         zoom_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
         zoom_grid.add (zoom_out_button);
         zoom_grid.add (zoom_default_button);
         zoom_grid.add (zoom_in_button);
+
+        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        separator.margin_top = separator.margin_bottom = 3;
+
+        var js_switch = new Gtk.Switch ();
+        js_switch.halign = Gtk.Align.END;
+        js_switch.valign = Gtk.Align.CENTER;
+
+        var js_label = new Gtk.Label (_("JavaScript"));
+        js_label.halign = Gtk.Align.START;
+        js_label.hexpand = true;
+        js_label.margin_start = 6;
+
+        var js_grid = new Gtk.Grid ();
+        js_grid.add (js_label);
+        js_grid.add (js_switch);
+
+        var js_button = new Gtk.Button ();
+        js_button.add (js_grid);
+
+        var js_context = js_button.get_style_context ();
+        js_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        js_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var js_warning = new Gtk.Label (_("<b>Note:</b> Disabling JavaScript will likely break many sites."));
+        js_warning.margin_start = js_warning.margin_end = 12;
+        js_warning.margin_top = js_warning.margin_bottom = 6;
+        js_warning.max_width_chars = 0;
+        js_warning.use_markup = true;
+        js_warning.wrap = true;
+        js_warning.xalign = 0;
+        js_warning.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+        var js_revealer = new Gtk.Revealer ();
+        js_revealer.add (js_warning);
 
         var new_window_label = new Gtk.Label (_("Open New Window"));
         new_window_label.halign = Gtk.Align.START;
@@ -143,7 +179,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         var new_window_button = new Gtk.Button ();
         new_window_button.add (new_window_grid);
-        new_window_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var new_window_context = new_window_button.get_style_context ();
+        new_window_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        new_window_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var quit_label = new Gtk.Label (_("Quit All Windows"));
         quit_label.halign = Gtk.Align.START;
@@ -161,22 +200,34 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         var quit_button = new Gtk.Button ();
         quit_button.add (quit_grid);
-        quit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        separator.margin_top = separator.margin_bottom = 3;
-
-        var startpage_button = new Gtk.RadioButton.with_label (null, _("Startpage.com Search"));
-        startpage_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-
-        var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
-        ddg_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-
-        var custom_search_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("Custom Search Engine…"));
-        custom_search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+        var quit_context = quit_button.get_style_context ();
+        quit_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        quit_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var another_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
         another_separator.margin_top = another_separator.margin_bottom = 3;
+
+        var startpage_button = new Gtk.RadioButton.with_label (null, _("Startpage.com Search"));
+
+        var startpage_context = startpage_button.get_style_context ();
+        startpage_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        startpage_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
+
+        var ddg_context = ddg_button.get_style_context ();
+        ddg_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        ddg_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var custom_search_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("Custom Search Engine…"));
+
+        var custom_search_context = custom_search_button.get_style_context ();
+        custom_search_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        custom_search_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var yet_another_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        yet_another_separator.margin_top = yet_another_separator.margin_bottom = 3;
 
         var preferences_label = new Gtk.Label (_("Reset Preferences…"));
         preferences_label.halign = Gtk.Align.START;
@@ -185,7 +236,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         var preferences_button = new Gtk.Button ();
         preferences_button.add (preferences_label);
-        preferences_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+
+        var preferences_context = preferences_button.get_style_context ();
+        preferences_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        preferences_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var settings_popover_grid = new Gtk.Grid ();
         settings_popover_grid.margin_bottom = 3;
@@ -193,13 +247,16 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover_grid.width_request = 200;
 
         settings_popover_grid.add (zoom_grid);
+        settings_popover_grid.add (js_button);
+        settings_popover_grid.add (js_revealer);
+        settings_popover_grid.add (separator);
         settings_popover_grid.add (new_window_button);
         settings_popover_grid.add (quit_button);
-        settings_popover_grid.add (separator);
+        settings_popover_grid.add (another_separator);
         settings_popover_grid.add (startpage_button);
         settings_popover_grid.add (ddg_button);
         settings_popover_grid.add (custom_search_button);
-        settings_popover_grid.add (another_separator);
+        settings_popover_grid.add (yet_another_separator);
         settings_popover_grid.add (preferences_button);
         settings_popover_grid.show_all ();
 
@@ -277,6 +334,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         quit_button.clicked.connect (() => {
             application.quit ();
+        });
+
+        js_button.clicked.connect (() => {
+            js_switch.activate ();
         });
 
         startpage_button.clicked.connect (() => {
@@ -418,12 +479,17 @@ public class Ephemeral.MainWindow : Gtk.Window {
         });
 
         Application.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+
         Application.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
             (value, variant) => {
                 value.set_string ("%.0f%%".printf (variant.get_double () * 100));
                 return true;
             }, () => { return true; }, null, null
         );
+
+        Application.settings.bind ("enable-javascript", js_revealer, "reveal-child", SettingsBindFlags.INVERT_BOOLEAN);
+        Application.settings.bind ("enable-javascript", js_switch, "active", SettingsBindFlags.DEFAULT);
+
         stack.bind_property ("visible-child-name", zoom_grid, "sensitive",
             BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {

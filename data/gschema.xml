@@ -11,6 +11,11 @@
       <summary>Close when opening externally</summary>
       <description>Whether or not the current Ephemeral window should be closed when opening a link in an external browser</description>
     </key>
+    <key name="enable-javascript" type="b">
+      <default>true</default>
+      <summary>Enable JavaScript</summary>
+      <description>Whether or not JavaScript executes within pages</description>
+    </key>
     <key type="as" name="favorite-websites">
         <default>[]</default>
         <summary>User-added favorite websites</summary>
