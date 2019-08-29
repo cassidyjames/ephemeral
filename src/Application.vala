@@ -139,9 +139,16 @@ public class Ephemeral.Application : Gtk.Application {
         );
     }
 
-    public void new_window (string? uri = null) {
-        var app_window = new MainWindow (this, uri);
-        app_window.show_all ();
+    public static void new_window (string? uri = null) {
+        var app_info = new DesktopAppInfo (Ephemeral.Application.instance.application_id + ".desktop");
+        var uris = new List<string> ();
+        uris.append (uri);
+
+        try {
+            app_info.launch_uris (uris, null);
+        } catch (GLib.Error e) {
+            critical (e.message);
+        }
     }
 }
 

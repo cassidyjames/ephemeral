@@ -272,7 +272,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         new_window_button.clicked.connect (() => {
             settings_popover.popdown ();
-            Application.instance.new_window ();
+            Application.new_window ();
         });
 
         quit_button.clicked.connect (() => {
@@ -367,7 +367,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             action.get_mouse_button () == 2 ||
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
-                            Application.instance.new_window (uri);
+                            Application.new_window (uri);
                             decision.ignore ();
                             return true;
                         }
@@ -385,7 +385,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             action.get_mouse_button () == 2 ||
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
-                            Application.instance.new_window (uri);
+                            Application.new_window (uri);
                             decision.ignore ();
                             return true;
                         }
@@ -490,7 +490,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                Application.instance.new_window ();
+                Application.new_window ();
                 return true;
             }
         );
@@ -568,7 +568,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void erase () {
-        Application.instance.new_window ();
+        Application.new_window ();
         close ();
     }
 
