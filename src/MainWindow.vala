@@ -268,7 +268,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         forward_button.clicked.connect (web_view.go_forward);
         refresh_button.clicked.connect (web_view.reload);
         stop_button.clicked.connect (web_view.stop_loading);
-        erase_button.clicked.connect (erase);
+        erase_button.clicked.connect (close);
 
         settings_button.clicked.connect (() => {
             set_search_engine_active (
@@ -488,7 +488,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                erase ();
+                close ();
                 return true;
             }
         );
@@ -573,10 +573,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 url_entry.text = web_view.get_uri ();
             }
         }
-    }
-
-    private void erase () {
-        close ();
     }
 
     private void open_externally (string uri) {
