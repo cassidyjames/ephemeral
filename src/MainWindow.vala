@@ -83,7 +83,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.sensitive = false;
-        erase_button.tooltip_text = _("Erase browsing history");
+        erase_button.tooltip_text = _("Close window and erase history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
         browser_button = new BrowserButton (this, web_view);
@@ -145,10 +145,17 @@ public class Ephemeral.MainWindow : Gtk.Window {
         new_window_button.add (new_window_grid);
         new_window_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-        var quit_label = new Gtk.Label (_("Quit All Windows"));
+        var quit_label = new Gtk.Label (_("Quit Ephemeral"));
         quit_label.halign = Gtk.Align.START;
         quit_label.hexpand = true;
         quit_label.margin_start = 6;
+
+        var quit_description = new Gtk.Label (_("Close all windows and erase all history"));
+        quit_description.margin_start = quit_description.margin_end = 6;
+        quit_description.max_width_chars = 0;
+        quit_description.wrap = true;
+        quit_description.xalign = 0;
+        quit_description.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
         var quit_accel_label = new Gtk.Label (Granite.markup_accel_tooltip ({"<Ctrl>q"}));
         quit_accel_label.halign = Gtk.Align.END;
@@ -156,8 +163,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
         quit_accel_label.use_markup = true;
 
         var quit_grid = new Gtk.Grid ();
-        quit_grid.add (quit_label);
-        quit_grid.add (quit_accel_label);
+        quit_grid.attach (quit_label, 0, 0);
+        quit_grid.attach (quit_accel_label, 1, 0);
+        quit_grid.attach (quit_description, 0, 1, 2);
 
         var quit_button = new Gtk.Button ();
         quit_button.add (quit_grid);
@@ -568,7 +576,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void erase () {
-        Application.new_window ();
         close ();
     }
 
