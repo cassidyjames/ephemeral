@@ -488,7 +488,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                erase ();
+                close ();
                 return true;
             }
         );
@@ -573,10 +573,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 url_entry.text = web_view.get_uri ();
             }
         }
-    }
-
-    private void erase () {
-        close ();
     }
 
     private void open_externally (string uri) {
