@@ -131,6 +131,18 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
         separator.margin_top = separator.margin_bottom = 3;
 
+        var js_warning = new Gtk.Label (_("<b>Note:</b> Disabling JavaScript will likely break many sites."));
+        js_warning.margin_start = 6;
+        js_warning.max_width_chars = 0;
+        js_warning.use_markup = true;
+        js_warning.wrap = true;
+        js_warning.xalign = 0;
+        js_warning.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+        var js_revealer = new Gtk.Revealer ();
+        js_revealer.add (js_warning);
+        js_revealer.reveal_child = !Application.settings.get_boolean ("enable-javascript");
+
         var js_switch = new Gtk.Switch ();
         js_switch.halign = Gtk.Align.END;
         js_switch.valign = Gtk.Align.CENTER;
@@ -141,8 +153,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
         js_label.margin_start = 6;
 
         var js_grid = new Gtk.Grid ();
-        js_grid.add (js_label);
-        js_grid.add (js_switch);
+        js_grid.attach (js_label, 0, 0);
+        js_grid.attach (js_switch, 1, 0);
+        js_grid.attach (js_revealer, 0, 1, 2);
 
         var js_button = new Gtk.Button ();
         js_button.add (js_grid);
@@ -150,18 +163,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var js_context = js_button.get_style_context ();
         js_context.add_class (Gtk.STYLE_CLASS_FLAT);
         js_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
-
-        var js_warning = new Gtk.Label (_("<b>Note:</b> Disabling JavaScript will likely break many sites."));
-        js_warning.margin_start = js_warning.margin_end = 12;
-        js_warning.margin_top = js_warning.margin_bottom = 6;
-        js_warning.max_width_chars = 0;
-        js_warning.use_markup = true;
-        js_warning.wrap = true;
-        js_warning.xalign = 0;
-        js_warning.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
-
-        var js_revealer = new Gtk.Revealer ();
-        js_revealer.add (js_warning);
 
         var new_window_label = new Gtk.Label (_("Open New Window"));
         new_window_label.halign = Gtk.Align.START;
@@ -256,7 +257,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
-        settings_popover_grid.add (js_revealer);
         settings_popover_grid.add (separator);
         settings_popover_grid.add (new_window_button);
         settings_popover_grid.add (quit_button);
