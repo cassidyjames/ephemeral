@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-28 13:50-0600\n"
+"POT-Creation-Date: 2019-08-29 11:56+0200\n"
 "PO-Revision-Date: 2019-03-19 15:10+0100\n"
 "Last-Translator: NathanBnm\n"
 "Language-Team: Français\n"
@@ -186,51 +186,27 @@ msgid "For the best protection, always use a VPN."
 msgstr "Pour une protection optimale, utilisez toujours un VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:37
-msgid "Summer cleaning! Because that’s a thing, right?"
+msgid "Hello from Thessaloniki"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:39
 msgid ""
-"Fixed the “Open Link in New Window” menu item to actually do what it says"
+"Fixed window closing: now closing the first window does not close the rest"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:40
 msgid ""
-"Fixed opening target=\"_blank\" links in a new window with Ctrl- or middle-"
-"click"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
-msgid ""
-"Updated the base color in menus and dialog windows from the default "
-"elementary slate-ish black to a new deep, dark blue-ish purple"
+"Simplified “Erase” to always close the window instead of sometimes opening a "
+"new one"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:42
-msgid ""
-"Tweaked the “Open Link Externally” dialog to better isolate protocols like "
-"“mailto” or “tel”"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
-msgid ""
-"Significantly cleaned up and reorganized the codebase to make future "
-"features and fixes easier"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:44
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:94
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:110
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:184
-msgid "Updated Dutch translations thanks to Heimen Stoffels"
-msgstr "Mise à jour des traductions en néerlandais grâce à Heimen Stoffels"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:46
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:56
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:71
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:77
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:66
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:81
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:87
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:97
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:107
 msgid ""
 "Additional translations for new features will appear in future updates as "
 "translators have a chance to do their thing."
@@ -239,75 +215,115 @@ msgstr ""
 "apparaître dansles prochaines mises à jour, c'est le moment pour les "
 "traducteurs de venir."
 
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:47
+msgid "Summer cleaning! Because that’s a thing, right?"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:49
+msgid ""
+"Fixed the “Open Link in New Window” menu item to actually do what it says"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:50
+msgid ""
+"Fixed opening target=\"_blank\" links in a new window with Ctrl- or middle-"
+"click"
+msgstr ""
+
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:51
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:66
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:92
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:118
+msgid ""
+"Updated the base color in menus and dialog windows from the default "
+"elementary slate-ish black to a new deep, dark blue-ish purple"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:52
+msgid ""
+"Tweaked the “Open Link Externally” dialog to better isolate protocols like "
+"“mailto” or “tel”"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:53
+msgid ""
+"Significantly cleaned up and reorganized the codebase to make future "
+"features and fixes easier"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:54
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:104
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:120
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:194
+msgid "Updated Dutch translations thanks to Heimen Stoffels"
+msgstr "Mise à jour des traductions en néerlandais grâce à Heimen Stoffels"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:61
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:76
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:102
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:128
 msgid "Translation updates"
 msgstr "Mises à jour des traductions"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:53
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:63
 #, fuzzy
 msgid "Updated Catalán and Spanish translations thanks to Mario Rodrigo"
 msgstr "Mise à jour des traductions en catalan grâce à Mario Rodrigo."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:54
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:69
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:111
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:64
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:79
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:121
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:131
 msgid "Updated French translations thanks to @NathanBnm"
 msgstr "Mise à jour des traductions en français grâce à @NathanBnm"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:61
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:71
 msgid "Some great UI refinements!"
 msgstr "Quelques améliorations de l'interface !"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:63
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:73
 msgid "URL entry suggestions are much snazzier thanks to Hannes Schulze"
 msgstr ""
 "Les suggestions d'entrée d'URL sont beaucoup plus rapides grâce à Hannes "
 "Shulze"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:64
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:74
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
 msgstr ""
 "Les alertes JavaScript suivent désormais les directives d'elementary OS en "
 "terme d'interface (HIG) grâce à David Hewitt"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:68
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:78
 msgid "Ciao! Translated to Italian thanks to @meliurwen"
 msgstr "Ciao! Traduction en italien grâce à @meliurwen"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:76
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:86
 msgid "Updated Catalan translations thanks to Mario Rodrigo."
 msgstr "Mise à jour des traductions en catalan grâce à Mario Rodrigo."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:82
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:92
 msgid "Minor updates"
 msgstr "Mises à jour mineures"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:84
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:94
 msgid "Updated Spanish translations thanks to Adolfo Jayme-Barrientos"
 msgstr ""
 "Mise à jour des traductions en espagnol grâce à Adolfo Jayme-Barrientos"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:85
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:95
 msgid "Code cleanup"
 msgstr "Nettoyage du code"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:95
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:105
 msgid "Updated Russian translations thanks to Artem Polishchuk"
 msgstr "Mise à jour des traductions en russe grâce à Artem Polishchuk"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:102
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:112
 msgid "No foolin'. Two major new features:"
 msgstr "Pas de repos. Deux nouvelles fontionnalités majeures :"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:104
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:114
 msgid "🔍️ New Custom Search Engine setting in the Menu"
 msgstr "🔍️ Nouveau choix de moteur de recherche personnalisé dans le menu"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:105
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:115
 msgid ""
 "⭐️ Add your own websites to the suggestions using the new button in the URL "
 "entry"
@@ -315,15 +331,15 @@ msgstr ""
 "⭐️ Ajoutez votre propre site aux suggestions en utilisant le bouton dans le "
 "champ desaisie de l'URL"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:107
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:117
 msgid "Plus the usual iterative improvements:"
 msgstr "En plus des améliorations habituelles :"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:109
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:119
 msgid "Various URL entry fixes and tweaks"
 msgstr "Corrections et améliorations diverses du champ de saisie de l'URL"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:113
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:123
 msgid ""
 "Translations for new features will appear in future updates as translators "
 "have a chance to do their thing."
@@ -332,38 +348,38 @@ msgstr ""
 "apparaître dansles prochaines mises à jour, c'est le moment pour les "
 "traducteurs de venir."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:120
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:130
 msgid "Cześć! Translated to Polish thanks to Paweł Jerzy Przybysz"
 msgstr "Cześć! Traduction en polonais grâce à Paweł Jerzy Przybysz"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:122
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:132
 msgid "Updated Lithuanian translations thanks to @welaq"
 msgstr "Mise à jour des traductions en lituanien grâce à @welaq"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:128
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:138
 msgid "Blaze It"
 msgstr "Ça s'enflamme"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:130
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:140
 msgid ""
 "New option to close the window when opening a page in an external browser"
 msgstr ""
 "Nouvelle option pour fermer la fenêtre lors de l'ouverture d'une page dans "
 "un navigateur externe"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:131
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:141
 msgid "The web view is now focused when navigating"
 msgstr "La vue web est maintenant focalisée lors de la navigation"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:137
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:147
 msgid "URL Entry Fixes"
 msgstr "Corrections sur le champ d'URL"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:139
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:149
 msgid "Updated and corrected several autocomplete domains"
 msgstr "Mise à jour et correction de plusieurs domaines d'autocomplétion"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:140
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:150
 msgid ""
 "No longer attempt to force HTTPS on protocol-less domains—fixes several "
 "popular sites"
@@ -371,7 +387,7 @@ msgstr ""
 "Ne force plus le HTTPS sur les domaines sans protocole - résout les "
 "problèmes avec plusieurs sites populaires"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:141
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:151
 msgid ""
 "Strip whitespace from URL entry before navigating—fixes instances where "
 "trying to navigate to a domain would perform a search"
@@ -380,53 +396,53 @@ msgstr ""
 "cas où la recherche d'un nom de domaine doit être effectuée en essayant de "
 "naviguer vers un domaine"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:147
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:157
 msgid "URL Suggestion Fixes"
 msgstr "Correction des suggestions d'URL"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:149
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:159
 msgid "Corrected joinmastodon.org TLD"
 msgstr "Correcton pour le nom de domaine joinmastodon.org"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:150
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:160
 msgid "Added additional useful sites"
 msgstr "Ajout d'autres sites utiles"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:151
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:161
 msgid "Added descriptions for more sites"
 msgstr "Ajout des descriptions pour plus de site"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:152
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:162
 msgid "Removed dead sites"
 msgstr "Supression des sites inactifs"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:153
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:163
 msgid "Updated translations"
 msgstr "Mise à jour des traductions"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:159
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:169
 msgid "All New Search + Suggestions"
 msgstr "Nouveau système de recherche + Suggestions"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:161
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:171
 msgid "The URL entry will offer to complete over 400 popular sites*"
 msgstr ""
 "L'entrée de l'URL proposera de compléter le champ avec plus de 400 sites "
 "populaires*."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:162
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:172
 msgid "New Search Engine choice in the Menu"
 msgstr "Nouveau choix de moteur de recherche dans le menu"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:163
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:173
 msgid "Switched to Startpage.com by default"
 msgstr "Passage à Startpage.com par défaut"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:164
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:174
 msgid "Happy birthday, Katie!"
 msgstr "Joyeux anniversaire, Katie !"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:166
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:176
 msgid ""
 "*This data is all shipped with Ephemeral itself, and Ephemeral still does "
 "not touch the network until you explicitly navigate somewhere. The list of "
@@ -441,23 +457,23 @@ msgstr ""
 "suggestions ne représentent pas un soutien, cela signifie simplement que le "
 "domaine est relativement populaire."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:171
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:181
 msgid "Guten Tag! German translations thanks to Hannes Schulze"
 msgstr "Guten Tag! Traductions en allemand grâce à Hannes Shulze"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:176
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:186
 msgid "Здравствуйте! Russian translations thanks to Artem Polishchuk"
 msgstr "Здравствуйте! Traductions en russe grâce à Artem Polishchuk"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:181
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:191
 msgid "More translations:"
 msgstr "Plus de traductions :"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:183
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:193
 msgid "Lithuanian translations thanks to @welaq"
 msgstr "Traductions en lituanien grâce à @welaq"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:190
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:200
 msgid ""
 "Fixed some missed translations and updated French translations. Thanks "
 "again, @NathanBnm!"
@@ -465,38 +481,38 @@ msgstr ""
 "Correction de certaines traductions manquantes et mise à jour des "
 "traductions en français. Merci encore @NathanBnm !"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:195
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:205
 msgid "Lots o' goodies:"
 msgstr "Beaucoup de nouveautés :"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:197
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:207
 msgid "The last-used browser is remembered for next time"
 msgstr "Le dernier navigateur utilisé est enregistré pour la fois prochaine"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:198
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:208
 msgid "New \"Reset Preferences\" menu item and dialog"
 msgstr "Nouvel élément « Réinitialiser les préférences » dans le menu"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:199
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:209
 msgid "Ctrl+O to open the current page in another browser"
 msgstr ""
 "Utilisez Ctrl + O pour ouvrir la page courante dans un autre navigateur"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:200
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:210
 msgid "Refined (ever-so-subtly less flat) HeaderBar design"
 msgstr ""
 "Apparence de la barre supérieure améliorée (toujours aussi subtilement moins "
 "plat)"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:201
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:211
 msgid "Ephemeral is now translatable!"
 msgstr "Ephemeral peut maintenant être traduit !"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:203
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:213
 msgid "Translations:"
 msgstr "Traductions :"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:205
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:215
 msgid ""
 "¡Hola! Spanish translations thanks to Adolfo Jayme-Barrientos and Mario "
 "Rodrigo"
@@ -504,122 +520,122 @@ msgstr ""
 "¡Hola! Traductions en espagnol grâce à Adolfo Jayme-Barrientos et Mario "
 "Rodrigo"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:206
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:216
 msgid "salut! French translations thanks to Nathan (@NathanBnm)"
 msgstr "Salut ! Traductions en français grâce à Nathan (@NathanBnm)"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:207
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:217
 msgid ""
 "Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
 msgstr "Olá! Traductions en portugais (Brésil) grâce à Lucas Sanchez dos Anjos"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:208
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:218
 msgid "Hallo! Dutch translations thanks to Heimen Stoffels"
 msgstr "Hallo! Traductions en néérlandais grâce à Heimen Stoffels"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:214
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:224
 msgid "Styling fixes for non-native platforms."
 msgstr "Corrections d'apparence pour les plateformes non natives."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:219
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:229
 msgid "Fixed a few small issues with zoom:"
 msgstr "Correction de quelques petit soucis avec le zoom :"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:221
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:231
 msgid "Zoom controls are now only sensitive when the web view is visible"
 msgstr ""
 "Les contrôle de zoom sont maintenant sensibles uniquement quand la vue web "
 "est visible"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:222
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:232
 msgid "Reported zoom level is now correct when opening a new window"
 msgstr ""
 "Le niveau de zoom affiché est maintenant correct lors de l'ouverture d'une "
 "nouvelle fenêtre"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:223
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:233
 msgid "Reported zoom level is now kept in sync across open windows"
 msgstr ""
 "Le niveau de zoom affiché est maintenant synchronisé entre les fenêtres "
 "ouvertes."
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:229
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:239
 msgid "Zoom! And more…"
 msgstr "Zoom! Et plus encore…"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:231
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:241
 msgid "A new menu to keep the UI tidy and balanced"
 msgstr "Nouveau menu pour rendre l'interface ordonnée et équilibrée"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:232
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:242
 msgid "Zoom in, out, and default from the new menu or with the keyboard"
 msgstr ""
 "Zomme avant, arrière et zoom par défaut via le nouveau menu ou avec le "
 "clavier"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:233
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:243
 msgid "New Window action moved into the menu"
 msgstr "Nouvelle action de fenêtre déplacée dans le menu"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:234
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:244
 msgid "Added a Quit All Windows action to the menu"
 msgstr "Ajout d'une action « Quitter toutes les fenêtres » dans le menu"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:235
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:245
 msgid "Smooth scrolling when using the keyboard or a scrollwheel"
 msgstr ""
 "Défilement en continu à l'aide du clavier ou de la molette de défilement"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:236
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:246
 msgid "Fixed Twitch livestreams"
 msgstr "Correction des lives Twitch"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:237
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:247
 msgid "Fixed YouTube resolution support: now up to 4K!"
 msgstr ""
 "Correction du support de la résolution de YouTube : Maintenant jusqu'en 4K !"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:238
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:248
 msgid "Code cleaning to keep things fresh and clean"
 msgstr "Nettoyage du code pour garder les choses propres et claires"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:244
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:254
 msgid "Better error handling and quality of life improvements all around:"
 msgstr "Meilleure gestion des erreurs et améliorations :"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:246
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:256
 msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
 msgstr ""
 "Nouvelle boîte de dialogue de confirmation pour les applications externes, "
 "par exemple appstream:// ou ftp://"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:247
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:257
 msgid "New warning when no network connection"
 msgstr "Nouvel avertissement en cas d'absence de connexion réseau"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:248
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:258
 msgid "Prettier errors using native views"
 msgstr "Les erreurs utilisent maintenant les vues natives"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:249
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:259
 msgid "Stopped throwing away text when unfocusing URL entry"
 msgstr ""
 "Arrêt du rejet du texte lorsque le champ de saisie d'URL n'est pas "
 "sélectionné"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:250
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:260
 msgid "Stopped searching when the URL entry is empty"
 msgstr "Arrêt de la recherche lorsque le champ de saisie d'URL est vide"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:251
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:261
 msgid "Code cleaning to keep things smelling fresh"
 msgstr "Nettoyage du code pour garder les choses claires"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:257
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:267
 msgid "Fresh styles to keep things funky, plus more:"
 msgstr "Des styles frais pour garder les choses funky, et plus encore :"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:259
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:269
 msgid ""
 "The new start page makes Ephemeral faster and makes it not touch the network "
 "until you're ready to browse"
@@ -627,13 +643,13 @@ msgstr ""
 "La nouvelle page d'accueil rend Ephemeral plus rapide et vous permet de ne "
 "pas toucher le réseau jusqu'à ce que vous soyez prêt à naviguer sur le web"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:260
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:270
 msgid "Middle- or Ctrl-click a link to open it in a new window"
 msgstr ""
 "Cliquez au milieu ou Ctrl-cliquez sur un lien pour l'ouvrir dans une "
 "nouvelle fenêtre"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:261
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:271
 msgid ""
 "Displayed URLs are kept in sync for pages that manually update the URL "
 "without a page load"
@@ -641,57 +657,57 @@ msgstr ""
 "Les URL affichées sont synchronisées pour les pages qui mettent à jour "
 "manuellement l'URL sans recharger la page"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:262
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:272
 msgid "Local HTML files can now be opened"
 msgstr "Les fichiers HTML locaux peuvent désormais être ouverts"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:269
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:279
 msgid "More informative \"set as default\" infobar"
 msgstr "Barre d'info « Définir par défaut » plus informative"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:270
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:280
 msgid "Tweaked \"set as default\" infobar styling"
 msgstr "Ajustement de l'apparence de la barre d'info « Définir par défaut »"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:277
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:287
 msgid "Search from URL entry!"
 msgstr "Recherchez depuis la barre d'URL"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:278
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:288
 msgid "Asks (politely!) to be set as the default browser"
 msgstr ""
 "Vous demande (poliment !) d'être défini en tant que navigateur par défaut"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:279
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:289
 msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
 msgstr ""
 "Ouvrez les liens non supportés (comme ceux du Centre d'Applications) dans "
 "l'application du système par défaut"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:286
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:296
 msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
 msgstr ""
 "Ajout de « Nouvelle fenêtre » dans la barre supérieure, le lanceur "
 "d'application et dans les raccourcis claviers"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:287
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:297
 msgid "Collapse external browsers into a menu when there's more than one"
 msgstr ""
 "Réduit les navigateurs externes dans un menu lorsqu'il y en a plus d'un"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:293
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:303
 msgid "Add several useful keyboard and mouse shortcuts"
 msgstr "Ajout de plusieurs raccourcis clavier et souris utiles"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:298
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:308
 msgid "Fix links that try to open in a new window"
 msgstr "Correction des liens qui essaient d'ouvrir une nouvelle fenêtre"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:303
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:313
 msgid "Initial release for AppCenter"
 msgstr "Version initiale pour le Centre d'Applications"
 
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:347
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:357
 msgid "Cassidy James Blaede"
 msgstr "Cassidy James Blaede"
 
@@ -732,8 +748,8 @@ msgid "Stop loading"
 msgstr "Arrêter le chargement"
 
 #: src/MainWindow.vala:86
-msgid "Erase browsing history"
-msgstr "Effacer l'historique de navigation"
+msgid "Close window and erase history"
+msgstr ""
 
 #: src/MainWindow.vala:94
 msgid "Menu"
@@ -756,22 +772,27 @@ msgid "Open New Window"
 msgstr "Ouvrir une nouvelle fenêtre"
 
 #: src/MainWindow.vala:148
-msgid "Quit All Windows"
-msgstr "Fermer toutes les fenêtres"
+#, fuzzy
+msgid "Quit Ephemeral"
+msgstr "Ephemeral"
 
-#: src/MainWindow.vala:169
+#: src/MainWindow.vala:153
+msgid "Close all windows and erase all history"
+msgstr ""
+
+#: src/MainWindow.vala:177
 msgid "Startpage.com Search"
 msgstr "Recherche sur Startpage.com"
 
-#: src/MainWindow.vala:172
+#: src/MainWindow.vala:180
 msgid "DuckDuckGo Search"
 msgstr "Recherche sur DuckDuckGo"
 
-#: src/MainWindow.vala:175
+#: src/MainWindow.vala:183
 msgid "Custom Search Engine…"
 msgstr "Moteur de rechercher personnalisé…"
 
-#: src/MainWindow.vala:181
+#: src/MainWindow.vala:189
 msgid "Reset Preferences…"
 msgstr "Réinitialiser les préférences…"
 
@@ -1002,3 +1023,9 @@ msgstr "Ajouter le site Web aux Suggestions"
 #, fuzzy
 msgid "Open Link in New _Window"
 msgstr "Ouvrir une nouvelle fenêtre"
+
+#~ msgid "Erase browsing history"
+#~ msgstr "Effacer l'historique de navigation"
+
+#~ msgid "Quit All Windows"
+#~ msgstr "Fermer toutes les fenêtres"

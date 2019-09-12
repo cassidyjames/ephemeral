@@ -83,7 +83,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.sensitive = false;
-        erase_button.tooltip_text = _("Erase browsing history");
+        erase_button.tooltip_text = _("Close window and erase history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
         browser_button = new BrowserButton (this, web_view);
@@ -184,10 +184,17 @@ public class Ephemeral.MainWindow : Gtk.Window {
         new_window_context.add_class (Gtk.STYLE_CLASS_FLAT);
         new_window_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-        var quit_label = new Gtk.Label (_("Quit All Windows"));
+        var quit_label = new Gtk.Label (_("Quit Ephemeral"));
         quit_label.halign = Gtk.Align.START;
         quit_label.hexpand = true;
         quit_label.margin_start = 6;
+
+        var quit_description = new Gtk.Label (_("Close all windows and erase all history"));
+        quit_description.margin_start = quit_description.margin_end = 6;
+        quit_description.max_width_chars = 0;
+        quit_description.wrap = true;
+        quit_description.xalign = 0;
+        quit_description.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
         var quit_accel_label = new Gtk.Label (Granite.markup_accel_tooltip ({"<Ctrl>q"}));
         quit_accel_label.halign = Gtk.Align.END;
@@ -195,8 +202,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
         quit_accel_label.use_markup = true;
 
         var quit_grid = new Gtk.Grid ();
-        quit_grid.add (quit_label);
-        quit_grid.add (quit_accel_label);
+        quit_grid.attach (quit_label, 0, 0);
+        quit_grid.attach (quit_accel_label, 1, 0);
+        quit_grid.attach (quit_description, 0, 1, 2);
 
         var quit_button = new Gtk.Button ();
         quit_button.add (quit_grid);
@@ -317,7 +325,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         forward_button.clicked.connect (web_view.go_forward);
         refresh_button.clicked.connect (web_view.reload);
         stop_button.clicked.connect (web_view.stop_loading);
-        erase_button.clicked.connect (erase);
+        erase_button.clicked.connect (close);
 
         settings_button.clicked.connect (() => {
             set_search_engine_active (
@@ -329,7 +337,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         new_window_button.clicked.connect (() => {
             settings_popover.popdown ();
-            Application.instance.new_window ();
+            Application.new_window ();
         });
 
         quit_button.clicked.connect (() => {
@@ -428,7 +436,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             action.get_mouse_button () == 2 ||
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
-                            Application.instance.new_window (uri);
+                            Application.new_window (uri);
                             decision.ignore ();
                             return true;
                         }
@@ -446,7 +454,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             action.get_mouse_button () == 2 ||
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
-                            Application.instance.new_window (uri);
+                            Application.new_window (uri);
                             decision.ignore ();
                             return true;
                         }
@@ -546,7 +554,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                erase ();
+                close ();
                 return true;
             }
         );
@@ -556,7 +564,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                Application.instance.new_window ();
+                Application.new_window ();
                 return true;
             }
         );
@@ -631,11 +639,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 url_entry.text = web_view.get_uri ();
             }
         }
-    }
-
-    private void erase () {
-        Application.instance.new_window ();
-        close ();
     }
 
     private void open_externally (string uri) {
