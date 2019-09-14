@@ -128,9 +128,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
         zoom_grid.add (zoom_default_button);
         zoom_grid.add (zoom_in_button);
 
-        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        separator.margin_top = separator.margin_bottom = 3;
-
         var js_warning = new Gtk.Label (_("<b>Note:</b> Disabling JavaScript will likely break many sites."));
         js_warning.margin_start = 6;
         js_warning.max_width_chars = 0;
@@ -214,9 +211,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
         quit_context.add_class (Gtk.STYLE_CLASS_FLAT);
         quit_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-        var another_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        another_separator.margin_top = another_separator.margin_bottom = 3;
-
         var startpage_button = new Gtk.RadioButton.with_label (null, _("Startpage.com Search"));
 
         var startpage_context = startpage_button.get_style_context ();
@@ -234,9 +228,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var custom_search_context = custom_search_button.get_style_context ();
         custom_search_context.add_class (Gtk.STYLE_CLASS_FLAT);
         custom_search_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
-
-        var yet_another_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        yet_another_separator.margin_top = yet_another_separator.margin_bottom = 3;
 
         var preferences_label = new Gtk.Label (_("Reset Preferences…"));
         preferences_label.halign = Gtk.Align.START;
@@ -257,14 +248,14 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
-        settings_popover_grid.add (separator);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (new_window_button);
         settings_popover_grid.add (quit_button);
-        settings_popover_grid.add (another_separator);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (startpage_button);
         settings_popover_grid.add (ddg_button);
         settings_popover_grid.add (custom_search_button);
-        settings_popover_grid.add (yet_another_separator);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (preferences_button);
         settings_popover_grid.show_all ();
 
@@ -723,6 +714,16 @@ public class Ephemeral.MainWindow : Gtk.Window {
             ddg_button.active = true;
         } else {
             custom_search_button.active = true;
+        }
+    }
+
+    private class separator : Gtk.Separator {
+        public separator () {
+            Object (
+                margin_bottom: 3,
+                margin_top: 3,
+                orientation: Gtk.Orientation.HORIZONTAL
+            );
         }
     }
 }
