@@ -121,11 +121,42 @@ public class Ephemeral.MainWindow : Gtk.Window {
         zoom_grid.column_homogeneous = true;
         zoom_grid.hexpand = true;
         zoom_grid.margin = 12;
+        zoom_grid.margin_bottom = 6;
         zoom_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
         zoom_grid.add (zoom_out_button);
         zoom_grid.add (zoom_default_button);
         zoom_grid.add (zoom_in_button);
+
+        var js_warning = new Gtk.Label (_("<b>Note:</b> Disabling JavaScript will likely break many sites."));
+        js_warning.margin_start = 6;
+        js_warning.max_width_chars = 0;
+        js_warning.use_markup = true;
+        js_warning.wrap = true;
+        js_warning.xalign = 0;
+        js_warning.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+        var js_revealer = new Gtk.Revealer ();
+        js_revealer.add (js_warning);
+        js_revealer.reveal_child = !Application.settings.get_boolean ("enable-javascript");
+
+        var js_switch = new Gtk.Switch ();
+        js_switch.halign = Gtk.Align.END;
+        js_switch.valign = Gtk.Align.CENTER;
+
+        var js_label = new Gtk.Label (_("JavaScript"));
+        js_label.halign = Gtk.Align.START;
+        js_label.hexpand = true;
+        js_label.margin_start = 6;
+
+        var js_grid = new Gtk.Grid ();
+        js_grid.attach (js_label, 0, 0);
+        js_grid.attach (js_switch, 1, 0);
+        js_grid.attach (js_revealer, 0, 1, 2);
+
+        var js_button = new Gtk.Button ();
+        set_menu_style_classes (js_button);
+        js_button.add (js_grid);
 
         var new_window_label = new Gtk.Label (_("Open New Window"));
         new_window_label.halign = Gtk.Align.START;
@@ -142,8 +173,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         new_window_grid.add (new_window_accel_label);
 
         var new_window_button = new Gtk.Button ();
+        set_menu_style_classes (new_window_button);
         new_window_button.add (new_window_grid);
-        new_window_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var quit_label = new Gtk.Label (_("Quit Ephemeral"));
         quit_label.halign = Gtk.Align.START;
@@ -168,23 +199,17 @@ public class Ephemeral.MainWindow : Gtk.Window {
         quit_grid.attach (quit_description, 0, 1, 2);
 
         var quit_button = new Gtk.Button ();
+        set_menu_style_classes (quit_button);
         quit_button.add (quit_grid);
-        quit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-
-        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        separator.margin_top = separator.margin_bottom = 3;
 
         var startpage_button = new Gtk.RadioButton.with_label (null, _("Startpage.com Search"));
-        startpage_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+        set_menu_style_classes (startpage_button);
 
         var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
-        ddg_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+        set_menu_style_classes (ddg_button);
 
         var custom_search_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("Custom Search Engine…"));
-        custom_search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-
-        var another_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        another_separator.margin_top = another_separator.margin_bottom = 3;
+        set_menu_style_classes (custom_search_button);
 
         var preferences_label = new Gtk.Label (_("Reset Preferences…"));
         preferences_label.halign = Gtk.Align.START;
@@ -192,8 +217,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         preferences_label.margin_start = preferences_label.margin_end = 6;
 
         var preferences_button = new Gtk.Button ();
+        set_menu_style_classes (preferences_button);
         preferences_button.add (preferences_label);
-        preferences_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var settings_popover_grid = new Gtk.Grid ();
         settings_popover_grid.margin_bottom = 3;
@@ -201,13 +226,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover_grid.width_request = 200;
 
         settings_popover_grid.add (zoom_grid);
+        settings_popover_grid.add (js_button);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (new_window_button);
         settings_popover_grid.add (quit_button);
-        settings_popover_grid.add (separator);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (startpage_button);
         settings_popover_grid.add (ddg_button);
         settings_popover_grid.add (custom_search_button);
-        settings_popover_grid.add (another_separator);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (preferences_button);
         settings_popover_grid.show_all ();
 
@@ -285,6 +312,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         quit_button.clicked.connect (() => {
             application.quit ();
+        });
+
+        js_button.clicked.connect (() => {
+            js_switch.activate ();
         });
 
         startpage_button.clicked.connect (() => {
@@ -426,12 +457,17 @@ public class Ephemeral.MainWindow : Gtk.Window {
         });
 
         Application.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+
         Application.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
             (value, variant) => {
                 value.set_string ("%.0f%%".printf (variant.get_double () * 100));
                 return true;
             }, () => { return true; }, null, null
         );
+
+        Application.settings.bind ("enable-javascript", js_switch, "active", SettingsBindFlags.DEFAULT);
+        js_switch.bind_property ("active", js_revealer, "reveal-child", BindingFlags.INVERT_BOOLEAN);
+
         stack.bind_property ("visible-child-name", zoom_grid, "sensitive",
             BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
@@ -657,6 +693,22 @@ public class Ephemeral.MainWindow : Gtk.Window {
             ddg_button.active = true;
         } else {
             custom_search_button.active = true;
+        }
+    }
+
+    private void set_menu_style_classes (Gtk.Widget widget) {
+        var context = widget.get_style_context ();
+        context.add_class (Gtk.STYLE_CLASS_FLAT);
+        context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+    }
+
+    private class separator : Gtk.Separator {
+        public separator () {
+            Object (
+                margin_bottom: 3,
+                margin_top: 3,
+                orientation: Gtk.Orientation.HORIZONTAL
+            );
         }
     }
 }

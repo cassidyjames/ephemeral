@@ -57,6 +57,9 @@ public class Ephemeral.WebView : WebKit.WebView {
 
             return false;
         });
+
+        Application.settings.bind ("enable-javascript", webkit_settings, "enable-javascript", SettingsBindFlags.DEFAULT);
+        webkit_settings.notify["enable-javascript"].connect (reload);
     }
 
     private bool on_context_menu (
