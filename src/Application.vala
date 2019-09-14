@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class Ephemeral : Gtk.Application {
+public class Ephemeral.Application : Gtk.Application {
     public const string[] CONTENT_TYPES = {
         "x-scheme-handler/http",
         "x-scheme-handler/https",
@@ -44,25 +44,25 @@ public class Ephemeral : Gtk.Application {
 
     private bool opening_link = false;
 
-    public Ephemeral () {
+    public Application () {
         Object (
             application_id: "com.github.cassidyjames.ephemeral",
             flags: ApplicationFlags.HANDLES_OPEN
         );
     }
 
-    public static Ephemeral _instance = null;
-    public static Ephemeral instance {
+    public static Application _instance = null;
+    public static Application instance {
         get {
             if (_instance == null) {
-                _instance = new Ephemeral ();
+                _instance = new Application ();
             }
             return _instance;
         }
     }
 
     static construct {
-        settings = new Settings (Ephemeral.instance.application_id);
+        settings = new Settings (Application.instance.application_id);
     }
 
     protected override void activate () {
@@ -105,7 +105,7 @@ public class Ephemeral : Gtk.Application {
     }
 
     public static int main (string[] args) {
-        var app = new Ephemeral ();
+        var app = new Application ();
         return app.run (args);
     }
 
@@ -137,6 +137,18 @@ public class Ephemeral : Gtk.Application {
             session == "pantheon" &&
             stylesheet == "elementary"
         );
+    }
+
+    public static void new_window (string? uri = null) {
+        var app_info = new DesktopAppInfo (Ephemeral.Application.instance.application_id + ".desktop");
+        var uris = new List<string> ();
+        uris.append (uri);
+
+        try {
+            app_info.launch_uris (uris, null);
+        } catch (GLib.Error e) {
+            critical (e.message);
+        }
     }
 }
 

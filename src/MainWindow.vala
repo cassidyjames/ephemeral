@@ -19,27 +19,27 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class MainWindow : Gtk.Window {
+public class Ephemeral.MainWindow : Gtk.Window {
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
-    private Gtk.Button zoom_default_button;
 
-    public Gtk.Stack stack { get; construct set; }
-    public WebKit.WebView web_view { get; construct set; }
-    public Gtk.Stack refresh_stop_stack { get; construct set; }
-    public Gtk.Button back_button { get; construct set; }
-    public Gtk.Button forward_button { get; construct set; }
-    public Gtk.Button refresh_button { get; construct set; }
-    public Gtk.Button stop_button { get; construct set; }
-    public UrlEntry url_entry { get; construct set; }
-    public BrowserButton browser_button { get; construct set; }
-    public Gtk.Button erase_button { get; construct set; }
+    private Gtk.Button zoom_default_button;
+    private Gtk.Stack stack;
+    private WebView web_view;
+    private Gtk.Stack refresh_stop_stack;
+    private Gtk.Button back_button;
+    private Gtk.Button forward_button;
+    private Gtk.Button refresh_button;
+    private Gtk.Button stop_button;
+    private UrlEntry url_entry;
+    private BrowserButton browser_button;
+    private Gtk.Button erase_button;
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
             application: application,
             border_width: 0,
-            icon_name: Ephemeral.instance.application_id,
+            icon_name: Application.instance.application_id,
             resizable: true,
             title: "Ephemeral",
             uri: _uri,
@@ -55,22 +55,7 @@ public class MainWindow : Gtk.Window {
         header.show_close_button = true;
         header.has_subtitle = false;
 
-        var web_context = new WebKit.WebContext.ephemeral ();
-        web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
-        web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
-
-        var web_kit_settings = new WebKit.Settings();
-        web_kit_settings.allow_file_access_from_file_urls = true;
-        web_kit_settings.default_font_family = Gtk.Settings.get_default().gtk_font_name;
-        web_kit_settings.enable_java = false;
-        web_kit_settings.enable_mediasource = true;
-        web_kit_settings.enable_plugins = false;
-        web_kit_settings.enable_smooth_scrolling = true;
-
-        web_view = new WebKit.WebView.with_context (web_context);
-        web_view.expand = true;
-        web_view.height_request = 200;
-        web_view.settings = web_kit_settings;
+        web_view = new WebView ();
 
         back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
@@ -98,7 +83,7 @@ public class MainWindow : Gtk.Window {
 
         erase_button = new Gtk.Button.from_icon_name ("edit-delete", Gtk.IconSize.LARGE_TOOLBAR);
         erase_button.sensitive = false;
-        erase_button.tooltip_text = _("Erase browsing history");
+        erase_button.tooltip_text = _("Close window and erase history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
         browser_button = new BrowserButton (this, web_view);
@@ -136,11 +121,42 @@ public class MainWindow : Gtk.Window {
         zoom_grid.column_homogeneous = true;
         zoom_grid.hexpand = true;
         zoom_grid.margin = 12;
+        zoom_grid.margin_bottom = 6;
         zoom_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
         zoom_grid.add (zoom_out_button);
         zoom_grid.add (zoom_default_button);
         zoom_grid.add (zoom_in_button);
+
+        var js_warning = new Gtk.Label (_("<b>Note:</b> Disabling JavaScript will likely break many sites."));
+        js_warning.margin_start = 6;
+        js_warning.max_width_chars = 0;
+        js_warning.use_markup = true;
+        js_warning.wrap = true;
+        js_warning.xalign = 0;
+        js_warning.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
+
+        var js_revealer = new Gtk.Revealer ();
+        js_revealer.add (js_warning);
+        js_revealer.reveal_child = !Application.settings.get_boolean ("enable-javascript");
+
+        var js_switch = new Gtk.Switch ();
+        js_switch.halign = Gtk.Align.END;
+        js_switch.valign = Gtk.Align.CENTER;
+
+        var js_label = new Gtk.Label (_("JavaScript"));
+        js_label.halign = Gtk.Align.START;
+        js_label.hexpand = true;
+        js_label.margin_start = 6;
+
+        var js_grid = new Gtk.Grid ();
+        js_grid.attach (js_label, 0, 0);
+        js_grid.attach (js_switch, 1, 0);
+        js_grid.attach (js_revealer, 0, 1, 2);
+
+        var js_button = new Gtk.Button ();
+        set_menu_style_classes (js_button);
+        js_button.add (js_grid);
 
         var new_window_label = new Gtk.Label (_("Open New Window"));
         new_window_label.halign = Gtk.Align.START;
@@ -157,13 +173,20 @@ public class MainWindow : Gtk.Window {
         new_window_grid.add (new_window_accel_label);
 
         var new_window_button = new Gtk.Button ();
+        set_menu_style_classes (new_window_button);
         new_window_button.add (new_window_grid);
-        new_window_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-        var quit_label = new Gtk.Label (_("Quit All Windows"));
+        var quit_label = new Gtk.Label (_("Quit Ephemeral"));
         quit_label.halign = Gtk.Align.START;
         quit_label.hexpand = true;
         quit_label.margin_start = 6;
+
+        var quit_description = new Gtk.Label (_("Close all windows and erase all history"));
+        quit_description.margin_start = quit_description.margin_end = 6;
+        quit_description.max_width_chars = 0;
+        quit_description.wrap = true;
+        quit_description.xalign = 0;
+        quit_description.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
         var quit_accel_label = new Gtk.Label (Granite.markup_accel_tooltip ({"<Ctrl>q"}));
         quit_accel_label.halign = Gtk.Align.END;
@@ -171,27 +194,22 @@ public class MainWindow : Gtk.Window {
         quit_accel_label.use_markup = true;
 
         var quit_grid = new Gtk.Grid ();
-        quit_grid.add (quit_label);
-        quit_grid.add (quit_accel_label);
+        quit_grid.attach (quit_label, 0, 0);
+        quit_grid.attach (quit_accel_label, 1, 0);
+        quit_grid.attach (quit_description, 0, 1, 2);
 
         var quit_button = new Gtk.Button ();
+        set_menu_style_classes (quit_button);
         quit_button.add (quit_grid);
-        quit_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-
-        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        separator.margin_top = separator.margin_bottom = 3;
 
         var startpage_button = new Gtk.RadioButton.with_label (null, _("Startpage.com Search"));
-        startpage_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+        set_menu_style_classes (startpage_button);
 
         var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
-        ddg_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
+        set_menu_style_classes (ddg_button);
 
         var custom_search_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("Custom Search Engine…"));
-        custom_search_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
-
-        var another_separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-        another_separator.margin_top = another_separator.margin_bottom = 3;
+        set_menu_style_classes (custom_search_button);
 
         var preferences_label = new Gtk.Label (_("Reset Preferences…"));
         preferences_label.halign = Gtk.Align.START;
@@ -199,8 +217,8 @@ public class MainWindow : Gtk.Window {
         preferences_label.margin_start = preferences_label.margin_end = 6;
 
         var preferences_button = new Gtk.Button ();
+        set_menu_style_classes (preferences_button);
         preferences_button.add (preferences_label);
-        preferences_button.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var settings_popover_grid = new Gtk.Grid ();
         settings_popover_grid.margin_bottom = 3;
@@ -208,13 +226,15 @@ public class MainWindow : Gtk.Window {
         settings_popover_grid.width_request = 200;
 
         settings_popover_grid.add (zoom_grid);
+        settings_popover_grid.add (js_button);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (new_window_button);
         settings_popover_grid.add (quit_button);
-        settings_popover_grid.add (separator);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (startpage_button);
         settings_popover_grid.add (ddg_button);
         settings_popover_grid.add (custom_search_button);
-        settings_popover_grid.add (another_separator);
+        settings_popover_grid.add (new separator ());
         settings_popover_grid.add (preferences_button);
         settings_popover_grid.show_all ();
 
@@ -275,7 +295,7 @@ public class MainWindow : Gtk.Window {
         forward_button.clicked.connect (web_view.go_forward);
         refresh_button.clicked.connect (web_view.reload);
         stop_button.clicked.connect (web_view.stop_loading);
-        erase_button.clicked.connect (erase);
+        erase_button.clicked.connect (close);
 
         settings_button.clicked.connect (() => {
             set_search_engine_active (
@@ -287,22 +307,26 @@ public class MainWindow : Gtk.Window {
 
         new_window_button.clicked.connect (() => {
             settings_popover.popdown ();
-            new_window ();
+            Application.new_window ();
         });
 
         quit_button.clicked.connect (() => {
             application.quit ();
         });
 
+        js_button.clicked.connect (() => {
+            js_switch.activate ();
+        });
+
         startpage_button.clicked.connect (() => {
             if (startpage_button.active) {
-                Ephemeral.settings.set_string ("search-engine", Ephemeral.STARTPAGE);
+                Application.settings.set_string ("search-engine", Application.STARTPAGE);
             }
         });
 
         ddg_button.clicked.connect (() => {
             if (ddg_button.active) {
-                Ephemeral.settings.set_string ("search-engine", Ephemeral.DDG);
+                Application.settings.set_string ("search-engine", Application.DDG);
             }
         });
 
@@ -339,9 +363,9 @@ public class MainWindow : Gtk.Window {
             preferences_dialog.response.connect ((response_id) => {
                 switch (response_id) {
                     case Gtk.ResponseType.OK:
-                        string[] keys = Ephemeral.settings.list_keys ();
+                        string[] keys = Application.settings.list_keys ();
                         foreach (string key in keys) {
-                            Ephemeral.settings.reset (key);
+                            Application.settings.reset (key);
                         }
 
                         set_search_engine_active (
@@ -382,23 +406,33 @@ public class MainWindow : Gtk.Window {
                             action.get_mouse_button () == 2 ||
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
-                            new_window (uri);
+                            Application.new_window (uri);
                             decision.ignore ();
                             return true;
                         }
                     }
+                    decision.use ();
                     break;
                 case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
                     var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
                     string uri = action.get_request ().get_uri ();
 
+                    if (action.is_user_gesture ()) {
+                        // Middle- or ctrl-click
+                        bool has_ctrl = (action.get_modifiers () & Gdk.ModifierType.CONTROL_MASK) != 0;
+                        if (
+                            action.get_mouse_button () == 2 ||
+                            (has_ctrl && action.get_mouse_button () == 1)
+                        ) {
+                            Application.new_window (uri);
+                            decision.ignore ();
+                            return true;
+                        }
+                    }
+
                     if (is_location (uri)) {
                         web_view.load_uri (uri);
-                    } else {
-                        return false;
                     }
-                    decision.ignore ();
-                    return true;
             }
             return false;
         });
@@ -422,13 +456,18 @@ public class MainWindow : Gtk.Window {
             return true;
         });
 
-        Ephemeral.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
-        Ephemeral.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
+        Application.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
+
+        Application.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
             (value, variant) => {
                 value.set_string ("%.0f%%".printf (variant.get_double () * 100));
                 return true;
             }, () => { return true; }, null, null
         );
+
+        Application.settings.bind ("enable-javascript", js_switch, "active", SettingsBindFlags.DEFAULT);
+        js_switch.bind_property ("active", js_revealer, "reveal-child", BindingFlags.INVERT_BOOLEAN);
+
         stack.bind_property ("visible-child-name", zoom_grid, "sensitive",
             BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
@@ -485,7 +524,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                erase ();
+                close ();
                 return true;
             }
         );
@@ -495,7 +534,7 @@ public class MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
-                new_window ();
+                Application.new_window ();
                 return true;
             }
         );
@@ -550,18 +589,6 @@ public class MainWindow : Gtk.Window {
         );
 
         add_accel_group (accel_group);
-
-        web_view.button_release_event.connect ((event) => {
-            if (event.button == 8) {
-                web_view.go_back ();
-                return true;
-            } else if (event.button == 9) {
-                web_view.go_forward ();
-                return true;
-            }
-
-            return false;
-        });
     }
 
     private void update_progress () {
@@ -584,18 +611,9 @@ public class MainWindow : Gtk.Window {
         }
     }
 
-    private void erase () {
-        new_window ();
-        close ();
-    }
-
-    public void new_window (string? uri = null) {
-        var app_window = new MainWindow (application, uri);
-        app_window.show_all ();
-    }
-
     private void open_externally (string uri) {
-        string protocol = uri.split ("://")[0];
+        string? protocol = Uri.parse_scheme (uri);
+
         var external_dialog = new ExternalDialog (protocol);
         external_dialog.transient_for = (Gtk.Window) get_toplevel ();
 
@@ -668,13 +686,29 @@ public class MainWindow : Gtk.Window {
         Gtk.RadioButton ddg_button,
         Gtk.RadioButton custom_search_button
     ) {
-        var search_engine = Ephemeral.settings.get_string ("search-engine");
-        if (search_engine == Ephemeral.STARTPAGE) {
+        var search_engine = Application.settings.get_string ("search-engine");
+        if (search_engine == Application.STARTPAGE) {
             startpage_button.active = true;
-        } else if (search_engine == Ephemeral.DDG) {
+        } else if (search_engine == Application.DDG) {
             ddg_button.active = true;
         } else {
             custom_search_button.active = true;
+        }
+    }
+
+    private void set_menu_style_classes (Gtk.Widget widget) {
+        var context = widget.get_style_context ();
+        context.add_class (Gtk.STYLE_CLASS_FLAT);
+        context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+    }
+
+    private class separator : Gtk.Separator {
+        public separator () {
+            Object (
+                margin_bottom: 3,
+                margin_top: 3,
+                orientation: Gtk.Orientation.HORIZONTAL
+            );
         }
     }
 }

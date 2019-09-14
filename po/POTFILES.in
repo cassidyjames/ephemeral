@@ -4,11 +4,13 @@ src/Application.vala
 src/MainWindow.vala
 src/Dialogs/ExternalDialog.vala
 src/Dialogs/PreferencesDialog.vala
+src/Dialogs/ScriptDialog.vala
+src/InfoBars/DefaultInfoBar.vala
+src/InfoBars/NativeInfoBar.vala
+src/InfoBars/NetworkInfoBar.vala
+src/InfoBars/PaidInfoBar.vala
 src/Views/ErrorView.vala
 src/Views/WelcomeView.vala
 src/Widgets/BrowserButton.vala
-src/Widgets/DefaultInfoBar.vala
-src/Widgets/NativeInfoBar.vala
-src/Widgets/NetworkInfoBar.vala
-src/Widgets/PaidInfoBar.vala
 src/Widgets/UrlEntry.vala
+src/Widgets/WebView.vala

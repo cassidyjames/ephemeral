@@ -16,21 +16,81 @@
       <li>Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows</li>
       <li>Pick between privacy-respecting search engines from the menu</li>
     </ul>
-    <p>Ephemeral protects you in four key ways:</p>
+    <p>Ephemeral protects you in five key ways:</p>
     <p>1️⃣ Always incognito. From the second you open an Ephemeral window until you close it (or hit the Erase button), Ephemeral is in private browsing mode. That means history, cookies, local storage, passwords, etc. are all blown away as soon as you leave.</p>
     <p>2️⃣ Contained. Every Ephemeral window is a separate instance of the browser engine. This means pages are kept separate from one another. Sign into a service in one window, and other Ephemeral windows will have no idea you’re signed in.</p>
     <p>3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from third-party sources. This cuts down on advertising cookies and other unwanted forms of cross-site tracking.</p>
     <p>4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly load a web page or perform a search. Even then, no usage data is ever collected—I have no idea what you do with Ephemeral, and I don't want to know!</p>
-    <p>Ephemeral uses Startpage.com—the world's most private search engine—by default to avoid as much Google tracking as possible. You can also choose DuckDuckGo from the menu if that’s your preference, or even set your own entirely custom search engine.</p>
-    <p>What if you run into a site compatibility issue due to the tracking prevention, or if you want to sign into a site using another browser’s saved passwords? Ephemeral has you covered: just hit your other browser’s icon in the header and the current page is opened up there—optionally closing the window to get out of your way.</p>
-    <p>The best part of Ephemeral comes when you use it as your default browser: make privacy a habit by opening links in a private browser by default, knowing you can always jump back into a less private browser with one click.</p>
+    <p>5️⃣️ Ephemeral uses Startpage.com—the world's most private search engine—by default to avoid as much Google tracking as possible. You can also choose DuckDuckGo from the menu if that’s your preference, or even set your own entirely custom search engine.</p>
+    <p>The best part of Ephemeral comes when you use it as your default browser:</p>
+    <p>Make privacy a habit by opening links in a private browser by default, knowing you can always jump back into something less private like Firefox, Chrome, Opera, Brave—or any other installed browser—with one click.</p>
     <p>Remember, Ephemeral and any browser's incognito or private mode can only do so much: they mitigate some tracking and don't store data on your device, but they won't stop your ISP, government, or determined websites from tracking you.</p>
+    <p>What if you run into a site compatibility issue due to the tracking prevention, or if you want to sign into a site using another browser’s saved passwords? Ephemeral has you covered: just hit your other browser’s icon in the header and the current page is opened up there—optionally closing the window to get out of your way.</p>
     <p>For the best protection, always use a VPN.</p>
   </description>
   <provides>
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="5.3.1" date="2019-09-13">
+      <description>
+        <p>Translation updates</p>
+        <ul>
+          <li>Updated Italian translations thanks to @meliurwen</li>
+          <li>Updated Spanish translations thanks to Adolfo Jayme-Barrientos</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
+    <release version="5.3.0" date="2019-08-29">
+      <description>
+        <p>Hello from Thessaloniki</p>
+        <ul>
+          <li>Fixed window closing: now closing the first window does not close the rest</li>
+          <li>Simplified “Erase” to always close the window instead of sometimes opening a new one</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
+    <release version="5.2.1" date="2019-07-28">
+      <description>
+        <p>Summer cleaning! Because that’s a thing, right?</p>
+        <ul>
+          <li>Fixed the “Open Link in New Window” menu item to actually do what it says</li>
+          <li>Fixed opening target="_blank" links in a new window with Ctrl- or middle-click</li>
+          <li>Updated the base color in menus and dialog windows from the default elementary slate-ish black to a new deep, dark blue-ish purple</li>
+          <li>Tweaked the “Open Link Externally” dialog to better isolate protocols like “mailto” or “tel”</li>
+          <li>Significantly cleaned up and reorganized the codebase to make future features and fixes easier</li>
+          <li>Updated Dutch translations thanks to Heimen Stoffels</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
+    <release version="5.1.1" date="2019-06-24">
+      <description>
+        <p>Translation updates</p>
+        <ul>
+          <li>Updated Catalán and Spanish translations thanks to Mario Rodrigo</li>
+          <li>Updated French translations thanks to @NathanBnm</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
+    <release version="5.1.0" date="2019-05-15">
+      <description>
+        <p>Some great UI refinements!</p>
+        <ul>
+          <li>URL entry suggestions are much snazzier thanks to Hannes Schulze</li>
+          <li>JavaScript alerts now follow the elementary HIG thanks to David Hewitt</li>
+        </ul>
+        <p>Translation updates</p>
+        <ul>
+          <li>Ciao! Translated to Italian thanks to @meliurwen</li>
+          <li>Updated French translations thanks to @NathanBnm</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="5.0.3" date="2019-04-08">
       <description>
         <p>Updated Catalan translations thanks to Mario Rodrigo.</p>
@@ -312,8 +372,8 @@
   <url type="help">https://cassidyjames.com/support</url>
   <!--url type="contact">https://cassidyjames.com/support</url-->
   <custom>
-    <value key="x-appcenter-color-primary">#452981</value>
-    <value key="x-appcenter-color-primary-text">#e4c6fa</value>
+    <value key="x-appcenter-color-primary">#3b2a7d</value>
+    <value key="x-appcenter-color-primary-text">#fff</value>
     <value key="x-appcenter-suggested-price">9</value>
   </custom>
 </component>

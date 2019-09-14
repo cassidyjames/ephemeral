@@ -19,23 +19,23 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class ExternalDialog : IllustrativeDialog {
+public class Ephemeral.ExternalDialog : IllustrativeDialog {
     public string protocol { get; construct set; }
 
     public ExternalDialog (string? _protocol = null) {
         Object (
             buttons: Gtk.ButtonsType.CANCEL,
             image_icon: new ThemedIcon ("dialog-warning"),
-            primary_text: _("Open Externally?"),
+            primary_text: _("Open Link Externally?"),
             protocol: _protocol,
-            title: _("Open Externally?")
+            title: _("Open Link Externally?")
         );
     }
 
     construct {
         string explanation;
         if (protocol != null) {
-            explanation = _("This page is trying to open an app for “%s” links.").printf (protocol);
+            explanation = _("This page is trying to open an app for <b>%s</b> links.").printf (protocol);
         } else {
             explanation = _("This page is trying to open an app.");
         }
@@ -43,6 +43,7 @@ public class ExternalDialog : IllustrativeDialog {
         string implication = _("Your data may not be kept private by the opened app.");
 
         secondary_text = "%s %s".printf (explanation, implication);
+        secondary_label.use_markup = true;
 
         var accept = add_button (_("Open Anyway"), Gtk.ResponseType.OK) as Gtk.Button;
         accept.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);

@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class PaidInfoBar : Gtk.InfoBar {
+public class Ephemeral.PaidInfoBar : Gtk.InfoBar {
     public PaidInfoBar () {
         Object (
             message_type: Gtk.MessageType.INFO,
@@ -52,24 +52,24 @@ public class PaidInfoBar : Gtk.InfoBar {
         int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            Ephemeral.instance.native () &&
+            Application.instance.native () &&
             ! paid () &&
-            (Ephemeral.settings.get_int64 ("last-paid-response") < now - Ephemeral.NOTICE_SECS) &&
-            Ephemeral.instance.warn_paid_for_session;
+            (Application.settings.get_int64 ("last-paid-response") < now - Application.NOTICE_SECS) &&
+            Application.instance.warn_paid_for_session;
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        Gtk.show_uri (get_screen (), "appstream://" + Ephemeral.instance.application_id, Gtk.get_current_event_time ());
+                        Gtk.show_uri (get_screen (), "appstream://" + Application.instance.application_id, Gtk.get_current_event_time ());
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
                 case Gtk.ResponseType.REJECT:
                     now = new DateTime.now_utc ().to_unix ();
-                    Ephemeral.settings.set_int64 ("last-paid-response", now);
+                    Application.settings.set_int64 ("last-paid-response", now);
                 case Gtk.ResponseType.CLOSE:
-                    Ephemeral.instance.warn_paid_for_session = false;
+                    Application.instance.warn_paid_for_session = false;
                     revealed = false;
                     break;
                 default:
@@ -83,10 +83,11 @@ public class PaidInfoBar : Gtk.InfoBar {
         if (appcenter_settings_schema != null) {
             if (appcenter_settings_schema.has_key ("paid-apps")) {
                 var appcenter_settings = new GLib.Settings ("io.elementary.appcenter.settings");
-                return strv_contains (appcenter_settings.get_strv ("paid-apps"), Ephemeral.instance.application_id);
+                return strv_contains (appcenter_settings.get_strv ("paid-apps"), Application.instance.application_id);
             }
         }
 
         return false;
     }
 }
+

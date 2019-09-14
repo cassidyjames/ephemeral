@@ -19,7 +19,7 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class PreferencesDialog : IllustrativeDialog {
+public class Ephemeral.PreferencesDialog : IllustrativeDialog {
     public PreferencesDialog () {
         Object (
             buttons: Gtk.ButtonsType.CANCEL,
