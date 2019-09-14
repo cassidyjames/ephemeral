@@ -57,6 +57,12 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         web_view = new WebView ();
 
+        var web_overlay = new Gtk.Overlay ();
+        web_overlay.add (web_view);
+
+        var web_overlay_bar = new Granite.Widgets.OverlayBar (web_overlay);
+        web_overlay_bar.visible = false;
+
         back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Gtk.IconSize.LARGE_TOOLBAR);
         back_button.sensitive = false;
         back_button.tooltip_text = _("Back");
@@ -260,7 +266,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         stack = new Gtk.Stack ();
         stack.transition_type = Gtk.StackTransitionType.CROSSFADE;
         stack.add_named (welcome_view, "welcome-view");
-        stack.add_named (web_view, "web-view");
+        stack.add_named (web_overlay, "web-view");
         stack.add_named (error_view, "error-view");
         stack.visible_child_name = "welcome-view";
 
@@ -454,6 +460,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
             }
 
             return true;
+        });
+
+        web_view.mouse_target_changed.connect ((target, modifiers) => {
+            if (target.context_is_link ()) {
+                web_overlay_bar.label = target.link_uri;
+                web_overlay_bar.visible = true;
+            } else {
+                web_overlay_bar.visible = false;
+            }
         });
 
         Application.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
