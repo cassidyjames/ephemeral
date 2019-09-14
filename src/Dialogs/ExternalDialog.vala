@@ -19,11 +19,12 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class Ephemeral.ExternalDialog : Granite.MessageDialog {
-    public string? protocol { get; construct set; }
+public class Ephemeral.ExternalDialog : IllustrativeDialog {
+    public string protocol { get; construct set; }
 
     public ExternalDialog (string? _protocol = null) {
         Object (
+            buttons: Gtk.ButtonsType.CANCEL,
             image_icon: new ThemedIcon ("dialog-warning"),
             primary_text: _("Open Link Externally?"),
             protocol: _protocol,
@@ -43,9 +44,6 @@ public class Ephemeral.ExternalDialog : Granite.MessageDialog {
 
         secondary_text = "%s %s".printf (explanation, implication);
         secondary_label.use_markup = true;
-
-        var cancel = add_button (_("Don’t Open"), Gtk.ResponseType.CANCEL) as Gtk.Button;
-        cancel.clicked.connect (() => { destroy (); });
 
         var accept = add_button (_("Open Anyway"), Gtk.ResponseType.OK) as Gtk.Button;
         accept.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);

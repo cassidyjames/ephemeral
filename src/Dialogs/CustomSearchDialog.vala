@@ -19,9 +19,10 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class Ephemeral.CustomSearchDialog : Granite.MessageDialog {
+public class Ephemeral.CustomSearchDialog : IllustrativeDialog {
     public CustomSearchDialog () {
         Object (
+            buttons: Gtk.ButtonsType.CANCEL,
             image_icon: new ThemedIcon ("system-search"),
             primary_text: _("Set a Custom Search Engine"),
             secondary_text: _("Searches from the URL entry will be sent to this custom URL. <b>%s</b> will be replaced with the search query."),
@@ -31,9 +32,6 @@ public class Ephemeral.CustomSearchDialog : Granite.MessageDialog {
 
     construct {
         secondary_label.use_markup = true;
-
-        var cancel = add_button (_("Never Mind"), Gtk.ResponseType.CANCEL) as Gtk.Button;
-        cancel.clicked.connect (() => { destroy (); });
 
         var accept = add_button (_("Set Search Engine"), Gtk.ResponseType.OK) as Gtk.Button;
         accept.get_style_context ().add_class (Gtk.STYLE_CLASS_SUGGESTED_ACTION);

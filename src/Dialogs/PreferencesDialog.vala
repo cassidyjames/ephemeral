@@ -19,9 +19,10 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class Ephemeral.PreferencesDialog : Granite.MessageDialog {
+public class Ephemeral.PreferencesDialog : IllustrativeDialog {
     public PreferencesDialog () {
         Object (
+            buttons: Gtk.ButtonsType.CANCEL,
             image_icon: new ThemedIcon ("document-open-recent"),
             primary_text: _("Reset Preferences?"),
             secondary_text: _("All added website suggestions will be removed. Any dismissed or remembered alerts, warnings, etc. will be displayed again the next time Ephemeral is opened."),
@@ -30,9 +31,6 @@ public class Ephemeral.PreferencesDialog : Granite.MessageDialog {
     }
 
     construct {
-        var cancel = add_button (_("Never Mind"), Gtk.ResponseType.CANCEL) as Gtk.Button;
-        cancel.clicked.connect (() => { destroy (); });
-
         var accept = add_button (_("Reset Preferences"), Gtk.ResponseType.OK) as Gtk.Button;
         accept.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
