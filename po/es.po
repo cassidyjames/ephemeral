@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 19:54-0600\n"
+"POT-Creation-Date: 2019-09-13 21:33-0600\n"
 "PO-Revision-Date: 2019-09-08 05:14-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: none\n"
@@ -767,31 +767,39 @@ msgstr "Escala predeterminada"
 msgid "Zoom in"
 msgstr "Acercar"
 
-#: src/MainWindow.vala:130
+#: src/MainWindow.vala:131
+msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
+msgstr ""
+
+#: src/MainWindow.vala:147
+msgid "JavaScript"
+msgstr ""
+
+#: src/MainWindow.vala:161
 msgid "Open New Window"
 msgstr "Abrir una ventana nueva"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:179
 msgid "Quit Ephemeral"
 msgstr "Salir de Ephemeral"
 
-#: src/MainWindow.vala:153
+#: src/MainWindow.vala:184
 msgid "Close all windows and erase all history"
 msgstr "Cerrar todas las ventanas y borrar el histórico"
 
-#: src/MainWindow.vala:177
+#: src/MainWindow.vala:205
 msgid "Startpage.com Search"
 msgstr "Búsqueda con Startpage.com"
 
-#: src/MainWindow.vala:180
+#: src/MainWindow.vala:208
 msgid "DuckDuckGo Search"
 msgstr "Búsqueda con DuckDuckGo"
 
-#: src/MainWindow.vala:183
+#: src/MainWindow.vala:211
 msgid "Custom Search Engine…"
 msgstr "Buscador personalizado…"
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:214
 msgid "Reset Preferences…"
 msgstr "Restablecer las preferencias…"
 
@@ -1016,6 +1024,6 @@ msgstr "Quitar sitio web de las sugerencias"
 msgid "Add Website to Suggestions"
 msgstr "Añadir sitio web a las sugerencias"
 
-#: src/Widgets/WebView.vala:74
+#: src/Widgets/WebView.vala:77
 msgid "Open Link in New _Window"
 msgstr "Abrir enlace en una _ventana nueva"

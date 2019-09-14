@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 19:54-0600\n"
+"POT-Creation-Date: 2019-09-13 21:33-0600\n"
 "PO-Revision-Date: 2019-06-24 23:54+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -749,32 +749,40 @@ msgstr "Standaard zoomniveau"
 msgid "Zoom in"
 msgstr "Inzoomen"
 
-#: src/MainWindow.vala:130
+#: src/MainWindow.vala:131
+msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
+msgstr ""
+
+#: src/MainWindow.vala:147
+msgid "JavaScript"
+msgstr ""
+
+#: src/MainWindow.vala:161
 msgid "Open New Window"
 msgstr "Nieuw venster openen"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:179
 #, fuzzy
 msgid "Quit Ephemeral"
 msgstr "Ephemeral"
 
-#: src/MainWindow.vala:153
+#: src/MainWindow.vala:184
 msgid "Close all windows and erase all history"
 msgstr ""
 
-#: src/MainWindow.vala:177
+#: src/MainWindow.vala:205
 msgid "Startpage.com Search"
 msgstr "Startpage.com-zoekmachine"
 
-#: src/MainWindow.vala:180
+#: src/MainWindow.vala:208
 msgid "DuckDuckGo Search"
 msgstr "DuckDuckGo-zoekmachine"
 
-#: src/MainWindow.vala:183
+#: src/MainWindow.vala:211
 msgid "Custom Search Engine…"
 msgstr "Aangepaste zoekmachine…"
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:214
 msgid "Reset Preferences…"
 msgstr "Standaardwaarden terugzetten…"
 
@@ -1002,7 +1010,7 @@ msgstr "Website verwijderen uit suggesties"
 msgid "Add Website to Suggestions"
 msgstr "Website toevoegen aan suggesties"
 
-#: src/Widgets/WebView.vala:74
+#: src/Widgets/WebView.vala:77
 #, fuzzy
 msgid "Open Link in New _Window"
 msgstr "Nieuw venster openen"
