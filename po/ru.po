@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-13 19:54-0600\n"
+"POT-Creation-Date: 2019-09-13 21:33-0600\n"
 "PO-Revision-Date: 2019-04-02 10:40+0300\n"
 "Last-Translator: Artem Polishchuk <ego.cordatus@gmail.com>\n"
 "Language-Team: русский <>\n"
@@ -712,32 +712,40 @@ msgstr "Сбросить масштаб"
 msgid "Zoom in"
 msgstr "Увеличить"
 
-#: src/MainWindow.vala:130
+#: src/MainWindow.vala:131
+msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
+msgstr ""
+
+#: src/MainWindow.vala:147
+msgid "JavaScript"
+msgstr ""
+
+#: src/MainWindow.vala:161
 msgid "Open New Window"
 msgstr "Открыть новое окно"
 
-#: src/MainWindow.vala:148
+#: src/MainWindow.vala:179
 #, fuzzy
 msgid "Quit Ephemeral"
 msgstr "Ephemeral"
 
-#: src/MainWindow.vala:153
+#: src/MainWindow.vala:184
 msgid "Close all windows and erase all history"
 msgstr ""
 
-#: src/MainWindow.vala:177
+#: src/MainWindow.vala:205
 msgid "Startpage.com Search"
 msgstr "Startpage.com поиск"
 
-#: src/MainWindow.vala:180
+#: src/MainWindow.vala:208
 msgid "DuckDuckGo Search"
 msgstr "DuckDuckGo поиск"
 
-#: src/MainWindow.vala:183
+#: src/MainWindow.vala:211
 msgid "Custom Search Engine…"
 msgstr "Пользовательская поисковая система..."
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:214
 msgid "Reset Preferences…"
 msgstr "Сбросить настройки..."
 
@@ -965,7 +973,7 @@ msgstr "Удалить сайт из предложений"
 msgid "Add Website to Suggestions"
 msgstr "Добавить сайт в предложения"
 
-#: src/Widgets/WebView.vala:74
+#: src/Widgets/WebView.vala:77
 #, fuzzy
 msgid "Open Link in New _Window"
 msgstr "Открыть новое окно"

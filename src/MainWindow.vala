@@ -128,7 +128,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         zoom_grid.add (zoom_default_button);
         zoom_grid.add (zoom_in_button);
 
-        var js_warning = new Gtk.Label (_("<b>Note:</b> Disabling JavaScript will likely break many sites."));
+        var js_warning = new Gtk.Label (_("<b>Note:</b> Disabling JavaScript will likely break many sites"));
         js_warning.margin_start = 6;
         js_warning.max_width_chars = 0;
         js_warning.use_markup = true;
