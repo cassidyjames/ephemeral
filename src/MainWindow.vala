@@ -155,11 +155,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         js_grid.attach (js_revealer, 0, 1, 2);
 
         var js_button = new Gtk.Button ();
+        set_menu_style_classes (js_button);
         js_button.add (js_grid);
-
-        var js_context = js_button.get_style_context ();
-        js_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        js_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var new_window_label = new Gtk.Label (_("Open New Window"));
         new_window_label.halign = Gtk.Align.START;
@@ -176,11 +173,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         new_window_grid.add (new_window_accel_label);
 
         var new_window_button = new Gtk.Button ();
+        set_menu_style_classes (new_window_button);
         new_window_button.add (new_window_grid);
-
-        var new_window_context = new_window_button.get_style_context ();
-        new_window_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        new_window_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var quit_label = new Gtk.Label (_("Quit Ephemeral"));
         quit_label.halign = Gtk.Align.START;
@@ -205,29 +199,17 @@ public class Ephemeral.MainWindow : Gtk.Window {
         quit_grid.attach (quit_description, 0, 1, 2);
 
         var quit_button = new Gtk.Button ();
+        set_menu_style_classes (quit_button);
         quit_button.add (quit_grid);
 
-        var quit_context = quit_button.get_style_context ();
-        quit_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        quit_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
-
         var startpage_button = new Gtk.RadioButton.with_label (null, _("Startpage.com Search"));
-
-        var startpage_context = startpage_button.get_style_context ();
-        startpage_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        startpage_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+        set_menu_style_classes (startpage_button);
 
         var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
-
-        var ddg_context = ddg_button.get_style_context ();
-        ddg_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        ddg_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+        set_menu_style_classes (ddg_button);
 
         var custom_search_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("Custom Search Engine…"));
-
-        var custom_search_context = custom_search_button.get_style_context ();
-        custom_search_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        custom_search_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+        set_menu_style_classes (custom_search_button);
 
         var preferences_label = new Gtk.Label (_("Reset Preferences…"));
         preferences_label.halign = Gtk.Align.START;
@@ -235,11 +217,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         preferences_label.margin_start = preferences_label.margin_end = 6;
 
         var preferences_button = new Gtk.Button ();
+        set_menu_style_classes (preferences_button);
         preferences_button.add (preferences_label);
-
-        var preferences_context = preferences_button.get_style_context ();
-        preferences_context.add_class (Gtk.STYLE_CLASS_FLAT);
-        preferences_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
 
         var settings_popover_grid = new Gtk.Grid ();
         settings_popover_grid.margin_bottom = 3;
@@ -715,6 +694,12 @@ public class Ephemeral.MainWindow : Gtk.Window {
         } else {
             custom_search_button.active = true;
         }
+    }
+
+    private void set_menu_style_classes (Gtk.Widget widget) {
+        var context = widget.get_style_context ();
+        context.add_class (Gtk.STYLE_CLASS_FLAT);
+        context.add_class (Gtk.STYLE_CLASS_MENUITEM);
     }
 
     private class separator : Gtk.Separator {
