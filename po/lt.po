@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 11:06-0600\n"
+"POT-Creation-Date: 2019-09-16 12:14-0600\n"
 "PO-Revision-Date: 2019-03-20 21:08+0200\n"
 "Last-Translator: Moo\n"
 "Language-Team: \n"
@@ -724,76 +724,76 @@ msgstr ""
 msgid "New Window"
 msgstr "Naujas langas"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:72
 msgid "Back"
 msgstr "Atgal"
 
-#: src/MainWindow.vala:67
+#: src/MainWindow.vala:77
 msgid "Forward"
 msgstr "Pirmyn"
 
-#: src/MainWindow.vala:71
+#: src/MainWindow.vala:81
 msgid "Reload page"
 msgstr "Įkelti puslapį iš naujo"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:85
 msgid "Stop loading"
 msgstr "Stabdyti įkėlimą"
 
-#: src/MainWindow.vala:86
+#: src/MainWindow.vala:96
 msgid "Close window and erase history"
 msgstr ""
 
-#: src/MainWindow.vala:94
+#: src/MainWindow.vala:104
 msgid "Menu"
 msgstr "Meniu"
 
-#: src/MainWindow.vala:102
+#: src/MainWindow.vala:112
 msgid "Zoom out"
 msgstr "Mažinti"
 
-#: src/MainWindow.vala:109
+#: src/MainWindow.vala:119
 msgid "Default zoom level"
 msgstr "Numatytasis mastelio lygis"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:126
 msgid "Zoom in"
 msgstr "Didinti"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:141
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
 msgstr ""
 
-#: src/MainWindow.vala:147
+#: src/MainWindow.vala:157
 msgid "JavaScript"
 msgstr ""
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:171
 msgid "Open New Window"
 msgstr "Atverti naują langą"
 
-#: src/MainWindow.vala:179
+#: src/MainWindow.vala:189
 #, fuzzy
 msgid "Quit Ephemeral"
 msgstr "Ephemeral"
 
-#: src/MainWindow.vala:184
+#: src/MainWindow.vala:194
 msgid "Close all windows and erase all history"
 msgstr ""
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:215
 msgid "Startpage.com Search"
 msgstr "Startpage.com paieška"
 
-#: src/MainWindow.vala:208
+#: src/MainWindow.vala:218
 msgid "DuckDuckGo Search"
 msgstr "DuckDuckGo paieška"
 
-#: src/MainWindow.vala:211
+#: src/MainWindow.vala:221
 msgid "Custom Search Engine…"
 msgstr ""
 
-#: src/MainWindow.vala:214
+#: src/MainWindow.vala:224
 msgid "Reset Preferences…"
 msgstr "Atstatyti nuostatas…"
 

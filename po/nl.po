@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 11:06-0600\n"
+"POT-Creation-Date: 2019-09-16 12:14-0600\n"
 "PO-Revision-Date: 2019-09-14 12:37+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <kde-i18n-doc@kde.org>\n"
@@ -725,75 +725,75 @@ msgstr "WWW;web;browser;internet;privé;incognito;focus;tijdelijk;cookies;"
 msgid "New Window"
 msgstr "Nieuw venster"
 
-#: src/MainWindow.vala:62
+#: src/MainWindow.vala:72
 msgid "Back"
 msgstr "Terug"
 
-#: src/MainWindow.vala:67
+#: src/MainWindow.vala:77
 msgid "Forward"
 msgstr "Vooruit"
 
-#: src/MainWindow.vala:71
+#: src/MainWindow.vala:81
 msgid "Reload page"
 msgstr "Pagina herladen"
 
-#: src/MainWindow.vala:75
+#: src/MainWindow.vala:85
 msgid "Stop loading"
 msgstr "Stoppen met laden"
 
-#: src/MainWindow.vala:86
+#: src/MainWindow.vala:96
 msgid "Close window and erase history"
 msgstr "Venster sluiten en geschiedenis wissen"
 
-#: src/MainWindow.vala:94
+#: src/MainWindow.vala:104
 msgid "Menu"
 msgstr "Menu"
 
-#: src/MainWindow.vala:102
+#: src/MainWindow.vala:112
 msgid "Zoom out"
 msgstr "Uitzoomen"
 
-#: src/MainWindow.vala:109
+#: src/MainWindow.vala:119
 msgid "Default zoom level"
 msgstr "Standaard zoomniveau"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:126
 msgid "Zoom in"
 msgstr "Inzoomen"
 
-#: src/MainWindow.vala:131
+#: src/MainWindow.vala:141
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
 msgstr "<b>Let op</b> zonder JavaScript werken veel sites mogelijk niet goed"
 
-#: src/MainWindow.vala:147
+#: src/MainWindow.vala:157
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:171
 msgid "Open New Window"
 msgstr "Nieuw venster openen"
 
-#: src/MainWindow.vala:179
+#: src/MainWindow.vala:189
 msgid "Quit Ephemeral"
 msgstr "Ephemeral afsluiten"
 
-#: src/MainWindow.vala:184
+#: src/MainWindow.vala:194
 msgid "Close all windows and erase all history"
 msgstr "Alle vensters sluiten en alle geschiedenis wissen"
 
-#: src/MainWindow.vala:205
+#: src/MainWindow.vala:215
 msgid "Startpage.com Search"
 msgstr "Startpage.com-zoekmachine"
 
-#: src/MainWindow.vala:208
+#: src/MainWindow.vala:218
 msgid "DuckDuckGo Search"
 msgstr "DuckDuckGo-zoekmachine"
 
-#: src/MainWindow.vala:211
+#: src/MainWindow.vala:221
 msgid "Custom Search Engine…"
 msgstr "Aangepaste zoekmachine…"
 
-#: src/MainWindow.vala:214
+#: src/MainWindow.vala:224
 msgid "Reset Preferences…"
 msgstr "Standaardwaarden terugzetten…"
 
