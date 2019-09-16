@@ -725,7 +725,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
                     secondary_icon_tooltip_text = _("Add Website to Suggestions");
                 }
 
-                secondary_icon_tooltip_markup = tooltip_markup = Granite.markup_accel_tooltip (
+                secondary_icon_tooltip_markup = Granite.markup_accel_tooltip (
                     {"<Ctrl>d"},
                     secondary_icon_tooltip_text
                 );
