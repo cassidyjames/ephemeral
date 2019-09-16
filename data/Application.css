@@ -180,3 +180,12 @@ dzlsuggestionpopover row {
 dzlsuggestionpopover row image {
   -gtk-icon-palette: warning #fff;
 }
+
+.overlay-bar {
+  transition: opacity 200ms ease;
+}
+
+.hidden .overlay-bar {
+  opacity: 0;
+}
+
