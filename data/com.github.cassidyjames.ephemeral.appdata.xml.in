@@ -32,6 +32,15 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="5.3.2" date="2019-09-16">
+      <description>
+        <p>Translation updates</p>
+        <ul>
+          <li>Updated Dutch translations thanks to Heimen Stoffels</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="5.3.1" date="2019-09-13">
       <description>
         <p>Translation updates</p>
