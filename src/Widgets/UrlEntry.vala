@@ -198,9 +198,9 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         set_model (filtered_list_store);
     }
 
-    public SuggestionAction toggle_suggestion (Soup.URI uri) {
+    public SuggestionResult toggle_suggestion (Soup.URI uri) {
         var current_favorites = Application.settings.get_strv ("favorite-websites");
-        var suggestion_action = SuggestionAction.ERROR;
+        var suggestion_result = SuggestionResult.ERROR;
 
         if (uri != null) {
             string favorite = uri.get_host ();
@@ -216,19 +216,19 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
 
                 current_favorites = pruned_favorites;
                 reset_suggestions (current_favorites);
-                suggestion_action = SuggestionAction.REMOVED;
+                suggestion_result = SuggestionResult.REMOVED;
             } else {
                 debug ("%s is not a favorite, so adding…", favorite);
                 current_favorites += favorite;
                 reset_suggestions (current_favorites);
-                suggestion_action = SuggestionAction.ADDED;
+                suggestion_result = SuggestionResult.ADDED;
             }
 
             Application.settings.set_strv ("favorite-websites", current_favorites);
             set_secondary_icon ();
         }
 
-        return suggestion_action;
+        return suggestion_result;
     }
 
     private void load_suggestion (
@@ -733,7 +733,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         }
     }
 
-    public enum SuggestionAction {
+    public enum SuggestionResult {
         REMOVED,
         ADDED,
         ERROR;

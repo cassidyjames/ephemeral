@@ -645,15 +645,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 var uri = new Soup.URI (web_view.get_uri ());
 
                 switch (url_entry.toggle_suggestion (uri)) {
-                    case UrlEntry.SuggestionAction.REMOVED:
+                    case UrlEntry.SuggestionResult.REMOVED:
                         suggestion_toast.title = _("Suggestion removed");
                         suggestion_toast.send_notification ();
                         break;
-                    case UrlEntry.SuggestionAction.ADDED:
+                    case UrlEntry.SuggestionResult.ADDED:
                         suggestion_toast.title = _("Suggestion added");
                         suggestion_toast.send_notification ();
                         break;
-                    case UrlEntry.SuggestionAction.ERROR:
+                    case UrlEntry.SuggestionResult.ERROR:
                         critical ("Error toggling suggestion");
                         break;
                     default:
