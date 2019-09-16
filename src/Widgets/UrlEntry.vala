@@ -46,7 +46,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         primary_icon_tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>l"}, primary_icon_tooltip_text);
 
         var initial_favorites = Application.settings.get_strv ("favorite-websites");
-        reset_suggestions (initial_favorites);
+        reload_suggestions (initial_favorites);
         set_secondary_icon ();
 
         changed.connect (() => {
@@ -215,12 +215,12 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
                 }
 
                 current_favorites = pruned_favorites;
-                reset_suggestions (current_favorites);
+                reload_suggestions (current_favorites);
                 suggestion_result = SuggestionResult.REMOVED;
             } else {
                 debug ("%s is not a favorite, so adding…", favorite);
                 current_favorites += favorite;
-                reset_suggestions (current_favorites);
+                reload_suggestions (current_favorites);
                 suggestion_result = SuggestionResult.ADDED;
             }
 
@@ -237,7 +237,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         string? reason = _("Popular website"),
         string? icon = "web-browser-symbolic"
     ) {
-        debug ("Adding %s to suggestions…", domain);
+        debug ("Loading %s into suggestions…", domain);
 
         var suggestion = new Dazzle.Suggestion ();
         suggestion.id = domain;
@@ -255,8 +255,8 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         list_store.append (suggestion);
     }
 
-    private void reset_suggestions (string[] favorites = {}) {
-        debug ("Resetting suggestions…");
+    private void reload_suggestions (string[] favorites = {}) {
+        debug ("Reloading suggestions…");
 
         if (list_store is ListStore) {
             list_store.remove_all ();
