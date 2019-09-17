@@ -40,20 +40,9 @@ public class Ephemeral.FindBar : Gtk.Revealer {
 
         entry = new Gtk.SearchEntry ();
 
-        // var next = new Gtk.Button.from_icon_name ("go-down-symbolic");
-        // next.tooltip_text = _("Find next");
-        // next.tooltip_markup = Granite.markup_accel_tooltip ({"Return"}, next.tooltip_text);
-
-        // var previous = new Gtk.Button.from_icon_name ("go-up-symbolic");
-        // previous.tooltip_text = _("Find previous");
-        // previous.tooltip_markup = Granite.markup_accel_tooltip ({"<Shift>Return"}, previous.tooltip_text);
-
         var find_grid = new Gtk.Grid ();
-        // find_grid.get_style_context ().add_class ("linked");
 
         find_grid.add (entry);
-        // find_grid.add (next);
-        // find_grid.add (previous);
 
         var toolbar = new Gtk.Grid ();
         toolbar.border_width = 3;
@@ -64,6 +53,8 @@ public class Ephemeral.FindBar : Gtk.Revealer {
         toolbar.add (find_grid);
 
         add (toolbar);
+
+        entry.key_press_event.connect (on_key_press);
 
         entry.activate.connect ((event) => {
             find_text ();
@@ -95,6 +86,29 @@ public class Ephemeral.FindBar : Gtk.Revealer {
         }
 
         web_view.get_find_controller ().search (entry.text, options, int.MAX);
+    }
+
+    private bool on_key_press (Gdk.EventKey event) {
+        string key = Gdk.keyval_name (event.keyval);
+        if ((event.state & Gdk.ModifierType.SHIFT_MASK) != 0) {
+            key = "<Shift>" + key;
+        }
+
+        switch (key) {
+            case "Down":
+                find_text ();
+                return true;
+            case "Up":
+            case "<Shift>Return":
+                find_text (true);
+                return true;
+            case "Escape":
+                reveal_child = false;
+                web_view.grab_focus ();
+                return true;
+            default:
+                return false;
+        }
     }
 }
 

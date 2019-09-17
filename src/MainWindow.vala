@@ -675,12 +675,12 @@ public class Ephemeral.MainWindow : Gtk.Window {
             () => {
                 switch (stack.visible_child_name) {
                     case "web-view":
-                        find_bar.reveal_child = !find_bar.reveal_child;
-
-                        if (find_bar.reveal_child) {
-                            find_bar.entry.grab_focus ();
-                        } else {
+                        if (find_bar.reveal_child && find_bar.entry.has_focus) {
+                            find_bar.reveal_child = false;
                             web_view.grab_focus ();
+                        } else {
+                            find_bar.reveal_child = true;
+                            find_bar.entry.grab_focus ();
                         }
 
                         break;
