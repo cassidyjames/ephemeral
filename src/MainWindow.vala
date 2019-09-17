@@ -58,8 +58,12 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         web_view = new WebView ();
 
+        var suggestion_toast = new Granite.Widgets.Toast ("");
+        suggestion_toast.set_default_action (_("Undo"));
+
         var web_overlay = new Gtk.Overlay ();
         web_overlay.add (web_view);
+        web_overlay.add_overlay (suggestion_toast);
 
         var web_overlay_bar = new Granite.Widgets.OverlayBar (web_overlay);
         web_overlay_bar.visible = false;
@@ -497,6 +501,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
             }
         });
 
+        suggestion_toast.default_action.connect (() => {
+            url_entry.toggle_suggestion (new Soup.URI (web_view.get_uri ()));
+        });
+
         Application.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
 
         Application.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
@@ -625,6 +633,33 @@ public class Ephemeral.MainWindow : Gtk.Window {
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
                 zoom_default ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.D,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                var uri = new Soup.URI (web_view.get_uri ());
+
+                switch (url_entry.toggle_suggestion (uri)) {
+                    case UrlEntry.SuggestionResult.REMOVED:
+                        suggestion_toast.title = _("Suggestion removed");
+                        suggestion_toast.send_notification ();
+                        break;
+                    case UrlEntry.SuggestionResult.ADDED:
+                        suggestion_toast.title = _("Suggestion added");
+                        suggestion_toast.send_notification ();
+                        break;
+                    case UrlEntry.SuggestionResult.ERROR:
+                        critical ("Error toggling suggestion");
+                        break;
+                    default:
+                        assert_not_reached ();
+                }
+
                 return true;
             }
         );

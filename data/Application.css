@@ -189,3 +189,9 @@ dzlsuggestionpopover row image {
   opacity: 0;
 }
 
+.app-notification {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+  margin: 1em;
+}
+
