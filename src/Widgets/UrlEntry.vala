@@ -157,10 +157,10 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         if (!input.contains ("://")) {
             if (input.contains (".") && !input.contains (" ")) {
                 // TODO: Try HTTPS, and fall back to HTTP?
-                formatted_url = "%s://%s".printf ("http", text);
+                formatted_url = "%s://%s".printf ("http", input);
                 return true;
             } else {
-                formatted_url = search_engine.printf (text);
+                formatted_url = search_engine.printf (input);
                 return false;
             }
         } else {
@@ -178,23 +178,29 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         current_suggestion.title = (is_url ? _("Go to \"%s\"") : _("Search for \"%s\"")).printf (Markup.escape_text (search));
         current_suggestion.icon_name = "system-search-symbolic";
         filtered_list_store.append (current_suggestion);
+
         if (!is_empty) {
             Dazzle.Suggestion[] secondary_suggestions = { };
+
             for (int i = 0; i < list_store.get_n_items (); i++) {
                 var suggestion = list_store.get_item (i) as Dazzle.Suggestion;
+
                 if (Regex.match_simple ("^%s".printf (search), suggestion.id) ||
                     Regex.match_simple ("^%s".printf (search), suggestion.title)) {
                     filtered_list_store.append (suggestion);
                 }
+
                 if (Regex.match_simple (".%s".printf (search), suggestion.id) ||
                     Regex.match_simple (".%s".printf (search), suggestion.title)) {
                     secondary_suggestions += suggestion;
                 }
             }
+
             foreach (var suggestion in secondary_suggestions) {
                 filtered_list_store.append (suggestion);
             }
         }
+
         set_model (filtered_list_store);
     }
 
@@ -731,6 +737,28 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
                 );
             }
         }
+    }
+
+    protected override void populate_popup (Gtk.Menu popup) {
+        string? clipboard_text = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD).wait_for_text ();
+        critical ("populate_popupt: %s", clipboard_text);
+
+        var item = new Gtk.MenuItem.with_mnemonic ("Paste and _Go");
+        item.sensitive = clipboard_text != null;
+        item.show ();
+
+        // FIXME: Kind of a hack, assumes Copy and Paste are the first two items
+        popup.insert (item, 3);
+
+        item.activate.connect (() => {
+            critical ("item.activate.connect: %s", clipboard_text);
+            string url = "";
+            format_url (clipboard_text, out url);
+            critical (url);
+
+            web_view.load_uri (url);
+            web_view.grab_focus ();
+        });
     }
 
     public enum SuggestionResult {
