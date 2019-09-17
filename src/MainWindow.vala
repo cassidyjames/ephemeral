@@ -692,30 +692,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
             }
         );
 
-        accel_group.connect (
-            Gdk.Key.F,
-            Gdk.ModifierType.CONTROL_MASK,
-            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
-            () => {
-                switch (stack.visible_child_name) {
-                    case "web-view":
-                        find_bar.reveal_child = !find_bar.reveal_child;
-
-                        if (find_bar.reveal_child) {
-                            find_bar.entry.grab_focus ();
-                        } else {
-                            web_view.grab_focus ();
-                        }
-
-                        break;
-                    default:
-                        Gdk.beep ();
-                }
-
-                return true;
-            }
-        );
-
         add_accel_group (accel_group);
     }
 
