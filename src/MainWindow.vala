@@ -26,6 +26,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private Gtk.Button zoom_default_button;
     private Gtk.Stack stack;
     private WebView web_view;
+    private FindBar find_bar;
     private Gtk.Stack refresh_stop_stack;
     private Gtk.Button back_button;
     private Gtk.Button forward_button;
@@ -278,6 +279,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         stack.add_named (error_view, "error-view");
         stack.visible_child_name = "welcome-view";
 
+        find_bar = new FindBar (web_view);
+
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.VERTICAL;
         grid.add (paid_info_bar);
@@ -285,6 +288,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         grid.add (default_info_bar);
         grid.add (network_info_bar);
         grid.add (stack);
+        grid.add (find_bar);
 
         set_titlebar (header);
         add (grid);
@@ -658,6 +662,54 @@ public class Ephemeral.MainWindow : Gtk.Window {
                         break;
                     default:
                         assert_not_reached ();
+                }
+
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.F,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                switch (stack.visible_child_name) {
+                    case "web-view":
+                        find_bar.reveal_child = !find_bar.reveal_child;
+
+                        if (find_bar.reveal_child) {
+                            find_bar.entry.grab_focus ();
+                        } else {
+                            web_view.grab_focus ();
+                        }
+
+                        break;
+                    default:
+                        Gdk.beep ();
+                }
+
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.F,
+            Gdk.ModifierType.CONTROL_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                switch (stack.visible_child_name) {
+                    case "web-view":
+                        find_bar.reveal_child = !find_bar.reveal_child;
+
+                        if (find_bar.reveal_child) {
+                            find_bar.entry.grab_focus ();
+                        } else {
+                            web_view.grab_focus ();
+                        }
+
+                        break;
+                    default:
+                        Gdk.beep ();
                 }
 
                 return true;
