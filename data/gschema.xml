@@ -48,6 +48,21 @@
       <summary>Warn on no network connection</summary>
       <description>Whether or not Ephemeral should warn when there is no network available connection</description>
     </key>
+    <key name="window-maximized" type="b">
+    <default>false</default>
+    <summary>Maximized</summary>
+    <description>Whether the last-used window is maximized</description>
+  </key>
+  <key name="window-position" type="(ii)">
+    <default>(-1, -1)</default>
+    <summary>Window position</summary>
+    <description>Most recent window position (x, y) of the last-used window</description>
+  </key>
+  <key name="window-size" type="(ii)">
+    <default>(-1, -1)</default>
+    <summary>Window size</summary>
+    <description>Most recent window size (width, height) of the last-used window</description>
+  </key>
     <key name="zoom" type="d">
       <default>1.0</default>
       <summary>Zoom level</summary>
