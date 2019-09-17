@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 12:14-0600\n"
+"POT-Creation-Date: 2019-09-16 23:01-0600\n"
 "PO-Revision-Date: 2019-01-22 23:15-0700\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -629,76 +629,88 @@ msgstr ""
 msgid "New Window"
 msgstr ""
 
-#: src/MainWindow.vala:72
-msgid "Back"
+#: src/MainWindow.vala:63
+msgid "Undo"
 msgstr ""
 
 #: src/MainWindow.vala:77
+msgid "Back"
+msgstr ""
+
+#: src/MainWindow.vala:82
 msgid "Forward"
 msgstr ""
 
-#: src/MainWindow.vala:81
+#: src/MainWindow.vala:86
 msgid "Reload page"
 msgstr ""
 
-#: src/MainWindow.vala:85
+#: src/MainWindow.vala:90
 msgid "Stop loading"
 msgstr ""
 
-#: src/MainWindow.vala:96
+#: src/MainWindow.vala:101
 msgid "Close window and erase history"
 msgstr ""
 
-#: src/MainWindow.vala:104
+#: src/MainWindow.vala:109
 msgid "Menu"
 msgstr ""
 
-#: src/MainWindow.vala:112
+#: src/MainWindow.vala:117
 msgid "Zoom out"
 msgstr ""
 
-#: src/MainWindow.vala:119
+#: src/MainWindow.vala:124
 msgid "Default zoom level"
 msgstr ""
 
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:131
 msgid "Zoom in"
 msgstr ""
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:146
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
 msgstr ""
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:162
 msgid "JavaScript"
 msgstr ""
 
-#: src/MainWindow.vala:171
+#: src/MainWindow.vala:176
 msgid "Open New Window"
 msgstr ""
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:194
 msgid "Quit Ephemeral"
 msgstr ""
 
-#: src/MainWindow.vala:194
+#: src/MainWindow.vala:199
 msgid "Close all windows and erase all history"
 msgstr ""
 
-#: src/MainWindow.vala:215
+#: src/MainWindow.vala:220
 msgid "Startpage.com Search"
 msgstr ""
 
-#: src/MainWindow.vala:218
+#: src/MainWindow.vala:223
 msgid "DuckDuckGo Search"
 msgstr ""
 
-#: src/MainWindow.vala:221
+#: src/MainWindow.vala:226
 msgid "Custom Search Engine…"
 msgstr ""
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Reset Preferences…"
+msgstr ""
+
+#: src/MainWindow.vala:653
+msgid "Suggestion removed"
+msgstr ""
+
+#: src/MainWindow.vala:657
+msgid "Suggestion added"
 msgstr ""
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
@@ -878,33 +890,33 @@ msgstr ""
 msgid "Enter a URL or search term"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:204
+#: src/Widgets/UrlEntry.vala:178
 #, c-format
 msgid "Go to \"%s\""
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:204
+#: src/Widgets/UrlEntry.vala:178
 #, c-format
 msgid "Search for \"%s\""
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:230
+#: src/Widgets/UrlEntry.vala:243
 msgid "Popular website"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:263
+#: src/Widgets/UrlEntry.vala:276
 msgid "Favorite website"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:702
+#: src/Widgets/UrlEntry.vala:715
 msgid "Go"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:714
+#: src/Widgets/UrlEntry.vala:727
 msgid "Remove Website from Suggestions"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:718
+#: src/Widgets/UrlEntry.vala:731
 msgid "Add Website to Suggestions"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-16 12:14-0600\n"
+"POT-Creation-Date: 2019-09-16 23:01-0600\n"
 "PO-Revision-Date: 2019-09-08 05:14-0500\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>\n"
 "Language-Team: none\n"
@@ -734,77 +734,91 @@ msgstr "WWW;web;navegador;internet;privado;incógnito;focus;temporal;cookies;"
 msgid "New Window"
 msgstr "Ventana nueva"
 
-#: src/MainWindow.vala:72
+#: src/MainWindow.vala:63
+msgid "Undo"
+msgstr ""
+
+#: src/MainWindow.vala:77
 msgid "Back"
 msgstr "Atrás"
 
-#: src/MainWindow.vala:77
+#: src/MainWindow.vala:82
 msgid "Forward"
 msgstr "Adelante"
 
-#: src/MainWindow.vala:81
+#: src/MainWindow.vala:86
 msgid "Reload page"
 msgstr "Volver a cargar la página"
 
-#: src/MainWindow.vala:85
+#: src/MainWindow.vala:90
 msgid "Stop loading"
 msgstr "Detener la carga"
 
-#: src/MainWindow.vala:96
+#: src/MainWindow.vala:101
 msgid "Close window and erase history"
 msgstr "Cerrar la ventana y borrar el histórico"
 
-#: src/MainWindow.vala:104
+#: src/MainWindow.vala:109
 msgid "Menu"
 msgstr "Menú"
 
-#: src/MainWindow.vala:112
+#: src/MainWindow.vala:117
 msgid "Zoom out"
 msgstr "Alejar"
 
-#: src/MainWindow.vala:119
+#: src/MainWindow.vala:124
 msgid "Default zoom level"
 msgstr "Escala predeterminada"
 
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:131
 msgid "Zoom in"
 msgstr "Acercar"
 
-#: src/MainWindow.vala:141
+#: src/MainWindow.vala:146
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
 msgstr ""
 
-#: src/MainWindow.vala:157
+#: src/MainWindow.vala:162
 msgid "JavaScript"
 msgstr ""
 
-#: src/MainWindow.vala:171
+#: src/MainWindow.vala:176
 msgid "Open New Window"
 msgstr "Abrir una ventana nueva"
 
-#: src/MainWindow.vala:189
+#: src/MainWindow.vala:194
 msgid "Quit Ephemeral"
 msgstr "Salir de Ephemeral"
 
-#: src/MainWindow.vala:194
+#: src/MainWindow.vala:199
 msgid "Close all windows and erase all history"
 msgstr "Cerrar todas las ventanas y borrar el histórico"
 
-#: src/MainWindow.vala:215
+#: src/MainWindow.vala:220
 msgid "Startpage.com Search"
 msgstr "Búsqueda con Startpage.com"
 
-#: src/MainWindow.vala:218
+#: src/MainWindow.vala:223
 msgid "DuckDuckGo Search"
 msgstr "Búsqueda con DuckDuckGo"
 
-#: src/MainWindow.vala:221
+#: src/MainWindow.vala:226
 msgid "Custom Search Engine…"
 msgstr "Buscador personalizado…"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:229
 msgid "Reset Preferences…"
 msgstr "Restablecer las preferencias…"
+
+#: src/MainWindow.vala:653
+#, fuzzy
+msgid "Suggestion removed"
+msgstr "Correcciones de sugerencias de URL"
+
+#: src/MainWindow.vala:657
+#, fuzzy
+msgid "Suggestion added"
+msgstr "Correcciones de sugerencias de URL"
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
 msgid "Open Link Externally?"
@@ -997,33 +1011,33 @@ msgstr "Cerrar ventana al abrir externamente"
 msgid "Enter a URL or search term"
 msgstr "Escriba un URL o un término de búsqueda"
 
-#: src/Widgets/UrlEntry.vala:204
+#: src/Widgets/UrlEntry.vala:178
 #, c-format
 msgid "Go to \"%s\""
 msgstr "Ir a «%s»"
 
-#: src/Widgets/UrlEntry.vala:204
+#: src/Widgets/UrlEntry.vala:178
 #, c-format
 msgid "Search for \"%s\""
 msgstr "Buscar «%s»"
 
-#: src/Widgets/UrlEntry.vala:230
+#: src/Widgets/UrlEntry.vala:243
 msgid "Popular website"
 msgstr "Sitio web popular"
 
-#: src/Widgets/UrlEntry.vala:263
+#: src/Widgets/UrlEntry.vala:276
 msgid "Favorite website"
 msgstr "Sitio web favorito"
 
-#: src/Widgets/UrlEntry.vala:702
+#: src/Widgets/UrlEntry.vala:715
 msgid "Go"
 msgstr "Ir"
 
-#: src/Widgets/UrlEntry.vala:714
+#: src/Widgets/UrlEntry.vala:727
 msgid "Remove Website from Suggestions"
 msgstr "Quitar sitio web de las sugerencias"
 
-#: src/Widgets/UrlEntry.vala:718
+#: src/Widgets/UrlEntry.vala:731
 msgid "Add Website to Suggestions"
 msgstr "Añadir sitio web a las sugerencias"
 
