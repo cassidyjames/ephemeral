@@ -15,6 +15,9 @@
       <li>Set as your default browser for true privacy by default</li>
       <li>Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows</li>
       <li>Pick between privacy-respecting search engines from the menu</li>
+      <li>Quickly disable or re-enable JavaScript from the menu</li>
+      <li>Add a website to the URL suggestions with the ⭐️ icon or Ctrl+D</li>
+      <li>Find text on the page with Ctrl+F</li>
     </ul>
     <p>Ephemeral protects you in five key ways:</p>
     <p>1️⃣ Always incognito. From the second you open an Ephemeral window until you close it (or hit the Erase button), Ephemeral is in private browsing mode. That means history, cookies, local storage, passwords, etc. are all blown away as soon as you leave.</p>
@@ -32,6 +35,18 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="5.4.0" date="2019-09-17">
+      <description>
+        <p>McSipes</p>
+        <ul>
+          <li>Quickly disable or re-enable JavaScript from the menu</li>
+          <li>Use Ctrl+D to add/remove a site from the suggestions</li>
+          <li>Find text on the page with Ctrl+F</li>
+          <li>New Paste and Go item in the URL bar context menu</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="5.3.2" date="2019-09-16">
       <description>
         <p>Translation updates</p>
