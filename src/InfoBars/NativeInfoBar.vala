@@ -53,7 +53,7 @@ public class Ephemeral.NativeInfoBar : Gtk.InfoBar {
         int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            ! Application.instance.native () &&
+            ! Application.native () &&
             (Application.settings.get_int64 ("last-native-response") < now - Application.NOTICE_SECS) &&
             Application.instance.warn_native_for_session;
 

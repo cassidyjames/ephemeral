@@ -121,7 +121,7 @@ public class Ephemeral.Application : Gtk.Application {
         return Gtk.Settings.get_default ().gtk_theme_name;
     }
 
-    public bool native () {
+    public static bool native () {
         string os = "";
         var file = File.new_for_path ("/etc/os-release");
         try {

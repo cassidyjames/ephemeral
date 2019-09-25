@@ -52,7 +52,7 @@ public class Ephemeral.PaidInfoBar : Gtk.InfoBar {
         int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            Application.instance.native () &&
+            Application.native () &&
             ! paid () &&
             (Application.settings.get_int64 ("last-paid-response") < now - Application.NOTICE_SECS) &&
             Application.instance.warn_paid_for_session;
