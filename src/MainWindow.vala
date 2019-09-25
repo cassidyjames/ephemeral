@@ -255,8 +255,13 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         settings_popover.add (settings_popover_grid);
 
-        header.pack_start (back_button);
-        header.pack_start (forward_button);
+        var back_forward_grid = new Gtk.Grid ();
+        back_forward_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+
+        back_forward_grid.add (back_button);
+        back_forward_grid.add (forward_button);
+
+        header.pack_start (back_forward_grid);
         header.pack_start (refresh_stop_stack);
         header.pack_end (settings_button);
         header.pack_end (browser_button);

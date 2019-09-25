@@ -33,6 +33,8 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
     }
 
     construct {
+        get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Application.CONTENT_TYPES[0]);
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
@@ -63,9 +65,8 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                         open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
                         open_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, open_button.tooltip_text);
 
-                        var open_button_context = open_button.get_style_context ();
-                        open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
-                        open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+                        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
+
                         last_used_browser_shown = true;
 
                         last_browser_handler_id = open_button.clicked.connect (() => {
@@ -76,9 +77,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
 
                 list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
 
-                var list_button_context = list_button.get_style_context ();
-                list_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
-                list_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+                list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
             } else {
                 open_button.show.connect (() => { // Needed because of show_all () being executed after this constructor
                     if (!last_used_browser_shown) {
@@ -88,9 +87,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
 
                 list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
 
-                var list_button_context = list_button.get_style_context ();
-                list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
-                list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
+                list_button.get_style_context ().remove_class (Gtk.STYLE_CLASS_RAISED);
             }
 
             var list_popover = new Gtk.Popover (list_button);
@@ -147,18 +144,14 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                     if (!last_used_browser_shown) {
                         // Add style classes if no browser has been used before
                         last_used_browser_shown = true;
-                        var open_button_context = open_button.get_style_context ();
-                        open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
-                        open_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+                        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
 
                         list_button.hide ();
                         list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
                         // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
                         list_button.tooltip_text = _("Open page in…");
 
-                        var list_button_context = list_button.get_style_context ();
-                        list_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
-                        list_button_context.add_class (Gtk.STYLE_CLASS_LINKED);
+                        list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
 
                         list_button.show_all ();
                     } else {
@@ -191,9 +184,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                     list_button.tooltip_text = _("Open page in…");
                     list_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, list_button.tooltip_text);
 
-                    var list_button_context = list_button.get_style_context ();
-                    list_button_context.remove_class (Gtk.STYLE_CLASS_RAISED);
-                    list_button_context.remove_class (Gtk.STYLE_CLASS_LINKED);
+                    list_button.get_style_context ().remove_class (Gtk.STYLE_CLASS_RAISED);
 
                     list_button.show_all ();
                 }
