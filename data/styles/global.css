@@ -65,13 +65,3 @@ dzlsuggestionpopover row image {
 popover radio {
   margin-left: 6px;
 }
-
-checkbutton.menuitem {
-  padding: 6px 12px;
-}
-
-checkbutton.menuitem check {
-  margin-left: 1px;
-  margin-right: 1px;
-}
-

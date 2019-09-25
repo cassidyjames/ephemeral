@@ -132,3 +132,11 @@ infobar button.flat:not(:active) {
   box-shadow: none;
 }
 
+checkbutton.menuitem {
+  padding: 6px 12px;
+}
+
+checkbutton.menuitem check {
+  margin-left: 1px;
+  margin-right: 1px;
+}
