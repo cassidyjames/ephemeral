@@ -90,7 +90,7 @@ public class Ephemeral.Application : Gtk.Application {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
-        if (native ()) {
+        if (stylesheet () == "elementary") {
             var elementary_provider = new Gtk.CssProvider ();
             elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/elementary.css");
             Gtk.StyleContext.add_provider_for_screen (
@@ -117,6 +117,10 @@ public class Ephemeral.Application : Gtk.Application {
         return app.run (args);
     }
 
+    public static string stylesheet () {
+        return Gtk.Settings.get_default ().gtk_theme_name;
+    }
+
     public bool native () {
         string os = "";
         var file = File.new_for_path ("/etc/os-release");
@@ -138,12 +142,11 @@ public class Ephemeral.Application : Gtk.Application {
         }
 
         string session = Environment.get_variable ("DESKTOP_SESSION");
-        string stylesheet = Gtk.Settings.get_default ().gtk_theme_name;
 
         return (
             os == "elementary" &&
             session == "pantheon" &&
-            stylesheet == "elementary"
+            stylesheet () == "elementary"
         );
     }
 
