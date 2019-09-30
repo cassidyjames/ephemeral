@@ -19,10 +19,23 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
+@define-color BLUEBERRY_700 #0d52bf;
 @define-color BLUEBERRY_900 #002e99;
+@define-color GRAPE_700 #7239b3;
 @define-color GRAPE_900 #452981;
 
 @define-color textColorPrimary alpha(white, 0.9);
+
+.titlebar:not(.default-decoration) {
+  background-image:
+    linear-gradient(
+      to bottom,
+      alpha(white, 0.1),
+      alpha(black, 0.1)
+    ),
+    linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
+  color: @textColorPrimary;
+}
 
 .titlebar entry {
   background: alpha(@GRAPE_900, 0.5);
