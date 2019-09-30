@@ -22,6 +22,22 @@
 @define-color BLUEBERRY_900 #002e99;
 @define-color GRAPE_900 #452981;
 
+@define-color textColorPrimary alpha(white, 0.9);
+
+.titlebar entry {
+  background: alpha(@GRAPE_900, 0.5);
+  color: @textColorPrimary;
+  text-shadow: none;
+}
+
+.titlebar entry image {
+    color: @textColorPrimary;
+}
+
+.titlebar entry image:hover {
+    color: alpha(@textColorPrimary, 0.75);
+}
+
 .welcome {
   background-image: linear-gradient(120deg, @BLUEBERRY_900, @GRAPE_900 67%);
   color: white;

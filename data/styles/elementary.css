@@ -63,20 +63,6 @@
         0 1px 0 0 alpha(@bg_highlight_color, 0.3);
 }
 
-.titlebar entry {
-  background: alpha(@GRAPE_900, 0.5);
-  color: @textColorPrimary;
-  text-shadow: none;
-}
-
-.titlebar entry image {
-    color: @textColorPrimary;
-}
-
-.titlebar entry image:hover {
-    color: alpha(@textColorPrimary, 0.75);
-}
-
 infobar revealer > box {
   background-image:
     -gtk-icontheme("dialog-information-symbolic"),
