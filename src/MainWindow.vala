@@ -72,24 +72,24 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var web_overlay_bar_context = web_overlay_bar.get_style_context ();
         web_overlay_bar_context.add_class ("hidden");
 
-        back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Application.instance.ICON_SIZE);
+        back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Application.instance.icon_size);
         back_button.sensitive = false;
         back_button.tooltip_text = _("Back");
         back_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Left"}, back_button.tooltip_text);
         back_button.get_style_context ().add_class ("back");
 
-        forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Application.instance.ICON_SIZE);
+        forward_button = new Gtk.Button.from_icon_name ("go-next-symbolic", Application.instance.icon_size);
         forward_button.sensitive = false;
         forward_button.tooltip_text = _("Forward");
         forward_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Alt>Right"}, forward_button.tooltip_text);
         forward_button.get_style_context ().add_class ("forward");
 
-        refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Application.instance.ICON_SIZE);
+        refresh_button = new Gtk.Button.from_icon_name ("view-refresh-symbolic", Application.instance.icon_size);
         refresh_button.tooltip_text = _("Reload page");
         refresh_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>r"}, refresh_button.tooltip_text);
         refresh_button.get_style_context ().add_class ("refresh");
 
-        stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Application.instance.ICON_SIZE);
+        stop_button = new Gtk.Button.from_icon_name ("process-stop-symbolic", Application.instance.icon_size);
         stop_button.tooltip_text = _("Stop loading");
         stop_button.get_style_context ().add_class ("stop");
 
@@ -100,7 +100,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         url_entry = new UrlEntry (web_view);
 
-        erase_button = new Gtk.Button.from_icon_name ("edit-delete", Application.instance.ICON_SIZE);
+        erase_button = new Gtk.Button.from_icon_name ("edit-delete", Application.instance.icon_size);
         erase_button.sensitive = false;
         erase_button.tooltip_text = _("Close window and erase history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
@@ -109,7 +109,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         browser_button.sensitive = false;
 
         var settings_button = new Gtk.MenuButton ();
-        settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Application.instance.ICON_SIZE);
+        settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Application.instance.icon_size);
         settings_button.tooltip_text = _("Menu");
 
         var settings_popover = new Gtk.Popover (settings_button);

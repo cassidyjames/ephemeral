@@ -41,7 +41,7 @@ public class Ephemeral.Application : Gtk.Application {
     public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
-    public Gtk.IconSize ICON_SIZE = Gtk.IconSize.SMALL_TOOLBAR;
+    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
 
     private bool opening_link = false;
 
@@ -79,8 +79,7 @@ public class Ephemeral.Application : Gtk.Application {
         );
 
         if (elementary_stylesheet ()) {
-            Application.instance.ICON_SIZE = Gtk.IconSize.LARGE_TOOLBAR;
-            critical ("elementary");
+            Application.instance.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
 
             var elementary_provider = new Gtk.CssProvider ();
             elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/elementary.css");
