@@ -90,7 +90,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
             var current_index = 0;
             for (var i = 0; i < get_model ().get_n_items (); i++) {
                 var item = get_model ().get_item (i) as Dazzle.Suggestion;
-                if (item.id == get_suggestion ().id)  {
+                if (item.id == get_suggestion ().id) {
                     current_index = i;
                     break;
                 }
@@ -175,7 +175,9 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         string formatted_url;
         var is_url = format_url (search, out formatted_url);
         current_suggestion.id = search;
-        current_suggestion.title = (is_url ? _("Go to \"%s\"") : _("Search for \"%s\"")).printf (Markup.escape_text (search));
+        current_suggestion.title = (
+            is_url ? _("Go to \"%s\"") : _("Search for \"%s\"")
+        ).printf (Markup.escape_text (search));
         current_suggestion.icon_name = "system-search-symbolic";
         filtered_list_store.append (current_suggestion);
 
@@ -740,7 +742,10 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
     }
 
     protected override void populate_popup (Gtk.Menu popup) {
-        string? clipboard_text = Gtk.Clipboard.get_for_display (get_display (), Gdk.SELECTION_CLIPBOARD).wait_for_text ();
+        string? clipboard_text = Gtk.Clipboard.get_for_display (
+            get_display (),
+            Gdk.SELECTION_CLIPBOARD
+        ).wait_for_text ();
         critical ("populate_popupt: %s", clipboard_text);
 
         var item = new Gtk.MenuItem.with_mnemonic ("Paste and _Go");
@@ -767,4 +772,3 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         ERROR;
     }
 }
-

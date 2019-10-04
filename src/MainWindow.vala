@@ -227,7 +227,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
         set_menu_style_classes (ddg_button);
 
-        var custom_search_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("Custom Search Engine…"));
+        var custom_search_button = new Gtk.RadioButton.with_label_from_widget (
+            startpage_button,
+            _("Custom Search Engine…")
+        );
         set_menu_style_classes (custom_search_button);
 
         var preferences_label = new Gtk.Label (_("Reset Preferences…"));
@@ -246,14 +249,14 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
-        settings_popover_grid.add (new separator ());
+        settings_popover_grid.add (new Separator ());
         settings_popover_grid.add (new_window_button);
         settings_popover_grid.add (quit_button);
-        settings_popover_grid.add (new separator ());
+        settings_popover_grid.add (new Separator ());
         settings_popover_grid.add (startpage_button);
         settings_popover_grid.add (ddg_button);
         settings_popover_grid.add (custom_search_button);
-        settings_popover_grid.add (new separator ());
+        settings_popover_grid.add (new Separator ());
         settings_popover_grid.add (preferences_button);
         settings_popover_grid.show_all ();
 
@@ -815,8 +818,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         context.add_class (Gtk.STYLE_CLASS_MENUITEM);
     }
 
-    private class separator : Gtk.Separator {
-        public separator () {
+    private class Separator : Gtk.Separator {
+        public Separator () {
             Object (
                 margin_bottom: 3,
                 margin_top: 3,
@@ -825,4 +828,3 @@ public class Ephemeral.MainWindow : Gtk.Window {
         }
     }
 }
-

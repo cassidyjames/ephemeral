@@ -65,4 +65,3 @@ public class Ephemeral.CustomSearchDialog : Granite.MessageDialog {
         });
     }
 }
-

@@ -28,9 +28,9 @@ public class Ephemeral.WebView : WebKit.WebView {
     }
 
     construct {
-        var webkit_settings = new WebKit.Settings();
+        var webkit_settings = new WebKit.Settings ();
         webkit_settings.allow_file_access_from_file_urls = true;
-        webkit_settings.default_font_family = Gtk.Settings.get_default().gtk_font_name;
+        webkit_settings.default_font_family = Gtk.Settings.get_default ().gtk_font_name;
         webkit_settings.enable_java = false;
         webkit_settings.enable_mediasource = true;
         webkit_settings.enable_plugins = false;
@@ -58,7 +58,12 @@ public class Ephemeral.WebView : WebKit.WebView {
             return false;
         });
 
-        Application.settings.bind ("enable-javascript", webkit_settings, "enable-javascript", SettingsBindFlags.DEFAULT);
+        Application.settings.bind (
+            "enable-javascript",
+            webkit_settings,
+            "enable-javascript",
+            SettingsBindFlags.DEFAULT
+        );
         webkit_settings.notify["enable-javascript"].connect (reload);
     }
 
@@ -79,7 +84,11 @@ public class Ephemeral.WebView : WebKit.WebView {
             );
 
             context_menu.append (new_window_item);
-            context_menu.append (new WebKit.ContextMenuItem.from_stock_action (WebKit.ContextMenuAction.COPY_LINK_TO_CLIPBOARD));
+            context_menu.append (
+                new WebKit.ContextMenuItem.from_stock_action (
+                    WebKit.ContextMenuAction.COPY_LINK_TO_CLIPBOARD
+                )
+            );
 
             new_window_action.activate.connect (() => {
                 Application.new_window (hit_test_result.link_uri);
@@ -99,4 +108,3 @@ public class Ephemeral.WebView : WebKit.WebView {
         return true;
     }
 }
-
