@@ -58,7 +58,10 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             if (Application.settings.get_string ("last-used-browser") != "") {
                 foreach (AppInfo app_info in external_apps) {
                     if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
-                        var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
+                        var browser_icon = new Gtk.Image.from_gicon (
+                            app_info.get_icon (),
+                            Application.instance.icon_size
+                        );
                         browser_icon.pixel_size = 24;
 
                         open_button.image = browser_icon;
@@ -88,7 +91,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                     }
                 });
 
-                list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
+                list_button.image = new Gtk.Image.from_icon_name ("document-export", Application.instance.icon_size);
 
                 list_button.get_style_context ().remove_class (Gtk.STYLE_CLASS_RAISED);
             }
@@ -177,7 +180,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                         if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
                             var browser_icon = new Gtk.Image.from_gicon (
                                 app_info.get_icon (),
-                                Gtk.IconSize.LARGE_TOOLBAR
+                                Application.instance.icon_size
                             );
                             browser_icon.pixel_size = 24;
 
@@ -199,7 +202,10 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                     last_used_browser_shown = false;
                     open_button.hide ();
                     list_button.hide ();
-                    list_button.image = new Gtk.Image.from_icon_name ("document-export", Gtk.IconSize.LARGE_TOOLBAR);
+                    list_button.image = new Gtk.Image.from_icon_name (
+                        "document-export",
+                        Application.instance.icon_size
+                    );
                     // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
                     list_button.tooltip_text = _("Open page in…");
                     list_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, list_button.tooltip_text);
@@ -211,7 +217,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             });
         } else {
             foreach (AppInfo app_info in external_apps) {
-                var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
+                var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Application.instance.icon_size);
                 browser_icon.pixel_size = 24;
 
                 var open_single_browser_button = new Gtk.Button ();
