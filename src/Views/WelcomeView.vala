@@ -59,4 +59,3 @@ public class Ephemeral.WelcomeView : Gtk.Grid {
         add (alignment_grid);
     }
 }
-

@@ -93,13 +93,13 @@ public class Ephemeral.Application : Gtk.Application {
         }
     }
 
-    public override void open(File[] files, string hint) {
+    public override void open (File[] files, string hint) {
         opening_link = true;
         activate ();
         opening_link = false;
 
         foreach (var file in files) {
-            var app_window = new MainWindow (this, file.get_uri());
+            var app_window = new MainWindow (this, file.get_uri ());
             app_window.show_all ();
         }
     }
@@ -151,4 +151,3 @@ public class Ephemeral.Application : Gtk.Application {
         }
     }
 }
-

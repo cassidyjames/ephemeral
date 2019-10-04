@@ -80,4 +80,3 @@ public class Ephemeral.NetworkInfoBar : Gtk.InfoBar {
             !network_available;
     }
 }
-

@@ -111,4 +111,3 @@ public class Ephemeral.FindBar : Gtk.Revealer {
         }
     }
 }
-

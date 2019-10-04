@@ -61,7 +61,10 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
 
                         open_button.image = browser_icon;
                         open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
-                        open_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, open_button.tooltip_text);
+                        open_button.tooltip_markup = Granite.markup_accel_tooltip (
+                          {"<Ctrl>o"},
+                          open_button.tooltip_text
+                        );
 
                         var open_button_context = open_button.get_style_context ();
                         open_button_context.add_class (Gtk.STYLE_CLASS_RAISED);
@@ -103,7 +106,12 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             close_check.margin_bottom = 3;
             close_check.get_style_context ().add_class (Gtk.STYLE_CLASS_MENUITEM);
 
-            Application.settings.bind ("close-when-opening-externally", close_check, "active", SettingsBindFlags.DEFAULT);
+            Application.settings.bind (
+                "close-when-opening-externally",
+                close_check,
+                "active",
+                SettingsBindFlags.DEFAULT
+            );
 
             list_popover.add (list_grid);
 
@@ -168,12 +176,18 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                     // Show the last-used browser
                     foreach (AppInfo app_info in external_apps) {
                         if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
-                            var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.LARGE_TOOLBAR);
+                            var browser_icon = new Gtk.Image.from_gicon (
+                                app_info.get_icon (),
+                                Gtk.IconSize.LARGE_TOOLBAR
+                            );
                             browser_icon.pixel_size = 24;
 
                             open_button.image = browser_icon;
                             open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
-                            open_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, open_button.tooltip_text);
+                            open_button.tooltip_markup = Granite.markup_accel_tooltip (
+                                {"<Ctrl>o"},
+                                open_button.tooltip_text
+                            );
                             open_button.show_all ();
 
                             open_button.disconnect (last_browser_handler_id);
@@ -206,7 +220,10 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                 var open_single_browser_button = new Gtk.Button ();
                 open_single_browser_button.image = browser_icon;
                 open_single_browser_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
-                open_single_browser_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, open_single_browser_button.tooltip_text);
+                open_single_browser_button.tooltip_markup = Granite.markup_accel_tooltip (
+                    {"<Ctrl>o"},
+                    open_single_browser_button.tooltip_text
+                );
 
                 add (open_single_browser_button);
 
