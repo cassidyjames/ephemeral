@@ -41,6 +41,7 @@ public class Ephemeral.Application : Gtk.Application {
     public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
+    public Gtk.IconSize ICON_SIZE = Gtk.IconSize.SMALL_TOOLBAR;
 
     private bool opening_link = false;
 
@@ -66,19 +67,6 @@ public class Ephemeral.Application : Gtk.Application {
     }
 
     protected override void activate () {
-        if (!opening_link) {
-            var app_window = new MainWindow (this);
-            app_window.show_all ();
-        }
-
-        var quit_action = new SimpleAction ("quit", null);
-        add_action (quit_action);
-        set_accels_for_action ("app.quit", {"<Ctrl>Q"});
-
-        quit_action.activate.connect (() => {
-            quit ();
-        });
-
         var gtk_settings = Gtk.Settings.get_default ();
         gtk_settings.gtk_application_prefer_dark_theme = true;
 
@@ -91,6 +79,9 @@ public class Ephemeral.Application : Gtk.Application {
         );
 
         if (elementary_stylesheet ()) {
+            Application.instance.ICON_SIZE = Gtk.IconSize.LARGE_TOOLBAR;
+            critical ("elementary");
+
             var elementary_provider = new Gtk.CssProvider ();
             elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/elementary.css");
             Gtk.StyleContext.add_provider_for_screen (
@@ -99,6 +90,19 @@ public class Ephemeral.Application : Gtk.Application {
                 Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
             );
         }
+
+        if (!opening_link) {
+            var app_window = new MainWindow (this);
+            app_window.show_all ();
+        }
+
+        var quit_action = new SimpleAction ("quit", null);
+        add_action (quit_action);
+        set_accels_for_action ("app.quit", {"<Ctrl>Q"});
+
+        quit_action.activate.connect (() => {
+            quit ();
+        });
     }
 
     public override void open(File[] files, string hint) {

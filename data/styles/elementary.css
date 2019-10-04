@@ -25,6 +25,10 @@
 @define-color textColorPrimary alpha(white, 0.9);
 @define-color textColorPrimaryShadow alpha(shade(@colorPrimary, 0.6), 0.4);
 
+.titlebar button:not(.back):not(.forward):not(.refresh):not(.stop) {
+  -gtk-icon-style: regular;
+}
+
 .titlebar button.raised {
   background-image: linear-gradient(
     to bottom,

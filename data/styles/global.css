@@ -37,6 +37,11 @@
   color: @textColorPrimary;
 }
 
+.titlebar button {
+  -gtk-icon-style: symbolic;
+  color: inherit;
+}
+
 .titlebar entry {
   background: alpha(@GRAPE_900, 0.5);
   color: @textColorPrimary;
