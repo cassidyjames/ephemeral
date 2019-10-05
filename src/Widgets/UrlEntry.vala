@@ -28,7 +28,8 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
 
     public UrlEntry (WebView _web_view) {
         Object (
-            hexpand: true,
+            hexpand: false,
+            max_width_chars: 100,
             web_view: _web_view,
             width_request: 100
         );
