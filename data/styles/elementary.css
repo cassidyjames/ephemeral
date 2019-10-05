@@ -25,15 +25,8 @@
 @define-color textColorPrimary alpha(white, 0.9);
 @define-color textColorPrimaryShadow alpha(shade(@colorPrimary, 0.6), 0.4);
 
-.titlebar:not(.default-decoration) {
-  background-image:
-    linear-gradient(
-      to bottom,
-      alpha(white, 0.1),
-      alpha(black, 0.1)
-    ),
-    linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
-  color: @textColorPrimary;
+.titlebar button:not(.back):not(.forward):not(.refresh):not(.stop) {
+  -gtk-icon-style: regular;
 }
 
 .titlebar button.raised {
@@ -61,37 +54,6 @@
     box-shadow:
         inset 0 0 0 1px alpha(#000, 0.05),
         0 1px 0 0 alpha(@bg_highlight_color, 0.3);
-}
-
-.titlebar button.linked {
-  border-radius: 0;
-  border-left-width: 0;
-}
-
-.titlebar button.linked:first-child {
-  border-left-width: 1px;
-  border-top-left-radius: 2.5px;
-  border-bottom-left-radius: 2.5px;
-}
-
-.titlebar button.linked:last-child {
-  padding: 0;
-  border-top-right-radius: 2.5px;
-  border-bottom-right-radius: 2.5px;
-}
-
-.titlebar entry {
-  background: alpha(@GRAPE_900, 0.5);
-  color: @textColorPrimary;
-  text-shadow: none;
-}
-
-.titlebar entry image {
-    color: @textColorPrimary;
-}
-
-.titlebar entry image:hover {
-    color: alpha(@textColorPrimary, 0.75);
 }
 
 infobar revealer > box {
@@ -149,21 +111,6 @@ infobar button.flat:not(:active) {
   box-shadow: none;
 }
 
-.welcome {
-  background-image: linear-gradient(120deg, @BLUEBERRY_900, @GRAPE_900 67%);
-  color: white;
-}
-
-.h1 {
-  color: inherit;
-  font-family: Raleway, "Open Sans", sans-serif;
-  font-weight: 900;
-}
-
-popover radio {
-  margin-left: 6px;
-}
-
 checkbutton.menuitem {
   padding: 6px 12px;
 }
@@ -172,26 +119,3 @@ checkbutton.menuitem check {
   margin-left: 1px;
   margin-right: 1px;
 }
-
-dzlsuggestionpopover row {
-  padding: 5px;
-}
-
-dzlsuggestionpopover row image {
-  -gtk-icon-palette: warning #fff;
-}
-
-.overlay-bar {
-  transition: opacity 200ms ease;
-}
-
-.hidden .overlay-bar {
-  opacity: 0;
-}
-
-.app-notification {
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
-  margin: 1em;
-}
-

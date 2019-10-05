@@ -41,6 +41,7 @@ public class Ephemeral.Application : Gtk.Application {
     public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
+    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
 
     private bool opening_link = false;
 
@@ -66,6 +67,29 @@ public class Ephemeral.Application : Gtk.Application {
     }
 
     protected override void activate () {
+        var gtk_settings = Gtk.Settings.get_default ();
+        gtk_settings.gtk_application_prefer_dark_theme = true;
+
+        var provider = new Gtk.CssProvider ();
+        provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/global.css");
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
+
+        if (elementary_stylesheet ()) {
+            Application.instance.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
+
+            var elementary_provider = new Gtk.CssProvider ();
+            elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/elementary.css");
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (),
+                elementary_provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
+        }
+
         if (!opening_link) {
             var app_window = new MainWindow (this);
             app_window.show_all ();
@@ -78,19 +102,6 @@ public class Ephemeral.Application : Gtk.Application {
         quit_action.activate.connect (() => {
             quit ();
         });
-
-        var gtk_settings = Gtk.Settings.get_default ();
-        gtk_settings.gtk_application_prefer_dark_theme = true;
-
-        if (native ()) {
-            var provider = new Gtk.CssProvider ();
-            provider.load_from_resource ("/com/github/cassidyjames/ephemeral/Application.css");
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (),
-                provider,
-                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
-        }
     }
 
     public override void open (File[] files, string hint) {
@@ -109,7 +120,11 @@ public class Ephemeral.Application : Gtk.Application {
         return app.run (args);
     }
 
-    public bool native () {
+    public static bool elementary_stylesheet () {
+        return Gtk.Settings.get_default ().gtk_theme_name.has_prefix ("elementary");
+    }
+
+    public static bool native () {
         string os = "";
         var file = File.new_for_path ("/etc/os-release");
         try {
@@ -130,12 +145,11 @@ public class Ephemeral.Application : Gtk.Application {
         }
 
         string session = Environment.get_variable ("DESKTOP_SESSION");
-        string stylesheet = Gtk.Settings.get_default ().gtk_theme_name;
 
         return (
             os == "elementary" &&
             session == "pantheon" &&
-            stylesheet == "elementary"
+            elementary_stylesheet ()
         );
     }
 
