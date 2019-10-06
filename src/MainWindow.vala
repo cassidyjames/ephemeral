@@ -249,14 +249,14 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
-        settings_popover_grid.add (new Separator ());
+        settings_popover_grid.add (new MenuSeparator ());
         settings_popover_grid.add (new_window_button);
         settings_popover_grid.add (quit_button);
-        settings_popover_grid.add (new Separator ());
+        settings_popover_grid.add (new MenuSeparator ());
         settings_popover_grid.add (startpage_button);
         settings_popover_grid.add (ddg_button);
         settings_popover_grid.add (custom_search_button);
-        settings_popover_grid.add (new Separator ());
+        settings_popover_grid.add (new MenuSeparator ());
         settings_popover_grid.add (preferences_button);
         settings_popover_grid.show_all ();
 
@@ -270,9 +270,11 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         header.pack_start (back_forward_grid);
         header.pack_start (refresh_stop_stack);
+        header.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
         header.pack_end (settings_button);
         header.pack_end (browser_button);
         header.pack_end (erase_button);
+        header.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
 
         header.custom_title = url_entry;
 
@@ -818,8 +820,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         context.add_class (Gtk.STYLE_CLASS_MENUITEM);
     }
 
-    private class Separator : Gtk.Separator {
-        public Separator () {
+    private class MenuSeparator : Gtk.Separator {
+        public MenuSeparator () {
             Object (
                 margin_bottom: 3,
                 margin_top: 3,
