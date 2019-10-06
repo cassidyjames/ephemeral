@@ -31,11 +31,14 @@ public class Ephemeral.WebView : WebKit.WebView {
         var webkit_settings = new WebKit.Settings ();
         webkit_settings.allow_file_access_from_file_urls = true;
         webkit_settings.default_font_family = Gtk.Settings.get_default ().gtk_font_name;
-        webkit_settings.enable_back_forward_navigation_gestures = true;
         webkit_settings.enable_java = false;
         webkit_settings.enable_mediasource = true;
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
+
+        // NOTE: Supported with newer Vala bindings
+        // webkit_settings.enable_back_forward_navigation_gestures = true;
+        webkit_settings.set ("enable-back-forward-navigation-gestures", true, null);
 
         var webkit_web_context = new WebKit.WebContext.ephemeral ();
         webkit_web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
