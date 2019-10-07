@@ -23,7 +23,8 @@ public class Ephemeral.WebView : WebKit.WebView {
     public WebView () {
         Object (
             expand: true,
-            height_request: 200
+            height_request: 200,
+            user_content_manager: new WebKit.UserContentManager ()
         );
     }
 
@@ -35,6 +36,31 @@ public class Ephemeral.WebView : WebKit.WebView {
         webkit_settings.enable_mediasource = true;
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
+
+        var undark_css = new WebKit.UserStyleSheet (
+            """
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            input,
+            textarea,
+            button,
+            select {
+                background: white;
+                border: 1px solid rgba(0, 0, 0, 0.25);
+                border-radius: 0.25em;
+                color: black;
+                padding: 0.25em 0.5em;
+            }
+            """,
+            WebKit.UserContentInjectedFrames.ALL_FRAMES,
+            WebKit.UserStyleLevel.AUTHOR,
+            null,
+            null
+        );
+        user_content_manager.add_style_sheet (undark_css);
 
         var webkit_web_context = new WebKit.WebContext.ephemeral ();
         webkit_web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
