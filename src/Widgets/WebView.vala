@@ -36,6 +36,7 @@ public class Ephemeral.WebView : WebKit.WebView {
         webkit_settings.enable_mediasource = true;
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
+
         // NOTE: Supported with newer Vala bindings
         // webkit_settings.enable_back_forward_navigation_gestures = true;
         webkit_settings.set ("enable-back-forward-navigation-gestures", true, null);
