@@ -48,7 +48,7 @@ public class Ephemeral.WebView : WebKit.WebView {
                 color: black;
             }
 
-            input:not([type=file]),
+            input,
             textarea,
             button,
             select,
