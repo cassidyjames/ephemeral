@@ -44,10 +44,11 @@ public class Ephemeral.WebView : WebKit.WebView {
                 color: black;
             }
 
-            input,
+            input:not([type=file]),
             textarea,
             button,
-            select {
+            select,
+            ::-webkit-file-upload-button {
                 background: white;
                 border: 1px solid rgba(0, 0, 0, 0.25);
                 border-radius: 0.25em;
