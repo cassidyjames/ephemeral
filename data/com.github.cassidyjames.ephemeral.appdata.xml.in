@@ -35,6 +35,17 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.0.0" date="2019-10-07">
+      <description>
+        <p>Adding Some Polish 💅️</p>
+        <ul>
+          <li>💻️ Touchpad gesture navigation: Use a two-finger swipe to move back or forward through your browsing history</li>
+          <li>🔗️ More room for the URL entry to breathe: spacing on each side plus a maximum width means the window is easier to grab and move around</li>
+          <li>Code cleaning to keep things fresh and clean</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="5.4.0" date="2019-09-17">
       <description>
         <p>McSipes</p>
