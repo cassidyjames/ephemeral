@@ -53,6 +53,7 @@ public class Ephemeral.WebView : WebKit.WebView {
                 border-radius: 0.25em;
                 color: black;
                 padding: 0.25em 0.5em;
+                -webkit-appearance: none;
             }
             """,
             WebKit.UserContentInjectedFrames.ALL_FRAMES,
