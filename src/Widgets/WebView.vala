@@ -36,6 +36,10 @@ public class Ephemeral.WebView : WebKit.WebView {
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
 
+        // NOTE: Supported with newer Vala bindings
+        // webkit_settings.enable_back_forward_navigation_gestures = true;
+        webkit_settings.set ("enable-back-forward-navigation-gestures", true, null);
+
         var webkit_web_context = new WebKit.WebContext.ephemeral ();
         webkit_web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
         webkit_web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
