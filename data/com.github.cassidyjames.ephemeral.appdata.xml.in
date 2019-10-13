@@ -41,7 +41,7 @@
         <ul>
           <li>💻️ Touchpad gesture navigation: Use a two-finger swipe to move back or forward through your browsing history</li>
           <li>🔗️ More room for the URL entry to breathe: spacing on each side plus a maximum width means the window is easier to grab and move around</li>
-          <li>Dark styler fixes for newer versions of WebKit</li>
+          <li>Dark style fixes for newer versions of WebKit</li>
           <li>Code cleaning to keep things fresh and clean</li>
         </ul>
         <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
