@@ -42,6 +42,10 @@
   color: inherit;
 }
 
+.browser-button button:last-child {
+  padding: 0;
+}
+
 .titlebar entry {
   background: alpha(@GRAPE_900, 0.5);
   color: @textColorPrimary;

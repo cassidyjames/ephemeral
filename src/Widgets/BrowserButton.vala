@@ -33,7 +33,9 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
     }
 
     construct {
-        get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        var context = get_style_context ();
+        context.add_class (Gtk.STYLE_CLASS_LINKED);
+        context.add_class ("browser-button");
 
         List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Application.CONTENT_TYPES[0]);
         foreach (AppInfo app_info in external_apps) {
