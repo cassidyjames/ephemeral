@@ -43,6 +43,7 @@ public class Ephemeral.WebView : WebKit.WebView {
 
         var undark_css = new WebKit.UserStyleSheet (
             """
+            html,
             body {
                 background-color: white;
                 color: black;
