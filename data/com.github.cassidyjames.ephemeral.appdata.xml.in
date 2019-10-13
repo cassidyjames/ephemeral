@@ -35,7 +35,7 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="6.0.0" date="2019-10-07">
+    <release version="6.0.0" date="2019-10-13">
       <description>
         <p>Adding Some Polish 💅️</p>
         <ul>
