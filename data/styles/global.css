@@ -42,7 +42,7 @@
   color: inherit;
 }
 
-.browser-button button:last-child {
+.browser-button .raised:last-child {
   padding: 0;
 }
 
