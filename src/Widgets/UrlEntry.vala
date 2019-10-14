@@ -623,6 +623,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("stubhub.com", "StubHub");
         load_suggestion ("surveymonkey.com", "SurveyMonkey");
         load_suggestion ("swagbucks.com", "Swagbucks");
+        load_suggestion ("swappa.com", "Swappa");
         load_suggestion ("system76.com", "System76");
         load_suggestion ("taobao.com", "Taobao");
         load_suggestion ("target.com", "Target");
