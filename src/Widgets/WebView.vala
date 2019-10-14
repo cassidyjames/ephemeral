@@ -34,7 +34,7 @@ public class Ephemeral.WebView : WebKit.WebView {
         webkit_settings.default_font_family = Gtk.Settings.get_default ().gtk_font_name;
         webkit_settings.enable_back_forward_navigation_gestures = true;
         webkit_settings.enable_java = false;
-        webkit_settings.enable_mediasource = true;
+        webkit_settings.enable_mediasource = true;  
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
 

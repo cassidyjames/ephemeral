@@ -724,7 +724,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
             url_entry.progress_fraction = 0;
 
             if (!url_entry.has_focus) {
-                url_entry.text = web_view.get_uri ();
+                url_entry.text = WebKit.uri_for_display (web_view.get_uri ());
             }
         }
     }
