@@ -35,6 +35,15 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.0.1">
+      <description>
+        <p>Translation updates</p>
+        <ul>
+          <li>Updated Dutch translations thanks to Heimen Stoffels</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="6.0.0" date="2019-10-13">
       <description>
         <p>Adding Some Polish 💅️</p>
