@@ -50,14 +50,22 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
         foreach (string item in items) {
             // FIXME: Get an actual mimetype icon
             var image = new Gtk.Image.from_icon_name ("application-x-partial-download", Gtk.IconSize.DND);
-            // image.valign = Gtk.Align.CENTER;
 
             var label = new Gtk.Label (item);
-            // label.valign = Gtk.Align.CENTER;
+            label.hexpand = true;
+            label.xalign = 0;
+
+            var progressbar = new Gtk.ProgressBar ();
+            progressbar.fraction = 0.69f;
+            progressbar.get_style_context ().add_class ("osd");
+
+            var overlay = new Gtk.Overlay ();
+            overlay.add (label);
+            overlay.add_overlay (progressbar);
 
             var open_grid = new Gtk.Grid ();
             open_grid.add (image);
-            open_grid.add (label);
+            open_grid.add (overlay);
 
             var open_button = new Gtk.Button ();
             open_button.always_show_image = true;
@@ -67,7 +75,6 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
 
             var folder_button = new Gtk.Button.from_icon_name ("folder-open", Gtk.IconSize.MENU);
             folder_button.halign = Gtk.Align.END;
-            // folder_button.hexpand = true;
             folder_button.margin_start = folder_button.margin_end = 6;
             folder_button.tooltip_text = _("Open in folder");
             folder_button.valign = Gtk.Align.CENTER;
