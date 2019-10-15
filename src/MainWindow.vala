@@ -34,6 +34,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private Gtk.Button stop_button;
     private UrlEntry url_entry;
     private BrowserButton browser_button;
+    private DownloadsButton downloads_button;
     private Gtk.Button erase_button;
     private uint overlay_timeout_id = 0;
 
@@ -107,6 +108,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         browser_button = new BrowserButton (this, web_view);
         browser_button.sensitive = false;
+
+        downloads_button = new DownloadsButton ();
 
         var settings_button = new Gtk.MenuButton ();
         settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Application.instance.icon_size);
@@ -273,6 +276,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         header.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
         header.pack_end (settings_button);
         header.pack_end (browser_button);
+        header.pack_end (downloads_button);
         header.pack_end (erase_button);
         header.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
 
