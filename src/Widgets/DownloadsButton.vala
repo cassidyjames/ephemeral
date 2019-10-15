@@ -49,30 +49,48 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
 
         foreach (string item in items) {
             // FIXME: Get an actual mimetype icon
-            var item_icon = new Gtk.Image.from_icon_name ("application-x-partial-download", Gtk.IconSize.DND);
+            var image = new Gtk.Image.from_icon_name ("application-x-partial-download", Gtk.IconSize.DND);
+            // image.valign = Gtk.Align.CENTER;
 
-            var item_folder_button = new Gtk.Button.from_icon_name ("folder-open", Gtk.IconSize.MENU);
-            item_folder_button.halign = Gtk.Align.END;
-            item_folder_button.hexpand = true;
-            item_folder_button.margin_start = 6;
-            item_folder_button.tooltip_text = _("Open in folder");
-            item_folder_button.valign = Gtk.Align.CENTER;
-            item_folder_button.get_style_context ().add_class ("circular");
+            var label = new Gtk.Label (item);
+            // label.valign = Gtk.Align.CENTER;
+
+            var open_grid = new Gtk.Grid ();
+            open_grid.add (image);
+            open_grid.add (label);
+
+            var open_button = new Gtk.Button ();
+            open_button.always_show_image = true;
+            open_button.expand = true;
+            open_button.tooltip_text = _("Open");
+            open_button.add (open_grid);
+
+            var folder_button = new Gtk.Button.from_icon_name ("folder-open", Gtk.IconSize.MENU);
+            folder_button.halign = Gtk.Align.END;
+            // folder_button.hexpand = true;
+            folder_button.margin_start = folder_button.margin_end = 6;
+            folder_button.tooltip_text = _("Open in folder");
+            folder_button.valign = Gtk.Align.CENTER;
+            folder_button.get_style_context ().add_class ("circular");
+
+            folder_button.clicked.connect (() => {
+                critical ("%s folder", item);
+            });
+
+            var open_button_context = open_button.get_style_context ();
+            open_button_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+            open_button_context.add_class (Gtk.STYLE_CLASS_FLAT);
+
+
+            open_button.clicked.connect (() => {
+                critical ("%s itself", item);
+            });
 
             var item_grid = new Gtk.Grid ();
-            item_grid.add (item_icon);
-            item_grid.add (new Gtk.Label (item));
-            item_grid.add (item_folder_button);
+            item_grid.add (open_button);
+            item_grid.add (folder_button);
 
-            var item_button = new Gtk.Button ();
-            item_button.tooltip_text = _("Open");
-            item_button.add (item_grid);
-
-            var item_button_context = item_button.get_style_context ();
-            item_button_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
-            item_button_context.add_class (Gtk.STYLE_CLASS_FLAT);
-
-            popover_grid.add (item_button);
+            popover_grid.add (item_grid);
         }
         // FIXME: END foreach
 
