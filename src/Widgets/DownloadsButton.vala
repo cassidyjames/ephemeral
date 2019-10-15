@@ -31,6 +31,7 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
             tooltip_text
         );
 
+        // FIXME: Hide when no downloads
         reveal_child = true;
 
         var button = new Gtk.MenuButton ();
@@ -47,6 +48,7 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
         string[] items = {"downloaded-image.jpg", "elementary-os-5.1-hera_20191014.iso"};
 
         foreach (string item in items) {
+            // FIXME: Get an actual mimetype icon
             var item_icon = new Gtk.Image.from_icon_name ("application-x-partial-download", Gtk.IconSize.DND);
 
             var item_folder_button = new Gtk.Button.from_icon_name ("folder-open", Gtk.IconSize.MENU);
