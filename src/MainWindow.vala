@@ -26,9 +26,11 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private Gtk.Button zoom_default_button;
     private Gtk.Stack stack;
     private WebView web_view;
+    private Gtk.Overlay web_overlay;
     private FindBar find_bar;
     private Gtk.Stack refresh_stop_stack;
     private Gtk.Button back_button;
+    private DownloadsButton downloads_button;
     private Gtk.Button forward_button;
     private Gtk.Button refresh_button;
     private Gtk.Button stop_button;
@@ -62,7 +64,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var suggestion_toast = new Granite.Widgets.Toast ("");
         suggestion_toast.set_default_action (_("Undo"));
 
-        var web_overlay = new Gtk.Overlay ();
+        web_overlay = new Gtk.Overlay ();
         web_overlay.add (web_view);
         web_overlay.add_overlay (suggestion_toast);
 
@@ -107,6 +109,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         browser_button = new BrowserButton (this, web_view);
         browser_button.sensitive = false;
+
+        downloads_button = new DownloadsButton ();
 
         var settings_button = new Gtk.MenuButton ();
         settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Application.instance.icon_size);
@@ -273,6 +277,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         header.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
         header.pack_end (settings_button);
         header.pack_end (browser_button);
+        header.pack_end (downloads_button);
         header.pack_end (erase_button);
         header.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
 
@@ -425,6 +430,11 @@ public class Ephemeral.MainWindow : Gtk.Window {
         web_view.notify["estimated-load-progress"].connect (update_progress);
         web_view.notify["is-loading"].connect (update_progress);
 
+        web_view.web_context.download_started.connect ((download) => {
+            downloads_button.add_download (download);
+            download.finished.connect (() => {download_finished (download);});
+        });
+
         web_view.decide_policy.connect ((decision, type) => {
             switch (type) {
                 case WebKit.PolicyDecisionType.NAVIGATION_ACTION:
@@ -464,6 +474,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
                     if (is_location (uri)) {
                         web_view.load_uri (uri);
+                    }
+                    break;
+                case WebKit.PolicyDecisionType.RESPONSE:
+                    // Download files not supported by WebKit
+                    var action = (WebKit.ResponsePolicyDecision) decision;
+                    if (!action.is_mime_type_supported ()) {
+                        decision.download ();
+                        decision.ignore ();
+                        return true;
                     }
             }
             return false;
@@ -758,6 +777,23 @@ public class Ephemeral.MainWindow : Gtk.Window {
         external_dialog.run ();
         external_dialog.destroy ();
 
+    }
+
+    private void download_finished (WebKit.Download download) {
+        if (download.estimated_progress != 1.0) return; // Don't get triggered by cancellations.
+
+        var filename = Filename.display_basename (download.destination);
+        var toast = new Granite.Widgets.Toast (_("%s Downloaded").printf (filename));
+        toast.set_default_action (_("Open"));
+
+        toast.default_action.connect (() => {
+            DownloadsButton.open_download (download);
+        });
+        toast.closed.connect (() => {toast.destroy ();});
+
+        toast.show_all ();
+        web_overlay.add_overlay (toast);
+        toast.send_notification ();
     }
 
     private bool is_location (string uri) {

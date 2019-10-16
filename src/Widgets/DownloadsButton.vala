@@ -49,19 +49,13 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
     }
 
     public void add_download(WebKit.Download download) {
-        var mimetype = download.response.mime_type;
-        if (mimetype == "application/octet-stream") {
-            mimetype = ContentType.guess (download.response.uri, null, null);
-        }
-
         var row = new Gtk.ListBoxRow ();
 
-        var image = new Gtk.Image.from_gicon (
-                ContentType.get_icon (mimetype), Gtk.IconSize.DND
+        var image = new Gtk.Image.from_icon_name (
+                "document-save-as", Gtk.IconSize.DND
         );
-        image.tooltip_text = ContentType.get_description (mimetype);
 
-        var label = new Gtk.Label (Filename.display_basename (download.destination));
+        var label = new Gtk.Label ("");
         label.hexpand = true;
         label.xalign = 0;
 
@@ -81,15 +75,8 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
         );
         folder_button.tooltip_text = _("Open in folder");
         folder_button.clicked.connect (() => {
-            try {
-                Gtk.show_uri (
-                        get_screen (),
-                        download.destination,
-                        Gtk.get_current_event_time ()
-                );
-            } catch (Error err) {
-                warning ("%s", err.message);
-            }
+            if (download.estimated_progress != 1.0) return;
+            open_download(download, "x-scheme-handler/file");
         });
 
         var cancel_button = new Gtk.Button.from_icon_name (
@@ -108,34 +95,67 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
         secondary_stack.margin_start = secondary_stack.margin_end = 6;
         secondary_stack.add (folder_button);
         secondary_stack.add (cancel_button);
+        secondary_stack.show_all ();
         secondary_stack.visible_child = cancel_button;
+
         download.finished.connect (() => {
+            download.received_data (uint64.MAX); // To ensure initial data is displayed.
+            if (cancelled) return;
+
+            row.selectable = row.activatable = true;
             secondary_stack.visible_child = folder_button;
         });
 
         var grid = new Gtk.Grid ();
         grid.orientation = Gtk.Orientation.HORIZONTAL;
+        grid.column_spacing = 3;
         grid.add (image);
         grid.add (overlay);
         grid.add (secondary_stack);
 
         row.add (grid);
         row.tooltip_text = download.destination;
+        row.selectable = row.activatable = false;
         row.activate.connect (() => {
-            var app = AppInfo.get_default_for_type (mimetype, false);
-            if (app == null) return; // TODO It'd be nice to integrate AppCenter here.
-
-            var uris = new List<string>();
-            uris.append (download.destination);
-            try {
-                app.launch_uris (uris, null);
-            } catch (Error err) {
-                warning ("%s", err.message);
-            }
+            if (download.estimated_progress == 1.0) open_download (download);
         });
 
-        grid.show_all ();
+        ulong download_started = 0;
+        download_started = download.received_data.connect(() => {
+            var mimetype = download.response.mime_type;
+            if (mimetype == "application/octet-stream") {
+                mimetype = ContentType.guess (download.response.uri, null, null);
+            }
+
+            image.gicon = ContentType.get_icon (mimetype);
+            image.tooltip_text = ContentType.get_description (mimetype);
+
+            label.label = Filename.display_basename (download.destination);
+
+            download.disconnect (download_started);
+        });
+
+        row.show_all ();
         downloads_list.add (row);
         reveal_child = true;
+    }
+
+    public static void open_download (WebKit.Download download, string _mimetype = "") {
+        var mimetype = download.response.mime_type;
+        if (_mimetype != "") mimetype = _mimetype;
+        if (mimetype == "application/octet-stream") {
+            mimetype = ContentType.guess (download.response.uri, null, null);
+        }
+
+        var app = AppInfo.get_default_for_type (mimetype, false);
+        if (app == null) return; // TODO It'd be nice to integrate AppCenter here.
+
+        var uris = new List<string>();
+        uris.append (download.destination);
+        try {
+            app.launch_uris (uris, null);
+        } catch (Error err) {
+            warning ("%s", err.message);
+        }
     }
 }
