@@ -23,7 +23,7 @@ namespace Ephemeral {
     public class DownloadsButton : Gtk.Revealer {
         Gtk.ListBox downloads_list;
 
-        public DownloadsButton() {
+        public DownloadsButton () {
             Object ();
         }
 
