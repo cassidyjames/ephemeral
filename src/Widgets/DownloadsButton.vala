@@ -94,7 +94,7 @@ namespace Ephemeral {
             overlay.add_overlay (progressbar);
 
             var folder_button = new Gtk.Button.from_icon_name (
-                    "folder-open", Gtk.IconSize.MENU
+                "folder-open", Gtk.IconSize.MENU
             );
             folder_button.tooltip_text = _("Open in folder");
             folder_button.clicked.connect (() => {
