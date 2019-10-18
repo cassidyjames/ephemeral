@@ -52,7 +52,7 @@ public class Ephemeral.PaidInfoBar : Gtk.InfoBar {
         int64 now = new DateTime.now_utc ().to_unix ();
 
         revealed =
-            Application.instance.native () &&
+            Application.native () &&
             ! paid () &&
             (Application.settings.get_int64 ("last-paid-response") < now - Application.NOTICE_SECS) &&
             Application.instance.warn_paid_for_session;
@@ -61,7 +61,11 @@ public class Ephemeral.PaidInfoBar : Gtk.InfoBar {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
                     try {
-                        Gtk.show_uri (get_screen (), "appstream://" + Application.instance.application_id, Gtk.get_current_event_time ());
+                        Gtk.show_uri (
+                          get_screen (),
+                          "appstream://" + Application.instance.application_id,
+                          Gtk.get_current_event_time ()
+                        );
                     } catch (GLib.Error e) {
                         critical (e.message);
                     }
@@ -79,7 +83,10 @@ public class Ephemeral.PaidInfoBar : Gtk.InfoBar {
     }
 
     private bool paid () {
-        var appcenter_settings_schema = SettingsSchemaSource.get_default ().lookup ("io.elementary.appcenter.settings", false);
+        var appcenter_settings_schema = SettingsSchemaSource.get_default ().lookup (
+            "io.elementary.appcenter.settings",
+            false
+        );
         if (appcenter_settings_schema != null) {
             if (appcenter_settings_schema.has_key ("paid-apps")) {
                 var appcenter_settings = new GLib.Settings ("io.elementary.appcenter.settings");
@@ -90,4 +97,3 @@ public class Ephemeral.PaidInfoBar : Gtk.InfoBar {
         return false;
     }
 }
-

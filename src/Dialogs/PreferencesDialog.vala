@@ -37,4 +37,3 @@ public class Ephemeral.PreferencesDialog : Granite.MessageDialog {
         accept.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
     }
 }
-

@@ -23,18 +23,48 @@ public class Ephemeral.WebView : WebKit.WebView {
     public WebView () {
         Object (
             expand: true,
-            height_request: 200
+            height_request: 200,
+            user_content_manager: new WebKit.UserContentManager ()
         );
     }
 
     construct {
-        var webkit_settings = new WebKit.Settings();
+        var webkit_settings = new WebKit.Settings ();
         webkit_settings.allow_file_access_from_file_urls = true;
-        webkit_settings.default_font_family = Gtk.Settings.get_default().gtk_font_name;
+        webkit_settings.default_font_family = Gtk.Settings.get_default ().gtk_font_name;
+        webkit_settings.enable_back_forward_navigation_gestures = true;
         webkit_settings.enable_java = false;
         webkit_settings.enable_mediasource = true;
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
+
+        var undark_css = new WebKit.UserStyleSheet (
+            """
+            html,
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            input,
+            textarea,
+            button,
+            select,
+            ::-webkit-file-upload-button {
+                background: white;
+                border: 1px solid rgba(0, 0, 0, 0.25);
+                border-radius: 0.25em;
+                color: black;
+                padding: 0.25em 0.5em;
+                -webkit-appearance: none;
+            }
+            """,
+            WebKit.UserContentInjectedFrames.ALL_FRAMES,
+            WebKit.UserStyleLevel.AUTHOR,
+            null,
+            null
+        );
+        user_content_manager.add_style_sheet (undark_css);
 
         var webkit_web_context = new WebKit.WebContext.ephemeral ();
         webkit_web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
@@ -58,7 +88,12 @@ public class Ephemeral.WebView : WebKit.WebView {
             return false;
         });
 
-        Application.settings.bind ("enable-javascript", webkit_settings, "enable-javascript", SettingsBindFlags.DEFAULT);
+        Application.settings.bind (
+            "enable-javascript",
+            webkit_settings,
+            "enable-javascript",
+            SettingsBindFlags.DEFAULT
+        );
         webkit_settings.notify["enable-javascript"].connect (reload);
     }
 
@@ -79,7 +114,11 @@ public class Ephemeral.WebView : WebKit.WebView {
             );
 
             context_menu.append (new_window_item);
-            context_menu.append (new WebKit.ContextMenuItem.from_stock_action (WebKit.ContextMenuAction.COPY_LINK_TO_CLIPBOARD));
+            context_menu.append (
+                new WebKit.ContextMenuItem.from_stock_action (
+                    WebKit.ContextMenuAction.COPY_LINK_TO_CLIPBOARD
+                )
+            );
 
             new_window_action.activate.connect (() => {
                 Application.new_window (hit_test_result.link_uri);
@@ -99,4 +138,3 @@ public class Ephemeral.WebView : WebKit.WebView {
         return true;
     }
 }
-

@@ -1,0 +1,105 @@
+/*
+* Copyright ⓒ 2019 Cassidy James Blaede (https://cassidyjames.com)
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public
+* License as published by the Free Software Foundation; either
+* version 2 of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301 USA
+*
+* Authored by: Cassidy James Blaede <c@ssidyjam.es>
+*/
+
+@define-color BLUEBERRY_700 #0d52bf;
+@define-color BLUEBERRY_900 #002e99;
+@define-color GRAPE_700 #7239b3;
+@define-color GRAPE_900 #452981;
+
+@define-color textColorPrimary alpha(white, 0.9);
+
+.titlebar:not(.default-decoration) {
+  background-image:
+    linear-gradient(
+      to bottom,
+      alpha(white, 0.1),
+      alpha(black, 0.1)
+    ),
+    linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
+  color: @textColorPrimary;
+}
+
+.titlebar button {
+  -gtk-icon-style: symbolic;
+  color: inherit;
+}
+
+.browser-button .raised:last-child {
+  padding: 0;
+}
+
+.titlebar entry {
+  background: alpha(@GRAPE_900, 0.5);
+  color: @textColorPrimary;
+  text-shadow: none;
+}
+
+.titlebar entry image {
+    color: @textColorPrimary;
+}
+
+.titlebar entry image:hover {
+    color: alpha(@textColorPrimary, 0.75);
+}
+
+.welcome {
+  background-image: linear-gradient(120deg, @BLUEBERRY_900, @GRAPE_900 67%);
+  color: white;
+}
+
+.h1 {
+  color: inherit;
+  font-family: Raleway, "Open Sans", sans-serif;
+  font-size: 24pt;
+  font-weight: 900;
+}
+
+.h2 {
+  font-size: 18pt;
+  font-weight: 300;
+}
+
+dzlsuggestionpopover row {
+  padding: 5px;
+}
+
+dzlsuggestionpopover row image {
+  -gtk-icon-palette: warning #fff;
+}
+
+.overlay-bar {
+  padding: 3px 6px;
+  transition: opacity 200ms ease;
+}
+
+.hidden .overlay-bar {
+  opacity: 0;
+}
+
+.app-notification {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+  margin: 1em;
+}
+
+popover radio {
+  margin-left: 6px;
+}

@@ -48,4 +48,3 @@ public class Ephemeral.ErrorView : Gtk.Grid {
         add (alignment_grid);
     }
 }
-

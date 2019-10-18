@@ -80,4 +80,3 @@ public class Ephemeral.DefaultInfoBar : Gtk.InfoBar {
         });
     }
 }
-
