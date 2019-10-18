@@ -35,7 +35,7 @@ namespace Ephemeral {
 
             var button = new Gtk.MenuButton ();
             button.image = new Gtk.Image.from_icon_name (
-                    "folder-download", Application.instance.icon_size
+                "folder-download", Application.instance.icon_size
             );
 
             var popover = new Gtk.Popover (null);
