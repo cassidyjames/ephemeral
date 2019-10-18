@@ -432,7 +432,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         web_view.web_context.download_started.connect ((download) => {
             downloads_button.add_download (download);
-            download.finished.connect (() => {download_finished (download);});
+            download.finished.connect (() => {
+                download_finished (download);
+            });
         });
 
         web_view.decide_policy.connect ((decision, type) => {
