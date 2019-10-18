@@ -100,6 +100,7 @@ namespace Ephemeral {
             folder_button.clicked.connect (() => {
                 if (download.estimated_progress == 1.0) {
                     DBus.Files.show_files ({download.destination});
+                }
             });
 
             var cancel_button = new Gtk.Button.from_icon_name (
