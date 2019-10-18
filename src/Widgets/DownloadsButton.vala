@@ -98,7 +98,7 @@ namespace Ephemeral {
             );
             folder_button.tooltip_text = _("Open in folder");
             folder_button.clicked.connect (() => {
-                if (download.estimated_progress == 1.0)
+                if (download.estimated_progress == 1.0) {
                     DBus.Files.show_files ({download.destination});
             });
 
