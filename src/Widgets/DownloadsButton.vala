@@ -24,7 +24,9 @@ namespace Ephemeral {
         Gtk.ListBox downloads_list;
 
         public DownloadsButton () {
-            Object ();
+            Object (
+                transition_type: Gtk.RevealerTransitionType.SLIDE_LEFT
+            );
         }
 
         construct {
