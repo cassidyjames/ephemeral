@@ -142,7 +142,7 @@ namespace Ephemeral {
             selectable = activatable = false;
 
             ulong download_started = 0;
-            download_started = download.received_data.connect(() => {
+            download_started = download.received_data.connect (() => {
                 var mimetype = download.response.mime_type;
                 if (mimetype == "application/octet-stream") {
                     mimetype = ContentType.guess (download.response.uri, null, null);
