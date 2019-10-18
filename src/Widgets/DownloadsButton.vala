@@ -164,7 +164,10 @@ namespace Ephemeral {
             }
 
             var app = AppInfo.get_default_for_type (mimetype, false);
-            if (app == null) return; // TODO It'd be nice to integrate AppCenter here.
+            if (app == null) {
+                // TODO: It'd be nice to integrate AppCenter here
+                return;
+            }
 
             var uris = new List<string>();
             uris.append (download.destination);
