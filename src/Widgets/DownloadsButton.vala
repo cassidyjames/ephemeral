@@ -69,7 +69,9 @@ namespace Ephemeral {
     public class DownloadRow : Gtk.ListBoxRow {
         public WebKit.Download download;
 
-        public DownloadRow(WebKit.Download download) {this.download = download;}
+        public DownloadRow (WebKit.Download download) {
+            this.download = download;
+        }
 
         public void build_ui() {
             var image = new Gtk.Image.from_icon_name (
