@@ -73,7 +73,7 @@ namespace Ephemeral {
             this.download = download;
         }
 
-        public void build_ui() {
+        public void build_ui () {
             var image = new Gtk.Image.from_icon_name (
                     "document-save-as", Gtk.IconSize.DND
             );
