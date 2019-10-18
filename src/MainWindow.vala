@@ -789,7 +789,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         toast.set_default_action (_("Open"));
 
         toast.default_action.connect (() => {
-            new DownloadRow(download).open ();
+            new DownloadRow (download).open ();
         });
         toast.closed.connect (() => {toast.destroy ();});
 
