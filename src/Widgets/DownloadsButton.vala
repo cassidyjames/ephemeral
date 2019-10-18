@@ -104,7 +104,7 @@ namespace Ephemeral {
             });
 
             var cancel_button = new Gtk.Button.from_icon_name (
-                    "process-stop", Gtk.IconSize.MENU
+                "process-stop", Gtk.IconSize.MENU
             );
             cancel_button.tooltip_text = _("Cancel download");
             var cancelled = false;
