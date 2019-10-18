@@ -44,13 +44,31 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
         downloads_list.selection_mode = Gtk.SelectionMode.SINGLE;
         downloads_list.show ();
 
+        downloads_list.row_activated.connect ((row) => {
+            var download = (DownloadRow) row;
+            if (download == null) return;
+            download.open ();
+        });
+
         popover.add (downloads_list);
         add (button);
     }
 
     public void add_download(WebKit.Download download) {
-        var row = new Gtk.ListBoxRow ();
+        var row = new DownloadRow (download);
 
+        row.show_all ();
+        downloads_list.add (row);
+        reveal_child = true;
+    }
+}
+
+public class Ephemeral.DownloadRow : Gtk.ListBoxRow {
+    public WebKit.Download download;
+
+    public DownloadRow(WebKit.Download download) {this.download = download;}
+
+    construct {
         var image = new Gtk.Image.from_icon_name (
                 "document-save-as", Gtk.IconSize.DND
         );
@@ -76,7 +94,7 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
         folder_button.tooltip_text = _("Open in folder");
         folder_button.clicked.connect (() => {
             if (download.estimated_progress != 1.0) return;
-            open_download(download, "x-scheme-handler/file");
+            // FIXME
         });
 
         var cancel_button = new Gtk.Button.from_icon_name (
@@ -87,7 +105,7 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
         cancel_button.clicked.connect (() => {
             download.cancel ();
             cancelled = true;
-            row.destroy ();
+            this.destroy ();
         });
 
         var secondary_stack = new Gtk.Stack ();
@@ -102,7 +120,7 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
             download.received_data (uint64.MAX); // To ensure initial data is displayed.
             if (cancelled) return;
 
-            row.selectable = row.activatable = true;
+            this.selectable = this.activatable = true;
             secondary_stack.visible_child = folder_button;
         });
 
@@ -113,12 +131,9 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
         grid.add (overlay);
         grid.add (secondary_stack);
 
-        row.add (grid);
-        row.tooltip_text = download.destination;
-        row.selectable = row.activatable = false;
-        row.activate.connect (() => {
-            if (download.estimated_progress == 1.0) open_download (download);
-        });
+        add (grid);
+        tooltip_text = download.destination;
+        selectable = activatable = false;
 
         ulong download_started = 0;
         download_started = download.received_data.connect(() => {
@@ -134,15 +149,10 @@ public class Ephemeral.DownloadsButton : Gtk.Revealer {
 
             download.disconnect (download_started);
         });
-
-        row.show_all ();
-        downloads_list.add (row);
-        reveal_child = true;
     }
 
-    public static void open_download (WebKit.Download download, string _mimetype = "") {
+    public void open () {
         var mimetype = download.response.mime_type;
-        if (_mimetype != "") mimetype = _mimetype;
         if (mimetype == "application/octet-stream") {
             mimetype = ContentType.guess (download.response.uri, null, null);
         }
