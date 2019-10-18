@@ -791,7 +791,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
         toast.default_action.connect (() => {
             new DownloadRow (download).open ();
         });
-        toast.closed.connect (() => {toast.destroy ();});
+        toast.closed.connect (() => {
+            toast.destroy ();
+        });
 
         toast.show_all ();
         web_overlay.add_overlay (toast);
