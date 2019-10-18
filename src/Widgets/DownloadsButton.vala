@@ -56,7 +56,7 @@ namespace Ephemeral {
             add (button);
         }
 
-        public void add_download(WebKit.Download download) {
+        public void add_download (WebKit.Download download) {
             var row = new DownloadRow (download);
             row.build_ui ();
 
