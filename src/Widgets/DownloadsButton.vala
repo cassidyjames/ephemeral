@@ -170,7 +170,7 @@ public class Ephemeral.DownloadRow : Gtk.ListBoxRow {
             return;
         }
 
-        var uris = new List<string>();
+        var uris = new List<string> ();
         uris.append (download.destination);
         try {
             app.launch_uris (uris, null);
