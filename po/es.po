@@ -71,7 +71,7 @@ msgstr "Escoja un buscador respetuoso de su privacidad en el menú"
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:64
 msgid "Quickly disable or re-enable JavaScript from the menu"
-msgstr "Deshabilite o vuelve a habilitar JavaScript rápidamente desde el menú"
+msgstr "Deshabilite o vuelva a habilitar JavaScript rápidamente desde el menú"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
 msgid "Add a website to the URL suggestions with the ⭐️ icon or Ctrl+D"
