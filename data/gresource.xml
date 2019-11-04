@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gresources>
-  <gresource prefix="/com/github/cassidyjames/ephemeral">
-    <file alias="styles/global.css">styles/global.css</file>
-    <file alias="styles/elementary.css">styles/elementary.css</file>
-  </gresource>
-</gresources>
-
