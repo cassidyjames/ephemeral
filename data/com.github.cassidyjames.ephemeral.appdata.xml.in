@@ -35,7 +35,14 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="6.1.0">
+    <release version="6.1.1" date="2019-11-04">
+      <description>
+        <ul>
+          <li>Under the hood cleanup</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.1.0" date="2019-10-17">
       <description>
         <p>🎉️ Emoji (and international character) support for domains! Punycode means domains like i❤tacos.ws will show up properly in the URL entry, while phishing domains should still show up like xn--80ak6aa92e.com</p>
         <p>Translation updates</p>
