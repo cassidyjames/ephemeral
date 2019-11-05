@@ -38,7 +38,7 @@
     <release version="6.1.1" date="2019-11-05">
       <description>
         <ul>
-          <li>Under the hood cleanup</li>
+          <li>Under the hood changes to make translations easier</li>
         </ul>
       </description>
     </release>
