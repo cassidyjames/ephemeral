@@ -42,10 +42,6 @@ public class Ephemeral.WebView : WebKit.WebView {
         var undark_css = new WebKit.UserStyleSheet (
             """
             body {
-                background-color: white;
-                color: black;
-            }
-
             button,
             input,
             select,
