@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-05 16:40+0000\n"
+"POT-Creation-Date: 2019-11-05 20:20+0000\n"
 "PO-Revision-Date: 2019-01-23 19:09-0200\n"
 "Last-Translator: Lucas Sanchez dos Anjos <lucassanchezanjos@yahoo.com.br>\n"
 "Language-Team: none\n"
@@ -190,7 +190,7 @@ msgid "For the best protection, always use a VPN."
 msgstr "Para uma proteção melhor, use sempre um serviço de VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
-msgid "Under the hood cleanup"
+msgid "Under the hood changes to make translations easier"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:47

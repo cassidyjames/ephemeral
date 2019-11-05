@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-05 16:40+0000\n"
+"POT-Creation-Date: 2019-11-05 20:20+0000\n"
 "PO-Revision-Date: 2019-10-14 13:07+0200\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <vistausss@outlook.com>\n"
@@ -192,7 +192,7 @@ msgid "For the best protection, always use a VPN."
 msgstr "Als je dat ook wilt voorkomen, gebruik dan een VPN."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:41
-msgid "Under the hood cleanup"
+msgid "Under the hood changes to make translations easier"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:47
