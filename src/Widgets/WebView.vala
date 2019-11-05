@@ -48,8 +48,6 @@ public class Ephemeral.WebView : WebKit.WebView {
 
             button,
             input,
-            input[type="reset"],
-            input[type="submit"],
             select,
             textarea,
             ::-webkit-file-upload-button {
@@ -57,7 +55,7 @@ public class Ephemeral.WebView : WebKit.WebView {
                 color: black;
             }
             """,
-            WebKit.UserContentInjectedFrames.TOP_FRAME,
+            WebKit.UserContentInjectedFrames.ALL_FRAMES,
             WebKit.UserStyleLevel.AUTHOR,
             null,
             null
