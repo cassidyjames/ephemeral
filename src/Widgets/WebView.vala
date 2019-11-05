@@ -41,7 +41,7 @@ public class Ephemeral.WebView : WebKit.WebView {
 // FIXME: Working around https://bugs.webkit.org/show_bug.cgi?id=197947
         var undark_css = new WebKit.UserStyleSheet (
             """
-            body {
+            body,
             button,
             input,
             select,
