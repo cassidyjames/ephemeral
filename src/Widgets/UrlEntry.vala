@@ -161,7 +161,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
             if (
                 (input.contains (".") && !input.contains (" ")) ||
                 input.has_prefix ("localhost")
-            ){
+            ) {
                 // TODO: Try HTTPS, and fall back to HTTP?
                 formatted_url = "%s://%s".printf ("http", input);
                 return true;
