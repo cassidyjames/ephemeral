@@ -37,7 +37,9 @@
   <releases>
     <release version="6.1.1" date="2019-11-05">
       <description>
+        <p>Minor updates</p>
         <ul>
+          <li>Treat “localhost” as a valid domain</li>
           <li>Under the hood changes to make translations easier</li>
         </ul>
       </description>
