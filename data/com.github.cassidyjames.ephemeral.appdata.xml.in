@@ -39,8 +39,11 @@
       <description>
         <p>Minor updates</p>
         <ul>
+          <li>Fixed checkbox and radio button styling</li>
           <li>Treat “localhost” as a valid domain</li>
+          <li>Improved dark styling when building with newer versions of WebKit</li>
           <li>Under the hood changes to make translations easier</li>
+          <li>Updated Spanish translations thanks to Adolfo Jayme-Barrientos and @riesp</li>
         </ul>
       </description>
     </release>
