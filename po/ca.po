@@ -1,0 +1,339 @@
+# Catalan translations for com.github.cassidyjames.ephemeral package.
+# Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
+# Mario Rodrigo, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.cassidyjames.ephemeral\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02 10:48+0100\n"
+"PO-Revision-Date: 2019-12-02 10:27+0100\n"
+"Last-Translator: Mario Rodrigo\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/MainWindow.vala:63
+msgid "Undo"
+msgstr ""
+
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr "Enrere"
+
+#: src/MainWindow.vala:83
+msgid "Forward"
+msgstr "Endavant"
+
+#: src/MainWindow.vala:88
+msgid "Reload page"
+msgstr "Recàrrega la pàgina"
+
+#: src/MainWindow.vala:93
+msgid "Stop loading"
+msgstr "Para la càrrega"
+
+#: src/MainWindow.vala:105
+msgid "Close window and erase history"
+msgstr ""
+
+#: src/MainWindow.vala:113
+msgid "Menu"
+msgstr "Menú"
+
+#: src/MainWindow.vala:121
+msgid "Zoom out"
+msgstr "Redueix l'escala"
+
+#: src/MainWindow.vala:128
+msgid "Default zoom level"
+msgstr "Nivel d'escala per defecte"
+
+#: src/MainWindow.vala:135
+msgid "Zoom in"
+msgstr "Augmenta l'escala"
+
+#: src/MainWindow.vala:150
+msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
+msgstr ""
+
+#: src/MainWindow.vala:166
+msgid "JavaScript"
+msgstr ""
+
+#: src/MainWindow.vala:180
+msgid "Open New Window"
+msgstr "Obre una nova finestra"
+
+#: src/MainWindow.vala:198
+#, fuzzy
+msgid "Quit Ephemeral"
+msgstr "Ephemeral"
+
+#: src/MainWindow.vala:203
+msgid "Close all windows and erase all history"
+msgstr ""
+
+#: src/MainWindow.vala:224
+msgid "Startpage.com Search"
+msgstr "Cerca amb Startpage.com"
+
+#: src/MainWindow.vala:227
+msgid "DuckDuckGo Search"
+msgstr "Cerca amb DuckDuckGo"
+
+#: src/MainWindow.vala:232
+msgid "Custom Search Engine…"
+msgstr "Cercador personalitzat…"
+
+#: src/MainWindow.vala:236
+msgid "Reset Preferences…"
+msgstr "Reinicialitza les preferències…"
+
+#: src/MainWindow.vala:667
+#, fuzzy
+msgid "Suggestion removed"
+msgstr "Correcció de suggeriments d'URL"
+
+#: src/MainWindow.vala:671
+#, fuzzy
+msgid "Suggestion added"
+msgstr "Correcció de suggeriments d'URL"
+
+#: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
+#, fuzzy
+msgid "Open Link Externally?"
+msgstr "Voleu obrir-ho externalment?"
+
+#: src/Dialogs/ExternalDialog.vala:37
+#, fuzzy, c-format
+msgid "This page is trying to open an app for <b>%s</b> links."
+msgstr "S'està tractant d'obrir una aplicació pels enllaços «%s»."
+
+#: src/Dialogs/ExternalDialog.vala:39
+msgid "This page is trying to open an app."
+msgstr "Esta pàgina tracta d'obrir una aplicació."
+
+#: src/Dialogs/ExternalDialog.vala:42
+msgid "Your data may not be kept private by the opened app."
+msgstr ""
+"Les vostres dades poden no ser manteses en privat per l'aplicació oberta."
+
+#: src/Dialogs/ExternalDialog.vala:47
+msgid "Don’t Open"
+msgstr "No òbrigues"
+
+#: src/Dialogs/ExternalDialog.vala:50
+msgid "Open Anyway"
+msgstr "Obre de totes formes"
+
+#: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
+msgid "Reset Preferences?"
+msgstr "Voleu restablir les preferències?"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+msgid ""
+"All added website suggestions will be removed. Any dismissed or remembered "
+"alerts, warnings, etc. will be displayed again the next time Ephemeral is "
+"opened."
+msgstr ""
+"Totes les suggerències de llocs webs s'esborraran. La propera vegada que "
+"obriu Ephemeral, qualsevol alerta o avís ignorat o recordat apareixerà de "
+"nou."
+
+#: src/Dialogs/PreferencesDialog.vala:33
+msgid "Never Mind"
+msgstr "No importa"
+
+#: src/Dialogs/PreferencesDialog.vala:36
+msgid "Reset Preferences"
+msgstr "Reinicialitza les preferències"
+
+#: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
+msgid "Message From Page"
+msgstr "Missatge de la pàgina"
+
+#: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
+#: src/Dialogs/ScriptDialog.vala:69
+msgid "Close"
+msgstr "Tanca"
+
+#: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
+msgid "Confirm"
+msgstr "Confirma"
+
+#: src/InfoBars/DefaultInfoBar.vala:31
+msgid "Make privacy a habit."
+msgstr "Féu de la privadesa un hàbit."
+
+#: src/InfoBars/DefaultInfoBar.vala:32
+msgid "Set Ephemeral as your default browser?"
+msgstr "Voleu establir Ephemeral com el navegador per defecte?"
+
+#. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
+#: src/InfoBars/DefaultInfoBar.vala:35
+msgid ""
+"You can always change this later in <i>System Settings</i> → "
+"<i>Applications</i>."
+msgstr ""
+"Podeu modificar açò més tard en <i>Configuració del sistema</i> → "
+"<i>Aplicacions</i>."
+
+#: src/InfoBars/DefaultInfoBar.vala:46
+msgid "Never Ask Again"
+msgstr "No em tornis a preguntar"
+
+#: src/InfoBars/DefaultInfoBar.vala:52
+msgid "Set as Default"
+msgstr "Estableix per defecte"
+
+#: src/InfoBars/NativeInfoBar.vala:31
+msgid "Ephemeral is a paid app designed for elementary OS."
+msgstr "Ephemeral és una aplicació de pagament disenyada per a elementary OS."
+
+#: src/InfoBars/NativeInfoBar.vala:32
+msgid ""
+"Some features may not work properly when running on another OS or desktop "
+"environment."
+msgstr ""
+"És posible que algunes característiques no funcionen correctament a altres "
+"sistemes o entorns."
+
+#: src/InfoBars/NativeInfoBar.vala:33
+msgid ""
+"Ephemeral is also typically funded by elementary AppCenter purchases. "
+"Consider donating if you find value in using Ephemeral on other platforms."
+msgstr ""
+"Ephemeral és finançada per les compres a l'AppCenter. Si trobeu valor en "
+"Ephemeral en altres plataformes, considereu fer una donació."
+
+#: src/InfoBars/NativeInfoBar.vala:41 src/InfoBars/PaidInfoBar.vala:43
+msgid "Dismiss"
+msgstr "Descarta"
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/NativeInfoBar.vala:46
+msgid "Donate…"
+msgstr "Doneu…"
+
+#: src/InfoBars/NetworkInfoBar.vala:31
+msgid "Network Not Available."
+msgstr "Xarxa no disponible."
+
+#: src/InfoBars/NetworkInfoBar.vala:32
+msgid "Connect to the Internet to browse the Web."
+msgstr "Connecteu-vos a Internet per navegar per la Xarxa."
+
+#: src/InfoBars/NetworkInfoBar.vala:38
+msgid "Never Warn Again"
+msgstr "No em tornis a avisar"
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/NetworkInfoBar.vala:45
+msgid "Network Settings…"
+msgstr "Configuració de xarxa…"
+
+#. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
+#: src/InfoBars/PaidInfoBar.vala:32
+msgid "Ephemeral is a paid app"
+msgstr "Ephemeral és una aplicació de pagament"
+
+#. TRANSLATORS: This continues the previous string, with terminating punctuation
+#: src/InfoBars/PaidInfoBar.vala:34
+msgid "funded by AppCenter purchases."
+msgstr "finançada per les compres a AppCenter"
+
+#: src/InfoBars/PaidInfoBar.vala:35
+msgid "Consider purchasing or funding if you find value in using Ephemeral."
+msgstr "Si heu trobat profitós Ephemeral, considereu comprar-ho o finançar-ho"
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/PaidInfoBar.vala:50
+msgid "Purchase or Fund…"
+msgstr "Compreu o financieu…"
+
+#: src/Views/ErrorView.vala:28
+msgid "Whoops"
+msgstr "Vaja"
+
+#: src/Views/ErrorView.vala:31
+msgid "Could not display the page."
+msgstr "No es pot mostrar la pàgina."
+
+#: src/Views/WelcomeView.vala:31
+msgid "The always-incognito web browser"
+msgstr "El navegador sempre d'incògnit"
+
+#: src/Views/WelcomeView.vala:33
+msgid ""
+"Remember, Ephemeral and any browser’s incognito or private mode can only do "
+"so much: they mitigate some tracking and don’t store data on your device, "
+"but they won’t stop your ISP, government, or determined websites from "
+"tracking you."
+msgstr ""
+"Teniu present que Ephemeral i els modes privats de qualsevol altre navegador "
+"tenen límits: tot i que disminueixen algunes formes de rastreig i prevenen "
+"l'emmagatzemametent local de dades, no poden parar el vostre proveïdor de "
+"servei, el govern o determinats llocs web."
+
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr "Per la millor protección, utilitzeu sempre una VPN."
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
+#: src/Widgets/BrowserButton.vala:50 src/Widgets/BrowserButton.vala:171
+#: src/Widgets/BrowserButton.vala:212
+msgid "Open page in…"
+msgstr "Obre la pàgina a…"
+
+#: src/Widgets/BrowserButton.vala:70 src/Widgets/BrowserButton.vala:190
+#: src/Widgets/BrowserButton.vala:227
+#, c-format
+msgid "Open page in %s"
+msgstr "Obre la pàgina a %s"
+
+#: src/Widgets/BrowserButton.vala:107
+msgid "Close Window When Opening Externally"
+msgstr "Tanqueu la finestra en obrir externament"
+
+#: src/Widgets/UrlEntry.vala:39
+msgid "Enter a URL or search term"
+msgstr "Escriviu una adreça o cerqueu un terme"
+
+#: src/Widgets/UrlEntry.vala:185
+#, c-format
+msgid "Go to \"%s\""
+msgstr "Vés a «%»"
+
+#: src/Widgets/UrlEntry.vala:185
+#, c-format
+msgid "Search for \"%s\""
+msgstr "Cerca «%s»"
+
+#: src/Widgets/UrlEntry.vala:251
+msgid "Popular website"
+msgstr "Lloc web popular"
+
+#: src/Widgets/UrlEntry.vala:284
+msgid "Favorite website"
+msgstr "Lloc web favorit"
+
+#: src/Widgets/UrlEntry.vala:723
+msgid "Go"
+msgstr "Vés-hi"
+
+#: src/Widgets/UrlEntry.vala:735
+msgid "Remove Website from Suggestions"
+msgstr "Esborra lloc web dels suggeriments"
+
+#: src/Widgets/UrlEntry.vala:739
+msgid "Add Website to Suggestions"
+msgstr "Afegeix lloc web als suggeriments"
+
+#: src/Widgets/WebView.vala:105
+#, fuzzy
+msgid "Open Link in New _Window"
+msgstr "Obre una nova finestra"

@@ -1,0 +1,339 @@
+# Dutch translations for com.github.cassidyjames.ephemeral package.
+# Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
+# Heimen Stoffels <vistausss@outlook.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.cassidyjames.ephemeral\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02 10:48+0100\n"
+"PO-Revision-Date: 2019-12-02 10:27+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Language-Team: none\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/MainWindow.vala:63
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr "Terug"
+
+#: src/MainWindow.vala:83
+msgid "Forward"
+msgstr "Vooruit"
+
+#: src/MainWindow.vala:88
+msgid "Reload page"
+msgstr "Pagina herladen"
+
+#: src/MainWindow.vala:93
+msgid "Stop loading"
+msgstr "Stoppen met laden"
+
+#: src/MainWindow.vala:105
+msgid "Close window and erase history"
+msgstr "Venster sluiten en geschiedenis wissen"
+
+#: src/MainWindow.vala:113
+msgid "Menu"
+msgstr "Menu"
+
+#: src/MainWindow.vala:121
+msgid "Zoom out"
+msgstr "Uitzoomen"
+
+#: src/MainWindow.vala:128
+msgid "Default zoom level"
+msgstr "Standaard zoomniveau"
+
+#: src/MainWindow.vala:135
+msgid "Zoom in"
+msgstr "Inzoomen"
+
+#: src/MainWindow.vala:150
+msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
+msgstr "<b>Let op</b> zonder JavaScript werken veel sites mogelijk niet goed"
+
+#: src/MainWindow.vala:166
+msgid "JavaScript"
+msgstr "JavaScript"
+
+#: src/MainWindow.vala:180
+msgid "Open New Window"
+msgstr "Nieuw venster openen"
+
+#: src/MainWindow.vala:198
+msgid "Quit Ephemeral"
+msgstr "Ephemeral afsluiten"
+
+#: src/MainWindow.vala:203
+msgid "Close all windows and erase all history"
+msgstr "Alle vensters sluiten en alle geschiedenis wissen"
+
+#: src/MainWindow.vala:224
+msgid "Startpage.com Search"
+msgstr "Startpage.com-zoekmachine"
+
+#: src/MainWindow.vala:227
+msgid "DuckDuckGo Search"
+msgstr "DuckDuckGo-zoekmachine"
+
+#: src/MainWindow.vala:232
+msgid "Custom Search Engine…"
+msgstr "Aangepaste zoekmachine…"
+
+#: src/MainWindow.vala:236
+msgid "Reset Preferences…"
+msgstr "Standaardwaarden terugzetten…"
+
+#: src/MainWindow.vala:667
+msgid "Suggestion removed"
+msgstr "Suggestie verwijderd"
+
+#: src/MainWindow.vala:671
+msgid "Suggestion added"
+msgstr "Suggestie toegevoegd"
+
+#: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
+msgid "Open Link Externally?"
+msgstr "Link extern openen?"
+
+#: src/Dialogs/ExternalDialog.vala:37
+#, c-format
+msgid "This page is trying to open an app for <b>%s</b> links."
+msgstr ""
+"Deze pagina probeert een toepassing te openen voor links van het type <b>%s</"
+"b>."
+
+#: src/Dialogs/ExternalDialog.vala:39
+msgid "This page is trying to open an app."
+msgstr "Deze pagina probeert een app te openen."
+
+#: src/Dialogs/ExternalDialog.vala:42
+msgid "Your data may not be kept private by the opened app."
+msgstr "Je gegevens worden mogelijk niet geheimgehouden door de geopende app."
+
+#: src/Dialogs/ExternalDialog.vala:47
+msgid "Don’t Open"
+msgstr "Niet openen"
+
+#: src/Dialogs/ExternalDialog.vala:50
+msgid "Open Anyway"
+msgstr "Tóch openen"
+
+#: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
+msgid "Reset Preferences?"
+msgstr "Standaardwaarden herstellen?"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+msgid ""
+"All added website suggestions will be removed. Any dismissed or remembered "
+"alerts, warnings, etc. will be displayed again the next time Ephemeral is "
+"opened."
+msgstr ""
+"Alle toegevoegde websites worden verwijderd. Verworpen of onthouden "
+"meldingen, waarschuwingen etc. worden opnieuw getoond zodra je Ephemeral "
+"weer opent."
+
+#: src/Dialogs/PreferencesDialog.vala:33
+msgid "Never Mind"
+msgstr "Tóch niet"
+
+#: src/Dialogs/PreferencesDialog.vala:36
+msgid "Reset Preferences"
+msgstr "Herstellen"
+
+#: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
+msgid "Message From Page"
+msgstr "Bericht van pagina"
+
+#: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
+#: src/Dialogs/ScriptDialog.vala:69
+msgid "Close"
+msgstr "Sluiten"
+
+#: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
+msgid "Confirm"
+msgstr "Bevestigen"
+
+#: src/InfoBars/DefaultInfoBar.vala:31
+msgid "Make privacy a habit."
+msgstr "Geef privacy prioriteit."
+
+#: src/InfoBars/DefaultInfoBar.vala:32
+msgid "Set Ephemeral as your default browser?"
+msgstr "Wil je Ephemeral instellen als je standaardbrowser?"
+
+#. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
+#: src/InfoBars/DefaultInfoBar.vala:35
+msgid ""
+"You can always change this later in <i>System Settings</i> → "
+"<i>Applications</i>."
+msgstr ""
+"Je kunt dit achteraf altijd wijzigen via <i>Systeeminstellingen</i> → "
+"<i>Toepassingen</i>."
+
+#: src/InfoBars/DefaultInfoBar.vala:46
+msgid "Never Ask Again"
+msgstr "Nooit meer vragen"
+
+#: src/InfoBars/DefaultInfoBar.vala:52
+msgid "Set as Default"
+msgstr "Instellen als standaard"
+
+#: src/InfoBars/NativeInfoBar.vala:31
+msgid "Ephemeral is a paid app designed for elementary OS."
+msgstr "Ephemeral is een betaalde app, ontworpen voor elementary OS."
+
+#: src/InfoBars/NativeInfoBar.vala:32
+msgid ""
+"Some features may not work properly when running on another OS or desktop "
+"environment."
+msgstr ""
+"Sommige functies werken mogelijk niet goed als je de browser open op een "
+"ander besturingssysteem of werkomgeving."
+
+#: src/InfoBars/NativeInfoBar.vala:33
+msgid ""
+"Ephemeral is also typically funded by elementary AppCenter purchases. "
+"Consider donating if you find value in using Ephemeral on other platforms."
+msgstr ""
+"Ephemeral wordt doorgaans gefinancierd door aankopen via elementary's app-"
+"winkel. Als je Ephemeral gebruikt op een ander systeem en prettig vindt, "
+"overweeg dan een donatie."
+
+#: src/InfoBars/NativeInfoBar.vala:41 src/InfoBars/PaidInfoBar.vala:43
+msgid "Dismiss"
+msgstr "Verwerpen"
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/NativeInfoBar.vala:46
+msgid "Donate…"
+msgstr "Doneren…"
+
+#: src/InfoBars/NetworkInfoBar.vala:31
+msgid "Network Not Available."
+msgstr "Geen netwerkverbinding beschikbaar."
+
+#: src/InfoBars/NetworkInfoBar.vala:32
+msgid "Connect to the Internet to browse the Web."
+msgstr "Maak verbinding met het internet om te kunnen surfen."
+
+#: src/InfoBars/NetworkInfoBar.vala:38
+msgid "Never Warn Again"
+msgstr "Nooit meer waarschuwen"
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/NetworkInfoBar.vala:45
+msgid "Network Settings…"
+msgstr "Netwerkinstellingen…"
+
+#. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
+#: src/InfoBars/PaidInfoBar.vala:32
+msgid "Ephemeral is a paid app"
+msgstr "Ephemeral is een betaalde app"
+
+#. TRANSLATORS: This continues the previous string, with terminating punctuation
+#: src/InfoBars/PaidInfoBar.vala:34
+msgid "funded by AppCenter purchases."
+msgstr "gefinancierd door aankopen via elementary's app-winkel."
+
+#: src/InfoBars/PaidInfoBar.vala:35
+msgid "Consider purchasing or funding if you find value in using Ephemeral."
+msgstr ""
+"Als je Ephemeral gebruikt en prettig vindt, overweeg dan de browser aan te "
+"schaffen of te doneren."
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/PaidInfoBar.vala:50
+msgid "Purchase or Fund…"
+msgstr "Aanschaffen of doneren…"
+
+#: src/Views/ErrorView.vala:28
+msgid "Whoops"
+msgstr "Oeps"
+
+#: src/Views/ErrorView.vala:31
+msgid "Could not display the page."
+msgstr "De pagina kan niet worden getoond."
+
+#: src/Views/WelcomeView.vala:31
+msgid "The always-incognito web browser"
+msgstr "De webbrowser waarmee je altijd privé surft"
+
+#: src/Views/WelcomeView.vala:33
+msgid ""
+"Remember, Ephemeral and any browser’s incognito or private mode can only do "
+"so much: they mitigate some tracking and don’t store data on your device, "
+"but they won’t stop your ISP, government, or determined websites from "
+"tracking you."
+msgstr ""
+"Let op: Ephemeral en andere browsers met een privé-/incognitomodus kunnen "
+"niet alles voorkomen. De meeste manieren van volgen worden vermeden en er "
+"wordt niks opgeslagen op je apparaat, maar je provider, overheid of bepaalde "
+"daarvoor bestemde websites kunnen je nog steeds volgen."
+
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr "Als je dat ook wilt voorkomen, gebruik dan een VPN."
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
+#: src/Widgets/BrowserButton.vala:50 src/Widgets/BrowserButton.vala:171
+#: src/Widgets/BrowserButton.vala:212
+msgid "Open page in…"
+msgstr "Pagina openen met…"
+
+#: src/Widgets/BrowserButton.vala:70 src/Widgets/BrowserButton.vala:190
+#: src/Widgets/BrowserButton.vala:227
+#, c-format
+msgid "Open page in %s"
+msgstr "Pagina openen met %s"
+
+#: src/Widgets/BrowserButton.vala:107
+msgid "Close Window When Opening Externally"
+msgstr "Venster sluiten als pagina extern wordt geopend"
+
+#: src/Widgets/UrlEntry.vala:39
+msgid "Enter a URL or search term"
+msgstr "Voer een URL of zoekterm in"
+
+#: src/Widgets/UrlEntry.vala:185
+#, c-format
+msgid "Go to \"%s\""
+msgstr "Ga naar \"%s\""
+
+#: src/Widgets/UrlEntry.vala:185
+#, c-format
+msgid "Search for \"%s\""
+msgstr "Zoeken naar \"%s\""
+
+#: src/Widgets/UrlEntry.vala:251
+msgid "Popular website"
+msgstr "Populaire website"
+
+#: src/Widgets/UrlEntry.vala:284
+msgid "Favorite website"
+msgstr "Favoriete website"
+
+#: src/Widgets/UrlEntry.vala:723
+msgid "Go"
+msgstr "Gaan"
+
+#: src/Widgets/UrlEntry.vala:735
+msgid "Remove Website from Suggestions"
+msgstr "Website verwijderen uit suggesties"
+
+#: src/Widgets/UrlEntry.vala:739
+msgid "Add Website to Suggestions"
+msgstr "Website toevoegen aan suggesties"
+
+#: src/Widgets/WebView.vala:105
+msgid "Open Link in New _Window"
+msgstr "Link openen in nieu_w venster"

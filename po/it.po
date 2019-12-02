@@ -1,0 +1,340 @@
+# Italian translations for com.github.cassidyjames.ephemeral package.
+# Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
+# Meliurwen <meliurwen@gmail.com>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.cassidyjames.ephemeral\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-02 10:48+0100\n"
+"PO-Revision-Date: 2019-12-02 10:27+0100\n"
+"Last-Translator: Meliurwen <meliurwen@gmail.com>\n"
+"Language-Team: none\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/MainWindow.vala:63
+msgid "Undo"
+msgstr ""
+
+#: src/MainWindow.vala:77
+msgid "Back"
+msgstr "Indietro"
+
+#: src/MainWindow.vala:83
+msgid "Forward"
+msgstr "Avanti"
+
+#: src/MainWindow.vala:88
+msgid "Reload page"
+msgstr "Ricarica pagina"
+
+#: src/MainWindow.vala:93
+msgid "Stop loading"
+msgstr "Interrompi caricamento"
+
+#: src/MainWindow.vala:105
+msgid "Close window and erase history"
+msgstr "Chiudi la finestra ed elimina la cronologia"
+
+#: src/MainWindow.vala:113
+msgid "Menu"
+msgstr "Menu"
+
+#: src/MainWindow.vala:121
+msgid "Zoom out"
+msgstr "Rimpicciolisci"
+
+#: src/MainWindow.vala:128
+msgid "Default zoom level"
+msgstr "Livello di ingrandimento predefinito"
+
+#: src/MainWindow.vala:135
+msgid "Zoom in"
+msgstr "Ingrandisci"
+
+#: src/MainWindow.vala:150
+msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
+msgstr ""
+
+#: src/MainWindow.vala:166
+msgid "JavaScript"
+msgstr ""
+
+#: src/MainWindow.vala:180
+msgid "Open New Window"
+msgstr "Apri Nuova Finestra"
+
+#: src/MainWindow.vala:198
+msgid "Quit Ephemeral"
+msgstr "Esci da Ephemeral"
+
+#: src/MainWindow.vala:203
+msgid "Close all windows and erase all history"
+msgstr "Chiudi tutte le finestre ed elimina l'intera cronologia"
+
+#: src/MainWindow.vala:224
+msgid "Startpage.com Search"
+msgstr "Cerca con Startpage.com"
+
+#: src/MainWindow.vala:227
+msgid "DuckDuckGo Search"
+msgstr "Cerca con DuckDuckGo"
+
+#: src/MainWindow.vala:232
+msgid "Custom Search Engine…"
+msgstr "Motore di Ricerca Personalizzato..."
+
+#: src/MainWindow.vala:236
+msgid "Reset Preferences…"
+msgstr "Ripristina preferenze..."
+
+#: src/MainWindow.vala:667
+#, fuzzy
+msgid "Suggestion removed"
+msgstr "Sistemati Suggerimenti dell'URL"
+
+#: src/MainWindow.vala:671
+#, fuzzy
+msgid "Suggestion added"
+msgstr "Sistemati Suggerimenti dell'URL"
+
+#: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
+msgid "Open Link Externally?"
+msgstr "Aprire il Link Esternamente?"
+
+#: src/Dialogs/ExternalDialog.vala:37
+#, c-format
+msgid "This page is trying to open an app for <b>%s</b> links."
+msgstr ""
+"Questa pagina sta cercando di aprire un'app per i collegamenti <b>%s</b>."
+
+#: src/Dialogs/ExternalDialog.vala:39
+msgid "This page is trying to open an app."
+msgstr "Questa pagina sta cercando di aprire un'app."
+
+#: src/Dialogs/ExternalDialog.vala:42
+msgid "Your data may not be kept private by the opened app."
+msgstr "I tuoi dati potrebbero non rimanere privati dall'app aperta."
+
+#: src/Dialogs/ExternalDialog.vala:47
+msgid "Don’t Open"
+msgstr "Non Aprire"
+
+#: src/Dialogs/ExternalDialog.vala:50
+msgid "Open Anyway"
+msgstr "Apri Comunque"
+
+#: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
+msgid "Reset Preferences?"
+msgstr "Ripristinare le Preferenze?"
+
+#: src/Dialogs/PreferencesDialog.vala:27
+msgid ""
+"All added website suggestions will be removed. Any dismissed or remembered "
+"alerts, warnings, etc. will be displayed again the next time Ephemeral is "
+"opened."
+msgstr ""
+"Tutti i suggerimenti sui siti web aggiunti verranno rimossi. Eventuali "
+"avvisi ignorati o rimossi, avvertimenti, ecc... verranno visualizzati "
+"nuovamente alla successiva apertura di Ephemeral."
+
+#: src/Dialogs/PreferencesDialog.vala:33
+msgid "Never Mind"
+msgstr "Annulla"
+
+#: src/Dialogs/PreferencesDialog.vala:36
+msgid "Reset Preferences"
+msgstr "Ripristina Preferenze"
+
+#: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
+msgid "Message From Page"
+msgstr "Messaggio Dalla Pagina"
+
+#: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
+#: src/Dialogs/ScriptDialog.vala:69
+msgid "Close"
+msgstr "Chiudi"
+
+#: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
+msgid "Confirm"
+msgstr "Conferma"
+
+#: src/InfoBars/DefaultInfoBar.vala:31
+msgid "Make privacy a habit."
+msgstr "Rendi la privacy un'abitune."
+
+#: src/InfoBars/DefaultInfoBar.vala:32
+msgid "Set Ephemeral as your default browser?"
+msgstr "impostare Ephemeral come browser predefinito?"
+
+#. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
+#: src/InfoBars/DefaultInfoBar.vala:35
+msgid ""
+"You can always change this later in <i>System Settings</i> → "
+"<i>Applications</i>."
+msgstr ""
+"Puoi sempre cambiare questa cosa dopo in <i>Impostazioni di Sistema</i> → "
+"<i>Applicazioni</i>."
+
+#: src/InfoBars/DefaultInfoBar.vala:46
+msgid "Never Ask Again"
+msgstr "Non Chiedere Più"
+
+#: src/InfoBars/DefaultInfoBar.vala:52
+msgid "Set as Default"
+msgstr "Imposta come Predefinito"
+
+#: src/InfoBars/NativeInfoBar.vala:31
+msgid "Ephemeral is a paid app designed for elementary OS."
+msgstr "Ephemeral è un'app a pagamento progettata per elementary OS."
+
+#: src/InfoBars/NativeInfoBar.vala:32
+msgid ""
+"Some features may not work properly when running on another OS or desktop "
+"environment."
+msgstr ""
+"Alcune caratteristiche potrebbero non funzionare correttamente quando "
+"eseguito su un altro sistema operativo o ambiente grafico."
+
+#: src/InfoBars/NativeInfoBar.vala:33
+msgid ""
+"Ephemeral is also typically funded by elementary AppCenter purchases. "
+"Consider donating if you find value in using Ephemeral on other platforms."
+msgstr ""
+"Ephemeral è anche tipicamente finanziato dagli acquisti dell'AppCenter di "
+"elementary. Prendi in considerazione la possibilità di donare se trovi "
+"valore nell'uso di Ephemeral su altre piattaforme."
+
+#: src/InfoBars/NativeInfoBar.vala:41 src/InfoBars/PaidInfoBar.vala:43
+msgid "Dismiss"
+msgstr "Scarta"
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/NativeInfoBar.vala:46
+msgid "Donate…"
+msgstr "Fai una donazione..."
+
+#: src/InfoBars/NetworkInfoBar.vala:31
+msgid "Network Not Available."
+msgstr "Rete Non Disponibile"
+
+#: src/InfoBars/NetworkInfoBar.vala:32
+msgid "Connect to the Internet to browse the Web."
+msgstr "Connettiti ad Internet per navigare il Web."
+
+#: src/InfoBars/NetworkInfoBar.vala:38
+msgid "Never Warn Again"
+msgstr "Non Avvertire Più"
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/NetworkInfoBar.vala:45
+msgid "Network Settings…"
+msgstr "Impostazioni di Rete..."
+
+#. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
+#: src/InfoBars/PaidInfoBar.vala:32
+msgid "Ephemeral is a paid app"
+msgstr "Ephemeral è un'app a pagamento"
+
+#. TRANSLATORS: This continues the previous string, with terminating punctuation
+#: src/InfoBars/PaidInfoBar.vala:34
+msgid "funded by AppCenter purchases."
+msgstr "finanziata dagli acquisti dell'AppCenter."
+
+#: src/InfoBars/PaidInfoBar.vala:35
+msgid "Consider purchasing or funding if you find value in using Ephemeral."
+msgstr ""
+"Prendi in considerazione la possibilità di donare se trovi valore nell'uso "
+"di Ephemeral."
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
+#: src/InfoBars/PaidInfoBar.vala:50
+msgid "Purchase or Fund…"
+msgstr "Compra o Finanzia..."
+
+#: src/Views/ErrorView.vala:28
+msgid "Whoops"
+msgstr "Ops"
+
+#: src/Views/ErrorView.vala:31
+msgid "Could not display the page."
+msgstr "Impossibile mostrare la pagina."
+
+#: src/Views/WelcomeView.vala:31
+msgid "The always-incognito web browser"
+msgstr "Il browser web sempre in modalità in incognito"
+
+#: src/Views/WelcomeView.vala:33
+msgid ""
+"Remember, Ephemeral and any browser’s incognito or private mode can only do "
+"so much: they mitigate some tracking and don’t store data on your device, "
+"but they won’t stop your ISP, government, or determined websites from "
+"tracking you."
+msgstr ""
+"Ricorda, Ephemeral ed ogni altro browser in modalità in incognito o privata "
+"può fare solo questo: attenua il tracciamento e non memorizza i dati sul tuo "
+"dispositivo, ma non impedisce al tuo ISP, al tuo governo o a determinati "
+"siti di tracciarti."
+
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr "Per una protezione migliore utilizza sempre una VPN."
+
+#. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
+#: src/Widgets/BrowserButton.vala:50 src/Widgets/BrowserButton.vala:171
+#: src/Widgets/BrowserButton.vala:212
+msgid "Open page in…"
+msgstr "Apri pagina in..."
+
+#: src/Widgets/BrowserButton.vala:70 src/Widgets/BrowserButton.vala:190
+#: src/Widgets/BrowserButton.vala:227
+#, c-format
+msgid "Open page in %s"
+msgstr "Apri pagina in %s"
+
+#: src/Widgets/BrowserButton.vala:107
+msgid "Close Window When Opening Externally"
+msgstr "Chiudi la Finestra Quando Apri Esternamente"
+
+#: src/Widgets/UrlEntry.vala:39
+msgid "Enter a URL or search term"
+msgstr "Inserisci un URL o un termine di ricerca"
+
+#: src/Widgets/UrlEntry.vala:185
+#, c-format
+msgid "Go to \"%s\""
+msgstr "Vai su \"%s\""
+
+#: src/Widgets/UrlEntry.vala:185
+#, c-format
+msgid "Search for \"%s\""
+msgstr "Cerca \"%s\""
+
+#: src/Widgets/UrlEntry.vala:251
+msgid "Popular website"
+msgstr "Sito popolare"
+
+#: src/Widgets/UrlEntry.vala:284
+msgid "Favorite website"
+msgstr "Sito preferito"
+
+#: src/Widgets/UrlEntry.vala:723
+msgid "Go"
+msgstr "Vai"
+
+#: src/Widgets/UrlEntry.vala:735
+msgid "Remove Website from Suggestions"
+msgstr "Rimuovi il Sito dai Suggerimenti"
+
+#: src/Widgets/UrlEntry.vala:739
+msgid "Add Website to Suggestions"
+msgstr "Aggiungi il Sito ai Suggerimenti"
+
+#: src/Widgets/WebView.vala:105
+msgid "Open Link in New _Window"
+msgstr "Apri Link in una Nuova _Finestra"
