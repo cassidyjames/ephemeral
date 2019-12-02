@@ -1,5 +1,3 @@
-data/com.github.cassidyjames.ephemeral.appdata.xml.in
-data/launcher.desktop.in
 src/Application.vala
 src/MainWindow.vala
 src/Dialogs/ExternalDialog.vala
