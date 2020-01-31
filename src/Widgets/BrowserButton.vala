@@ -44,59 +44,47 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             }
         }
 
-        if (external_apps.length () > 1) {
-            list_button = new Gtk.MenuButton ();
-            // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
-            list_button.tooltip_text = _("Open page in…");
+        list_button = new Gtk.MenuButton ();
+        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
+        list_button.tooltip_text = _("Open page in…");
 
-            open_button = new Gtk.Button ();
+        open_button = new Gtk.Button ();
 
-            ulong last_browser_handler_id;
+        ulong last_browser_handler_id;
 
-            attach (open_button, 0, 0);
-            attach (list_button, 1, 0);
-            var last_used_browser_shown = false;
+        attach (open_button, 0, 0);
+        attach (list_button, 1, 0);
+        var last_used_browser_shown = false;
 
-            if (Application.settings.get_string ("last-used-browser") != "") {
-                foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
-                        var browser_icon = new Gtk.Image.from_gicon (
-                            app_info.get_icon (),
-                            Application.instance.icon_size
-                        );
-                        browser_icon.pixel_size = 24;
+        if (Application.settings.get_string ("last-used-browser") != "") {
+            foreach (AppInfo app_info in external_apps) {
+                if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
+                    var browser_icon = new Gtk.Image.from_gicon (
+                        app_info.get_icon (),
+                        Application.instance.icon_size
+                    );
+                    browser_icon.pixel_size = 24;
 
-                        open_button.image = browser_icon;
-                        open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
-                        open_button.tooltip_markup = Granite.markup_accel_tooltip (
-                          {"<Ctrl>o"},
-                          open_button.tooltip_text
-                        );
+                    open_button.image = browser_icon;
+                    open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
+                    open_button.tooltip_markup = Granite.markup_accel_tooltip (
+                      {"<Ctrl>o"},
+                      open_button.tooltip_text
+                    );
 
-                        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
+                    open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
 
-                        last_used_browser_shown = true;
+                    last_used_browser_shown = true;
 
-                        last_browser_handler_id = open_button.clicked.connect (() => {
-                            try_opening (app_info, web_view.get_uri ());
-                        });
-                    }
+                    last_browser_handler_id = open_button.clicked.connect (() => {
+                        try_opening (app_info, web_view.get_uri ());
+                    });
                 }
-
-                list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
-
-                list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
-            } else {
-                open_button.show.connect (() => { // Needed because of show_all () being executed after this constructor
-                    if (!last_used_browser_shown) {
-                        open_button.hide ();
-                    }
-                });
-
-                list_button.image = new Gtk.Image.from_icon_name ("document-export", Application.instance.icon_size);
-
-                list_button.get_style_context ().remove_class (Gtk.STYLE_CLASS_RAISED);
             }
+
+            list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+
+            list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
 
             var list_popover = new Gtk.Popover (list_button);
             list_button.popover = list_popover;
