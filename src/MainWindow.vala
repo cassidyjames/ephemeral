@@ -725,6 +725,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void update_progress () {
+        title = web_view.title;
         back_button.sensitive = web_view.can_go_back ();
         forward_button.sensitive = web_view.can_go_forward ();
 
