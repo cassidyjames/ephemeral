@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 Cassidy James Blaede <c@ssidyjam.es> -->
+<!-- Copyright 2018–2020 Cassidy James Blaede <c@ssidyjam.es> -->
 <component type="desktop">
   <id>com.github.cassidyjames.ephemeral</id>
   <metadata_license>CC0</metadata_license>
@@ -40,8 +40,9 @@
         <p>Dark Style Rises</p>
         <ul>
           <li>A new toggle lets you choose light or dark style for sites, assuming they support the `prefers-color-scheme` CSS query</li>
-          <li>Stop defaulting to dark style by default since it can break some sites</li>
+          <li>Stopped defaulting to dark style by default since it can break some sites</li>
           <li>Set the window title to help distinguish different pages from the dock</li>
+          <li>Simplified "Open page in…" menu and logic to always expose all options</li>
         </ul>
         <p>Translation updates</p>
         <ul>
@@ -406,7 +407,10 @@
       <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-many-browsers@2x.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-menu.png</image>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-menu@2x.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-menu-dark@2x.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1">
