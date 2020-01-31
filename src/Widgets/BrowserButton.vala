@@ -53,11 +53,6 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         open_button = new Gtk.Button ();
         open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
 
-        attach (open_button, 0, 0);
-        attach (list_button, 1, 0);
-
-        setup_preferred_browser ();
-
         var list_popover = new Gtk.Popover (list_button);
         list_button.popover = list_popover;
 
@@ -70,13 +65,6 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         var close_check_context = close_check.get_style_context ();
         close_check_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
         close_check_context.add_class (Gtk.STYLE_CLASS_FLAT);
-
-        Application.settings.bind (
-            "close-when-opening-externally",
-            close_check,
-            "active",
-            SettingsBindFlags.DEFAULT
-        );
 
         list_popover.add (list_grid);
 
@@ -100,13 +88,13 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             list_grid.add (browser_item);
             browser_item.visible = true;
 
+            browser_grid.show_all ();
+
             browser_item.clicked.connect (() => {
                 Application.settings.set_string ("last-used-browser", app_info.get_id ());
                 try_opening (app_info, web_view.get_uri ());
                 list_popover.popdown ();
             });
-
-            browser_grid.show_all ();
         }
 
         var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
@@ -116,9 +104,22 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         list_grid.add (close_check);
         list_grid.show_all ();
 
+        setup_preferred_browser ();
+
+        attach (open_button, 0, 0);
+        attach (list_button, 1, 0);
+
+
         Application.settings.changed["last-used-browser"].connect (() => {
             setup_preferred_browser ();
         });
+
+        Application.settings.bind (
+            "close-when-opening-externally",
+            close_check,
+            "active",
+            SettingsBindFlags.DEFAULT
+        );
     }
 
     private void setup_preferred_browser () {
