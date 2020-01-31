@@ -35,6 +35,21 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.2.0" date="2020-01-30">
+      <description>
+        <p>Dark style support</p>
+        <ul>
+          <li>A new toggle lets you choose light or dark style for sites, assuming they support the `prefers-color-scheme` CSS query</li>
+          <li>Stop defaulting to dark style by default since it can break some sites</li>
+        </ul>
+        <p>Translation updates</p>
+        <ul>
+          <li>Updated Dutch translations thanks to Heimen Stoffels</li>
+          <li>Updated French translations thanks to @NathanBnm</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="6.1.1" date="2019-11-05">
       <description>
         <p>Minor updates</p>
