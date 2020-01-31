@@ -37,10 +37,11 @@
   <releases>
     <release version="6.2.0" date="2020-01-30">
       <description>
-        <p>Dark style support</p>
+        <p>Dark Style Rises</p>
         <ul>
           <li>A new toggle lets you choose light or dark style for sites, assuming they support the `prefers-color-scheme` CSS query</li>
           <li>Stop defaulting to dark style by default since it can break some sites</li>
+          <li>Set the window title to help distinguish different pages from the dock</li>
         </ul>
         <p>Translation updates</p>
         <ul>
