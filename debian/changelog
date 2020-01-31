@@ -1,3 +1,18 @@
+com.github.cassidyjames.ephemeral (6.2.0) bionic; urgency=medium
+
+  * Release 6.2.0 (#217)
+  * Update translation template
+  * Simplify browser button (#216)
+  * Update translation template
+  * Set window title (#215)
+  * Update translation template
+  * Dark style toggle and preference (#213)
+  * Update French translation (#210)
+  * Merge pull request #209 from Vistaus/master
+  * Updated Dutch translation
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Fri, 31 Jan 2020 04:22:15 +0000
+
 com.github.cassidyjames.ephemeral (1.0) bionic; urgency=low
 
   * Initial Release.
