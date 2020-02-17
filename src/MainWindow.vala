@@ -36,6 +36,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private BrowserButton browser_button;
     private Gtk.Button erase_button;
     private uint overlay_timeout_id = 0;
+    private uint configure_id;
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
@@ -50,9 +51,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     construct {
-        default_height = 800;
-        default_width = 1280;
-
         var header = new Gtk.HeaderBar ();
         header.show_close_button = true;
         header.has_subtitle = false;
@@ -321,6 +319,22 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         set_titlebar (header);
         add (grid);
+
+        int window_x, window_y;
+        var rect = Gtk.Allocation ();
+
+        Application.settings.get ("window-position", "(ii)", out window_x, out window_y);
+        Application.settings.get ("window-size", "(ii)", out rect.width, out rect.height);
+
+        if (window_x != -1 ||  window_y != -1) {
+            move (window_x, window_y);
+        }
+
+        set_allocation (rect);
+
+        if (Application.settings.get_boolean ("window-maximized")) {
+            maximize ();
+        }
 
         show_all ();
 
@@ -722,6 +736,34 @@ public class Ephemeral.MainWindow : Gtk.Window {
         );
 
         add_accel_group (accel_group);
+    }
+
+    public override bool configure_event (Gdk.EventConfigure event) {
+        if (configure_id != 0) {
+            GLib.Source.remove (configure_id);
+        }
+
+        configure_id = Timeout.add (100, () => {
+            configure_id = 0;
+
+            if (is_maximized) {
+                Application.settings.set_boolean ("window-maximized", true);
+            } else {
+                Application.settings.set_boolean ("window-maximized", false);
+
+                Gdk.Rectangle rect;
+                get_allocation (out rect);
+                Application.settings.set ("window-size", "(ii)", rect.width, rect.height);
+
+                int root_x, root_y;
+                get_position (out root_x, out root_y);
+                Application.settings.set ("window-position", "(ii)", root_x, root_y);
+            }
+
+            return false;
+        });
+
+        return base.configure_event (event);
     }
 
     private void update_progress () {
