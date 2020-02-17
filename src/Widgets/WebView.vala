@@ -38,25 +38,17 @@ public class Ephemeral.WebView : WebKit.WebView {
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
 
+// FIXME: Working around https://bugs.webkit.org/show_bug.cgi?id=197947
         var undark_css = new WebKit.UserStyleSheet (
             """
-            html,
-            body {
-                background-color: white;
-                color: black;
-            }
-
-            input,
-            textarea,
+            body,
             button,
+            input,
             select,
+            textarea,
             ::-webkit-file-upload-button {
                 background: white;
-                border: 1px solid rgba(0, 0, 0, 0.25);
-                border-radius: 0.25em;
                 color: black;
-                padding: 0.25em 0.5em;
-                -webkit-appearance: none;
             }
             """,
             WebKit.UserContentInjectedFrames.ALL_FRAMES,
@@ -65,6 +57,7 @@ public class Ephemeral.WebView : WebKit.WebView {
             null
         );
         user_content_manager.add_style_sheet (undark_css);
+// ENDFIXME
 
         var webkit_web_context = new WebKit.WebContext.ephemeral ();
         webkit_web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);

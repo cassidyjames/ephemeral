@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -112,6 +112,20 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         var settings_popover = new Gtk.Popover (settings_button);
         settings_button.popover = settings_popover;
+
+        var style_switch = new Granite.ModeSwitch.from_icon_name (
+            "display-brightness-symbolic",
+            "weather-clear-night-symbolic"
+        );
+        style_switch.primary_icon_tooltip_text = _("Light content");
+        style_switch.secondary_icon_tooltip_text = _("Dark content");
+        style_switch.halign = Gtk.Align.CENTER;
+        style_switch.margin = 12;
+        style_switch.margin_bottom = 6;
+
+        var gtk_settings = Gtk.Settings.get_default ();
+        style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
+        Application.settings.bind ("dark-style", style_switch, "active", SettingsBindFlags.DEFAULT);
 
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
         zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -245,6 +259,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover_grid.orientation = Gtk.Orientation.VERTICAL;
         settings_popover_grid.width_request = 200;
 
+        settings_popover_grid.add (style_switch);
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
         settings_popover_grid.add (new MenuSeparator ());
@@ -752,6 +767,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void update_progress () {
+        title = web_view.title;
         back_button.sensitive = web_view.can_go_back ();
         forward_button.sensitive = web_view.can_go_forward ();
 
