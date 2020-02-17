@@ -1,3 +1,15 @@
+com.github.cassidyjames.ephemeral (6.2.1) bionic; urgency=medium
+
+  * Release 6.2.1 (#219)
+  * Update translation template
+  * Update com.github.cassidyjames.ephemeral.appdata.xml.in
+  * Update translation template
+  * Improve translation (#211)
+  * Update .travis.yml
+  * Update README.md
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Mon, 17 Feb 2020 18:17:07 +0000
+
 com.github.cassidyjames.ephemeral (6.2.0) bionic; urgency=medium
 
   * Release 6.2.0 (#217)
