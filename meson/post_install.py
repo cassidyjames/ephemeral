@@ -23,4 +23,3 @@ if 'DESTDIR' not in os.environ:
 
     print('Compiling gsettings schemas...')
     subprocess.call(['glib-compile-schemas', schemadir])
-

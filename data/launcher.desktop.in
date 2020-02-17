@@ -15,4 +15,3 @@ Actions=New;
 [Desktop Action New]
 Name=New Window
 Exec=com.github.cassidyjames.ephemeral
-
