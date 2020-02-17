@@ -19,6 +19,25 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
+/* elementary DARK STYLESHEET */
+@define-color bg_highlight_color shade(@bg_color, 1.4);
+@define-color fg_color @SILVER_300;
+@define-color inset_dark_color alpha(@BLACK_900, 0.03);
+@define-color menu_separator alpha(@BLACK_900, 0.25);
+@define-color menu_separator_shadow alpha(white, 0.05);
+@define-color placeholder_text_color shade(@text_color, 0.8);
+@define-color text_color @SILVER_100;
+@define-color text_shadow_color alpha(@BLACK_900, 0.4);
+@define-color titlebar_color shade(@base_color, 0.9);
+@define-color title_color shade(@text_color, 0.9);
+@define-color title_shadow_color alpha(@BLACK_900, 0.6);
+@define-color decoration_border_color alpha(black, 0.75);
+@define-color internal_element_prelight mix(@text_color, @base_color, 0.4);
+@define-color internal_element_insensitive mix(@internal_element_color, @base_color, 0.7);
+@define-color view_symbolic_color shade(@internal_element_color, 0.8);
+@define-color success_color @LIME_300;
+
+/* CUSTOM EPHEMERAL STYLES */
 @define-color base_color mix(@GRAPE_900, @BLUEBERRY_900, 0.125);
 @define-color colorPrimary mix(@GRAPE_700, @BLUEBERRY_700, 0.33);
 @define-color colorAccent @GRAPE_500;

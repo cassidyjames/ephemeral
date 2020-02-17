@@ -1,4 +1,8 @@
-project('com.github.cassidyjames.ephemeral', 'vala', 'c')
+project(
+    'com.github.cassidyjames.ephemeral',
+    'vala', 'c',
+    version: '6.2.0'
+)
 
 gnome = import('gnome')
 i18n = import('i18n')
