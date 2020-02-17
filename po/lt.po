@@ -1,811 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Lithuanian translations for com.github.cassidyjames.ephemeral package.
+# Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
-# Moo, 2019.
+# Automatically generated, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-06 18:40+0000\n"
-"PO-Revision-Date: 2019-03-20 21:08+0200\n"
-"Last-Translator: Moo\n"
-"Language-Team: \n"
+"POT-Creation-Date: 2019-12-02 10:48+0100\n"
+"PO-Revision-Date: 2019-12-02 10:27+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.6\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
-#: data/launcher.desktop.in:3
-msgid "Ephemeral"
-msgstr "Ephemeral"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
-#: src/Views/WelcomeView.vala:31
-msgid "The always-incognito web browser"
-msgstr "Visuomet inkognito saityno naršyklė"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:10
-msgid ""
-"Browse the Internet in private without leaving a trace of history on your "
-"computer. Ephemeral is a stripped down private browser that's perfect for "
-"avoiding persistent cookies or web trackers. Close the window and all traces "
-"of your browsing are removed from your device."
-msgstr ""
-"Naršykite internete privačiai, nepalikdami savo kompiuteryje jokių istorijos "
-"pėdsakų. Ephemeral yra supaprastinta privati naršyklė, kuri tobulai tinka, "
-"norint išvengti įkyrių slapukų ar saityno seklių. Užverkite langą ir visi "
-"jūsų naršymo pėdsakai yra pašalinami iš jūsų įrenginio."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:11
-msgid "Handy features:"
-msgstr "Patogios ypatybės:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:13
-msgid "Easily open pages in any other installed browser"
-msgstr "Lengvai atverkite puslapius bet kokioje kitoje įdiegtoje naršyklėje"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:14
-msgid "Search right from the URL bar"
-msgstr "Atlikite paiešką tiesiai iš URL juostos"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
-msgid "Set as your default browser for true privacy by default"
-msgstr ""
-"Tikram privatumui pagal numatymą, nusistatykite kaip numatytąją naršyklę"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:16
-msgid "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
-msgstr ""
-"Paspauskite Ctrl (Vald)+W, kad užvertumėte esamą langą arba Ctrl (Vald)+Q, "
-"kad išeitumėte iš visų langų"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:17
-msgid "Pick between privacy-respecting search engines from the menu"
-msgstr "Meniu pasirinkite privatumą gerbiančias paieškos sistemas"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:76
-msgid "Quickly disable or re-enable JavaScript from the menu"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
-msgid "Add a website to the URL suggestions with the ⭐️ icon or Ctrl+D"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:20
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:78
-msgid "Find text on the page with Ctrl+F"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
-#, fuzzy
-msgid "Ephemeral protects you in five key ways:"
-msgstr "Ephemeral jus apsaugo keturiais būdais:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:23
-msgid ""
-"1️⃣ Always incognito. From the second you open an Ephemeral window until you "
-"close it (or hit the Erase button), Ephemeral is in private browsing mode. "
-"That means history, cookies, local storage, passwords, etc. are all blown "
-"away as soon as you leave."
-msgstr ""
-"1️⃣ Visada inkognito. Nuo tos akimirkos, kai atveriate Ephemeral langą iki "
-"tol, kol jį užveriate (arba paspaudžiate mygtuką \"Ištrinti\"), Ephemeral "
-"yra privataus naršymo veiksenoje. Tai reiškia, kad istorija, slapukai, "
-"vietinė saugykla, slaptažodžiai ir t.t. tik jums išėjus, iš karto dingsta."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:24
-msgid ""
-"2️⃣ Contained. Every Ephemeral window is a separate instance of the browser "
-"engine. This means pages are kept separate from one another. Sign into a "
-"service in one window, and other Ephemeral windows will have no idea you’re "
-"signed in."
-msgstr ""
-"2️⃣ Uždara. Kiekvienas Ephemeral langas yra atskiras naršyklės modulio "
-"egzempliorius. Tai reiškia, kad visi puslapiai yra laikomi atskirai vienas "
-"nuo kito. Viename lange prisijunkite prie paslaugos, o visi kiti Ephemeral "
-"langai net nenutuoks, kad esate prisijungę."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
-msgid ""
-"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
-"third-party sources. This cuts down on advertising cookies and other "
-"unwanted forms of cross-site tracking."
-msgstr ""
-"3️⃣ Jokių trečiųjų šalių slapukų. Jau nuo pat pradžių, Ephemeral blokuoja "
-"slapukus iš trečiųjų šalių šaltinių. Tai sumažina reklamos slapukų skaičių "
-"ir kitas sekimo formas tarp internetinių svetainių."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
-msgid ""
-"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
-"load a web page or perform a search. Even then, no usage data is ever "
-"collected—I have no idea what you do with Ephemeral, and I don't want to "
-"know!"
-msgstr ""
-"4️⃣ Jokios telemetrijos. Ephemeral neliečia tinklo tol, kol aiškiai "
-"nenurodysite įkelti puslapį ar neatliksite paieškos. Netgi ir tuomet, nėra "
-"renkami jokie naudojimosi duomenys—aš neturiu jokio supratimo, ką jūs darote "
-"su Ephemeral ir net nenoriu žinoti!"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
-#, fuzzy
-msgid ""
-"5️⃣️ Ephemeral uses Startpage.com—the world's most private search engine—by "
-"default to avoid as much Google tracking as possible. You can also choose "
-"DuckDuckGo from the menu if that’s your preference, or even set your own "
-"entirely custom search engine."
-msgstr ""
-"Ephemeral pagal numatymą naudoja Startpage.com—labiausiai privačią paieškos "
-"sistemą pasaulyje—tam, kad būtų kaip įmanoma daugiau išvengta Google sekimo. "
-"Jeigu pageidaujate, meniu galite pasirinkti DuckDuckGo."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:28
-#, fuzzy
-msgid ""
-"The best part of Ephemeral comes when you use it as your default browser:"
-msgstr "Nustatyti Ephemeral kaip jūsų numatytąją naršyklę?"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:29
-#, fuzzy
-msgid ""
-"Make privacy a habit by opening links in a private browser by default, "
-"knowing you can always jump back into something less private like Firefox, "
-"Chrome, Opera, Brave—or any other installed browser—with one click."
-msgstr ""
-"Geriausia Ephemeral dalis atsiskleidžia, kai ją naudojate kaip numatytąją "
-"naršyklę: paverskite privatumą savo įpročiu, pagal numatymą atverdami "
-"nuorodas privačioje naršyklėje, žinodami, kad visada galite vienu "
-"spustelėjimu pereiti į mažiau privačią naršyklę."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:30
-msgid ""
-"Remember, Ephemeral and any browser's incognito or private mode can only do "
-"so much: they mitigate some tracking and don't store data on your device, "
-"but they won't stop your ISP, government, or determined websites from "
-"tracking you."
-msgstr ""
-"Atminkite, Ephemeral ir bet kurios kitos naršyklės inkognito ar privati "
-"veiksena gali atlikti tik tiek: sumažinti tam tikrą sekimą ir nesaugoti "
-"duomenų jūsų įrenginyje, tačiau naršyklės nesustabdys jūsų interneto "
-"paslaugų teikėjo, vyriausybės ar pasiryžusių internetinių svetainių nuo jūsų "
-"sekimo."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:31
-#, fuzzy
-msgid ""
-"What if you run into a site compatibility issue due to the tracking "
-"prevention, or if you want to sign into a site using another browser’s saved "
-"passwords? Ephemeral has you covered: just hit your other browser’s icon in "
-"the header and the current page is opened up there—optionally closing the "
-"window to get out of your way."
-msgstr ""
-"Kas nutiks, jei dėl sekimo prevencijos susidursite su internetinės svetainės "
-"suderinamumo problema, arba jei norėsite prisijungti prie svetainės, "
-"naudojant kitoje naršyklėje įrašytus slaptažodžius? Ephemeral viskuo "
-"pasirūpino: tiesiog, antraštėje spustelėkite savo kitos naršyklės piktogramą "
-"ir esamas puslapis bus atvertas ten."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:32
-#: src/Views/WelcomeView.vala:34
-msgid "For the best protection, always use a VPN."
-msgstr "Geresnei apsaugai, visada naudokite VPN."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:40
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:160
-#, fuzzy
-msgid "Minor updates"
-msgstr "Vertimai:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:42
-msgid "Fixed checkbox and radio button styling"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
-msgid "Treat “localhost” as a valid domain"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:44
-msgid "Improved dark styling when building with newer versions of WebKit"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:45
-msgid "Under the hood changes to make translations easier"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:46
-#, fuzzy
-msgid ""
-"Updated Spanish translations thanks to Adolfo Jayme-Barrientos and @riesp"
-msgstr ""
-"¡Hola! Ispanų kalbos vertimas Adolfo Jayme-Barrientos ir Mario Rodrigo dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:52
-msgid ""
-"🎉️ Emoji (and international character) support for domains! Punycode means "
-"domains like i❤tacos.ws will show up properly in the URL entry, while "
-"phishing domains should still show up like xn--80ak6aa92e.com"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:53
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:86
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:95
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:129
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:144
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:170
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:196
-#, fuzzy
-msgid "Translation updates"
-msgstr "Vertimai:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:55
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:88
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:122
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:172
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:188
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:262
-msgid "Updated Dutch translations thanks to Heimen Stoffels"
-msgstr "Atnaujintas olandų kalbos vertimas Heimen Stoffels dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:57
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:69
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:81
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:90
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:100
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:110
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:124
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:134
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:149
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:155
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:165
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:175
-msgid ""
-"Additional translations for new features will appear in future updates as "
-"translators have a chance to do their thing."
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:62
-msgid "Adding Some Polish 💅️"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:64
-msgid ""
-"💻️ Touchpad gesture navigation: Use a two-finger swipe to move back or "
-"forward through your browsing history"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:65
-msgid ""
-"🔗️ More room for the URL entry to breathe: spacing on each side plus a "
-"maximum width means the window is easier to grab and move around"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:66
-msgid "UI styling fixes, plus dark style fixes for newer versions of WebKit"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:316
-msgid "Code cleaning to keep things fresh and clean"
-msgstr "Kodo išvalymas, kad būtų išlaikyta švara"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:74
-msgid "McSipes"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:77
-msgid "Use Ctrl+D to add/remove a site from the suggestions"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:79
-msgid "New Paste and Go item in the URL bar context menu"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:97
-#, fuzzy
-msgid "Updated Italian translations thanks to @meliurwen"
-msgstr "Lietuvių kalbos vertimas @welaq dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:98
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:162
-#, fuzzy
-msgid "Updated Spanish translations thanks to Adolfo Jayme-Barrientos"
-msgstr ""
-"¡Hola! Ispanų kalbos vertimas Adolfo Jayme-Barrientos ir Mario Rodrigo dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:105
-msgid "Hello from Thessaloniki"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:107
-msgid ""
-"Fixed window closing: now closing the first window does not close the rest"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:108
-msgid ""
-"Simplified “Erase” to always close the window instead of sometimes opening a "
-"new one"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:115
-msgid "Summer cleaning! Because that’s a thing, right?"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:117
-msgid ""
-"Fixed the “Open Link in New Window” menu item to actually do what it says"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:118
-msgid ""
-"Fixed opening target=\"_blank\" links in a new window with Ctrl- or middle-"
-"click"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:119
-msgid ""
-"Updated the base color in menus and dialog windows from the default "
-"elementary slate-ish black to a new deep, dark blue-ish purple"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:120
-msgid ""
-"Tweaked the “Open Link Externally” dialog to better isolate protocols like "
-"“mailto” or “tel”"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:121
-msgid ""
-"Significantly cleaned up and reorganized the codebase to make future "
-"features and fixes easier"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:131
-#, fuzzy
-msgid "Updated Catalán and Spanish translations thanks to Mario Rodrigo"
-msgstr "Lietuvių kalbos vertimas @welaq dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:132
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:147
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:189
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:199
-#, fuzzy
-msgid "Updated French translations thanks to @NathanBnm"
-msgstr "salut! Prancūzų kalbos vertimas Nathan (@NathanBnm) dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:139
-msgid "Some great UI refinements!"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:141
-#, fuzzy
-msgid "URL entry suggestions are much snazzier thanks to Hannes Schulze"
-msgstr "Guten Tag! Vokiečių kalbos vertimas Hannes Schulze dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:142
-msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:146
-msgid "Ciao! Translated to Italian thanks to @meliurwen"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:154
-#, fuzzy
-msgid "Updated Catalan translations thanks to Mario Rodrigo."
-msgstr "Lietuvių kalbos vertimas @welaq dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:163
-msgid "Code cleanup"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:173
-#, fuzzy
-msgid "Updated Russian translations thanks to Artem Polishchuk"
-msgstr "Здравствуйте! Rusų kalbos vertimas Artem Polishchuk dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:180
-msgid "No foolin'. Two major new features:"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:182
-#, fuzzy
-msgid "🔍️ New Custom Search Engine setting in the Menu"
-msgstr "Naujas paieškos sistemų pasirinkimas meniu"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:183
-msgid ""
-"⭐️ Add your own websites to the suggestions using the new button in the URL "
-"entry"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:185
-msgid "Plus the usual iterative improvements:"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:187
-msgid "Various URL entry fixes and tweaks"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:191
-msgid ""
-"Translations for new features will appear in future updates as translators "
-"have a chance to do their thing."
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:198
-msgid "Cześć! Translated to Polish thanks to Paweł Jerzy Przybysz"
-msgstr ""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:200
-#, fuzzy
-msgid "Updated Lithuanian translations thanks to @welaq"
-msgstr "Lietuvių kalbos vertimas @welaq dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:206
-msgid "Blaze It"
-msgstr "Blaze It"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:208
-msgid ""
-"New option to close the window when opening a page in an external browser"
-msgstr ""
-"Naujas parametras užverti langą, kuomet puslapis atveriamas išorinėje "
-"naršyklėje"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:209
-msgid "The web view is now focused when navigating"
-msgstr "Dabar, naršant, saityno rodinys yra sufokusuotas"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:215
-msgid "URL Entry Fixes"
-msgstr "URL įrašo pataisos"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:217
-msgid "Updated and corrected several autocomplete domains"
-msgstr "Atnaujintos ir pataisytos kai kurios automatinio užbaigimo sritys"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:218
-msgid ""
-"No longer attempt to force HTTPS on protocol-less domains—fixes several "
-"popular sites"
-msgstr ""
-"Daugiau nebebandoma priverstinai naudoti HTTPS sritims be protokolų—pataiso "
-"kai kurias populiarias internetines svetaines"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:219
-msgid ""
-"Strip whitespace from URL entry before navigating—fixes instances where "
-"trying to navigate to a domain would perform a search"
-msgstr ""
-"Prieš naršant, pašalinti tarpus iš URL įrašo—pataiso egzempliorius, kuomet "
-"bandant naršyti į sritį, buvo atliekama paieška"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:225
-msgid "URL Suggestion Fixes"
-msgstr "URL pasiūlymų pataisos"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:227
-msgid "Corrected joinmastodon.org TLD"
-msgstr "Ištaisyta joinmastodon.org TLD"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:228
-msgid "Added additional useful sites"
-msgstr "Pridėtos papildomos naudingos svetainės"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:229
-msgid "Added descriptions for more sites"
-msgstr "Pridėta aprašų daugiau svetainių"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:230
-msgid "Removed dead sites"
-msgstr "Pašalintos nebeveikiančios svetainės"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:231
-msgid "Updated translations"
-msgstr "Atnaujinti vertimai"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:237
-msgid "All New Search + Suggestions"
-msgstr "Visiškai nauja paieška + pasiūlymai"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:239
-msgid "The URL entry will offer to complete over 400 popular sites*"
-msgstr ""
-"URL įrašas siūlys automatiškai užbaigti rašyti virš 400 populiarių svetainių "
-"pavadinimus*"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:240
-msgid "New Search Engine choice in the Menu"
-msgstr "Naujas paieškos sistemų pasirinkimas meniu"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:241
-msgid "Switched to Startpage.com by default"
-msgstr "Pagal numatymą, perjungta į Startpage.com"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:242
-msgid "Happy birthday, Katie!"
-msgstr "Happy birthday, Katie!"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:244
-msgid ""
-"*This data is all shipped with Ephemeral itself, and Ephemeral still does "
-"not touch the network until you explicitly navigate somewhere. The list of "
-"domains is heavily inspired by a similar feature in Firefox Focus. Domains "
-"being included in completion suggestions are not an endorsement, it simply "
-"means that domain is relatively popular."
-msgstr ""
-"*Visi šie duomenys yra pateikiami kartu su Ephemeral ir Ephemeral neliečia "
-"tinklo tol, kol aiškiai nenurodysite kur nors naršyti. Sričių sąrašas yra "
-"stipriai įkvėptas panašios ypatybės, kuri yra Firefox Focus. Į užbaigimo "
-"sąrašą įtrauktos sritys nėra skatinimas, tai, tiesiog, parodo, kad šios "
-"sritys yra santykinai populiarios."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:249
-msgid "Guten Tag! German translations thanks to Hannes Schulze"
-msgstr "Guten Tag! Vokiečių kalbos vertimas Hannes Schulze dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:254
-msgid "Здравствуйте! Russian translations thanks to Artem Polishchuk"
-msgstr "Здравствуйте! Rusų kalbos vertimas Artem Polishchuk dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:259
-msgid "More translations:"
-msgstr "Daugiau vertimų:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:261
-msgid "Lithuanian translations thanks to @welaq"
-msgstr "Lietuvių kalbos vertimas @welaq dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:268
-msgid ""
-"Fixed some missed translations and updated French translations. Thanks "
-"again, @NathanBnm!"
-msgstr ""
-"Pataisyti kai kurie trūkstami vertimai ir atnaujintas prancūzų kalbos "
-"vertimas. Dar kartą ačiū, @NathanBnm!"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:273
-msgid "Lots o' goodies:"
-msgstr "Daug gėrybių:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:275
-msgid "The last-used browser is remembered for next time"
-msgstr "Paskutinė naudota naršyklė yra įsimenama kitam kartui"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:276
-msgid "New \"Reset Preferences\" menu item and dialog"
-msgstr "Naujas meniu elementas ir dialogas \"Atstatyti nuostatas\""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:277
-msgid "Ctrl+O to open the current page in another browser"
-msgstr ""
-"Naudokite Ctrl (Vald)+O, norėdami atverti esamą puslapį kitoje naršyklėje"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:278
-msgid "Refined (ever-so-subtly less flat) HeaderBar design"
-msgstr "Iš naujo sukurtas antraščių juostos dizainas"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:279
-msgid "Ephemeral is now translatable!"
-msgstr "Dabar Ephemeral yra išverčiama!"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:281
-msgid "Translations:"
-msgstr "Vertimai:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:283
-msgid ""
-"¡Hola! Spanish translations thanks to Adolfo Jayme-Barrientos and Mario "
-"Rodrigo"
-msgstr ""
-"¡Hola! Ispanų kalbos vertimas Adolfo Jayme-Barrientos ir Mario Rodrigo dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:284
-msgid "salut! French translations thanks to Nathan (@NathanBnm)"
-msgstr "salut! Prancūzų kalbos vertimas Nathan (@NathanBnm) dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:285
-msgid ""
-"Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
-msgstr "Olá! Brazilijos portugalų kalbos vertimasLucas Sanchez dos Anjos dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:286
-msgid "Hallo! Dutch translations thanks to Heimen Stoffels"
-msgstr "Hallo! Olandų kalbos vertimas Heimen Stoffels dėka"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:292
-msgid "Styling fixes for non-native platforms."
-msgstr "Stiliaus pataisos ne savoms platformoms."
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:297
-msgid "Fixed a few small issues with zoom:"
-msgstr "Pataisytos kelios nedidelės problemos su masteliu:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:299
-msgid "Zoom controls are now only sensitive when the web view is visible"
-msgstr ""
-"Dabar, mastelio valdikliai yra matomi tik tuomet, kai yra matomas saityno "
-"rodinys"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:300
-msgid "Reported zoom level is now correct when opening a new window"
-msgstr "Dabar, atveriant langą, rodomas mastelio lygis yra teisingas"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:301
-msgid "Reported zoom level is now kept in sync across open windows"
-msgstr ""
-"Dabar, rodomas mastelio lygis yra sinchronizuojamas tarp visų atvertų langų"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:307
-msgid "Zoom! And more…"
-msgstr "Mastelis! Ir daugiau…"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:309
-msgid "A new menu to keep the UI tidy and balanced"
-msgstr ""
-"Naujas meniu, kad naudotojo sąsaja būtų išlaikyta švari ir subalansuota"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:310
-msgid "Zoom in, out, and default from the new menu or with the keyboard"
-msgstr ""
-"Didinkite, mažinkite ir atstatykite mastelį, naudodami naują meniu arba "
-"klaviatūrą"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:311
-msgid "New Window action moved into the menu"
-msgstr "Naujo lango veiksmas perkeltas į meniu"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:312
-msgid "Added a Quit All Windows action to the menu"
-msgstr "Į meniu pridėtas veiksmas Išeiti iš visų langų"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:313
-msgid "Smooth scrolling when using the keyboard or a scrollwheel"
-msgstr "Glotnus slinkimas, naudojant klaviatūrą ar pelės ratuką"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:314
-msgid "Fixed Twitch livestreams"
-msgstr "Pataisyti Twitch tiesioginiai srautai"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:315
-msgid "Fixed YouTube resolution support: now up to 4K!"
-msgstr "Pataisytas YouTube raiškos palaikymas: dabar iki 4K!"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:322
-msgid "Better error handling and quality of life improvements all around:"
-msgstr "Geresnis klaidų apdorojimas ir gyvenimo kokybės patobulinimai:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:324
-msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
-msgstr ""
-"Nauji išorinių programų patvirtinimo dialogai, pvz., appstream:// ar ftp://"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:325
-msgid "New warning when no network connection"
-msgstr "Naujas įspėjimas, kai nėra interneto ryšio"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:326
-msgid "Prettier errors using native views"
-msgstr "Gražesnės klaidos, naudojant savus rodinius"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:327
-msgid "Stopped throwing away text when unfocusing URL entry"
-msgstr "Nustota išmėtinėti tekstą, kai nuimamas fokusavimas nuo URL įrašo"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:328
-msgid "Stopped searching when the URL entry is empty"
-msgstr "Nustota atlikinėti paiešką, kai URL įrašas yra tuščias"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:329
-msgid "Code cleaning to keep things smelling fresh"
-msgstr "Kodo išvalymas, kad būtų išlaikytas naujumas"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:335
-msgid "Fresh styles to keep things funky, plus more:"
-msgstr "Nauji stiliai, kad būtų išlaikytas įkvėpimas bei daugiau:"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:337
-msgid ""
-"The new start page makes Ephemeral faster and makes it not touch the network "
-"until you're ready to browse"
-msgstr ""
-"Naujas pradžios puslapis padaro Ephemeral greitesnę ir priverčia programą "
-"neliesti tinklo tol, kol nepradedate naršyti"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:338
-msgid "Middle- or Ctrl-click a link to open it in a new window"
-msgstr ""
-"Spustelėkite ant nuorodos viduriniuoju pelės mygtuku arba nuspaudę Ctrl "
-"(Vald) klavišą, kad atvertumėte ją naujame lange"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:339
-msgid ""
-"Displayed URLs are kept in sync for pages that manually update the URL "
-"without a page load"
-msgstr ""
-"Rodomi URL yra išlaikomi sinchronizuoti puslapiams, kurie rankiniu būdu "
-"atnaujina URL neįkeldami puslapio"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:340
-msgid "Local HTML files can now be opened"
-msgstr "Dabar, gali būti atveriami vietiniai HTML failai"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:347
-msgid "More informative \"set as default\" infobar"
-msgstr "Labiau informatyvi informacinė juosta \"Nustatyti kaip numatytąją\""
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:348
-msgid "Tweaked \"set as default\" infobar styling"
-msgstr "Pagerintas informacinės juostos \"Nustatyti kaip numatytąją\" stilius"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:355
-msgid "Search from URL entry!"
-msgstr "Atlikite paiešką URL įraše!"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:356
-msgid "Asks (politely!) to be set as the default browser"
-msgstr "(Mandagiai!) paprašo, kad būtų nustatyta kaip numatytoji naršyklė"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:357
-msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
-msgstr ""
-"Atverti nepalaikomas nuorodas (tokias kaip Programų centro nuorodas) "
-"operacinės sistemos numatytose programose"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:364
-msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
-msgstr ""
-"Pridėti \"Naujas langas\" į antraštės juostą, programos leistuką ir "
-"klaviatūros trumpinius"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:365
-msgid "Collapse external browsers into a menu when there's more than one"
-msgstr "Suskleisti išorines naršykles į meniu, kuomet jų yra daugiau nei viena"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:371
-msgid "Add several useful keyboard and mouse shortcuts"
-msgstr "Pridėti kelis naudingus klaviatūros ir pelės trumpinius"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:376
-msgid "Fix links that try to open in a new window"
-msgstr "Pataisyti nuorodas, kurios yra bandomos atverti naujame lange"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:381
-msgid "Initial release for AppCenter"
-msgstr "Pradinė laida, skirta Programų centrui"
-
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:425
-msgid "Cassidy James Blaede"
-msgstr "Cassidy James Blaede"
-
-#: data/launcher.desktop.in:4
-msgid "Private browser"
-msgstr "Privati naršyklė"
-
-#: data/launcher.desktop.in:5
-msgid "Browse the web in private"
-msgstr "Naršykite saityną privačiai"
-
-#: data/launcher.desktop.in:8
-msgid "com.github.cassidyjames.ephemeral"
-msgstr "com.github.cassidyjames.ephemeral"
-
-#: data/launcher.desktop.in:12
-msgid "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
-msgstr ""
-"WWW;saityno;saitynas;žiniatinklis;žiniatinklio;naršyklė;internetas;privati;"
-"inkognito;susitelkti;laikina;slapukai;"
-
-#: data/launcher.desktop.in:17
-msgid "New Window"
-msgstr "Naujas langas"
 
 #: src/MainWindow.vala:63
 msgid "Undo"
@@ -813,19 +24,19 @@ msgstr ""
 
 #: src/MainWindow.vala:77
 msgid "Back"
-msgstr "Atgal"
+msgstr ""
 
 #: src/MainWindow.vala:83
 msgid "Forward"
-msgstr "Pirmyn"
+msgstr ""
 
 #: src/MainWindow.vala:88
 msgid "Reload page"
-msgstr "Įkelti puslapį iš naujo"
+msgstr ""
 
 #: src/MainWindow.vala:93
 msgid "Stop loading"
-msgstr "Stabdyti įkėlimą"
+msgstr ""
 
 #: src/MainWindow.vala:105
 msgid "Close window and erase history"
@@ -833,19 +44,19 @@ msgstr ""
 
 #: src/MainWindow.vala:113
 msgid "Menu"
-msgstr "Meniu"
+msgstr ""
 
 #: src/MainWindow.vala:121
 msgid "Zoom out"
-msgstr "Mažinti"
+msgstr ""
 
 #: src/MainWindow.vala:128
 msgid "Default zoom level"
-msgstr "Numatytasis mastelio lygis"
+msgstr ""
 
 #: src/MainWindow.vala:135
 msgid "Zoom in"
-msgstr "Didinti"
+msgstr ""
 
 #: src/MainWindow.vala:150
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
@@ -857,12 +68,11 @@ msgstr ""
 
 #: src/MainWindow.vala:180
 msgid "Open New Window"
-msgstr "Atverti naują langą"
+msgstr ""
 
 #: src/MainWindow.vala:198
-#, fuzzy
 msgid "Quit Ephemeral"
-msgstr "Ephemeral"
+msgstr ""
 
 #: src/MainWindow.vala:203
 msgid "Close all windows and erase all history"
@@ -870,11 +80,11 @@ msgstr ""
 
 #: src/MainWindow.vala:224
 msgid "Startpage.com Search"
-msgstr "Startpage.com paieška"
+msgstr ""
 
 #: src/MainWindow.vala:227
 msgid "DuckDuckGo Search"
-msgstr "DuckDuckGo paieška"
+msgstr ""
 
 #: src/MainWindow.vala:232
 msgid "Custom Search Engine…"
@@ -882,65 +92,59 @@ msgstr ""
 
 #: src/MainWindow.vala:236
 msgid "Reset Preferences…"
-msgstr "Atstatyti nuostatas…"
+msgstr ""
 
 #: src/MainWindow.vala:667
-#, fuzzy
 msgid "Suggestion removed"
-msgstr "URL pasiūlymų pataisos"
+msgstr ""
 
 #: src/MainWindow.vala:671
-#, fuzzy
 msgid "Suggestion added"
-msgstr "URL pasiūlymų pataisos"
+msgstr ""
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
-#, fuzzy
 msgid "Open Link Externally?"
-msgstr "Atverti išoriniu būdu?"
+msgstr ""
 
 #: src/Dialogs/ExternalDialog.vala:37
-#, fuzzy, c-format
+#, c-format
 msgid "This page is trying to open an app for <b>%s</b> links."
-msgstr "Šis puslapis “%s” nuorodų apdorojimui bando atverti programą."
+msgstr ""
 
 #: src/Dialogs/ExternalDialog.vala:39
 msgid "This page is trying to open an app."
-msgstr "Šis puslapis bando atverti programą."
+msgstr ""
 
 #: src/Dialogs/ExternalDialog.vala:42
 msgid "Your data may not be kept private by the opened app."
-msgstr "Atverta programa gali neišlaikyti jūsų duomenų privačiai."
+msgstr ""
 
 #: src/Dialogs/ExternalDialog.vala:47
 msgid "Don’t Open"
-msgstr "Neatverti"
+msgstr ""
 
 #: src/Dialogs/ExternalDialog.vala:50
 msgid "Open Anyway"
-msgstr "Vis tiek atverti"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
 msgid "Reset Preferences?"
-msgstr "Atstatyti nuostatas?"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:27
-#, fuzzy
 msgid ""
 "All added website suggestions will be removed. Any dismissed or remembered "
 "alerts, warnings, etc. will be displayed again the next time Ephemeral is "
 "opened."
 msgstr ""
-"Visi atmesti ar įsiminti signalai, įspėjimai ir t.t. vėl bus rodomi, kai "
-"kitą kartą atversite Ephemeral."
 
 #: src/Dialogs/PreferencesDialog.vala:33
 msgid "Never Mind"
-msgstr "Nesvarbu"
+msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:36
 msgid "Reset Preferences"
-msgstr "Atsatyti nuostatas"
+msgstr ""
 
 #: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
 msgid "Message From Page"
@@ -957,11 +161,11 @@ msgstr ""
 
 #: src/InfoBars/DefaultInfoBar.vala:31
 msgid "Make privacy a habit."
-msgstr "Paverskite privatumą savo įpročiu."
+msgstr ""
 
 #: src/InfoBars/DefaultInfoBar.vala:32
 msgid "Set Ephemeral as your default browser?"
-msgstr "Nustatyti Ephemeral kaip jūsų numatytąją naršyklę?"
+msgstr ""
 
 #. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
 #: src/InfoBars/DefaultInfoBar.vala:35
@@ -969,92 +173,87 @@ msgid ""
 "You can always change this later in <i>System Settings</i> → "
 "<i>Applications</i>."
 msgstr ""
-"Vėliau visada galite tai pakeisti perėję į <i>Sistemos nustatymai</i> → "
-"<i>Programos</i>."
 
 #: src/InfoBars/DefaultInfoBar.vala:46
 msgid "Never Ask Again"
-msgstr "Daugiau nebeklausti"
+msgstr ""
 
 #: src/InfoBars/DefaultInfoBar.vala:52
 msgid "Set as Default"
-msgstr "Nustatyti kaip numatytąją"
+msgstr ""
 
 #: src/InfoBars/NativeInfoBar.vala:31
 msgid "Ephemeral is a paid app designed for elementary OS."
-msgstr "Ephemeral yra mokama programa, sukurta elementary OS."
+msgstr ""
 
 #: src/InfoBars/NativeInfoBar.vala:32
 msgid ""
 "Some features may not work properly when running on another OS or desktop "
 "environment."
 msgstr ""
-"Kai kurios ypatybės gali tinkamai neveikti, naudojant naršyklę kitoje "
-"operacinėje sistemoje ar kitoje darbalaukio aplinkoje."
 
 #: src/InfoBars/NativeInfoBar.vala:33
 msgid ""
 "Ephemeral is also typically funded by elementary AppCenter purchases. "
 "Consider donating if you find value in using Ephemeral on other platforms."
 msgstr ""
-"Ephemeral taip pat įprastai remiama iš elementary Programų centro įsigijimų. "
-"Jei vertinate naudojimąsi Ephemeral kitose platformose, apsvarstykite "
-"galimybę įsigyti ar paremti programą."
 
 #: src/InfoBars/NativeInfoBar.vala:41 src/InfoBars/PaidInfoBar.vala:43
 msgid "Dismiss"
-msgstr "Atmesti"
+msgstr ""
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/NativeInfoBar.vala:46
 msgid "Donate…"
-msgstr "Paaukoti…"
+msgstr ""
 
 #: src/InfoBars/NetworkInfoBar.vala:31
 msgid "Network Not Available."
-msgstr "Tinklas neprieinamas."
+msgstr ""
 
 #: src/InfoBars/NetworkInfoBar.vala:32
 msgid "Connect to the Internet to browse the Web."
-msgstr "Norėdami naršyti saityne, prisijunkite prie interneto."
+msgstr ""
 
 #: src/InfoBars/NetworkInfoBar.vala:38
 msgid "Never Warn Again"
-msgstr "Daugiau nebeįspėti"
+msgstr ""
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/NetworkInfoBar.vala:45
 msgid "Network Settings…"
-msgstr "Tinklo nustatymai…"
+msgstr ""
 
 #. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
 #: src/InfoBars/PaidInfoBar.vala:32
 msgid "Ephemeral is a paid app"
-msgstr "Ephemeral yra mokama programa"
+msgstr ""
 
 #. TRANSLATORS: This continues the previous string, with terminating punctuation
 #: src/InfoBars/PaidInfoBar.vala:34
 msgid "funded by AppCenter purchases."
-msgstr "ir yra remiama iš įsigijimų Programų centre."
+msgstr ""
 
 #: src/InfoBars/PaidInfoBar.vala:35
 msgid "Consider purchasing or funding if you find value in using Ephemeral."
 msgstr ""
-"Jei vertinate naudojimąsi Ephemeral, apsvarstykite galimybę įsigyti ar "
-"paremti programą."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/PaidInfoBar.vala:50
 msgid "Purchase or Fund…"
-msgstr "Įsigyti ar paremti…"
+msgstr ""
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
-msgstr "Oi"
+msgstr ""
 
 #: src/Views/ErrorView.vala:31
 msgid "Could not display the page."
-msgstr "Nepavyko parodyti puslapio."
+msgstr ""
+
+#: src/Views/WelcomeView.vala:31
+msgid "The always-incognito web browser"
+msgstr ""
 
 #: src/Views/WelcomeView.vala:33
 msgid ""
@@ -1063,30 +262,30 @@ msgid ""
 "but they won’t stop your ISP, government, or determined websites from "
 "tracking you."
 msgstr ""
-"Atminkite, Ephemeral ir bet kurios kitos naršyklės inkognito ar privati "
-"veiksena gali atlikti tik tiek: sumažinti sekimą ir nesaugoti duomenų jūsų "
-"įrenginyje, tačiau naršyklės nesustabdys jūsų interneto paslaugų teikėjo, "
-"vyriausybės ar pasiryžusių internetinių svetainių nuo galimybės jus sekti."
+
+#: src/Views/WelcomeView.vala:34
+msgid "For the best protection, always use a VPN."
+msgstr ""
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
 #: src/Widgets/BrowserButton.vala:50 src/Widgets/BrowserButton.vala:171
 #: src/Widgets/BrowserButton.vala:212
 msgid "Open page in…"
-msgstr "Atverti puslapį naudojant…"
+msgstr ""
 
 #: src/Widgets/BrowserButton.vala:70 src/Widgets/BrowserButton.vala:190
 #: src/Widgets/BrowserButton.vala:227
 #, c-format
 msgid "Open page in %s"
-msgstr "Atverti puslapį naudojant %s"
+msgstr ""
 
 #: src/Widgets/BrowserButton.vala:107
 msgid "Close Window When Opening Externally"
-msgstr "Užverti langą, atveriant išorinėje programoje"
+msgstr ""
 
 #: src/Widgets/UrlEntry.vala:39
 msgid "Enter a URL or search term"
-msgstr "Įveskite URL ar paieškos žodžius"
+msgstr ""
 
 #: src/Widgets/UrlEntry.vala:185
 #, c-format
@@ -1100,53 +299,24 @@ msgstr ""
 
 #: src/Widgets/UrlEntry.vala:251
 msgid "Popular website"
-msgstr "Populiari internetinė svetainė"
+msgstr ""
 
 #: src/Widgets/UrlEntry.vala:284
-#, fuzzy
 msgid "Favorite website"
-msgstr "Populiari internetinė svetainė"
+msgstr ""
 
 #: src/Widgets/UrlEntry.vala:723
 msgid "Go"
-msgstr "Eiti"
+msgstr ""
 
 #: src/Widgets/UrlEntry.vala:735
 msgid "Remove Website from Suggestions"
 msgstr ""
 
 #: src/Widgets/UrlEntry.vala:739
-#, fuzzy
 msgid "Add Website to Suggestions"
-msgstr "Visiškai nauja paieška + pasiūlymai"
+msgstr ""
 
 #: src/Widgets/WebView.vala:105
-#, fuzzy
 msgid "Open Link in New _Window"
-msgstr "Atverti naują langą"
-
-#~ msgid "Erase browsing history"
-#~ msgstr "Ištrinti naršymo istoriją"
-
-#~ msgid "Quit All Windows"
-#~ msgstr "Išeiti iš visų langų"
-
-#~ msgid ""
-#~ "Ephemeral also uses DuckDuckGo — the search engine that doesn’t track you "
-#~ "— by default to avoid as much Google tracking as possible."
-#~ msgstr ""
-#~ "Taip pat Ephemeral naudoja DuckDuckGo — paieškos sistemą, kuri jūsų "
-#~ "neseka — pagal numatymą, tam, kad būtų kaip įmanoma daugiau išvengta "
-#~ "Google sekimo."
-
-#~ msgid ""
-#~ "Remember, Ephemeral and any browser's incognito or private mode can only "
-#~ "do so much: they mitigate some tracking and don't store data on your "
-#~ "device, but they won't stop your ISP, government, or determined websites "
-#~ "from tracking you. For the best protection, always use a VPN."
-#~ msgstr ""
-#~ "Atminkite, Ephemeral ir bet kurios kitos naršyklės inkognito ar privati "
-#~ "veiksena gali atlikti tik tiek: sumažinti sekimą ir nesaugoti duomenų "
-#~ "jūsų įrenginyje, tačiau naršyklės nesustabdys jūsų interneto paslaugų "
-#~ "teikėjo, vyriausybės ar pasiryžusių internetinių svetainių nuo galimybės "
-#~ "jus sekti. Geresnei apsaugai, visada naudokite VPN."
+msgstr ""
