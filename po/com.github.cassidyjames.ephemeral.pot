@@ -314,7 +314,7 @@ msgstr "\"%s\ Adresine git"
 #: src/Widgets/UrlEntry.vala:185
 #, c-format
 msgid "Search for \"%s\""
-msgstr "\"%s\ Şunu Ara"
+msgstr "\"%s\" Şunu Ara"
 
 #: src/Widgets/UrlEntry.vala:251
 msgid "Popular website"
