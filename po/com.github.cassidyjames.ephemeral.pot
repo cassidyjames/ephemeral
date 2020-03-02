@@ -67,7 +67,7 @@ msgstr "Yakınlaştır"
 
 #: src/MainWindow.vala:164
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
-msgstr ""<b>Note:</b> JavaScript'i devre dışı bırakmak büyük olasılıkla birçok siteyi bozucak"
+msgstr "<b>Note:</b> JavaScript'i devre dışı bırakmak büyük olasılıkla birçok siteyi bozucak"
 
 #: src/MainWindow.vala:180
 msgid "JavaScript"
@@ -309,7 +309,7 @@ msgstr "Bir URL veya arama terimi girin"
 #: src/Widgets/UrlEntry.vala:185
 #, c-format
 msgid "Go to \"%s\""
-msgstr "\"%s\ Adresine git"
+msgstr "\"%s\" Adresine git"
 
 #: src/Widgets/UrlEntry.vala:185
 #, c-format
