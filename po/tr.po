@@ -1,142 +1,142 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Turkish translations for com.github.cassidyjames.ephemeral package.
+# Copyright (C) 2020 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Automatically generated, 2020.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-02 14:52-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2020-03-02 14:51-0700\n"
+"Last-Translator: Safak Genisol <Bjksafak45@gmail.com>, 2020.\n"
+"Language-Team: none\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/MainWindow.vala:63
 msgid "Undo"
-msgstr ""
+msgstr "Geri Al"
 
 #: src/MainWindow.vala:77
 msgid "Back"
-msgstr ""
+msgstr "Geri"
 
 #: src/MainWindow.vala:83
 msgid "Forward"
-msgstr ""
+msgstr "İleri"
 
 #: src/MainWindow.vala:88
 msgid "Reload page"
-msgstr ""
+msgstr "Sayfayı yeniden yükle"
 
 #: src/MainWindow.vala:93
 msgid "Stop loading"
-msgstr ""
+msgstr "Yüklemeyi durdur"
 
 #: src/MainWindow.vala:105
 msgid "Close window and erase history"
-msgstr ""
+msgstr "Pencereyi kapat ve geçmişi sil"
 
 #: src/MainWindow.vala:113
 msgid "Menu"
-msgstr ""
+msgstr "Menü"
 
 #: src/MainWindow.vala:122
 msgid "Light content"
-msgstr ""
+msgstr "Açık İçerik"
 
 #: src/MainWindow.vala:123
 msgid "Dark content"
-msgstr ""
+msgstr "Karanlık İçerik"
 
 #: src/MainWindow.vala:135
 msgid "Zoom out"
-msgstr ""
+msgstr "Uzaklaştır"
 
 #: src/MainWindow.vala:142
 msgid "Default zoom level"
-msgstr ""
+msgstr "Varsayılan uzaklık seviyesi"
 
 #: src/MainWindow.vala:149
 msgid "Zoom in"
-msgstr ""
+msgstr "Yakınlaştır"
 
 #: src/MainWindow.vala:164
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
-msgstr ""
+msgstr "<b>Note:</b> JavaScript'i devre dışı bırakmak büyük olasılıkla birçok siteyi bozucak"
 
 #: src/MainWindow.vala:180
 msgid "JavaScript"
-msgstr ""
+msgstr "JavaScript"
 
 #: src/MainWindow.vala:194
 msgid "Open New Window"
-msgstr ""
+msgstr "Yeni Pencere Aç"
 
 #: src/MainWindow.vala:212
 msgid "Quit Ephemeral"
-msgstr ""
+msgstr "Ephemeral'dan Çık"
 
 #: src/MainWindow.vala:217
 msgid "Close all windows and erase all history"
-msgstr ""
+msgstr "Tüm pencereleri kapatın ve tüm geçmişi silin"
 
 #: src/MainWindow.vala:238
 msgid "Startpage.com Search"
-msgstr ""
+msgstr "Startpage.com Ara"
 
 #: src/MainWindow.vala:241
 msgid "DuckDuckGo Search"
-msgstr ""
+msgstr "DuckDuckGo Ara"
 
 #: src/MainWindow.vala:246
 msgid "Custom Search Engine…"
-msgstr ""
+msgstr "Özel Arama Motoru…"
 
 #: src/MainWindow.vala:250
 msgid "Reset Preferences…"
-msgstr ""
+msgstr "Tercihleri sıfırla…"
 
 #: src/MainWindow.vala:682
 msgid "Suggestion removed"
-msgstr ""
+msgstr "Öneri kaldırıldı"
 
 #: src/MainWindow.vala:686
 msgid "Suggestion added"
-msgstr ""
+msgstr "Öneri eklendi"
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
 msgid "Open Link Externally?"
-msgstr ""
+msgstr "Bağlantı Harici Olarak Açılsın mı?"
 
 #: src/Dialogs/ExternalDialog.vala:37
 #, c-format
 msgid "This page is trying to open an app for <b>%s</b> links."
-msgstr ""
+msgstr "Bu sayfa <b>%s</b bağlantıları için bir uygulama açmaya çalışıyor."
 
 #: src/Dialogs/ExternalDialog.vala:39
 msgid "This page is trying to open an app."
-msgstr ""
+msgstr "Bu sayfa bir uygulama açmaya çalışıyor."
 
 #: src/Dialogs/ExternalDialog.vala:42
 msgid "Your data may not be kept private by the opened app."
-msgstr ""
+msgstr "Verileriniz açılan uygulama tarafından gizli tutulmayabilir."
 
 #: src/Dialogs/ExternalDialog.vala:47
 msgid "Don’t Open"
-msgstr ""
+msgstr "Açma"
 
 #: src/Dialogs/ExternalDialog.vala:50
 msgid "Open Anyway"
-msgstr ""
+msgstr "Yine de Aç"
 
 #: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
 msgid "Reset Preferences?"
-msgstr ""
+msgstr "Tercihler sıfırlansın mı?"
 
 #: src/Dialogs/PreferencesDialog.vala:27
 msgid ""
@@ -144,35 +144,38 @@ msgid ""
 "alerts, warnings, etc. will be displayed again the next time Ephemeral is "
 "opened."
 msgstr ""
+"Eklenen tüm web sitesi önerileri kaldırılacak. Yok sayılan veya"
+"hatırlananlar uyarılar,öneriler,vb. bir sonraki Ephemeral açıldığında tekrar "
+"görüntülenecektir."
 
 #: src/Dialogs/PreferencesDialog.vala:33
 msgid "Never Mind"
-msgstr ""
+msgstr "Boşver"
 
 #: src/Dialogs/PreferencesDialog.vala:36
 msgid "Reset Preferences"
-msgstr ""
+msgstr "Tercihleri Sıfırla"
 
 #: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
 msgid "Message From Page"
-msgstr ""
+msgstr "Sayfadan Mesaj"
 
 #: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
 #: src/Dialogs/ScriptDialog.vala:69
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
 #: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
 msgid "Confirm"
-msgstr ""
+msgstr "Onayla"
 
 #: src/InfoBars/DefaultInfoBar.vala:31
 msgid "Make privacy a habit."
-msgstr ""
+msgstr "Gizliliği alışkanlık haline getirin."
 
 #: src/InfoBars/DefaultInfoBar.vala:32
 msgid "Set Ephemeral as your default browser?"
-msgstr ""
+msgstr "Ephemeral varsayılan tarayıcınız olarak mı ayarladınsın mı?"
 
 #. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
 #: src/InfoBars/DefaultInfoBar.vala:35
@@ -180,87 +183,94 @@ msgid ""
 "You can always change this later in <i>System Settings</i> → "
 "<i>Applications</i>."
 msgstr ""
+"Bunu daha sonra istediğiniz zaman değiştirebilirsiniz <i>Sistem Ayarları</i> →"
+"<i>Uygulamalar</i>."
 
 #: src/InfoBars/DefaultInfoBar.vala:46
 msgid "Never Ask Again"
-msgstr ""
+msgstr "Asla Tekrar Sorma"
 
 #: src/InfoBars/DefaultInfoBar.vala:52
 msgid "Set as Default"
-msgstr ""
+msgstr "Varsayılan Olarak Ayarla"
 
 #: src/InfoBars/NativeInfoBar.vala:31
 msgid "Ephemeral is a paid app designed for elementary OS."
-msgstr ""
+msgstr "elementary OS için tasarlanmış ücretli bir uygulama."
 
 #: src/InfoBars/NativeInfoBar.vala:32
 msgid ""
 "Some features may not work properly when running on another OS or desktop "
 "environment."
 msgstr ""
+"Başka bir işletim sisteminde veya masaüstü ortamında çalışırken bazı özellikler düzgün "
+"çalışmayabilir."
 
 #: src/InfoBars/NativeInfoBar.vala:33
 msgid ""
 "Ephemeral is also typically funded by elementary AppCenter purchases. "
 "Consider donating if you find value in using Ephemeral on other platforms."
 msgstr ""
+"Ephemeral, tipik olarak elemantary AppCenter alımlarıyla finanse edilir. "
+"Diğer platformlarda Ephemeral kullanımında değerli bulursanız bağışta bulunmayı düşünün. "
 
 #: src/InfoBars/NativeInfoBar.vala:41 src/InfoBars/PaidInfoBar.vala:43
 msgid "Dismiss"
-msgstr ""
+msgstr "Reddet"
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/NativeInfoBar.vala:46
 msgid "Donate…"
-msgstr ""
+msgstr "Bağış…"
 
 #: src/InfoBars/NetworkInfoBar.vala:31
 msgid "Network Not Available."
-msgstr ""
+msgstr "Ağ Kullanılamıyor."
 
 #: src/InfoBars/NetworkInfoBar.vala:32
 msgid "Connect to the Internet to browse the Web."
-msgstr ""
+msgstr "Web'e göz atmak için İnternet'e bağlanın."
 
 #: src/InfoBars/NetworkInfoBar.vala:38
 msgid "Never Warn Again"
-msgstr ""
+msgstr "Bir Daha Asla Uyarma"
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/NetworkInfoBar.vala:45
 msgid "Network Settings…"
-msgstr ""
+msgstr "İnternet Ayarları…"
+
 
 #. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
 #: src/InfoBars/PaidInfoBar.vala:32
 msgid "Ephemeral is a paid app"
-msgstr ""
+msgstr "Ephemeral ücretli bir uygulama"
 
 #. TRANSLATORS: This continues the previous string, with terminating punctuation
 #: src/InfoBars/PaidInfoBar.vala:34
 msgid "funded by AppCenter purchases."
-msgstr ""
+msgstr "AppCenter alımları tarafından finanse edilmektedir."
 
 #: src/InfoBars/PaidInfoBar.vala:35
 msgid "Consider purchasing or funding if you find value in using Ephemeral."
-msgstr ""
+msgstr "Ephemeral kullanımda değer bulursanız satın almayı veya finansmanı düşünün."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/PaidInfoBar.vala:50
 msgid "Purchase or Fund…"
-msgstr ""
+msgstr "Satın Alma veya Fon…"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
-msgstr ""
+msgstr "Hoppala vede Cupala :D"
 
 #: src/Views/ErrorView.vala:31
 msgid "Could not display the page."
-msgstr ""
+msgstr "Sayfa görüntülenemedi."
 
 #: src/Views/WelcomeView.vala:31
 msgid "The always-incognito web browser"
-msgstr ""
+msgstr "Her zaman gizli web tarayıcısı"
 
 #: src/Views/WelcomeView.vala:33
 msgid ""
@@ -269,59 +279,63 @@ msgid ""
 "but they won’t stop your ISP, government, or determined websites from "
 "tracking you."
 msgstr ""
+"Unutmayın, Geçici ve herhangi bir tarayıcının gizli veya özel modu çok "
+"şey yapabilir: bazı izlemeleri hafifletir ve cihazınızda veri depolamazlar, "
+"ancak ISS'nizin, devletinizin veya kararlı web sitelerinizin sizi "
+"izlemesini durdurmazlar."
 
 #: src/Views/WelcomeView.vala:34
 msgid "For the best protection, always use a VPN."
-msgstr ""
+msgstr "En iyi koruma için her zaman bir VPN kullanın."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
 #: src/Widgets/BrowserButton.vala:50
 msgid "Open page in…"
-msgstr ""
+msgstr "Sayfayı şurada aç…"
 
 #: src/Widgets/BrowserButton.vala:62
 msgid "Close Window When Opening Externally"
-msgstr ""
+msgstr "Harici Olarak Açarken Pencereyi Kapat"
 
 #: src/Widgets/BrowserButton.vala:141
 #, c-format
 msgid "Open page in %s"
-msgstr ""
+msgstr "Sayfayı %s içinde aç"
 
 #: src/Widgets/UrlEntry.vala:39
 msgid "Enter a URL or search term"
-msgstr ""
+msgstr "Bir URL veya arama terimi girin"
 
 #: src/Widgets/UrlEntry.vala:185
 #, c-format
 msgid "Go to \"%s\""
-msgstr ""
+msgstr "\"%s\" Adresine git"
 
 #: src/Widgets/UrlEntry.vala:185
 #, c-format
 msgid "Search for \"%s\""
-msgstr ""
+msgstr "\"%s\" Şunu Ara"
 
 #: src/Widgets/UrlEntry.vala:251
 msgid "Popular website"
-msgstr ""
+msgstr "Popüler İnternet Sitesi"
 
 #: src/Widgets/UrlEntry.vala:284
 msgid "Favorite website"
-msgstr ""
+msgstr "Favori İnternet Sitesi"
 
 #: src/Widgets/UrlEntry.vala:723
 msgid "Go"
-msgstr ""
+msgstr "Git"
 
 #: src/Widgets/UrlEntry.vala:735
 msgid "Remove Website from Suggestions"
-msgstr ""
+msgstr "Web Sitesini Önerilerden Kaldır"
 
 #: src/Widgets/UrlEntry.vala:739
 msgid "Add Website to Suggestions"
-msgstr ""
+msgstr "Önerilere Web Sitesi Ekle"
 
 #: src/Widgets/WebView.vala:105
 msgid "Open Link in New _Window"
-msgstr ""
+msgstr "Bağlantıyı Teni Pencerede aç"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-02 10:48+0100\n"
+"POT-Creation-Date: 2020-03-02 14:52-0700\n"
 "PO-Revision-Date: 2019-12-02 10:27+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -45,61 +45,69 @@ msgstr "Cerrar la ventana y borrar el histórico"
 msgid "Menu"
 msgstr "Menú"
 
-#: src/MainWindow.vala:121
+#: src/MainWindow.vala:122
+msgid "Light content"
+msgstr ""
+
+#: src/MainWindow.vala:123
+msgid "Dark content"
+msgstr ""
+
+#: src/MainWindow.vala:135
 msgid "Zoom out"
 msgstr "Alejar"
 
-#: src/MainWindow.vala:128
+#: src/MainWindow.vala:142
 msgid "Default zoom level"
 msgstr "Escala predeterminada"
 
-#: src/MainWindow.vala:135
+#: src/MainWindow.vala:149
 msgid "Zoom in"
 msgstr "Acercar"
 
-#: src/MainWindow.vala:150
+#: src/MainWindow.vala:164
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
 msgstr ""
 "<b>Nota:</b> si desactiva JavaScript probablemente dejen de funcionar muchos "
 "sitios"
 
-#: src/MainWindow.vala:166
+#: src/MainWindow.vala:180
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: src/MainWindow.vala:180
+#: src/MainWindow.vala:194
 msgid "Open New Window"
 msgstr "Abrir una ventana nueva"
 
-#: src/MainWindow.vala:198
+#: src/MainWindow.vala:212
 msgid "Quit Ephemeral"
 msgstr "Salir de Ephemeral"
 
-#: src/MainWindow.vala:203
+#: src/MainWindow.vala:217
 msgid "Close all windows and erase all history"
 msgstr "Cerrar todas las ventanas y borrar el histórico"
 
-#: src/MainWindow.vala:224
+#: src/MainWindow.vala:238
 msgid "Startpage.com Search"
 msgstr "Búsqueda con Startpage.com"
 
-#: src/MainWindow.vala:227
+#: src/MainWindow.vala:241
 msgid "DuckDuckGo Search"
 msgstr "Búsqueda con DuckDuckGo"
 
-#: src/MainWindow.vala:232
+#: src/MainWindow.vala:246
 msgid "Custom Search Engine…"
 msgstr "Buscador personalizado…"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:250
 msgid "Reset Preferences…"
 msgstr "Restablecer las preferencias…"
 
-#: src/MainWindow.vala:667
+#: src/MainWindow.vala:682
 msgid "Suggestion removed"
 msgstr "Sugerencia eliminada"
 
-#: src/MainWindow.vala:671
+#: src/MainWindow.vala:686
 msgid "Suggestion added"
 msgstr "Sugerencia añadida"
 
@@ -283,20 +291,18 @@ msgid "For the best protection, always use a VPN."
 msgstr "Para la mejor protección, utilice siempre una VPN."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
-#: src/Widgets/BrowserButton.vala:50 src/Widgets/BrowserButton.vala:171
-#: src/Widgets/BrowserButton.vala:212
+#: src/Widgets/BrowserButton.vala:50
 msgid "Open page in…"
 msgstr "Abrir la página en…"
 
-#: src/Widgets/BrowserButton.vala:70 src/Widgets/BrowserButton.vala:190
-#: src/Widgets/BrowserButton.vala:227
+#: src/Widgets/BrowserButton.vala:62
+msgid "Close Window When Opening Externally"
+msgstr "Cerrar ventana al abrir externamente"
+
+#: src/Widgets/BrowserButton.vala:141
 #, c-format
 msgid "Open page in %s"
 msgstr "Abrir página en %s"
-
-#: src/Widgets/BrowserButton.vala:107
-msgid "Close Window When Opening Externally"
-msgstr "Cerrar ventana al abrir externamente"
 
 #: src/Widgets/UrlEntry.vala:39
 msgid "Enter a URL or search term"
