@@ -26,6 +26,18 @@
         <summary>User-added favorite websites</summary>
         <description>List of favorite websites added by the user, i.e. to be used in autocomplete suggestions. Should contain bare hosts (i.e. subdomain.example.com) to be more easily completable by the user.</description>
     </key>
+    <key name="last-close" type="x">
+      <!-- int64 min -->
+      <default>-9223372036854775808</default>
+      <summary>Last close</summary>
+      <description>The last time (Unix timestamp in UTC) the user explicitly closed Ephemeral, to help suggest turning on "Close when opening externally"</description>
+    </key>
+    <key name="last-external-open" type="x">
+      <!-- int64 min -->
+      <default>-9223372036854775808</default>
+      <summary>Last external open</summary>
+      <description>The last time (Unix timestamp in UTC) the user opened a link externally, to help suggest turning on "Close when opening externally"</description>
+    </key>
     <key name="last-native-response" type="x">
       <!-- int64 min -->
       <default>-9223372036854775808</default>
@@ -47,6 +59,11 @@
       <default>"https://www.startpage.com/do/search?q=%s&amp;prfh=enable_stay_controlEEE0N1N"</default>
       <summary>Search engine</summary>
       <description>A search string using "%s" as a placeholder for a query</description>
+    </key>
+    <key name="suggest-close-when-opening-externally" type="b">
+      <default>true</default>
+      <summary>Suggest "Close when opening externally"</summary>
+      <description>Whether or not Ephemeral should suggest to turn on the "Close when opening externally" setting</description>
     </key>
     <key name="warn-network" type="b">
       <default>true</default>
