@@ -56,7 +56,7 @@
     <key name="suggest-close-when-opening-externally" type="b">
       <default>true</default>
       <summary>Suggest "Close when opening externally"</summary>
-      <description>Whether or not Ephemeral should suggest to turn on the "Close when opening externally" setting</description>
+      <description>Whether or not Ephemeral should suggest to turn on the "Close when opening externally" setting if the user is manually doing it a lot</description>
     </key>
     <key name="warn-network" type="b">
       <default>true</default>
