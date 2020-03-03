@@ -731,15 +731,11 @@ public class Ephemeral.MainWindow : Gtk.Window {
         if (Application.settings.get_boolean ("close-when-opening-externally")) {
             // Don't keep this around unless it's being used
             Application.settings.reset ("manual-closes-after-opening-externally");
-        } else {
-            int64 now = new DateTime.now_utc ().to_unix ();
-
-            if (now < (Application.instance.last_external_open + 10)) {
-                Application.settings.set_int (
-                    "manual-closes-after-opening-externally",
-                    Application.settings.get_int ("manual-closes-after-opening-externally") + 1
-                );
-            }
+        } else if (new DateTime.now_utc ().to_unix () < (Application.instance.last_external_open + 10)) {
+            Application.settings.set_int (
+                "manual-closes-after-opening-externally",
+                Application.settings.get_int ("manual-closes-after-opening-externally") + 1
+            );
         }
 
         return false;
