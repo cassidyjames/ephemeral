@@ -24,6 +24,7 @@ executable(
     join_paths('src', 'Dialogs', 'ExternalDialog.vala'),
     join_paths('src', 'Dialogs', 'PreferencesDialog.vala'),
     join_paths('src', 'Dialogs', 'ScriptDialog.vala'),
+    join_paths('src', 'InfoBars', 'CloseWhenOpeningExternallyInfoBar.vala'),
     join_paths('src', 'InfoBars', 'DefaultInfoBar.vala'),
     join_paths('src', 'InfoBars', 'NativeInfoBar.vala'),
     join_paths('src', 'InfoBars', 'NetworkInfoBar.vala'),
