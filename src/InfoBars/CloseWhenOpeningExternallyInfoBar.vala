@@ -22,7 +22,7 @@
 public class Ephemeral.CloseWhenOpeningExternallyInfoBar : Gtk.InfoBar {
     public CloseWhenOpeningExternallyInfoBar () {
         Object (
-            message_type: Gtk.MessageType.Info,
+            message_type: Gtk.MessageType.INFO,
             show_close_button: true
         );
     }
@@ -48,7 +48,8 @@ public class Ephemeral.CloseWhenOpeningExternallyInfoBar : Gtk.InfoBar {
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
-
+                    Application.settings.set_boolean ("close-when-opening-externally", true);
+                    try_set_revealed ();
                     break;
                 case Gtk.ResponseType.REJECT:
                     Application.settings.set_boolean ("suggest-close-when-opening-externally", false);
@@ -64,7 +65,8 @@ public class Ephemeral.CloseWhenOpeningExternallyInfoBar : Gtk.InfoBar {
     public void try_set_revealed (bool? reveal = true) {
         revealed =
             reveal &&
-            Application.settings.get_boolean ("suggest-close-when-opening-externally");
-            // TODO: Also check the difference between last-external-open and last-close
+            !Application.settings.get_boolean ("close-when-opening-externally") &&
+            Application.settings.get_boolean ("suggest-close-when-opening-externally") &&
+            Application.settings.get_int ("manual-closes-after-opening-externally") > 3;
     }
 }

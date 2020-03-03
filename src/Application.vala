@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -37,11 +37,12 @@ public class Ephemeral.Application : Gtk.Application {
     public const string DDG = "https://duckduckgo.com/?q=%s&t=elementary";
 
     public static GLib.Settings settings;
+    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
 
     public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
-    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+    public int64 last_external_open = int64.MIN;
 
     private bool opening_link = false;
 

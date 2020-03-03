@@ -35,6 +35,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private UrlEntry url_entry;
     private BrowserButton browser_button;
     private Gtk.Button erase_button;
+
     private uint overlay_timeout_id = 0;
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
@@ -293,10 +294,11 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         header.custom_title = url_entry;
 
-        var paid_info_bar = new PaidInfoBar ();
-        var native_info_bar = new NativeInfoBar ();
+        var close_when_opening_externally_info_bar = new CloseWhenOpeningExternallyInfoBar ();
         var default_info_bar = new DefaultInfoBar ();
+        var native_info_bar = new NativeInfoBar ();
         var network_info_bar = new NetworkInfoBar ();
+        var paid_info_bar = new PaidInfoBar ();
 
         var welcome_view = new WelcomeView ();
         var error_view = new ErrorView ();
@@ -316,6 +318,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         grid.add (native_info_bar);
         grid.add (default_info_bar);
         grid.add (network_info_bar);
+        grid.add (close_when_opening_externally_info_bar);
         grid.add (stack);
         grid.add (find_bar);
 
@@ -724,6 +727,24 @@ public class Ephemeral.MainWindow : Gtk.Window {
         add_accel_group (accel_group);
     }
 
+    protected override bool delete_event (Gdk.EventAny event) {
+        if (Application.settings.get_boolean ("close-when-opening-externally")) {
+            // Don't keep this around unless it's being used
+            Application.settings.reset ("manual-closes-after-opening-externally");
+        } else {
+            int64 now = new DateTime.now_utc ().to_unix ();
+
+            if (now < (Application.instance.last_external_open + 10)) {
+                Application.settings.set_int (
+                    "manual-closes-after-opening-externally",
+                    Application.settings.get_int ("manual-closes-after-opening-externally") + 1
+                );
+            }
+        }
+
+        return false;
+    }
+
     private void update_progress () {
         title = web_view.title;
         back_button.sensitive = web_view.can_go_back ();
@@ -773,7 +794,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         external_dialog.run ();
         external_dialog.destroy ();
-
     }
 
     private bool is_location (string uri) {
