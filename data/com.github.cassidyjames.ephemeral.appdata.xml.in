@@ -35,6 +35,16 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.3.0" date="2020-03-02">
+      <description>
+        <p>Helping Hand</p>
+        <ul>
+          <li>Suggest turning on "Close when opening externally" if Ephemeral notices you frequently doing it yourself</li>
+          <li>Turkish translations thanks to Safak GENISOL</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="6.2.1" date="2020-02-17">
       <description>
         <p>Translation updates</p>
