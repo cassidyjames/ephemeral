@@ -1,3 +1,17 @@
+com.github.cassidyjames.ephemeral (6.3.0) bionic; urgency=medium
+
+  * Release 6.3.0 (#224)
+  * Update translation template
+  * Suggest turning on "Close when opening externally" (#223)
+  * Fix Turkish translations and regenerate
+  * Properly add translation files for Turkish
+  * Update translation template
+  * Add Turkish translation (#221)
+  * Update LINGUAS (#222)
+  * Update LINGUAS (#220)
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Tue, 03 Mar 2020 00:47:47 +0000
+
 com.github.cassidyjames.ephemeral (6.2.1) bionic; urgency=medium
 
   * Release 6.2.1 (#219)
