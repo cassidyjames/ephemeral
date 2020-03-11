@@ -36,6 +36,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private BrowserButton browser_button;
     private Gtk.Button erase_button;
 
+    public bool condensed = false;
     private uint overlay_timeout_id = 0;
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
@@ -562,6 +563,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
             }
         );
 
+        size_allocate.connect (() => {
+            on_resize (this);
+        });
+
         var accel_group = new Gtk.AccelGroup ();
 
         accel_group.connect (
@@ -739,6 +744,21 @@ public class Ephemeral.MainWindow : Gtk.Window {
         }
 
         return false;
+    }
+
+    // TODO: Throttle this?
+    private void on_resize (Gtk.Window window) {
+        int width, height;
+        window.get_size (out width, out height);
+        critical ("Width: %i", width);
+
+        if (width < Application.CONDENSED_WIDTH) {
+            critical ("Condense!");
+            condensed = true;
+        } else {
+            critical ("Uncondense");
+            condensed = false;
+        }
     }
 
     private void update_progress () {
