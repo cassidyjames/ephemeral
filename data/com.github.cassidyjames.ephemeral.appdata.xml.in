@@ -35,7 +35,7 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="6.3.0" date="2020-03-02">
+    <release version="6.3.1" date="2020-03-13">
       <description>
         <p>Helping Hand</p>
         <ul>
