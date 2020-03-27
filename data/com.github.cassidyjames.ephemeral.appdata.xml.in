@@ -40,7 +40,6 @@
         <p>Minor Fixes</p>
         <ul>
           <li>Fix entry selection color when using the light style</li>
-          <li>Improve menu styling and focus states</li>
           <li>Improve styling on other platforms/stylesheets by adding fallbacks and being less ambitious</li>
         </ul>
       </description>
