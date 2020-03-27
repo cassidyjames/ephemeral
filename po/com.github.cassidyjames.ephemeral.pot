@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 00:30+0000\n"
+"POT-Creation-Date: 2020-03-27 23:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,16 +153,16 @@ msgstr ""
 msgid "Reset Preferences"
 msgstr ""
 
-#: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
+#: src/Dialogs/ScriptDialog.vala:28 src/Dialogs/ScriptDialog.vala:30
 msgid "Message From Page"
 msgstr ""
 
-#: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
-#: src/Dialogs/ScriptDialog.vala:69
+#: src/Dialogs/ScriptDialog.vala:40 src/Dialogs/ScriptDialog.vala:48
+#: src/Dialogs/ScriptDialog.vala:70
 msgid "Close"
 msgstr ""
 
-#: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
+#: src/Dialogs/ScriptDialog.vala:50 src/Dialogs/ScriptDialog.vala:72
 msgid "Confirm"
 msgstr ""
 
