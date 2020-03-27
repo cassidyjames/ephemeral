@@ -44,6 +44,17 @@
 @define-color textColorPrimary alpha(white, 0.9);
 @define-color textColorPrimaryShadow alpha(shade(@colorPrimary, 0.6), 0.4);
 
+.titlebar:not(.default-decoration) {
+  background-image:
+    linear-gradient(
+      to bottom,
+      alpha(white, 0.1),
+      alpha(black, 0.1)
+    ),
+    linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
+  color: @textColorPrimary;
+}
+
 .titlebar button:not(.back):not(.forward):not(.refresh):not(.stop) {
   -gtk-icon-style: regular;
 }
@@ -73,6 +84,20 @@
     box-shadow:
         inset 0 0 0 1px alpha(#000, 0.05),
         0 1px 0 0 alpha(@bg_highlight_color, 0.3);
+}
+
+.titlebar entry {
+  background: alpha(@GRAPE_900, 0.5);
+  color: @textColorPrimary;
+  text-shadow: none;
+}
+
+.titlebar entry image {
+    color: @textColorPrimary;
+}
+
+.titlebar entry image:hover {
+    color: alpha(@textColorPrimary, 0.75);
 }
 
 infobar revealer > box {
@@ -137,4 +162,10 @@ checkbutton.menuitem {
 checkbutton.menuitem check {
   margin-left: 1px;
   margin-right: 1px;
+}
+
+.app-notification {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.25em 0.25em rgba(0, 0, 0, 0.25);
+  margin: 1em;
 }
