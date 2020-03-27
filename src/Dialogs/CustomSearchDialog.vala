@@ -25,7 +25,7 @@ public class Ephemeral.CustomSearchDialog : Granite.MessageDialog {
             image_icon: new ThemedIcon ("system-search"),
             primary_text: _("Set a Custom Search Engine"),
             secondary_text: _("Searches from the URL entry will be sent to this custom URL. <b>%s</b> will be replaced with the search query."),
-            title: _("Custom Search Engine")
+            title: _("Set a Custom Search Engine")
         );
     }
 

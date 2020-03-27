@@ -24,14 +24,15 @@ public class Ephemeral.ScriptDialog : Granite.MessageDialog {
 
     public ScriptDialog (WebKit.ScriptDialog dialog) {
         Object (
-            title: _("Message From Page"),
+            dialog_info: dialog,
             primary_text: _("Message From Page"),
             secondary_text: dialog.get_message (),
-            dialog_info: dialog
+            title: _("Message From Page")
         );
     }
 
     construct {
+
         switch (dialog_info.get_dialog_type ()) {
             case WebKit.ScriptDialogType.ALERT:
                 image_icon = new ThemedIcon ("dialog-information");
