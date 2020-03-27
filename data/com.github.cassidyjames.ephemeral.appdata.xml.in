@@ -35,6 +35,15 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.3.2" date="2020-03-27">
+      <description>
+        <p>Minor Fixes</p>
+        <ul>
+          <li>Improve styling on other platforms/stylesheets by being less ambitious</li>
+        </ul>
+      </description>
+    </release>
+  <releases>
     <release version="6.3.1" date="2020-03-13">
       <description>
         <p>Helping Hand</p>
