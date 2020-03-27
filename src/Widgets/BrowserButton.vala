@@ -57,14 +57,14 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         list_button.popover = list_popover;
 
         var list_grid = new Gtk.Grid ();
+        list_grid.margin_top = list_grid.margin_bottom = 3;
         list_grid.orientation = Gtk.Orientation.VERTICAL;
 
         var close_check = new Gtk.CheckButton.with_label (_("Close Window When Opening Externally"));
-        close_check.margin_bottom = 3;
 
-        var close_check_context = close_check.get_style_context ();
-        close_check_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
-        close_check_context.add_class (Gtk.STYLE_CLASS_FLAT);
+        var close_check_button = new Gtk.ModelButton ();
+        close_check_button.get_child ().destroy ();
+        close_check_button.add (close_check);
 
         list_popover.add (list_grid);
 
@@ -73,17 +73,12 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             browser_icon.pixel_size = 16;
 
             var browser_grid = new Gtk.Grid ();
-            browser_grid.margin = 3;
-            browser_grid.column_spacing = 3;
             browser_grid.add (browser_icon);
             browser_grid.add (new Gtk.Label (app_info.get_name ()));
 
-            var browser_item = new Gtk.Button ();
+            var browser_item = new Gtk.ModelButton ();
+            browser_item.get_child ().destroy ();
             browser_item.add (browser_grid);
-
-            var browser_item_context = browser_item.get_style_context ();
-            browser_item_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
-            browser_item_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
             list_grid.add (browser_item);
             browser_item.visible = true;
@@ -101,7 +96,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         separator.margin_top = separator.margin_bottom = 3;
 
         list_grid.add (separator);
-        list_grid.add (close_check);
+        list_grid.add (close_check_button);
         list_grid.show_all ();
 
         setup_preferred_browser ();
@@ -109,6 +104,9 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         attach (open_button, 0, 0);
         attach (list_button, 1, 0);
 
+        close_check_button.clicked.connect (() => {
+            close_check.activate ();
+        });
 
         Application.settings.changed["last-used-browser"].connect (() => {
             setup_preferred_browser ();

@@ -160,13 +160,17 @@ infobar button.flat:not(:active) {
   box-shadow: none;
 }
 
-checkbutton.menuitem {
-  padding: 6px 12px;
+modelbutton:focus {
+  box-shadow: none;
+  background-color: alpha (@text_color, 0.15);
 }
 
-checkbutton.menuitem check {
-  margin-left: 1px;
-  margin-right: 1px;
+modelbutton checkbutton {
+  margin-left: -5px;
+}
+
+modelbutton checkbutton label {
+  margin-left: 7px;
 }
 
 .app-notification {

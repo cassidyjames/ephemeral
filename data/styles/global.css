@@ -75,6 +75,11 @@ popover radio {
   margin-left: 6px;
 }
 
+modelbutton image {
+  margin-left: -6px;
+  margin-right: 6px;
+}
+
 label.primary {
   font-weight: 700;
   font-size: 1.2em;

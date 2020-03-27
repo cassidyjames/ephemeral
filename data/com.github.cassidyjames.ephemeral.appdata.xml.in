@@ -39,7 +39,9 @@
       <description>
         <p>Minor Fixes</p>
         <ul>
-          <li>Improve styling on other platforms/stylesheets by being less ambitious</li>
+          <li>Fix entry selection color when using the light style</li>
+          <li>Improve menu styling and focus states</li>
+          <li>Improve styling on other platforms/stylesheets by adding fallbacks and being less ambitious</li>
         </ul>
       </description>
     </release>
