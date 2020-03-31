@@ -127,8 +127,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
         style_switch.margin = 12;
         style_switch.margin_bottom = 6;
 
-        // var gtk_settings = Gtk.Settings.get_default ();
-        // style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
         Application.settings.bind ("dark-style", style_switch, "active", SettingsBindFlags.DEFAULT);
 
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
