@@ -130,6 +130,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
         style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
         Application.settings.bind ("dark-style", style_switch, "active", SettingsBindFlags.DEFAULT);
 
+        var style_switch_revealer = new Gtk.Revealer ();
+        style_switch_revealer.add (style_switch);
+        style_switch_revealer.reveal_child = !gtk_settings.gtk_theme_name.has_suffix ("-dark");
+
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
         zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
             {"<Ctrl>minus"},
@@ -262,7 +266,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover_grid.orientation = Gtk.Orientation.VERTICAL;
         settings_popover_grid.width_request = 200;
 
-        settings_popover_grid.add (style_switch);
+        settings_popover_grid.add (style_switch_revealer);
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
         settings_popover_grid.add (new MenuSeparator ());
