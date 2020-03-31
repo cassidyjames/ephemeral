@@ -134,7 +134,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         style_switch_revealer.add (style_switch);
 
         // WebKit uses -dark to set a dark style, and some OSes expose -dark
-        // stylesheets to users has a hacky dark mode (like Ubuntu and Pop!_OS).
+        // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS).
         // As such, if the OS or user is forcing a -dark stylesheet, just take
         // away the style switch. This is probably similar to how I'd treat a
         // real dark mode, anyway.
