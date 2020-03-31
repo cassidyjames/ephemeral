@@ -35,6 +35,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private UrlEntry url_entry;
     private BrowserButton browser_button;
     private Gtk.Button erase_button;
+    private Granite.ModeSwitch style_switch;
 
     private uint overlay_timeout_id = 0;
 
@@ -116,7 +117,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var settings_popover = new Gtk.Popover (settings_button);
         settings_button.popover = settings_popover;
 
-        var style_switch = new Granite.ModeSwitch.from_icon_name (
+        style_switch = new Granite.ModeSwitch.from_icon_name (
             "display-brightness-symbolic",
             "weather-clear-night-symbolic"
         );
@@ -126,8 +127,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         style_switch.margin = 12;
         style_switch.margin_bottom = 6;
 
-        var gtk_settings = Gtk.Settings.get_default ();
-        style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
+        // var gtk_settings = Gtk.Settings.get_default ();
+        // style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
         Application.settings.bind ("dark-style", style_switch, "active", SettingsBindFlags.DEFAULT);
 
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
@@ -325,6 +326,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         set_titlebar (header);
         add (grid);
 
+        set_theme_variant ();
         show_all ();
 
         if (uri != null && uri != "") {
@@ -562,6 +564,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
             }
         );
 
+        style_switch.notify["active"].connect (set_theme_variant);
+
         var accel_group = new Gtk.AccelGroup ();
 
         accel_group.connect (
@@ -739,6 +743,20 @@ public class Ephemeral.MainWindow : Gtk.Window {
         }
 
         return false;
+    }
+
+    private void set_theme_variant () {
+        var gtk_settings = Gtk.Settings.get_default ();
+        var theme_name = gtk_settings.gtk_theme_name;
+        if (theme_name.has_suffix ("-dark")) {
+            debug ("Dealing with a forced dark style, stripping `-dark` suffix…");
+            var light_theme_name = theme_name.replace ("-dark", "");
+            critical (light_theme_name);
+            gtk_settings.gtk_theme_name = light_theme_name;
+        } else {
+            debug ("Dealing with a normal style, requesting dark variant…");
+        }
+        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = style_switch.active;
     }
 
     private void update_progress () {
