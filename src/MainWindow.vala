@@ -52,7 +52,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
     construct {
         var gtk_settings = Gtk.Settings.get_default ();
-        
+
         default_height = 800;
         default_width = 1280;
 
