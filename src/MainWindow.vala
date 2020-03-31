@@ -747,9 +747,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var gtk_settings = Gtk.Settings.get_default ();
         var theme_name = gtk_settings.gtk_theme_name;
         if (theme_name.has_suffix ("-dark")) {
-            debug ("Dealing with a forced dark style, stripping `-dark` suffix…");
             var light_theme_name = theme_name.replace ("-dark", "");
-            critical (light_theme_name);
+            debug ("Dealing with a forced dark style, stripping `-dark` suffix to set `%s`…", light_theme_name);
             gtk_settings.gtk_theme_name = light_theme_name;
         } else {
             debug ("Dealing with a normal style, requesting dark variant…");
