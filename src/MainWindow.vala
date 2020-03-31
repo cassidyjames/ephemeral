@@ -36,6 +36,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private BrowserButton browser_button;
     private Gtk.Button erase_button;
     private Granite.ModeSwitch style_switch;
+    private Gtk.Settings gtk_settings;
 
     private uint overlay_timeout_id = 0;
 
@@ -52,6 +53,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     construct {
+        gtk_settings = Gtk.Settings.get_default ();
+
         default_height = 800;
         default_width = 1280;
 
@@ -563,6 +566,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         );
 
         style_switch.notify["active"].connect (set_theme_variant);
+        gtk_settings.notify["gtk-theme-name"].connect (set_theme_variant);
 
         var accel_group = new Gtk.AccelGroup ();
 
@@ -744,7 +748,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void set_theme_variant () {
-        var gtk_settings = Gtk.Settings.get_default ();
         var theme_name = gtk_settings.gtk_theme_name;
         if (theme_name.has_suffix ("-dark")) {
             var light_theme_name = theme_name.replace ("-dark", "");
@@ -753,7 +756,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         } else {
             debug ("Dealing with a normal style, requesting dark variant…");
         }
-        Gtk.Settings.get_default ().gtk_application_prefer_dark_theme = style_switch.active;
+        gtk_settings.gtk_application_prefer_dark_theme = style_switch.active;
     }
 
     private void update_progress () {
