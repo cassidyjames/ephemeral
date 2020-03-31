@@ -132,6 +132,12 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         var style_switch_revealer = new Gtk.Revealer ();
         style_switch_revealer.add (style_switch);
+
+        // WebKit uses -dark to set a dark style, and some OSes expose -dark
+        // stylesheets to users has a hacky dark mode (like Ubuntu and Pop!_OS).
+        // As such, if the OS or user is forcing a -dark stylesheet, just take
+        // away the style switch. This is probably similar to how I'd treat a
+        // real dark mode, anyway.
         style_switch_revealer.reveal_child = !gtk_settings.gtk_theme_name.has_suffix ("-dark");
 
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
