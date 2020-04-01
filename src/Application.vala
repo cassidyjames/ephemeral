@@ -38,6 +38,7 @@ public class Ephemeral.Application : Gtk.Application {
 
     public static GLib.Settings settings;
     public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+    public int icon_pixel_size = 16;
 
     public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
@@ -81,6 +82,7 @@ public class Ephemeral.Application : Gtk.Application {
 
         if (elementary_stylesheet ()) {
             Application.instance.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
+            Application.instance.icon_pixel_size = 24;
 
             var elementary_provider = new Gtk.CssProvider ();
             elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/elementary.css");
