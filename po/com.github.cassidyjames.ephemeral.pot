@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-27 23:34+0000\n"
+"POT-Creation-Date: 2020-04-01 16:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,95 +17,95 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/MainWindow.vala:64
+#: src/MainWindow.vala:66
 msgid "Undo"
 msgstr ""
 
-#: src/MainWindow.vala:78
+#: src/MainWindow.vala:80
 msgid "Back"
 msgstr ""
 
-#: src/MainWindow.vala:84
+#: src/MainWindow.vala:86
 msgid "Forward"
 msgstr ""
 
-#: src/MainWindow.vala:89
+#: src/MainWindow.vala:91
 msgid "Reload page"
 msgstr ""
 
-#: src/MainWindow.vala:94
+#: src/MainWindow.vala:96
 msgid "Stop loading"
 msgstr ""
 
-#: src/MainWindow.vala:106
+#: src/MainWindow.vala:108
 msgid "Close window and erase history"
 msgstr ""
 
-#: src/MainWindow.vala:114
+#: src/MainWindow.vala:116
 msgid "Menu"
 msgstr ""
 
-#: src/MainWindow.vala:123
+#: src/MainWindow.vala:125
 msgid "Light content"
 msgstr ""
 
-#: src/MainWindow.vala:124
+#: src/MainWindow.vala:126
 msgid "Dark content"
 msgstr ""
 
-#: src/MainWindow.vala:136
+#: src/MainWindow.vala:154
 msgid "Zoom out"
 msgstr ""
 
-#: src/MainWindow.vala:143
+#: src/MainWindow.vala:161
 msgid "Default zoom level"
 msgstr ""
 
-#: src/MainWindow.vala:150
+#: src/MainWindow.vala:168
 msgid "Zoom in"
 msgstr ""
 
-#: src/MainWindow.vala:165
+#: src/MainWindow.vala:183
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
 msgstr ""
 
-#: src/MainWindow.vala:181
+#: src/MainWindow.vala:199
 msgid "JavaScript"
 msgstr ""
 
-#: src/MainWindow.vala:195
+#: src/MainWindow.vala:213
 msgid "Open New Window"
 msgstr ""
 
-#: src/MainWindow.vala:213
+#: src/MainWindow.vala:231
 msgid "Quit Ephemeral"
 msgstr ""
 
-#: src/MainWindow.vala:218
+#: src/MainWindow.vala:236
 msgid "Close all windows and erase all history"
 msgstr ""
 
-#: src/MainWindow.vala:239
+#: src/MainWindow.vala:257
 msgid "Startpage.com Search"
 msgstr ""
 
-#: src/MainWindow.vala:242
+#: src/MainWindow.vala:260
 msgid "DuckDuckGo Search"
 msgstr ""
 
-#: src/MainWindow.vala:247
+#: src/MainWindow.vala:265
 msgid "Custom Search Engine…"
 msgstr ""
 
-#: src/MainWindow.vala:251
+#: src/MainWindow.vala:269
 msgid "Reset Preferences…"
 msgstr ""
 
-#: src/MainWindow.vala:685
+#: src/MainWindow.vala:702
 msgid "Suggestion removed"
 msgstr ""
 
-#: src/MainWindow.vala:689
+#: src/MainWindow.vala:706
 msgid "Suggestion added"
 msgstr ""
 
@@ -322,6 +322,6 @@ msgstr ""
 msgid "Add Website to Suggestions"
 msgstr ""
 
-#: src/Widgets/WebView.vala:105
+#: src/Widgets/WebView.vala:83
 msgid "Open Link in New _Window"
 msgstr ""
