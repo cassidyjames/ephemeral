@@ -51,6 +51,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     construct {
+        var gtk_settings = Gtk.Settings.get_default ();
+
         default_height = 800;
         default_width = 1280;
 
@@ -126,9 +128,25 @@ public class Ephemeral.MainWindow : Gtk.Window {
         style_switch.margin = 12;
         style_switch.margin_bottom = 6;
 
-        var gtk_settings = Gtk.Settings.get_default ();
         style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
         Application.settings.bind ("dark-style", style_switch, "active", SettingsBindFlags.DEFAULT);
+
+        var style_switch_revealer = new Gtk.Revealer ();
+        style_switch_revealer.add (style_switch);
+
+        // WebKit uses -dark to set a dark style, and some OSes expose -dark
+        // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS).
+        // As such, if the OS or user is forcing a -dark stylesheet, just take
+        // away the style switch. This is probably similar to how I'd treat a
+        // real dark mode, anyway.
+        gtk_settings.bind_property ("gtk-theme-name", style_switch_revealer, "reveal-child",
+            BindingFlags.SYNC_CREATE,
+            (binding, srcval, ref targetval) => {
+                string gtk_theme_name = (string) srcval;
+                targetval.set_boolean (!gtk_theme_name.has_suffix ("-dark"));
+                return true;
+            }
+        );
 
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
         zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -262,7 +280,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover_grid.orientation = Gtk.Orientation.VERTICAL;
         settings_popover_grid.width_request = 200;
 
-        settings_popover_grid.add (style_switch);
+        settings_popover_grid.add (style_switch_revealer);
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
         settings_popover_grid.add (new MenuSeparator ());
@@ -436,7 +454,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
             preferences_dialog.run ();
             preferences_dialog.destroy ();
         });
-
 
         web_view.load_changed.connect (update_progress);
         web_view.notify["uri"].connect (update_progress);
