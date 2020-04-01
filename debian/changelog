@@ -1,3 +1,13 @@
+com.github.cassidyjames.ephemeral (6.3.3) bionic; urgency=medium
+
+  * Meson: Bump version to 6.3.3 (#236)
+  * Update translation template
+  * AppData: Prep 6.3.3 release
+  * BrowserButton: Set correct icon size based on platform (#235)
+  * MainWindow: Hide style_switch when using hacky -dark theme (#234)
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Wed, 01 Apr 2020 17:04:12 +0000
+
 com.github.cassidyjames.ephemeral (6.3.2) bionic; urgency=medium
 
   * Release 6.3.2 (#229)
