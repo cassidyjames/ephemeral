@@ -35,6 +35,16 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.3.3" date="2020-04-01">
+      <description>
+        <p>Fool me twice…</p>
+        <ul>
+          <li>Remove sometimes-problematic dark style workaround CSS since it was fixed in WebKit</li>
+          <li>Ensure correct browser icon size is set</li>
+          <li>Remove dark style toggle when forcing a -dark stylesheet</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.3.2" date="2020-03-27">
       <description>
         <p>Minor Fixes</p>
