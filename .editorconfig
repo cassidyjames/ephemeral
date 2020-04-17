@@ -13,4 +13,3 @@ tab_width = 4
 
 [{*.xml,*.xml.in,*.yml,*.css}]
 tab_width = 2
-

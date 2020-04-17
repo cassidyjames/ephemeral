@@ -1,10 +1,10 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
 * License as published by the Free Software Foundation; either
-* version 2 of the License, or (at your option) any later version.
+* version 3 of the License, or (at your option) any later version.
 *
 * This program is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -37,11 +37,13 @@ public class Ephemeral.Application : Gtk.Application {
     public const string DDG = "https://duckduckgo.com/?q=%s&t=elementary";
 
     public static GLib.Settings settings;
+    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+    public int icon_pixel_size = 16;
 
     public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
-    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+    public int64 last_external_open = int64.MIN;
 
     private bool opening_link = false;
 
@@ -80,6 +82,7 @@ public class Ephemeral.Application : Gtk.Application {
 
         if (elementary_stylesheet ()) {
             Application.instance.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
+            Application.instance.icon_pixel_size = 24;
 
             var elementary_provider = new Gtk.CssProvider ();
             elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/elementary.css");

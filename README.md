@@ -60,4 +60,3 @@ com.github.cassidyjames.ephemeral
 
 [elementary OS]: https://elementary.io
 [AppCenter]: https://appcenter.elementary.io/com.github.cassidyjames.ephemeral
-

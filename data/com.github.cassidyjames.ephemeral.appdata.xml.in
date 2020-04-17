@@ -35,6 +35,43 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.3.3" date="2020-04-01">
+      <description>
+        <p>Fool me twice…</p>
+        <ul>
+          <li>Remove sometimes-problematic dark style workaround CSS since it was fixed in WebKit</li>
+          <li>Ensure correct browser icon size is set</li>
+          <li>Remove dark style toggle when forcing a -dark stylesheet</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.3.2" date="2020-03-27">
+      <description>
+        <p>Minor Fixes</p>
+        <ul>
+          <li>Fix entry selection color when using the light style</li>
+          <li>Improve styling on other platforms/stylesheets by being less ambitious</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.3.1" date="2020-03-13">
+      <description>
+        <p>Helping Hand</p>
+        <ul>
+          <li>Suggest turning on "Close when opening externally" if Ephemeral notices you frequently doing it yourself</li>
+          <li>Turkish translations thanks to Safak GENISOL</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
+    <release version="6.2.1" date="2020-02-17">
+      <description>
+        <p>Translation updates</p>
+        <ul>
+          <li>Translation system improved thanks to @NathanBnm</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.2.0" date="2020-01-30">
       <description>
         <p>Dark Style Rises</p>
@@ -455,4 +492,3 @@
     <value key="x-appcenter-suggested-price">9</value>
   </custom>
 </component>
-

@@ -4,7 +4,7 @@
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
 * License as published by the Free Software Foundation; either
-* version 2 of the License, or (at your option) any later version.
+* version 3 of the License, or (at your option) any later version.
 *
 * This program is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -37,6 +37,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private UrlEntry url_entry;
     private BrowserButton browser_button;
     private Gtk.Button erase_button;
+
     private uint overlay_timeout_id = 0;
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
@@ -52,6 +53,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     construct {
+        var gtk_settings = Gtk.Settings.get_default ();
+
         default_height = 800;
         default_width = 1280;
 
@@ -129,9 +132,25 @@ public class Ephemeral.MainWindow : Gtk.Window {
         style_switch.margin = 12;
         style_switch.margin_bottom = 6;
 
-        var gtk_settings = Gtk.Settings.get_default ();
         style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
         Application.settings.bind ("dark-style", style_switch, "active", SettingsBindFlags.DEFAULT);
+
+        var style_switch_revealer = new Gtk.Revealer ();
+        style_switch_revealer.add (style_switch);
+
+        // WebKit uses -dark to set a dark style, and some OSes expose -dark
+        // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS).
+        // As such, if the OS or user is forcing a -dark stylesheet, just take
+        // away the style switch. This is probably similar to how I'd treat a
+        // real dark mode, anyway.
+        gtk_settings.bind_property ("gtk-theme-name", style_switch_revealer, "reveal-child",
+            BindingFlags.SYNC_CREATE,
+            (binding, srcval, ref targetval) => {
+                string gtk_theme_name = (string) srcval;
+                targetval.set_boolean (!gtk_theme_name.has_suffix ("-dark"));
+                return true;
+            }
+        );
 
         var zoom_out_button = new Gtk.Button.from_icon_name ("zoom-out-symbolic", Gtk.IconSize.MENU);
         zoom_out_button.tooltip_markup = Granite.markup_accel_tooltip (
@@ -265,7 +284,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover_grid.orientation = Gtk.Orientation.VERTICAL;
         settings_popover_grid.width_request = 200;
 
-        settings_popover_grid.add (style_switch);
+        settings_popover_grid.add (style_switch_revealer);
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
         settings_popover_grid.add (new MenuSeparator ());
@@ -298,10 +317,11 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         header.custom_title = url_entry;
 
-        var paid_info_bar = new PaidInfoBar ();
-        var native_info_bar = new NativeInfoBar ();
+        var close_when_opening_externally_info_bar = new CloseWhenOpeningExternallyInfoBar ();
         var default_info_bar = new DefaultInfoBar ();
+        var native_info_bar = new NativeInfoBar ();
         var network_info_bar = new NetworkInfoBar ();
+        var paid_info_bar = new PaidInfoBar ();
 
         var welcome_view = new WelcomeView ();
         var error_view = new ErrorView ();
@@ -321,6 +341,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         grid.add (native_info_bar);
         grid.add (default_info_bar);
         grid.add (network_info_bar);
+        grid.add (close_when_opening_externally_info_bar);
         grid.add (stack);
         grid.add (find_bar);
 
@@ -438,7 +459,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
             preferences_dialog.run ();
             preferences_dialog.destroy ();
         });
-
 
         web_view.load_changed.connect (update_progress);
         web_view.notify["uri"].connect (update_progress);
@@ -745,6 +765,20 @@ public class Ephemeral.MainWindow : Gtk.Window {
         add_accel_group (accel_group);
     }
 
+    protected override bool delete_event (Gdk.EventAny event) {
+        if (Application.settings.get_boolean ("close-when-opening-externally")) {
+            // Don't keep this around unless it's being used
+            Application.settings.reset ("manual-closes-after-opening-externally");
+        } else if (new DateTime.now_utc ().to_unix () < (Application.instance.last_external_open + 10)) {
+            Application.settings.set_int (
+                "manual-closes-after-opening-externally",
+                Application.settings.get_int ("manual-closes-after-opening-externally") + 1
+            );
+        }
+
+        return false;
+    }
+
     private void update_progress () {
         title = web_view.title;
         back_button.sensitive = web_view.can_go_back ();
@@ -794,7 +828,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         external_dialog.run ();
         external_dialog.destroy ();
-
     }
 
     private void download_finished (WebKit.Download download) {

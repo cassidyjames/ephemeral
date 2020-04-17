@@ -135,7 +135,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
                     app_info.get_icon (),
                     Application.instance.icon_size
                 );
-                browser_icon.pixel_size = 24;
+                browser_icon.pixel_size = Application.instance.icon_pixel_size;
 
                 open_button.image = browser_icon;
                 open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
@@ -157,8 +157,11 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
 
         try {
             app_info.launch_uris (uris, null);
+
             if (Application.settings.get_boolean ("close-when-opening-externally")) {
                 main_window.close ();
+            } else {
+                Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
             }
         } catch (GLib.Error e) {
             critical (e.message);

@@ -19,29 +19,21 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class Ephemeral.DefaultInfoBar : Gtk.InfoBar {
-    public DefaultInfoBar () {
+public class Ephemeral.CloseWhenOpeningExternallyInfoBar : Gtk.InfoBar {
+    public CloseWhenOpeningExternallyInfoBar () {
         Object (
-            message_type: Gtk.MessageType.QUESTION,
+            message_type: Gtk.MessageType.INFO,
             show_close_button: true
         );
     }
 
     construct {
-        string habit = _("Make privacy a habit.");
-        string ask_default = _("Set Ephemeral as your default browser?");
+        string title = _("Close When Opening Externally?");
+        string details = _("You frequently close Ephemeral after opening a page externally. You can set Ephemeral to automatically close instead.");
 
-        // TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
-        string change = _("You can always change this later in <i>System Settings</i> → <i>Applications</i>.");
-
-        var default_label = new Gtk.Label ("<b>%s</b> %s\n<small>%s</small>".printf (
-            habit, ask_default, change
-        ));
+        var default_label = new Gtk.Label ("<b>%s</b> %s".printf (title, details));
         default_label.use_markup = true;
         default_label.wrap = true;
-
-        var default_app_info = GLib.AppInfo.get_default_for_type (Application.CONTENT_TYPES[0], false);
-        var app_info = new GLib.DesktopAppInfo (GLib.Application.get_default ().application_id + ".desktop");
 
         var never_button = new Gtk.Button.with_label (_("Never Ask Again"));
         never_button.halign = Gtk.Align.END;
@@ -49,34 +41,32 @@ public class Ephemeral.DefaultInfoBar : Gtk.InfoBar {
 
         get_content_area ().add (default_label);
         add_action_widget (never_button, Gtk.ResponseType.REJECT);
-        add_button (_("Set as Default"), Gtk.ResponseType.ACCEPT);
+        add_button (_("Turn On"), Gtk.ResponseType.ACCEPT);
 
-        revealed =
-            !default_app_info.equal (app_info) &&
-            Application.settings.get_boolean ("ask-default") &&
-            Application.instance.ask_default_for_session;
+        try_set_revealed ();
 
         response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.ACCEPT:
-                    try {
-                        for (int i = 0; i < Application.CONTENT_TYPES.length; i++) {
-                            app_info.set_as_default_for_type (Application.CONTENT_TYPES[i]);
-                        }
-                    } catch (GLib.Error e) {
-                        critical (e.message);
-                    }
-                    revealed = false;
+                    Application.settings.set_boolean ("close-when-opening-externally", true);
+                    try_set_revealed ();
                     break;
                 case Gtk.ResponseType.REJECT:
-                    Application.settings.set_boolean ("ask-default", false);
+                    Application.settings.set_boolean ("suggest-close-when-opening-externally", false);
                 case Gtk.ResponseType.CLOSE:
-                    Application.instance.ask_default_for_session = false;
                     revealed = false;
                     break;
                 default:
                     assert_not_reached ();
             }
         });
+    }
+
+    public void try_set_revealed (bool? reveal = true) {
+        revealed =
+            reveal &&
+            !Application.settings.get_boolean ("close-when-opening-externally") &&
+            Application.settings.get_boolean ("suggest-close-when-opening-externally") &&
+            Application.settings.get_int ("manual-closes-after-opening-externally") > 3;
     }
 }

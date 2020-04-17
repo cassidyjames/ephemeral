@@ -1,7 +1,7 @@
 project(
     'com.github.cassidyjames.ephemeral',
     'vala', 'c',
-    version: '6.2.0'
+    version: '6.3.3'
 )
 
 gnome = import('gnome')
@@ -24,6 +24,7 @@ executable(
     join_paths('src', 'Dialogs', 'ExternalDialog.vala'),
     join_paths('src', 'Dialogs', 'PreferencesDialog.vala'),
     join_paths('src', 'Dialogs', 'ScriptDialog.vala'),
+    join_paths('src', 'InfoBars', 'CloseWhenOpeningExternallyInfoBar.vala'),
     join_paths('src', 'InfoBars', 'DefaultInfoBar.vala'),
     join_paths('src', 'InfoBars', 'NativeInfoBar.vala'),
     join_paths('src', 'InfoBars', 'NetworkInfoBar.vala'),
@@ -51,4 +52,3 @@ subdir('data')
 subdir('po')
 
 meson.add_install_script(join_paths('meson', 'post_install.py'))
-
