@@ -2,24 +2,26 @@
 # Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
 # Meliurwen <meliurwen@gmail.com>, 2019.
+# Mirko Brombin <send@mirko.pm>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-02 14:52-0700\n"
-"PO-Revision-Date: 2019-12-02 10:27+0100\n"
-"Last-Translator: Meliurwen <meliurwen@gmail.com>\n"
+"PO-Revision-Date: 2020-04-24 16:02+0200\n"
+"Last-Translator: Mirko Brombin <mirko@send.pm>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: src/MainWindow.vala:63
 msgid "Undo"
-msgstr ""
+msgstr "Avanti"
 
 #: src/MainWindow.vala:77
 msgid "Back"
@@ -47,11 +49,11 @@ msgstr "Menu"
 
 #: src/MainWindow.vala:122
 msgid "Light content"
-msgstr ""
+msgstr "Contenuto chiaro"
 
 #: src/MainWindow.vala:123
 msgid "Dark content"
-msgstr ""
+msgstr "Contenuto scuro"
 
 #: src/MainWindow.vala:135
 msgid "Zoom out"
@@ -67,11 +69,11 @@ msgstr "Ingrandisci"
 
 #: src/MainWindow.vala:164
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
-msgstr ""
+msgstr "<b>Nota:</b> Disabilitare JavaScript probabilmente romperà molti siti"
 
 #: src/MainWindow.vala:180
 msgid "JavaScript"
-msgstr ""
+msgstr "JavaScript"
 
 #: src/MainWindow.vala:194
 msgid "Open New Window"
@@ -95,21 +97,19 @@ msgstr "Cerca con DuckDuckGo"
 
 #: src/MainWindow.vala:246
 msgid "Custom Search Engine…"
-msgstr "Motore di Ricerca Personalizzato..."
+msgstr "Motore di Ricerca Personalizzato…"
 
 #: src/MainWindow.vala:250
 msgid "Reset Preferences…"
-msgstr "Ripristina preferenze..."
+msgstr "Ripristina preferenze…"
 
 #: src/MainWindow.vala:682
-#, fuzzy
 msgid "Suggestion removed"
-msgstr "Sistemati Suggerimenti dell'URL"
+msgstr "Rimossi suggerimenti"
 
 #: src/MainWindow.vala:686
-#, fuzzy
 msgid "Suggestion added"
-msgstr "Sistemati Suggerimenti dell'URL"
+msgstr "Aggiunti suggerimenti"
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
 msgid "Open Link Externally?"
@@ -178,7 +178,7 @@ msgstr "Rendi la privacy un'abitune."
 
 #: src/InfoBars/DefaultInfoBar.vala:32
 msgid "Set Ephemeral as your default browser?"
-msgstr "impostare Ephemeral come browser predefinito?"
+msgstr "Impostare Ephemeral come browser predefinito?"
 
 #. TRANSLATORS: Where you change default apps on elementary OS. Be very careful with the <i> markup!
 #: src/InfoBars/DefaultInfoBar.vala:35
@@ -225,11 +225,11 @@ msgstr "Scarta"
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/NativeInfoBar.vala:46
 msgid "Donate…"
-msgstr "Fai una donazione..."
+msgstr "Fai una donazione…"
 
 #: src/InfoBars/NetworkInfoBar.vala:31
 msgid "Network Not Available."
-msgstr "Rete Non Disponibile"
+msgstr "Rete Non Disponibile."
 
 #: src/InfoBars/NetworkInfoBar.vala:32
 msgid "Connect to the Internet to browse the Web."
@@ -242,7 +242,7 @@ msgstr "Non Avvertire Più"
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/NetworkInfoBar.vala:45
 msgid "Network Settings…"
-msgstr "Impostazioni di Rete..."
+msgstr "Impostazioni di Rete…"
 
 #. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
 #: src/InfoBars/PaidInfoBar.vala:32
@@ -263,7 +263,7 @@ msgstr ""
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/PaidInfoBar.vala:50
 msgid "Purchase or Fund…"
-msgstr "Compra o Finanzia..."
+msgstr "Acquista o Finanzia…"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
@@ -296,7 +296,7 @@ msgstr "Per una protezione migliore utilizza sempre una VPN."
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
 #: src/Widgets/BrowserButton.vala:50
 msgid "Open page in…"
-msgstr "Apri pagina in..."
+msgstr "Apri pagina in…"
 
 #: src/Widgets/BrowserButton.vala:62
 msgid "Close Window When Opening Externally"
