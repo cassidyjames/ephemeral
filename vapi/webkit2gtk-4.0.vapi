@@ -1878,3 +1878,4 @@ namespace WebKit {
 	[Version (since = "2.8")]
 	public static bool user_media_permission_is_for_video_device (WebKit.UserMediaPermissionRequest request);
 }
+

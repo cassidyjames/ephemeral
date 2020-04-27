@@ -22,21 +22,15 @@
 public class Ephemeral.WebContext : WebKit.WebContext {
     public WebContext () {
         Object (
-            // is_ephemeral: true,
             process_swap_on_cross_site_navigation_enabled: true,
             website_data_manager: new WebKit.WebsiteDataManager.ephemeral ()
         );
-        
+
         set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
         set_sandbox_enabled (true);
-        get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
-    }
 
-    construct {
-        // var website_data_manager = new WebsiteDataManager.ephemeral ();
-        
-        // set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
-        // set_sandbox_enabled (true);
-        // get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
+        get_cookie_manager ().set_accept_policy (
+            WebKit.CookieAcceptPolicy.NO_THIRD_PARTY
+        );
     }
 }

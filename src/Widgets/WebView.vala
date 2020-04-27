@@ -37,12 +37,6 @@ public class Ephemeral.WebView : WebKit.WebView {
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
 
-        // var webkit_web_context = new WebKit.WebContext.ephemeral ();
-        // webkit_web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
-        // webkit_web_context.set_sandbox_enabled (true);
-        // critical (webkit_web_context.process_swap_on_cross_site_navigation_enabled.to_string ());
-        // webkit_web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
-
         settings = webkit_settings;
         web_context = new Ephemeral.WebContext ();
 
