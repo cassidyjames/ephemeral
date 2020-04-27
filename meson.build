@@ -20,6 +20,7 @@ executable(
     meson.project_name(),
     join_paths('src', 'Application.vala'),
     join_paths('src', 'MainWindow.vala'),
+    join_paths('src', 'WebContext.vala'),
     join_paths('src', 'Dialogs', 'CustomSearchDialog.vala'),
     join_paths('src', 'Dialogs', 'ExternalDialog.vala'),
     join_paths('src', 'Dialogs', 'PreferencesDialog.vala'),
