@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 20:42+0000\n"
+"POT-Creation-Date: 2020-04-29 21:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,11 +86,11 @@ msgid "Close all windows and erase all history"
 msgstr ""
 
 #: src/MainWindow.vala:257
-msgid "Startpage.com Search"
+msgid "DuckDuckGo Search"
 msgstr ""
 
 #: src/MainWindow.vala:260
-msgid "DuckDuckGo Search"
+msgid "Startpage.com Search"
 msgstr ""
 
 #: src/MainWindow.vala:265
