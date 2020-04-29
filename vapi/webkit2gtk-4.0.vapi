@@ -365,6 +365,59 @@ namespace WebKit {
 		public string link_uri { get; construct; }
 		public string media_uri { get; construct; }
 	}
+	[CCode (cheader_filename = "webkit2/webkit2.h", type_id = "webkit_input_method_context_get_type ()")]
+	public abstract class InputMethodContext : GLib.Object {
+		[CCode (has_construct_function = false)]
+		protected InputMethodContext ();
+		[Version (since = "2.28")]
+		public virtual bool filter_key_event (Gdk.EventKey key_event);
+		[Version (since = "2.28")]
+		public WebKit.InputHints get_input_hints ();
+		[Version (since = "2.28")]
+		public WebKit.InputPurpose get_input_purpose ();
+		[Version (since = "2.28")]
+		public virtual void get_preedit (out string? text, out GLib.List<WebKit.InputMethodUnderline>? underlines, out uint cursor_offset);
+		[Version (since = "2.28")]
+		public virtual void notify_cursor_area (int x, int y, int width, int height);
+		[Version (since = "2.28")]
+		public virtual void notify_focus_in ();
+		[Version (since = "2.28")]
+		public virtual void notify_focus_out ();
+		[Version (since = "2.28")]
+		public virtual void notify_surrounding (string text, uint length, uint cursor_index, uint selection_index);
+		[Version (since = "2.28")]
+		public virtual void reset ();
+		[Version (since = "2.28")]
+		public virtual void set_enable_preedit (bool enabled);
+		public void set_input_hints (WebKit.InputHints hints);
+		[Version (since = "2.28")]
+		public void set_input_purpose (WebKit.InputPurpose purpose);
+		public WebKit.InputHints input_hints { get; set; }
+		public WebKit.InputPurpose input_purpose { get; set; }
+		[Version (since = "2.28")]
+		public virtual signal void committed (string text);
+		[Version (since = "2.28")]
+		public virtual signal void delete_surrounding (int offset, uint n_chars);
+		[Version (since = "2.28")]
+		public virtual signal void preedit_changed ();
+		[Version (since = "2.28")]
+		public virtual signal void preedit_finished ();
+		[Version (since = "2.28")]
+		public virtual signal void preedit_started ();
+	}
+	[CCode (cheader_filename = "webkit2/webkit2.h", copy_function = "g_boxed_copy", free_function = "g_boxed_free", type_id = "webkit_input_method_underline_get_type ()")]
+	[Compact]
+	public class InputMethodUnderline {
+		[CCode (has_construct_function = false)]
+		[Version (since = "2.28")]
+		public InputMethodUnderline (uint start_offset, uint end_offset);
+		[Version (since = "2.28")]
+		public WebKit.InputMethodUnderline copy ();
+		[Version (since = "2.28")]
+		public void free ();
+		[Version (since = "2.28")]
+		public void set_color (Gdk.RGBA? rgba);
+	}
 	[CCode (cheader_filename = "webkit2/webkit2.h", type_id = "webkit_install_missing_media_plugins_permission_request_get_type ()")]
 	public class InstallMissingMediaPluginsPermissionRequest : GLib.Object, WebKit.PermissionRequest {
 		[CCode (has_construct_function = false)]
@@ -532,6 +585,11 @@ namespace WebKit {
 		public unowned string get_name ();
 		public unowned string get_path ();
 	}
+	[CCode (cheader_filename = "webkit2/webkit2.h", type_id = "webkit_pointer_lock_permission_request_get_type ()")]
+	public class PointerLockPermissionRequest : GLib.Object, WebKit.PermissionRequest {
+		[CCode (has_construct_function = false)]
+		protected PointerLockPermissionRequest ();
+	}
 	[CCode (cheader_filename = "webkit2/webkit2.h", type_id = "webkit_policy_decision_get_type ()")]
 	public abstract class PolicyDecision : GLib.Object {
 		[CCode (has_construct_function = false)]
@@ -655,6 +713,8 @@ namespace WebKit {
 		[Version (since = "2.10")]
 		public bool get_allow_file_access_from_file_urls ();
 		public bool get_allow_modal_dialogs ();
+		[Version (since = "2.28")]
+		public bool get_allow_top_navigation_to_data_urls ();
 		[Version (since = "2.14")]
 		public bool get_allow_universal_access_from_file_urls ();
 		public bool get_auto_load_images ();
@@ -727,6 +787,8 @@ namespace WebKit {
 		[Version (since = "2.10")]
 		public void set_allow_file_access_from_file_urls (bool allowed);
 		public void set_allow_modal_dialogs (bool allowed);
+		[Version (since = "2.28")]
+		public void set_allow_top_navigation_to_data_urls (bool allowed);
 		[Version (since = "2.14")]
 		public void set_allow_universal_access_from_file_urls (bool allowed);
 		public void set_auto_load_images (bool enabled);
@@ -800,6 +862,8 @@ namespace WebKit {
 		[Version (since = "2.10")]
 		public bool allow_file_access_from_file_urls { get; set construct; }
 		public bool allow_modal_dialogs { get; set construct; }
+		[Version (since = "2.28")]
+		public bool allow_top_navigation_to_data_urls { get; set construct; }
 		[Version (since = "2.14")]
 		public bool allow_universal_access_from_file_urls { get; set construct; }
 		public bool auto_load_images { get; set construct; }
@@ -904,7 +968,7 @@ namespace WebKit {
 	public class URISchemeRequest : GLib.Object {
 		[CCode (has_construct_function = false)]
 		protected URISchemeRequest ();
-		public void finish (GLib.InputStream stream, int64 stream_length, string? mime_type);
+		public void finish (GLib.InputStream stream, int64 stream_length, string? content_type);
 		[Version (since = "2.2")]
 		public void finish_error (GLib.Error error);
 		public unowned string get_path ();
@@ -983,6 +1047,29 @@ namespace WebKit {
 		[NoAccessorMethod]
 		public bool is_for_video_device { get; }
 	}
+	[CCode (cheader_filename = "webkit2/webkit2.h", type_id = "webkit_user_message_get_type ()")]
+	public class UserMessage : GLib.InitiallyUnowned {
+		[CCode (has_construct_function = false)]
+		[Version (since = "2.28")]
+		public UserMessage (string name, GLib.Variant? parameters);
+		[Version (since = "2.28")]
+		public unowned GLib.UnixFDList get_fd_list ();
+		[Version (since = "2.28")]
+		public unowned string get_name ();
+		[Version (since = "2.28")]
+		public unowned GLib.Variant get_parameters ();
+		[Version (since = "2.28")]
+		public void send_reply (WebKit.UserMessage reply);
+		[CCode (has_construct_function = false)]
+		[Version (since = "2.28")]
+		public UserMessage.with_fd_list (string name, GLib.Variant? parameters, GLib.UnixFDList? fd_list);
+		[Version (since = "2.28")]
+		public GLib.UnixFDList fd_list { get; construct; }
+		[Version (since = "2.28")]
+		public string name { get; construct; }
+		[Version (since = "2.28")]
+		public GLib.Variant parameters { get; construct; }
+	}
 	[CCode (cheader_filename = "webkit2/webkit2.h", ref_function = "webkit_user_script_ref", type_id = "webkit_user_script_get_type ()", unref_function = "webkit_user_script_unref")]
 	[Compact]
 	public class UserScript {
@@ -1055,6 +1142,8 @@ namespace WebKit {
 		public bool is_ephemeral ();
 		public void prefetch_dns (string hostname);
 		public void register_uri_scheme (string scheme, owned WebKit.URISchemeRequestCallback callback);
+		[Version (since = "2.28")]
+		public void send_message_to_all_extensions (WebKit.UserMessage message);
 		public void set_additional_plugins_directory (string directory);
 		[Version (since = "2.18")]
 		public void set_automation_allowed (bool allowed);
@@ -1083,6 +1172,9 @@ namespace WebKit {
 		[NoAccessorMethod]
 		[Version (deprecated = true, deprecated_since = "2.10.", since = "2.8")]
 		public string local_storage_directory { owned get; construct; }
+		[NoAccessorMethod]
+		[Version (since = "2.28")]
+		public bool process_swap_on_cross_site_navigation_enabled { get; construct; }
 		[Version (since = "2.10")]
 		public WebKit.WebsiteDataManager website_data_manager { get; construct; }
 		[Version (since = "2.18")]
@@ -1092,6 +1184,8 @@ namespace WebKit {
 		public virtual signal void initialize_notification_permissions ();
 		[Version (since = "2.4")]
 		public virtual signal void initialize_web_extensions ();
+		[Version (since = "2.28")]
+		public virtual signal bool user_message_received (WebKit.UserMessage message);
 	}
 	[CCode (cheader_filename = "webkit2/webkit2.h", type_id = "webkit_web_inspector_get_type ()")]
 	public class WebInspector : GLib.Object {
@@ -1145,6 +1239,8 @@ namespace WebKit {
 		public void execute_editing_command (string command);
 		[Version (since = "2.10")]
 		public void execute_editing_command_with_argument (string command, string argument);
+		[Version (since = "2.28")]
+		public WebKit.AutomationBrowsingContextPresentation get_automation_presentation_type ();
 		public unowned WebKit.BackForwardList get_back_forward_list ();
 		[Version (since = "2.8")]
 		public Gdk.RGBA get_background_color ();
@@ -1155,6 +1251,8 @@ namespace WebKit {
 		public double get_estimated_load_progress ();
 		public unowned Cairo.Surface get_favicon ();
 		public unowned WebKit.FindController get_find_controller ();
+		[Version (since = "2.28")]
+		public unowned WebKit.InputMethodContext? get_input_method_context ();
 		public unowned WebKit.WebInspector get_inspector ();
 		[Version (deprecated = true, deprecated_since = "2.22")]
 		public unowned JS.GlobalContext get_javascript_global_context ();
@@ -1194,11 +1292,15 @@ namespace WebKit {
 		public async WebKit.JavascriptResult run_javascript_in_world (string script, string world_name, GLib.Cancellable? cancellable = null) throws GLib.Error;
 		public async GLib.InputStream save (WebKit.SaveMode save_mode, GLib.Cancellable? cancellable = null) throws GLib.Error;
 		public async bool save_to_file (GLib.File file, WebKit.SaveMode save_mode, GLib.Cancellable? cancellable = null) throws GLib.Error;
+		[Version (since = "2.28")]
+		public async WebKit.UserMessage send_message_to_page (WebKit.UserMessage message, GLib.Cancellable? cancellable = null) throws GLib.Error;
 		[Version (since = "2.8")]
 		public void set_background_color (Gdk.RGBA rgba);
 		public void set_custom_charset (string? charset);
 		[Version (since = "2.8")]
 		public void set_editable (bool editable);
+		[Version (since = "2.28")]
+		public void set_input_method_context (WebKit.InputMethodContext? context);
 		public void set_settings (WebKit.Settings settings);
 		public void set_zoom_level (double zoom_level);
 		[NoWrapper]
@@ -1217,6 +1319,8 @@ namespace WebKit {
 		[CCode (has_construct_function = false, type = "GtkWidget*")]
 		[Version (since = "2.6")]
 		public WebView.with_user_content_manager (WebKit.UserContentManager user_content_manager);
+		[Version (since = "2.28")]
+		public WebKit.AutomationBrowsingContextPresentation automation_presentation_type { get; construct; }
 		[NoAccessorMethod]
 		[Version (since = "2.8")]
 		public bool editable { get; set; }
@@ -1233,6 +1337,8 @@ namespace WebKit {
 		[NoAccessorMethod]
 		[Version (since = "2.8")]
 		public bool is_playing_audio { get; }
+		[Version (since = "2.28")]
+		public uint64 page_id { get; }
 		[NoAccessorMethod]
 		[Version (since = "2.4")]
 		public WebKit.WebView related_view { construct; }
@@ -1261,8 +1367,8 @@ namespace WebKit {
 		public virtual signal bool load_failed_with_tls_errors (string failing_uri, GLib.TlsCertificate certificate, GLib.TlsCertificateFlags errors);
 		public virtual signal void mouse_target_changed (WebKit.HitTestResult hit_test_result, uint modifiers);
 		[CCode (cname = "show-option-menu")]
-		[Version (since = "2.18")]
-		public signal bool on_show_option_menu (WebKit.OptionMenu menu, Gdk.Event event, Gdk.Rectangle rectangle);
+		[Version (since = "2.28")]
+		public signal bool on_show_option_menu (WebKit.OptionMenu object, Gdk.Event p0, Gdk.Rectangle p1);
 		public virtual signal bool permission_request (WebKit.PermissionRequest permission_request);
 		public virtual signal bool print (WebKit.PrintOperation print_operation);
 		public virtual signal void ready_to_show ();
@@ -1275,6 +1381,8 @@ namespace WebKit {
 		[Version (since = "2.8")]
 		public virtual signal bool show_notification (WebKit.Notification notification);
 		public virtual signal void submit_form (WebKit.FormSubmissionRequest request);
+		[Version (since = "2.28")]
+		public virtual signal bool user_message_received (WebKit.UserMessage message);
 		[Version (deprecated = true, deprecated_since = "2.20")]
 		public virtual signal bool web_process_crashed ();
 		[Version (since = "2.20")]
@@ -1402,6 +1510,12 @@ namespace WebKit {
 		SERVER_TRUST_EVALUATION_REQUESTED,
 		UNKNOWN
 	}
+	[CCode (cheader_filename = "webkit2/webkit2.h", cprefix = "WEBKIT_AUTOMATION_BROWSING_CONTEXT_PRESENTATION_", type_id = "webkit_automation_browsing_context_presentation_get_type ()")]
+	[Version (since = "2.28")]
+	public enum AutomationBrowsingContextPresentation {
+		WINDOW,
+		TAB
+	}
 	[CCode (cheader_filename = "webkit2/webkit2.h", cprefix = "WEBKIT_CACHE_MODEL_", type_id = "webkit_cache_model_get_type ()")]
 	public enum CacheModel {
 		DOCUMENT_VIEWER,
@@ -1512,6 +1626,29 @@ namespace WebKit {
 		EDITABLE,
 		SCROLLBAR,
 		SELECTION
+	}
+	[CCode (cheader_filename = "webkit2/webkit2.h", cprefix = "WEBKIT_INPUT_HINT_", type_id = "webkit_input_hints_get_type ()")]
+	[Flags]
+	[Version (since = "2.28")]
+	public enum InputHints {
+		NONE,
+		SPELLCHECK,
+		LOWERCASE,
+		UPPERCASE_CHARS,
+		UPPERCASE_WORDS,
+		UPPERCASE_SENTENCES,
+		INHIBIT_OSK
+	}
+	[CCode (cheader_filename = "webkit2/webkit2.h", cprefix = "WEBKIT_INPUT_PURPOSE_", type_id = "webkit_input_purpose_get_type ()")]
+	[Version (since = "2.28")]
+	public enum InputPurpose {
+		FREE_FORM,
+		DIGITS,
+		NUMBER,
+		PHONE,
+		URL,
+		EMAIL,
+		PASSWORD
 	}
 	[CCode (cheader_filename = "webkit2/webkit2.h", cprefix = "WEBKIT_INSECURE_CONTENT_", type_id = "webkit_insecure_content_event_get_type ()")]
 	public enum InsecureContentEvent {
@@ -1693,6 +1830,12 @@ namespace WebKit {
 		NOT_FOUND;
 		public static GLib.Quark quark ();
 	}
+	[CCode (cheader_filename = "webkit2/webkit2.h", cprefix = "WEBKIT_USER_MESSAGE_UNHANDLED_")]
+	[Version (since = "2.28")]
+	public errordomain UserMessageError {
+		MESSAGE;
+		public static GLib.Quark quark ();
+	}
 	[CCode (cheader_filename = "webkit2/webkit2.h", instance_pos = 1.9)]
 	public delegate void URISchemeRequestCallback (WebKit.URISchemeRequest request);
 	[CCode (cheader_filename = "webkit2/webkit2.h", cname = "WEBKIT_EDITING_COMMAND_COPY")]
@@ -1735,3 +1878,4 @@ namespace WebKit {
 	[Version (since = "2.8")]
 	public static bool user_media_permission_is_for_video_device (WebKit.UserMediaPermissionRequest request);
 }
+

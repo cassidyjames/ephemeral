@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -37,12 +37,8 @@ public class Ephemeral.WebView : WebKit.WebView {
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
 
-        var webkit_web_context = new WebKit.WebContext.ephemeral ();
-        webkit_web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
-        webkit_web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
-
         settings = webkit_settings;
-        web_context = webkit_web_context;
+        web_context = new Ephemeral.WebContext ();
 
         context_menu.connect (on_context_menu);
         script_dialog.connect (on_script_dialog);
