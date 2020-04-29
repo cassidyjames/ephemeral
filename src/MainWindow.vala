@@ -254,11 +254,11 @@ public class Ephemeral.MainWindow : Gtk.Window {
         set_menu_style_classes (quit_button);
         quit_button.add (quit_grid);
 
-        var startpage_button = new Gtk.RadioButton.with_label (null, _("Startpage.com Search"));
-        set_menu_style_classes (startpage_button);
-
-        var ddg_button = new Gtk.RadioButton.with_label_from_widget (startpage_button, _("DuckDuckGo Search"));
+        var ddg_button = new Gtk.RadioButton.with_label (null, _("DuckDuckGo Search"));
         set_menu_style_classes (ddg_button);
+
+        var startpage_button = new Gtk.RadioButton.with_label_from_widget (ddg_button, _("Startpage.com Search"));
+        set_menu_style_classes (startpage_button);
 
         var custom_search_button = new Gtk.RadioButton.with_label_from_widget (
             startpage_button,
@@ -287,8 +287,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover_grid.add (new_window_button);
         settings_popover_grid.add (quit_button);
         settings_popover_grid.add (new MenuSeparator ());
-        settings_popover_grid.add (startpage_button);
         settings_popover_grid.add (ddg_button);
+        settings_popover_grid.add (startpage_button);
         settings_popover_grid.add (custom_search_button);
         settings_popover_grid.add (new MenuSeparator ());
         settings_popover_grid.add (preferences_button);

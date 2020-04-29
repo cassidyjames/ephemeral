@@ -48,8 +48,9 @@
         <p>Other updates:</p>
         <ul>
           <li>Switched to DuckDuckGo search by default since it supports a dark style</li>
-          <li>Enabled Safe Browsing by default for DuckDuckGo searches to avoid unwanted results</li>
+          <li>Enabled stict Safe Browsing by default for DuckDuckGo searches to avoid unwanted results</li>
           <li>StartPage.com remains an available option in the menu</li>
+          <li>Other search engines or configurations can be added under “Custom Search Engine…” in the menu, as always</li>
         </ul>
       </description>
     </release>
