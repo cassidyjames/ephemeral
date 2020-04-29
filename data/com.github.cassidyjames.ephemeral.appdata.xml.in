@@ -42,6 +42,7 @@
       <description>
         <p>Sandboxing</p>
         <ul>
+          <li>Enabled WebKit’s subprocess sandboxing.</li>
           <li>Enabled WebKit’s process swapping on cross-site navigation, meaning separate domains are sandboxed from one another.</li>
         </ul>
       </description>
