@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-02 10:48+0100\n"
-"PO-Revision-Date: 2019-12-02 10:27+0100\n"
+"PO-Revision-Date: 2020-04-24 16:06+0200\n"
 "Last-Translator: Meliurwen <meliurwen@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
 
 #: data/launcher.desktop.in:3
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
@@ -88,16 +89,16 @@ msgstr "Scegli nel menu tra i motori di ricerca che rispettano la privacy"
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:76
 msgid "Quickly disable or re-enable JavaScript from the menu"
-msgstr ""
+msgstr "Disattiva e ri-attiva JavaScript in modo rapido dal menu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
 msgid "Add a website to the URL suggestions with the ⭐️ icon or Ctrl+D"
-msgstr ""
+msgstr "Aggiungi un sito web ai suggeriti con l'icona ⭐️ o Ctrl+D"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:20
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:78
 msgid "Find text on the page with Ctrl+F"
-msgstr ""
+msgstr "Trova testo nella pagina con Ctrl+F"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
 msgid "Ephemeral protects you in five key ways:"
@@ -107,8 +108,8 @@ msgstr "Ephemeral ti protegge in cinque modi chiave:"
 msgid ""
 "1️⃣ Always incognito. From the second you open an Ephemeral window until you "
 "close it (or hit the Erase button), Ephemeral is in private browsing mode. "
-"That means history, cookies, local storage, passwords, etc. are all blown "
-"away as soon as you leave."
+"That means history, cookies, local storage, passwords, etc. are all blown away "
+"as soon as you leave."
 msgstr ""
 "1️⃣ Sempre in incognito. Dall'istante in cui apri una finestra di Ephemeral "
 "finché non la chiudi (o premi il tasto Elimina), Ephemeral è in modalità "
@@ -130,25 +131,24 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
 msgid ""
-"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from "
-"third-party sources. This cuts down on advertising cookies and other "
-"unwanted forms of cross-site tracking."
+"3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from third-"
+"party sources. This cuts down on advertising cookies and other unwanted forms "
+"of cross-site tracking."
 msgstr ""
-"3️⃣ Niente cookie di terze parti. Pronto all'uso, Ephemeral è preconfigurato "
-"per bloccare i cookie da fonti di terze parti. Ciò riduce i cookie "
-"pubblicitari ed alte forme indesiderate di tracciamento cross-site."
+"3️⃣ Niente cookie di terze parti. Pronto all'uso, Ephemeral è preconfigurato per "
+"bloccare i cookie da fonti di terze parti. Ciò riduce i cookie pubblicitari ed "
+"alte forme indesiderate di tracciamento cross-site."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
 msgid ""
-"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly "
-"load a web page or perform a search. Even then, no usage data is ever "
-"collected—I have no idea what you do with Ephemeral, and I don't want to "
-"know!"
+"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly load "
+"a web page or perform a search. Even then, no usage data is ever collected—I "
+"have no idea what you do with Ephemeral, and I don't want to know!"
 msgstr ""
 "4️⃣ Nessuna telemetria. Ephemeral non tocca la rete fino a che non sei tu a "
-"caricare esplicitamente una pagina od effettuare una ricerca. Anche in "
-"questo caso, nessun dato di utilizzo viene raccolto — non ho idea e non "
-"voglio sapere di cosa tu faccia con Ephemeral!"
+"caricare esplicitamente una pagina od effettuare una ricerca. Anche in questo "
+"caso, nessun dato di utilizzo viene raccolto — non ho idea e non voglio sapere "
+"di cosa tu faccia con Ephemeral!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
 msgid ""
@@ -163,16 +163,15 @@ msgstr ""
 "DuckDuckGo, o addirittura impostare un motore di ricerca personalizzato."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:28
-msgid ""
-"The best part of Ephemeral comes when you use it as your default browser:"
+msgid "The best part of Ephemeral comes when you use it as your default browser:"
 msgstr ""
 "La parte migliore di Ephemeral arriva quando lo usi come browser predefinito:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:29
 msgid ""
-"Make privacy a habit by opening links in a private browser by default, "
-"knowing you can always jump back into something less private like Firefox, "
-"Chrome, Opera, Brave—or any other installed browser—with one click."
+"Make privacy a habit by opening links in a private browser by default, knowing "
+"you can always jump back into something less private like Firefox, Chrome, "
+"Opera, Brave—or any other installed browser—with one click."
 msgstr ""
 "Rendi la privacy un'abitudine aprendo in maniera predefinita i link in un "
 "browser in incognito, sapendo che puoi sempre tornare indietro ad un browser "
@@ -181,15 +180,14 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:30
 msgid ""
-"Remember, Ephemeral and any browser's incognito or private mode can only do "
-"so much: they mitigate some tracking and don't store data on your device, "
-"but they won't stop your ISP, government, or determined websites from "
-"tracking you."
+"Remember, Ephemeral and any browser's incognito or private mode can only do so "
+"much: they mitigate some tracking and don't store data on your device, but "
+"they won't stop your ISP, government, or determined websites from tracking you."
 msgstr ""
 "Ricorda, Ephemeral ed ogni altro browser in modalità in incognito o privata "
 "può fare solo questo: attenua il tracciamento e non memorizza i dati sul tuo "
-"dispositivo, ma non impedisce al tuo ISP, al tuo governo o a determinati "
-"siti di tracciarti."
+"dispositivo, ma non impedisce al tuo ISP, al tuo governo o a determinati siti "
+"di tracciarti."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:31
 msgid ""
@@ -200,11 +198,11 @@ msgid ""
 "window to get out of your way."
 msgstr ""
 "Che cosa succede se si verifica un problema di compatibilità con il sito a "
-"causa della prevenzione del tracciamento, o se si desidera accedere a un "
-"sito utilizzando le password salvate in un altro browser? Con Ephemeral non "
-"c'è problema: basta premere nell'intestazione l'icona del tuo altro browser "
-"e la pagina corrente verrà aperta lì; opzionalmente potrà essere chiusa la "
-"finestra corrente per andartene velocemente per la tua strada."
+"causa della prevenzione del tracciamento, o se si desidera accedere a un sito "
+"utilizzando le password salvate in un altro browser? Con Ephemeral non c'è "
+"problema: basta premere nell'intestazione l'icona del tuo altro browser e la "
+"pagina corrente verrà aperta lì; opzionalmente potrà essere chiusa la finestra "
+"corrente per andartene velocemente per la tua strada."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:32
 msgid "For the best protection, always use a VPN."
@@ -217,32 +215,34 @@ msgstr "Aggiornamenti minori"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:42
 msgid "Fixed checkbox and radio button styling"
-msgstr ""
+msgstr "Corretto lo strile delle caselle di spunta e dei pulsanti radio"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
 msgid "Treat “localhost” as a valid domain"
-msgstr ""
+msgstr "Tratta \"localhost\" come dominio valido"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:44
 msgid "Improved dark styling when building with newer versions of WebKit"
-msgstr ""
+msgstr "Migliorato lo stile scuro con le nuove versioni di WebKit"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:45
 msgid "Under the hood changes to make translations easier"
-msgstr ""
+msgstr "Sotto il cofano modifiche per facilitare le traduzioni"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:46
-#, fuzzy
-msgid ""
-"Updated Spanish translations thanks to Adolfo Jayme-Barrientos and @riesp"
+msgid "Updated Spanish translations thanks to Adolfo Jayme-Barrientos and @riesp"
 msgstr "Traduzioni spagnole aggiornate grazie ad Adolfo Jayme-Barrientos"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:52
 msgid ""
 "🎉️ Emoji (and international character) support for domains! Punycode means "
-"domains like i❤tacos.ws will show up properly in the URL entry, while "
-"phishing domains should still show up like xn--80ak6aa92e.com"
+"domains like i❤tacos.ws will show up properly in the URL entry, while phishing "
+"domains should still show up like xn--80ak6aa92e.com"
 msgstr ""
+"🎉️ Supporto Emoji (e di carattere internazionale) per i domini! Punycode "
+"significa che i domini come i❤tacos.ws appariranno correttamente nella voce "
+"dell'URL, mentre i domini di phishing dovrebbero comunque apparire come "
+"xn--80ak6aa92e.com"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:53
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:86
@@ -285,23 +285,30 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:62
 msgid "Adding Some Polish 💅️"
-msgstr ""
+msgstr "Aggiunta di un po' di polacco 💅️"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:64
 msgid ""
-"💻️ Touchpad gesture navigation: Use a two-finger swipe to move back or "
-"forward through your browsing history"
+"💻️ Touchpad gesture navigation: Use a two-finger swipe to move back or forward "
+"through your browsing history"
 msgstr ""
+"💻️ Navigazione con touchpad a gesti: Con un tocco di due dita si può andare "
+"avanti o indietro nella cronologia di navigazione"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:65
 msgid ""
-"🔗️ More room for the URL entry to breathe: spacing on each side plus a "
-"maximum width means the window is easier to grab and move around"
+"🔗️ More room for the URL entry to breathe: spacing on each side plus a maximum "
+"width means the window is easier to grab and move around"
 msgstr ""
+"🔗️ Più spazio per l'inserimento dell'URL per respirare: la spaziatura su ogni "
+"lato più una larghezza massima significa che la finestra è più facile da "
+"afferrare e da spostare"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:66
 msgid "UI styling fixes, plus dark style fixes for newer versions of WebKit"
 msgstr ""
+"Correzioni di stile UI, più correzioni di stile scuro per le nuove versioni di "
+"WebKit"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:316
@@ -310,19 +317,18 @@ msgstr "Pulizia codice per tenere le cose fresche e pulite"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:74
 msgid "McSipes"
-msgstr ""
+msgstr "McSipes"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:77
-#, fuzzy
 msgid "Use Ctrl+D to add/remove a site from the suggestions"
-msgstr "Rimuovi il Sito dai Suggerimenti"
+msgstr "Rimuovi il Sito dai Suggeriti"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:79
 msgid "New Paste and Go item in the URL bar context menu"
 msgstr ""
+"Nuova voce Incolla e vai nel menu contestuale della barra degli indirizzi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:97
-#, fuzzy
 msgid "Updated Italian translations thanks to @meliurwen"
 msgstr "Traduzioni lituane aggiornate grazie a @welaq"
 
@@ -355,8 +361,7 @@ msgid "Summer cleaning! Because that’s a thing, right?"
 msgstr "Pulizie estive! Perché esiste questa cosa, vero?"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:117
-msgid ""
-"Fixed the “Open Link in New Window” menu item to actually do what it says"
+msgid "Fixed the “Open Link in New Window” menu item to actually do what it says"
 msgstr ""
 "Sistemata la voce del menu \"Apri Link in una Nuova Finestra\" in modo che "
 "faccia per davvero quello che dice di fare"
@@ -371,8 +376,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:119
 msgid ""
-"Updated the base color in menus and dialog windows from the default "
-"elementary slate-ish black to a new deep, dark blue-ish purple"
+"Updated the base color in menus and dialog windows from the default elementary "
+"slate-ish black to a new deep, dark blue-ish purple"
 msgstr ""
 "Aggiornato il colore base nei menu e nelle finestre di dialogo dal nero "
 "ardesia predefinito di elementary ad un nuovo profondo, scuro viola tendente "
@@ -388,8 +393,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:121
 msgid ""
-"Significantly cleaned up and reorganized the codebase to make future "
-"features and fixes easier"
+"Significantly cleaned up and reorganized the codebase to make future features "
+"and fixes easier"
 msgstr ""
 "Significativa pulizia e riorganizzazione del codice in modo da semplificare "
 "future correzioni ed aggiunta di funzionalità"
@@ -418,8 +423,7 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:142
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
 msgstr ""
-"Gli alert in JavaScript ora seguono le HIG di elementary grazie a David "
-"Hewitt"
+"Gli alert in JavaScript ora seguono le HIG di elementary grazie a David Hewitt"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:146
 msgid "Ciao! Translated to Italian thanks to @meliurwen"
@@ -450,8 +454,8 @@ msgid ""
 "⭐️ Add your own websites to the suggestions using the new button in the URL "
 "entry"
 msgstr ""
-"⭐️ Aggiungi i tuoi siti web ai suggerimenti usando il nuovo pulsante nella "
-"voce dell'URL"
+"⭐️ Aggiungi i tuoi siti web ai suggerimenti usando il nuovo pulsante nella voce "
+"dell'URL"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:185
 msgid "Plus the usual iterative improvements:"
@@ -482,11 +486,10 @@ msgid "Blaze It"
 msgstr "Accendiamolo"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:208
-msgid ""
-"New option to close the window when opening a page in an external browser"
+msgid "New option to close the window when opening a page in an external browser"
 msgstr ""
-"Nuova opzione per chiudere la finestra quando si apre una pagina in un "
-"browser esterno"
+"Nuova opzione per chiudere la finestra quando si apre una pagina in un browser "
+"esterno"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:209
 msgid "The web view is now focused when navigating"
@@ -510,8 +513,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:219
 msgid ""
-"Strip whitespace from URL entry before navigating—fixes instances where "
-"trying to navigate to a domain would perform a search"
+"Strip whitespace from URL entry before navigating—fixes instances where trying "
+"to navigate to a domain would perform a search"
 msgstr ""
 "Eliminati gli spazi bianchi dalla voce dell'URL prima della navigazione: "
 "corregge le istanze in cui si tenta di navigare verso un dominio anziché di "
@@ -563,18 +566,18 @@ msgstr "Buon compleanno, Katie!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:244
 msgid ""
-"*This data is all shipped with Ephemeral itself, and Ephemeral still does "
-"not touch the network until you explicitly navigate somewhere. The list of "
-"domains is heavily inspired by a similar feature in Firefox Focus. Domains "
-"being included in completion suggestions are not an endorsement, it simply "
-"means that domain is relatively popular."
+"*This data is all shipped with Ephemeral itself, and Ephemeral still does not "
+"touch the network until you explicitly navigate somewhere. The list of domains "
+"is heavily inspired by a similar feature in Firefox Focus. Domains being "
+"included in completion suggestions are not an endorsement, it simply means "
+"that domain is relatively popular."
 msgstr ""
 "*Questi dati vengono tutti forniti all'interno di Ephemeral stesso, ed "
-"Ephemeral non toccherà la connessione alla rete finché non sarai tu a "
-"navigare esplicitamente da qualche parte. L'elenco dei domini è fortemente "
-"ispirato da una funzionalità simile in Firefox Focus. I domini inclusi nei "
-"suggerimenti di completamento non sono una sponsorizzazione, significa "
-"semplicemente che il dominio è relativamente popolare."
+"Ephemeral non toccherà la connessione alla rete finché non sarai tu a navigare "
+"esplicitamente da qualche parte. L'elenco dei domini è fortemente ispirato da "
+"una funzionalità simile in Firefox Focus. I domini inclusi nei suggerimenti di "
+"completamento non sono una sponsorizzazione, significa semplicemente che il "
+"dominio è relativamente popolare."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:249
 msgid "Guten Tag! German translations thanks to Hannes Schulze"
@@ -594,8 +597,8 @@ msgstr "Traduzioni lituane grazie a @welaq"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:268
 msgid ""
-"Fixed some missed translations and updated French translations. Thanks "
-"again, @NathanBnm!"
+"Fixed some missed translations and updated French translations. Thanks again, "
+"@NathanBnm!"
 msgstr ""
 "Sistemato alcune traduzioni ed aggiornate le traduzioni in francese. Grazie "
 "ancora, @NathanBnm!"
@@ -630,8 +633,7 @@ msgstr "Traduzioni"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:283
 msgid ""
-"¡Hola! Spanish translations thanks to Adolfo Jayme-Barrientos and Mario "
-"Rodrigo"
+"¡Hola! Spanish translations thanks to Adolfo Jayme-Barrientos and Mario Rodrigo"
 msgstr ""
 "¡Hola! Traduzioni spagnole grazie ad Adolfo Jayme-Barrientos e Mario Rodrigo"
 
@@ -640,8 +642,7 @@ msgid "salut! French translations thanks to Nathan (@NathanBnm)"
 msgstr "salut! Traduzioni francesi grazie a Nathan (@NathanBnm)"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:285
-msgid ""
-"Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
+msgid "Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
 msgstr ""
 "Olá! Traduzioni in portoghese brasiliano grazie a Lucas Sanchez dos Anjos"
 
@@ -669,8 +670,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:301
 msgid "Reported zoom level is now kept in sync across open windows"
-msgstr ""
-"Il livello di zoom riportato è ora sincronizzato tra le finestre aperte"
+msgstr "Il livello di zoom riportato è ora sincronizzato tra le finestre aperte"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:307
 msgid "Zoom! And more…"
@@ -678,14 +678,13 @@ msgstr "Zoom! E altro..."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:309
 msgid "A new menu to keep the UI tidy and balanced"
-msgstr ""
-"Un nuovo menu per mantenere l'interfaccia grafica ordinata e bilanciata"
+msgstr "Un nuovo menu per mantenere l'interfaccia grafica ordinata e bilanciata"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:310
 msgid "Zoom in, out, and default from the new menu or with the keyboard"
 msgstr ""
-"Ingrandisci, rimpicciolisci ed ingrandimento predefinito dal nuovo menu o "
-"con la tastiera"
+"Ingrandisci, rimpicciolisci ed ingrandimento predefinito dal nuovo menu o con "
+"la tastiera"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:311
 msgid "New Window action moved into the menu"
@@ -697,8 +696,7 @@ msgstr "Aggiunta nel menu l'azione \"Chiudi Tutte le Finestre\""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:313
 msgid "Smooth scrolling when using the keyboard or a scrollwheel"
-msgstr ""
-"Scorrimento fluido quando si utilizza la tastiera o la rotella del mouse"
+msgstr "Scorrimento fluido quando si utilizza la tastiera o la rotella del mouse"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:314
 msgid "Fixed Twitch livestreams"
@@ -747,8 +745,8 @@ msgid ""
 "The new start page makes Ephemeral faster and makes it not touch the network "
 "until you're ready to browse"
 msgstr ""
-"La nuova pagina iniziale rende Ephemeral più veloce e non tocca la rete "
-"finché non si è pronti a navigare"
+"La nuova pagina iniziale rende Ephemeral più veloce e non tocca la rete finché "
+"non si è pronti a navigare"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:338
 msgid "Middle- or Ctrl-click a link to open it in a new window"
@@ -758,8 +756,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:339
 msgid ""
-"Displayed URLs are kept in sync for pages that manually update the URL "
-"without a page load"
+"Displayed URLs are kept in sync for pages that manually update the URL without "
+"a page load"
 msgstr ""
 "Gli URL visualizzati vengono mantenuti sincronizzati per le pagine che "
 "aggiornano manualmente l'URL senza caricare la pagina"
@@ -796,8 +794,8 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:364
 msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
 msgstr ""
-"Aggiunti \"Nuova finestra\" nella barra di intestazione, un avviatore di app "
-"e le scorciatoie da tastiera"
+"Aggiunti \"Nuova finestra\" nella barra di intestazione, un avviatore di app e "
+"le scorciatoie da tastiera"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:365
 msgid "Collapse external browsers into a menu when there's more than one"
