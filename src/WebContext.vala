@@ -22,6 +22,8 @@
 public class Ephemeral.WebContext : WebKit.WebContext {
     public WebContext () {
         Object (
+            // This causes a known visual regression with navigation gestures.
+            // See: https://bugs.webkit.org/show_bug.cgi?id=205651
             process_swap_on_cross_site_navigation_enabled: true,
             website_data_manager: new WebKit.WebsiteDataManager.ephemeral ()
         );
