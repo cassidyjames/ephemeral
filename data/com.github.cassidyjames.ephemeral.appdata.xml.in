@@ -45,10 +45,10 @@
           <li>Enabled WebKit’s subprocess sandboxing</li>
           <li>Enabled WebKit’s process swapping on cross-site navigation, meaning separate domains are sandboxed from one another</li>
         </ul>
-        <p>Other updates:</p>
+        <p>Search engine changes</p>
         <ul>
           <li>Switched to DuckDuckGo search by default since it supports a dark style</li>
-          <li>Enabled stict Safe Browsing by default for DuckDuckGo searches to avoid unwanted results</li>
+          <li>Enabled strict Safe Browsing by default for DuckDuckGo to avoid unwanted results</li>
           <li>StartPage.com remains an available option in the menu</li>
           <li>Other search engines or configurations can be added under “Custom Search Engine…” in the menu, as always</li>
         </ul>
