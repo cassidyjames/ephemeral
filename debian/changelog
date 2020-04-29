@@ -1,3 +1,12 @@
+com.github.cassidyjames.ephemeral (6.3.4) bionic; urgency=medium
+
+  * Release 6.3.4 (#240)
+  * Update translation template
+  * AppData: Add 6.3.4 release description
+  * Updated Italian translations (#238)
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Wed, 29 Apr 2020 04:26:34 +0000
+
 com.github.cassidyjames.ephemeral (6.3.3) bionic; urgency=medium
 
   * Meson: Bump version to 6.3.3 (#236)
