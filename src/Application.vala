@@ -124,7 +124,7 @@ public class Ephemeral.Application : Gtk.Application {
     }
 
     public static bool elementary_stylesheet () {
-        return Gtk.Settings.get_default ().gtk_theme_name.has_prefix ("elementary");
+        return Gtk.Settings.get_default ().gtk_theme_name.contains ("elementary");
     }
 
     public static bool native () {
