@@ -49,7 +49,7 @@
       <description>Number of times the user manually closed Ephemeral shortly after opening a page externally</description>
     </key>
     <key name="search-engine" type="s">
-      <default>"https://www.startpage.com/do/search?q=%s&amp;prfh=enable_stay_controlEEE0N1N"</default>
+      <default>"https://duckduckgo.com/?q=%s&amp;kp=1&amp;t=elementary"</default>
       <summary>Search engine</summary>
       <description>A search string using "%s" as a placeholder for a query</description>
     </key>

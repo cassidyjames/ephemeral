@@ -29,7 +29,7 @@
     <p>2️⃣ Sandboxed. Each window uses a separate instance of the browser engine, domains inside each window are rendered using different processes, and the engine’s processes are sandboxed from one another to keep you safe. Sign into a service in one window, and sites in other windows will have no idea.</p>
     <p>3️⃣ No third-party cookies. Ephemeral blocks cookies from third-party sources, which cuts down on advertising cookies and other unwanted forms of cross-site tracking.</p>
     <p>4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly load a web page or perform a search. Even then, no usage data is ever collected—I have no idea what you do with Ephemeral, and I don't want to know!</p>
-    <p>5️⃣️ Ephemeral uses Startpage.com—the world's most private search engine—by default to avoid as much Google tracking as possible. You can also choose DuckDuckGo from the menu if that’s your preference, or even set your own entirely custom search engine.</p>
+    <p>5️⃣️ Ephemeral uses DuckDuckGo—the search engine that doesn’t track you—by default to avoid as much Google tracking as possible. You can also choose StartPage.com from the menu if that’s your preference, or even set your own entirely custom search engine.</p>
     <p>Make privacy a habit by opening links in Ephemeral by default, knowing you can always jump back into a traditional browser like Epiphany, Firefox, Chrome, Opera, Brave—or any other installed browser—with one click. Perfect in case you want to use saved passwords or other extensions.</p>
     <p>Remember, Ephemeral and any browser's incognito or private mode can only do so much: they mitigate some tracking and don't store data on your device, but they won't stop your ISP, government, or determined websites from tracking you.</p>
     <p>For the best protection, always use a VPN.</p>
@@ -44,6 +44,12 @@
         <ul>
           <li>Enabled WebKit’s subprocess sandboxing</li>
           <li>Enabled WebKit’s process swapping on cross-site navigation, meaning separate domains are sandboxed from one another</li>
+        </ul>
+        <p>Other updates:</p>
+        <ul>
+          <li>Switched to DuckDuckGo search by default since it supports a dark style</li>
+          <li>Enabled Safe Browsing by default for DuckDuckGo searches to avoid unwanted results</li>
+          <li>StartPage.com remains an available option in the menu</li>
         </ul>
       </description>
     </release>
