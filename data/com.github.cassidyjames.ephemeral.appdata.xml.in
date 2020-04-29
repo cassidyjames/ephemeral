@@ -35,6 +35,11 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.3.4" date="2020-04-28">
+      <description>
+        <p>Updated Italian translations thanks to Mirko Brombin</p>
+      </description>
+    </release>
     <release version="6.3.3" date="2020-04-01">
       <description>
         <p>Fool me twice…</p>
