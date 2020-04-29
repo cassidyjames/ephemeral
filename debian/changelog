@@ -1,3 +1,14 @@
+com.github.cassidyjames.ephemeral (6.4.0) bionic; urgency=medium
+
+  * Update meson.build (#242)
+  * Application: Support greenfield elementary stylesheet
+  * Update translation template
+  * Switch back to DuckDuckGo by default (#241)
+  * Update translation template
+  * Sandboxing  (#239)
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Wed, 29 Apr 2020 23:33:21 +0000
+
 com.github.cassidyjames.ephemeral (6.3.4) bionic; urgency=medium
 
   * Release 6.3.4 (#240)
