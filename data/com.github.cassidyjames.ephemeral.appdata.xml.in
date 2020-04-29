@@ -26,7 +26,7 @@
     </ul>
     <p>Ephemeral protects you in five key ways:</p>
     <p>1️⃣ Always incognito. From the second you open an Ephemeral window until you close it (or hit the Erase button), Ephemeral is in private browsing mode. That means history, cookies, local storage, passwords, etc. are all blown away as soon as you leave.</p>
-    <p>2️⃣ Contained. Every Ephemeral window is a separate instance of the browser engine, and domains inside each window are sandboxed from one another using different processes. Sign into a service in one window, and other Ephemeral windows will have no idea you’re signed in.</p>
+    <p>2️⃣ Sandboxed. Each window uses a separate instance of the browser engine, domains inside each window are sandboxed from one another using different processes, and the engine’s processes are sandboxed from one another to keep you safe. Sign into a service in one window, and sites in other windows will have no idea.</p>
     <p>3️⃣ No third-party cookies. Ephemeral blocks cookies from third-party sources, which cuts down on advertising cookies and other unwanted forms of cross-site tracking.</p>
     <p>4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly load a web page or perform a search. Even then, no usage data is ever collected—I have no idea what you do with Ephemeral, and I don't want to know!</p>
     <p>5️⃣️ Ephemeral uses Startpage.com—the world's most private search engine—by default to avoid as much Google tracking as possible. You can also choose DuckDuckGo from the menu if that’s your preference, or even set your own entirely custom search engine.</p>
