@@ -1,3 +1,10 @@
+com.github.cassidyjames.ephemeral (6.4.1) bionic; urgency=medium
+
+  * Release 6.4.1 (#244)
+  * Update Spanish translation (#243)
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Thu, 30 Apr 2020 21:52:07 +0000
+
 com.github.cassidyjames.ephemeral (6.4.0) bionic; urgency=medium
 
   * Update meson.build (#242)
