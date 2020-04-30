@@ -38,6 +38,11 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.4.1" date="2020-04-30">
+      <description>
+        <p>Updated Spanish translations thanks to Adolfo Jayme-Barrientos</p>
+      </description>
+    </release>
     <release version="6.4.0" date="2020-04-29">
       <description>
         <p>Sandboxing</p>
