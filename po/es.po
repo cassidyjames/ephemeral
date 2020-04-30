@@ -1,7 +1,9 @@
-# Spanish translations for com.github.cassidyjames.ephemeral package.
-# Copyright (C) 2019 THE com.github.cassidyjames.ephemeral'S COPYRIGHT HOLDER
+# Spanish translations for Ephemeral.
+# Copyright (C) 2019 Cassidy James Blaede, Adolfo Jayme Barrientos
 # This file is distributed under the same license as the com.github.cassidyjames.ephemeral package.
-# Automatically generated, 2019.
+# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2019-2020.
+# Daniel R. <riesp@pm.me>, 2019.
+# Mario Rodrigo, 2019.
 #
 msgid ""
 msgstr ""
@@ -47,11 +49,11 @@ msgstr "Menú"
 
 #: src/MainWindow.vala:122
 msgid "Light content"
-msgstr ""
+msgstr "Contenido claro"
 
 #: src/MainWindow.vala:123
 msgid "Dark content"
-msgstr ""
+msgstr "Contenido oscuro"
 
 #: src/MainWindow.vala:135
 msgid "Zoom out"
@@ -105,11 +107,11 @@ msgstr "Restablecer las preferencias…"
 
 #: src/MainWindow.vala:682
 msgid "Suggestion removed"
-msgstr "Sugerencia eliminada"
+msgstr "Se quitó la sugerencia"
 
 #: src/MainWindow.vala:686
 msgid "Suggestion added"
-msgstr "Sugerencia añadida"
+msgstr "Se añadió la sugerencia"
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
 msgid "Open Link Externally?"
