@@ -3,6 +3,7 @@ i18n.gettext(meson.project_name(),
     '--directory=' + meson.source_root(),
     '--from-code=UTF-8'
   ],
-  preset: 'glib',
+  preset: 'glib'
 )
 
+subdir('extra')

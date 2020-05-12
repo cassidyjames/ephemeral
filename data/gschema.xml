@@ -11,6 +11,11 @@
       <summary>Close when opening externally</summary>
       <description>Whether or not the current Ephemeral window should be closed when opening a link in an external browser</description>
     </key>
+    <key name="dark-style" type="b">
+      <default>false</default>
+      <summary>Prefer a dark style</summary>
+      <description>Whether or not Ephemeral should ask sites to render in a dark style where supported</description>
+    </key>
     <key name="enable-javascript" type="b">
       <default>true</default>
       <summary>Enable JavaScript</summary>
@@ -38,10 +43,20 @@
       <summary>Last used browser</summary>
       <description>The id of the last-used browser (the browser selected in the menu)</description>
     </key>
+    <key name="manual-closes-after-opening-externally" type="i">
+      <default>0</default>
+      <summary>Manual closes after opening externally</summary>
+      <description>Number of times the user manually closed Ephemeral shortly after opening a page externally</description>
+    </key>
     <key name="search-engine" type="s">
-      <default>"https://www.startpage.com/do/search?q=%s&amp;prfh=enable_stay_controlEEE0N1N"</default>
+      <default>"https://duckduckgo.com/?q=%s&amp;kp=1&amp;t=elementary"</default>
       <summary>Search engine</summary>
       <description>A search string using "%s" as a placeholder for a query</description>
+    </key>
+    <key name="suggest-close-when-opening-externally" type="b">
+      <default>true</default>
+      <summary>Suggest "Close when opening externally"</summary>
+      <description>Whether or not Ephemeral should suggest to turn on the "Close when opening externally" setting if the user is manually doing it a lot</description>
     </key>
     <key name="warn-network" type="b">
       <default>true</default>
@@ -55,4 +70,3 @@
     </key>
   </schema>
 </schemalist>
-

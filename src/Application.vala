@@ -1,10 +1,10 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
 * License as published by the Free Software Foundation; either
-* version 2 of the License, or (at your option) any later version.
+* version 3 of the License, or (at your option) any later version.
 *
 * This program is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -34,14 +34,16 @@ public class Ephemeral.Application : Gtk.Application {
     public const int64 NOTICE_SECS = 60 * 60 * 24 * 30;
     public const string DONATE_URL = "https://cassidyjames.com/pay";
     public const string STARTPAGE = "https://www.startpage.com/do/search?q=%s&prfh=enable_stay_controlEEE0N1N";
-    public const string DDG = "https://duckduckgo.com/?q=%s&t=elementary";
+    public const string DDG = "https://duckduckgo.com/?q=%s&kp=1&t=elementary";
 
     public static GLib.Settings settings;
+    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+    public int icon_pixel_size = 16;
 
     public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
-    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+    public int64 last_external_open = int64.MIN;
 
     private bool opening_link = false;
 
@@ -68,7 +70,7 @@ public class Ephemeral.Application : Gtk.Application {
 
     protected override void activate () {
         var gtk_settings = Gtk.Settings.get_default ();
-        gtk_settings.gtk_application_prefer_dark_theme = true;
+        gtk_settings.gtk_application_prefer_dark_theme = settings.get_boolean ("dark-style");
 
         var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/global.css");
@@ -80,6 +82,7 @@ public class Ephemeral.Application : Gtk.Application {
 
         if (elementary_stylesheet ()) {
             Application.instance.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
+            Application.instance.icon_pixel_size = 24;
 
             var elementary_provider = new Gtk.CssProvider ();
             elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/elementary.css");
@@ -121,7 +124,7 @@ public class Ephemeral.Application : Gtk.Application {
     }
 
     public static bool elementary_stylesheet () {
-        return Gtk.Settings.get_default ().gtk_theme_name.has_prefix ("elementary");
+        return Gtk.Settings.get_default ().gtk_theme_name.contains ("elementary");
     }
 
     public static bool native () {

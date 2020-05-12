@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -23,8 +23,7 @@ public class Ephemeral.WebView : WebKit.WebView {
     public WebView () {
         Object (
             expand: true,
-            height_request: 200,
-            user_content_manager: new WebKit.UserContentManager ()
+            height_request: 200
         );
     }
 
@@ -32,49 +31,14 @@ public class Ephemeral.WebView : WebKit.WebView {
         var webkit_settings = new WebKit.Settings ();
         webkit_settings.allow_file_access_from_file_urls = true;
         webkit_settings.default_font_family = Gtk.Settings.get_default ().gtk_font_name;
+        webkit_settings.enable_back_forward_navigation_gestures = true;
         webkit_settings.enable_java = false;
         webkit_settings.enable_mediasource = true;
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
 
-        // NOTE: Supported with newer Vala bindings
-        // webkit_settings.enable_back_forward_navigation_gestures = true;
-        webkit_settings.set ("enable-back-forward-navigation-gestures", true, null);
-
-        var undark_css = new WebKit.UserStyleSheet (
-            """
-            html,
-            body {
-                background-color: white;
-                color: black;
-            }
-
-            input,
-            textarea,
-            button,
-            select,
-            ::-webkit-file-upload-button {
-                background: white;
-                border: 1px solid rgba(0, 0, 0, 0.25);
-                border-radius: 0.25em;
-                color: black;
-                padding: 0.25em 0.5em;
-                -webkit-appearance: none;
-            }
-            """,
-            WebKit.UserContentInjectedFrames.ALL_FRAMES,
-            WebKit.UserStyleLevel.AUTHOR,
-            null,
-            null
-        );
-        user_content_manager.add_style_sheet (undark_css);
-
-        var webkit_web_context = new WebKit.WebContext.ephemeral ();
-        webkit_web_context.set_process_model (WebKit.ProcessModel.MULTIPLE_SECONDARY_PROCESSES);
-        webkit_web_context.get_cookie_manager ().set_accept_policy (WebKit.CookieAcceptPolicy.NO_THIRD_PARTY);
-
         settings = webkit_settings;
-        web_context = webkit_web_context;
+        web_context = new Ephemeral.WebContext ();
 
         context_menu.connect (on_context_menu);
         script_dialog.connect (on_script_dialog);

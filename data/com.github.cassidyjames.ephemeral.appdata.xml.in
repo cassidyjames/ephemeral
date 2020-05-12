@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright 2018 Cassidy James Blaede <c@ssidyjam.es> -->
+<!-- Copyright 2018–2020 Cassidy James Blaede <c@ssidyjam.es> -->
 <component type="desktop">
   <id>com.github.cassidyjames.ephemeral</id>
   <metadata_license>CC0</metadata_license>
@@ -12,31 +12,127 @@
     <ul>
       <li>Easily open pages in any other installed browser</li>
       <li>Search right from the URL bar</li>
-      <li>Set as your default browser for true privacy by default</li>
-      <li>Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows</li>
       <li>Pick between privacy-respecting search engines from the menu</li>
       <li>Quickly disable or re-enable JavaScript from the menu</li>
+    </ul>
+    <p>Useful keyboard shortcuts and gestures:</p>
+    <ul>
+      <li>Navigate back or forward with a two-finger swipe on your trackpad</li>
       <li>Add a website to the URL suggestions with the ⭐️ icon or Ctrl+D</li>
       <li>Find text on the page with Ctrl+F</li>
+      <li>Zoom in or out with Ctrl+Plus and Ctrl+Minus</li>
+      <li>Open a new window with Ctrl+N</li>
+      <li>Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows</li>
     </ul>
     <p>Ephemeral protects you in five key ways:</p>
     <p>1️⃣ Always incognito. From the second you open an Ephemeral window until you close it (or hit the Erase button), Ephemeral is in private browsing mode. That means history, cookies, local storage, passwords, etc. are all blown away as soon as you leave.</p>
-    <p>2️⃣ Contained. Every Ephemeral window is a separate instance of the browser engine. This means pages are kept separate from one another. Sign into a service in one window, and other Ephemeral windows will have no idea you’re signed in.</p>
-    <p>3️⃣ No third-party cookies. Out of the box, Ephemeral blocks cookies from third-party sources. This cuts down on advertising cookies and other unwanted forms of cross-site tracking.</p>
+    <p>2️⃣ Sandboxed. Each window uses a separate instance of the browser engine, domains inside each window are rendered using different processes, and the engine’s processes are sandboxed from one another to keep you safe. Sign into a service in one window, and sites in other windows will have no idea.</p>
+    <p>3️⃣ No third-party cookies. Ephemeral blocks cookies from third-party sources, which cuts down on advertising cookies and other unwanted forms of cross-site tracking.</p>
     <p>4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly load a web page or perform a search. Even then, no usage data is ever collected—I have no idea what you do with Ephemeral, and I don't want to know!</p>
-    <p>5️⃣️ Ephemeral uses Startpage.com—the world's most private search engine—by default to avoid as much Google tracking as possible. You can also choose DuckDuckGo from the menu if that’s your preference, or even set your own entirely custom search engine.</p>
-    <p>The best part of Ephemeral comes when you use it as your default browser:</p>
-    <p>Make privacy a habit by opening links in a private browser by default, knowing you can always jump back into something less private like Firefox, Chrome, Opera, Brave—or any other installed browser—with one click.</p>
+    <p>5️⃣️ Ephemeral uses DuckDuckGo—the search engine that doesn’t track you—by default to avoid as much Google tracking as possible. You can also choose StartPage.com from the menu if that’s your preference, or even set your own entirely custom search engine.</p>
+    <p>Make privacy a habit by opening links in Ephemeral by default, knowing you can always jump back into a traditional browser like Epiphany, Firefox, Chrome, Opera, Brave—or any other installed browser—with one click. Perfect in case you want to use saved passwords or other extensions.</p>
     <p>Remember, Ephemeral and any browser's incognito or private mode can only do so much: they mitigate some tracking and don't store data on your device, but they won't stop your ISP, government, or determined websites from tracking you.</p>
-    <p>What if you run into a site compatibility issue due to the tracking prevention, or if you want to sign into a site using another browser’s saved passwords? Ephemeral has you covered: just hit your other browser’s icon in the header and the current page is opened up there—optionally closing the window to get out of your way.</p>
     <p>For the best protection, always use a VPN.</p>
   </description>
   <provides>
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="6.0.1">
+    <release version="6.4.1" date="2020-04-30">
       <description>
+        <p>Updated Spanish translations thanks to Adolfo Jayme-Barrientos</p>
+      </description>
+    </release>
+    <release version="6.4.0" date="2020-04-29">
+      <description>
+        <p>Sandboxing</p>
+        <ul>
+          <li>Enabled WebKit’s subprocess sandboxing</li>
+          <li>Enabled WebKit’s process swapping on cross-site navigation, meaning separate domains are sandboxed from one another</li>
+        </ul>
+        <p>Search engine changes</p>
+        <ul>
+          <li>Switched to DuckDuckGo search by default since it supports a dark style</li>
+          <li>Enabled strict Safe Browsing by default for DuckDuckGo to avoid unwanted results</li>
+          <li>StartPage.com remains an available option in the menu</li>
+          <li>Other search engines or configurations can be added under “Custom Search Engine…” in the menu, as always</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.3.4" date="2020-04-28">
+      <description>
+        <p>Updated Italian translations thanks to Mirko Brombin</p>
+      </description>
+    </release>
+    <release version="6.3.3" date="2020-04-01">
+      <description>
+        <p>Fool me twice…</p>
+        <ul>
+          <li>Remove sometimes-problematic dark style workaround CSS since it was fixed in WebKit</li>
+          <li>Ensure correct browser icon size is set</li>
+          <li>Remove dark style toggle when forcing a -dark stylesheet</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.3.2" date="2020-03-27">
+      <description>
+        <p>Minor Fixes</p>
+        <ul>
+          <li>Fix entry selection color when using the light style</li>
+          <li>Improve styling on other platforms/stylesheets by being less ambitious</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.3.1" date="2020-03-13">
+      <description>
+        <p>Helping Hand</p>
+        <ul>
+          <li>Suggest turning on "Close when opening externally" if Ephemeral notices you frequently doing it yourself</li>
+          <li>Turkish translations thanks to Safak GENISOL</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
+    <release version="6.2.1" date="2020-02-17">
+      <description>
+        <p>Translation updates</p>
+        <ul>
+          <li>Translation system improved thanks to @NathanBnm</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.2.0" date="2020-01-30">
+      <description>
+        <p>Dark Style Rises</p>
+        <ul>
+          <li>A new toggle lets you choose light or dark style for sites, assuming they support the `prefers-color-scheme` CSS query</li>
+          <li>Stopped defaulting to dark style by default since it can break some sites</li>
+          <li>Set the window title to help distinguish different pages from the dock</li>
+          <li>Simplified "Open page in…" menu and logic to always expose all options</li>
+        </ul>
+        <p>Translation updates</p>
+        <ul>
+          <li>Updated Dutch translations thanks to Heimen Stoffels</li>
+          <li>Updated French translations thanks to @NathanBnm</li>
+        </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
+    <release version="6.1.1" date="2019-11-05">
+      <description>
+        <p>Minor updates</p>
+        <ul>
+          <li>Fixed checkbox and radio button styling</li>
+          <li>Treat “localhost” as a valid domain</li>
+          <li>Improved dark styling when building with newer versions of WebKit</li>
+          <li>Under the hood changes to make translations easier</li>
+          <li>Updated Spanish translations thanks to Adolfo Jayme-Barrientos and @riesp</li>
+        </ul>
+      </description>
+    </release>
+    <release version="6.1.0" date="2019-10-17">
+      <description>
+        <p>🎉️ Emoji (and international character) support for domains! Punycode means domains like i❤tacos.ws will show up properly in the URL entry, while phishing domains should still show up like xn--80ak6aa92e.com</p>
         <p>Translation updates</p>
         <ul>
           <li>Updated Dutch translations thanks to Heimen Stoffels</li>
@@ -379,6 +475,9 @@
     <screenshot>
       <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-menu@2x.png</image>
     </screenshot>
+    <screenshot>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-menu-dark@2x.png</image>
+    </screenshot>
   </screenshots>
   <content_rating type="oars-1.1">
     <content_attribute id="violence-cartoon">none</content_attribute>
@@ -422,4 +521,3 @@
     <value key="x-appcenter-suggested-price">9</value>
   </custom>
 </component>
-

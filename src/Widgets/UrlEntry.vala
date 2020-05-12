@@ -121,7 +121,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
             if (uri == null || uri == "about:blank") {
                 text = "";
             } else if (text == "") {
-                text = uri;
+                text = WebKit.uri_for_display (uri);
             }
 
             set_secondary_icon ();
@@ -142,9 +142,11 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         });
 
         web_view.load_changed.connect ((source, e) => {
+            var uri = source.get_uri ();
+
             SignalHandler.block (this, changed_event);
             if (!has_focus) {
-                text = source.get_uri ();
+                text = WebKit.uri_for_display (uri);
                 set_secondary_icon ();
             }
             SignalHandler.unblock (this, changed_event);
@@ -156,7 +158,10 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
 
         // TODO: Better URL validation
         if (!input.contains ("://")) {
-            if (input.contains (".") && !input.contains (" ")) {
+            if (
+                (input.contains (".") && !input.contains (" ")) ||
+                input.has_prefix ("localhost")
+            ) {
                 // TODO: Try HTTPS, and fall back to HTTP?
                 formatted_url = "%s://%s".printf ("http", input);
                 return true;

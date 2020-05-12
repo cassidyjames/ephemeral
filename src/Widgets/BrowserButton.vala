@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -22,8 +22,8 @@
 public class Ephemeral.BrowserButton : Gtk.Grid {
     public Gtk.Window main_window { get; construct set; }
     public WebView web_view { get; construct set; }
-    public Gtk.MenuButton list_button {get; construct set; }
-    public Gtk.Button open_button {get; construct set; }
+    private Gtk.Button open_button { get; set; }
+    private List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Application.CONTENT_TYPES[0]);
 
     public BrowserButton (Gtk.Window _main_window, WebView _web_view) {
         Object (
@@ -33,207 +33,118 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
     }
 
     construct {
-        var context = get_style_context ();
-        context.add_class (Gtk.STYLE_CLASS_LINKED);
-        context.add_class ("browser-button");
-
-        List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Application.CONTENT_TYPES[0]);
+        // Prune Ephemeral from the list of apps
         foreach (AppInfo app_info in external_apps) {
             if (app_info.get_id () == GLib.Application.get_default ().application_id + ".desktop") {
                 external_apps.remove (app_info);
             }
         }
 
-        if (external_apps.length () > 1) {
-            list_button = new Gtk.MenuButton ();
-            // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
-            list_button.tooltip_text = _("Open page in…");
+        var context = get_style_context ();
+        context.add_class (Gtk.STYLE_CLASS_LINKED);
+        context.add_class ("browser-button");
 
-            open_button = new Gtk.Button ();
+        var list_button = new Gtk.MenuButton ();
+        list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
+        list_button.tooltip_text = _("Open page in…");
+        list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
 
-            ulong last_browser_handler_id;
+        open_button = new Gtk.Button ();
+        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
 
-            attach (open_button, 0, 0);
-            attach (list_button, 1, 0);
-            var last_used_browser_shown = false;
+        var list_popover = new Gtk.Popover (list_button);
+        list_button.popover = list_popover;
 
-            if (Application.settings.get_string ("last-used-browser") != "") {
-                foreach (AppInfo app_info in external_apps) {
-                    if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
-                        var browser_icon = new Gtk.Image.from_gicon (
-                            app_info.get_icon (),
-                            Application.instance.icon_size
-                        );
-                        browser_icon.pixel_size = 24;
+        var list_grid = new Gtk.Grid ();
+        list_grid.orientation = Gtk.Orientation.VERTICAL;
 
-                        open_button.image = browser_icon;
-                        open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
-                        open_button.tooltip_markup = Granite.markup_accel_tooltip (
-                          {"<Ctrl>o"},
-                          open_button.tooltip_text
-                        );
+        var close_check = new Gtk.CheckButton.with_label (_("Close Window When Opening Externally"));
+        close_check.margin_bottom = 3;
 
-                        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
+        var close_check_context = close_check.get_style_context ();
+        close_check_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+        close_check_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
-                        last_used_browser_shown = true;
+        list_popover.add (list_grid);
 
-                        last_browser_handler_id = open_button.clicked.connect (() => {
-                            try_opening (app_info, web_view.get_uri ());
-                        });
-                    }
-                }
+        foreach (AppInfo app_info in external_apps) {
+            var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
+            browser_icon.pixel_size = 16;
 
-                list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
+            var browser_grid = new Gtk.Grid ();
+            browser_grid.margin = 3;
+            browser_grid.column_spacing = 3;
+            browser_grid.add (browser_icon);
+            browser_grid.add (new Gtk.Label (app_info.get_name ()));
 
-                list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
-            } else {
-                open_button.show.connect (() => { // Needed because of show_all () being executed after this constructor
-                    if (!last_used_browser_shown) {
-                        open_button.hide ();
-                    }
-                });
+            var browser_item = new Gtk.Button ();
+            browser_item.add (browser_grid);
 
-                list_button.image = new Gtk.Image.from_icon_name ("document-export", Application.instance.icon_size);
+            var browser_item_context = browser_item.get_style_context ();
+            browser_item_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+            browser_item_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
-                list_button.get_style_context ().remove_class (Gtk.STYLE_CLASS_RAISED);
-            }
+            list_grid.add (browser_item);
+            browser_item.visible = true;
 
-            var list_popover = new Gtk.Popover (list_button);
-            list_button.popover = list_popover;
+            browser_grid.show_all ();
 
-            var list_grid = new Gtk.Grid ();
-            list_grid.orientation = Gtk.Orientation.VERTICAL;
-
-            var close_check = new Gtk.CheckButton.with_label (_("Close Window When Opening Externally"));
-            close_check.margin_bottom = 3;
-
-            var close_check_context = close_check.get_style_context ();
-            close_check_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
-            close_check_context.add_class (Gtk.STYLE_CLASS_FLAT);
-
-            Application.settings.bind (
-                "close-when-opening-externally",
-                close_check,
-                "active",
-                SettingsBindFlags.DEFAULT
-            );
-
-            list_popover.add (list_grid);
-
-            // Create a list of installed browsers
-            foreach (AppInfo app_info in external_apps) {
-                var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Gtk.IconSize.MENU);
-                browser_icon.pixel_size = 16;
-
-                var browser_grid = new Gtk.Grid ();
-                browser_grid.margin = 3;
-                browser_grid.column_spacing = 3;
-                browser_grid.add (browser_icon);
-                browser_grid.add (new Gtk.Label (app_info.get_name ()));
-
-                var browser_item = new Gtk.Button ();
-                browser_item.add (browser_grid);
-
-                var browser_item_context = browser_item.get_style_context ();
-                browser_item_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
-                browser_item_context.add_class (Gtk.STYLE_CLASS_FLAT);
-
-                list_grid.add (browser_item);
-                browser_item.visible = true;
-
-                browser_item.clicked.connect (() => {
-                    Application.settings.set_string ("last-used-browser", app_info.get_id ());
-                    try_opening (app_info, web_view.get_uri ());
-                    list_popover.popdown ();
-                });
-
-                browser_grid.show_all ();
-            }
-
-            var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
-            separator.margin_top = separator.margin_bottom = 3;
-
-            list_grid.add (separator);
-            list_grid.add (close_check);
-            list_grid.show_all ();
-
-            // Update open_button when the gsettings value has changed
-            Application.settings.changed["last-used-browser"].connect (() => {
-                if (Application.settings.get_string ("last-used-browser") != "") {
-                    if (!last_used_browser_shown) {
-                        // Add style classes if no browser has been used before
-                        last_used_browser_shown = true;
-                        open_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
-
-                        list_button.hide ();
-                        list_button.image = new Gtk.Image.from_icon_name ("pan-down-symbolic", Gtk.IconSize.BUTTON);
-                        // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
-                        list_button.tooltip_text = _("Open page in…");
-
-                        list_button.get_style_context ().add_class (Gtk.STYLE_CLASS_RAISED);
-
-                        list_button.show_all ();
-                    } else {
-                        open_button.hide ();
-                    }
-
-                    // Show the last-used browser
-                    foreach (AppInfo app_info in external_apps) {
-                        if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
-                            var browser_icon = new Gtk.Image.from_gicon (
-                                app_info.get_icon (),
-                                Application.instance.icon_size
-                            );
-                            browser_icon.pixel_size = 24;
-
-                            open_button.image = browser_icon;
-                            open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
-                            open_button.tooltip_markup = Granite.markup_accel_tooltip (
-                                {"<Ctrl>o"},
-                                open_button.tooltip_text
-                            );
-                            open_button.show_all ();
-
-                            open_button.disconnect (last_browser_handler_id);
-                            last_browser_handler_id = open_button.clicked.connect (() => {
-                                try_opening (app_info, web_view.get_uri ());
-                            });
-                        }
-                    }
-                } else {
-                    last_used_browser_shown = false;
-                    open_button.hide ();
-                    list_button.hide ();
-                    list_button.image = new Gtk.Image.from_icon_name (
-                        "document-export",
-                        Application.instance.icon_size
-                    );
-                    // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
-                    list_button.tooltip_text = _("Open page in…");
-                    list_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>o"}, list_button.tooltip_text);
-
-                    list_button.get_style_context ().remove_class (Gtk.STYLE_CLASS_RAISED);
-
-                    list_button.show_all ();
-                }
+            browser_item.clicked.connect (() => {
+                Application.settings.set_string ("last-used-browser", app_info.get_id ());
+                try_opening (app_info, web_view.get_uri ());
+                list_popover.popdown ();
             });
-        } else {
-            foreach (AppInfo app_info in external_apps) {
-                var browser_icon = new Gtk.Image.from_gicon (app_info.get_icon (), Application.instance.icon_size);
-                browser_icon.pixel_size = 24;
+        }
 
-                var open_single_browser_button = new Gtk.Button ();
-                open_single_browser_button.image = browser_icon;
-                open_single_browser_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
-                open_single_browser_button.tooltip_markup = Granite.markup_accel_tooltip (
-                    {"<Ctrl>o"},
-                    open_single_browser_button.tooltip_text
+        var separator = new Gtk.Separator (Gtk.Orientation.HORIZONTAL);
+        separator.margin_top = separator.margin_bottom = 3;
+
+        list_grid.add (separator);
+        list_grid.add (close_check);
+        list_grid.show_all ();
+
+        setup_preferred_browser ();
+
+        attach (open_button, 0, 0);
+        attach (list_button, 1, 0);
+
+
+        Application.settings.changed["last-used-browser"].connect (() => {
+            setup_preferred_browser ();
+        });
+
+        Application.settings.bind (
+            "close-when-opening-externally",
+            close_check,
+            "active",
+            SettingsBindFlags.DEFAULT
+        );
+    }
+
+    private void setup_preferred_browser () {
+        string preferred_browser = Application.settings.get_string ("last-used-browser");
+        if (preferred_browser == "") {
+            // Just grab the first browser
+            preferred_browser = external_apps.first ().data.get_id ();
+        }
+
+        foreach (AppInfo app_info in external_apps) {
+            if (app_info.get_id () == preferred_browser) {
+                var browser_icon = new Gtk.Image.from_gicon (
+                    app_info.get_icon (),
+                    Application.instance.icon_size
+                );
+                browser_icon.pixel_size = Application.instance.icon_pixel_size;
+
+                open_button.image = browser_icon;
+                open_button.tooltip_text = _("Open page in %s").printf (app_info.get_name ());
+                open_button.tooltip_markup = Granite.markup_accel_tooltip (
+                  {"<Ctrl>o"},
+                  open_button.tooltip_text
                 );
 
-                add (open_single_browser_button);
-
-                open_single_browser_button.clicked.connect (() => {
-                    Application.settings.set_string ("last-used-browser", app_info.get_id ());
+                open_button.clicked.connect (() => {
                     try_opening (app_info, web_view.get_uri ());
                 });
             }
@@ -246,8 +157,11 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
 
         try {
             app_info.launch_uris (uris, null);
+
             if (Application.settings.get_boolean ("close-when-opening-externally")) {
                 main_window.close ();
+            } else {
+                Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
             }
         } catch (GLib.Error e) {
             critical (e.message);
@@ -255,10 +169,6 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
     }
 
     public virtual override new signal void activate () {
-        if (open_button.visible && sensitive) {
-            open_button.activate ();
-        } else if (list_button.visible && sensitive) {
-            list_button.activate ();
-        }
+        open_button.activate ();
     }
 }
