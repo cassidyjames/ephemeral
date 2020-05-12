@@ -295,13 +295,17 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("danielfore.com", "Daniel Foré", _("Friend of Ephemeral"));
         load_suggestion ("gettogether.community", "Get Together");
         load_suggestion ("gnome.org", "GNOME");
+        load_suggestion ("heavyelement.io", "The Heavy Element Web Zone");
         load_suggestion ("ind.ie", "Indie");
         load_suggestion ("jblive.tv", "Jupiter Broadcasting LIVE!");
+        load_suggestion ("jupiterbroadcasting.com", "Jupiter Broadcasting");
         load_suggestion ("linuxacademy.com", "Linux Academy");
         load_suggestion ("linuxunplugged.com", "LINUX Unplugged");
         load_suggestion ("lunduke.com", "Bryan Lunduke", _("Friend of Ephemeral"));
+        load_suggestion ("offtopical.net", "The Offtopical Podcast");
         load_suggestion ("omgubuntu.co.uk", "OMG! Ubuntu!");
         load_suggestion ("puri.sm", "Purism");
+        load_suggestion ("slimbook.es", "SLIMBOOK");
         load_suggestion ("startpage.com", "Startpage.com");
         load_suggestion ("system76.com", "System76");
 
@@ -452,6 +456,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("gfycat.com", "Gfycat");
         load_suggestion ("giphy.com", "Giphy");
         load_suggestion ("github.com", "GitHub");
+        load_suggestion ("gitlab.com", "GitLab");
         load_suggestion ("gizmodo.com", "Gizmodo");
         load_suggestion ("glassdoor.com", "Glassdoor");
         load_suggestion ("gmail.com", "Gmail");
@@ -494,7 +499,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("jet.com", "Jet.com");
         load_suggestion ("jezebel.com", "Jezebel");
         load_suggestion ("joinmastodon.org", "The Mastodon Project");
-        load_suggestion ("jupiterbroadcasting.com", "Jupiter Broadcasting");
         load_suggestion ("kbb.com", "Kelly Blue Book");
         load_suggestion ("kickstarter.com", "Kickstarter");
         load_suggestion ("kinja.com", "Kinja");
@@ -619,7 +623,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("slate.com", "Slate");
         load_suggestion ("slides.google.com", "Google Slides");
         load_suggestion ("slideshare.net", "SlideShare");
-        load_suggestion ("slimbook.es", "SLIMBOOK");
         load_suggestion ("soundcloud.com", "SoundCloud");
         load_suggestion ("sourceforge.net", "SourceForge");
         load_suggestion ("southwest.com", "Southwest Airlines");
