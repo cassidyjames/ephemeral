@@ -84,6 +84,14 @@ public class Ephemeral.Application : Gtk.Application {
             case -1:
                 Application.instance.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
                 Application.instance.icon_pixel_size = 16;
+
+                var non_native_provider = new Gtk.CssProvider ();
+                non_native_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/non-native.css");
+                Gtk.StyleContext.add_provider_for_screen (
+                    Gdk.Screen.get_default (),
+                    non_native_provider,
+                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+                );
                 break;
             case 5:
                 var hera_provider = new Gtk.CssProvider ();
@@ -95,7 +103,13 @@ public class Ephemeral.Application : Gtk.Application {
                 );
                 break;
             case 6:
-                // Odin stuff goes here.
+                var odin_provider = new Gtk.CssProvider ();
+                odin_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/odin.css");
+                Gtk.StyleContext.add_provider_for_screen (
+                    Gdk.Screen.get_default (),
+                    odin_provider,
+                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+                );
                 break;
             default:
                 break;
