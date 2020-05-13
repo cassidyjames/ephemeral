@@ -28,3 +28,7 @@
   text-shadow: none;
   -gtk-icon-shadow: none;
 }
+
+.titlebar button:disabled {
+    opacity: 0.5;
+}
