@@ -2,6 +2,6 @@
 <gresources>
   <gresource prefix="/com/github/cassidyjames/ephemeral">
     <file alias="styles/global.css">styles/global.css</file>
-    <file alias="styles/elementary.css">styles/elementary.css</file>
+    <file alias="styles/hera.css">styles/hera.css</file>
   </gresource>
 </gresources>

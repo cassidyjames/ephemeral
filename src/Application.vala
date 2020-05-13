@@ -37,8 +37,8 @@ public class Ephemeral.Application : Gtk.Application {
     public const string DDG = "https://duckduckgo.com/?q=%s&kp=1&t=elementary";
 
     public static GLib.Settings settings;
-    public Gtk.IconSize icon_size = Gtk.IconSize.SMALL_TOOLBAR;
-    public int icon_pixel_size = 16;
+    public Gtk.IconSize icon_size = Gtk.IconSize.LARGE_TOOLBAR;
+    public int icon_pixel_size = 24;
 
     public bool ask_default_for_session = true;
     public bool warn_native_for_session = true;
@@ -80,18 +80,39 @@ public class Ephemeral.Application : Gtk.Application {
             Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
         );
 
-        if (elementary_stylesheet ()) {
-            Application.instance.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
-            Application.instance.icon_pixel_size = 24;
-
-            var elementary_provider = new Gtk.CssProvider ();
-            elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/elementary.css");
-            Gtk.StyleContext.add_provider_for_screen (
-                Gdk.Screen.get_default (),
-                elementary_provider,
-                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-            );
+        switch (stylesheet ()) {
+            case -1:
+                Application.instance.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
+                Application.instance.icon_pixel_size = 16;
+                break;
+            case 5:
+                var hera_provider = new Gtk.CssProvider ();
+                hera_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/hera.css");
+                Gtk.StyleContext.add_provider_for_screen (
+                    Gdk.Screen.get_default (),
+                    hera_provider,
+                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+                );
+                break;
+            case 6:
+                // Odin stuff goes here.
+                break;
+            default:
+                break;
         }
+
+        // if (stylesheet ()) {
+        //     Application.instance.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
+        //     Application.instance.icon_pixel_size = 24;
+
+        //     var elementary_provider = new Gtk.CssProvider ();
+        //     elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/hera.css");
+        //     Gtk.StyleContext.add_provider_for_screen (
+        //         Gdk.Screen.get_default (),
+        //         elementary_provider,
+        //         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        //     );
+        // }
 
         if (!opening_link) {
             var app_window = new MainWindow (this);
@@ -123,8 +144,18 @@ public class Ephemeral.Application : Gtk.Application {
         return app.run (args);
     }
 
-    public static bool elementary_stylesheet () {
-        return Gtk.Settings.get_default ().gtk_theme_name.contains ("elementary");
+    private static int stylesheet () {
+        var full_stylesheet = Gtk.Settings.get_default ().gtk_theme_name;
+
+        if (full_stylesheet.has_prefix ("elementary")) {
+            // Juno/Hera
+            return 5;
+        } else if (full_stylesheet.has_prefix ("io.elementary.stylesheet")) {
+            // Odin
+            return 6;
+        }
+
+        return -1;
     }
 
     public static bool native () {
@@ -152,7 +183,7 @@ public class Ephemeral.Application : Gtk.Application {
         return (
             os == "elementary" &&
             session == "pantheon" &&
-            elementary_stylesheet ()
+            (stylesheet () > 0 )
         );
     }
 
