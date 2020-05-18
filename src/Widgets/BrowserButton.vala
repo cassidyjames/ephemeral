@@ -40,7 +40,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             }
         }
 
-        var context = get_style_context ();
+        unowned Gtk.StyleContext context = get_style_context ();
         context.add_class (Gtk.STYLE_CLASS_LINKED);
         context.add_class ("browser-button");
 
@@ -62,7 +62,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         var close_check = new Gtk.CheckButton.with_label (_("Close Window When Opening Externally"));
         close_check.margin_bottom = 3;
 
-        var close_check_context = close_check.get_style_context ();
+        unowned Gtk.StyleContext close_check_context = close_check.get_style_context ();
         close_check_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
         close_check_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
@@ -81,7 +81,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             var browser_item = new Gtk.Button ();
             browser_item.add (browser_grid);
 
-            var browser_item_context = browser_item.get_style_context ();
+            unowned Gtk.StyleContext browser_item_context = browser_item.get_style_context ();
             browser_item_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
             browser_item_context.add_class (Gtk.STYLE_CLASS_FLAT);
 

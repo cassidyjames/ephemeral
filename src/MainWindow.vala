@@ -72,7 +72,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var web_overlay_bar = new Granite.Widgets.OverlayBar (web_overlay);
         web_overlay_bar.visible = false;
 
-        var web_overlay_bar_context = web_overlay_bar.get_style_context ();
+        unowned Gtk.StyleContext web_overlay_bar_context = web_overlay_bar.get_style_context ();
         web_overlay_bar_context.add_class ("hidden");
 
         back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Application.instance.icon_size);
@@ -297,7 +297,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover.add (settings_popover_grid);
 
         var back_forward_grid = new Gtk.Grid ();
-        back_forward_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        unowned Gtk.StyleContext back_forward_context = back_forward_grid.get_style_context ();
+        back_forward_context.add_class (Gtk.STYLE_CLASS_LINKED);
+        back_forward_context.add_class ("navigation");
 
         back_forward_grid.add (back_button);
         back_forward_grid.add (forward_button);
@@ -864,7 +866,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void set_menu_style_classes (Gtk.Widget widget) {
-        var context = widget.get_style_context ();
+        unowned Gtk.StyleContext context = widget.get_style_context ();
         context.add_class (Gtk.STYLE_CLASS_FLAT);
         context.add_class (Gtk.STYLE_CLASS_MENUITEM);
     }
