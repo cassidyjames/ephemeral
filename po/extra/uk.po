@@ -1,0 +1,890 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the extra package.
+# Ihor Hordiichuk <igor_ck@outlook.com>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: extra\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-30 21:53+0000\n"
+"PO-Revision-Date: 2020-05-25 22:46+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
+"&& (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Language: uk\n"
+
+#: data/launcher.desktop.in:3
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
+msgid "Ephemeral"
+msgstr "Ephemeral"
+
+#: data/launcher.desktop.in:4
+msgid "Private browser"
+msgstr "Приватний переглядач"
+
+#: data/launcher.desktop.in:5
+msgid "Browse the web in private"
+msgstr "Приватний перегляд у мережі"
+
+#: data/launcher.desktop.in:8
+msgid "com.github.cassidyjames.ephemeral"
+msgstr "com.github.cassidyjames.ephemeral"
+
+#: data/launcher.desktop.in:12
+msgid "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
+msgstr ""
+"WWW;web;browser;internet;private;incognito;focus;temporary;cookies;мережа;"
+"браузер;інтернет;приватний;інкогніто;потаємний;тимчасово;куки;"
+
+#: data/launcher.desktop.in:17
+msgid "New Window"
+msgstr "Нове вікно"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
+msgid "The always-incognito web browser"
+msgstr "Переглядач, який завжди в потаємному режимі"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:10
+msgid ""
+"Browse the Internet in private without leaving a trace of history on your "
+"computer. Ephemeral is a stripped down private browser that's perfect for "
+"avoiding persistent cookies or web trackers. Close the window and all traces of "
+"your browsing are removed from your device."
+msgstr ""
+"Переглядайте в Інтернеті у приватному режимі не залишаючи й сліду від історії "
+"перегляду на вашому комп'ютері. Ephemeral є полегшеним приватним переглядачем "
+"Інтернету, який ідеально підходить для запобігання встановленню сторонніх кук та "
+"протидії елементам стеження. Закрийте вікно і всі сліди перегляду видаляться з "
+"пристрою."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:11
+msgid "Handy features:"
+msgstr "Зручні функції:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:13
+msgid "Easily open pages in any other installed browser"
+msgstr "Легко відкривайте сторінки у будь-якому іншому встановленому переглядачі"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:14
+msgid "Search right from the URL bar"
+msgstr "Вводьте пошукові запити прямо у панель адреси"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
+msgid "Pick between privacy-respecting search engines from the menu"
+msgstr "Вибирайте з-поміж рушіїв пошуку, які поважають вашу приватність, у меню"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:16
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:159
+msgid "Quickly disable or re-enable JavaScript from the menu"
+msgstr "Швидко вмикайте або вимикайте JavaScript у меню"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
+msgid "Useful keyboard shortcuts and gestures:"
+msgstr "Корисні комбінації клавіш та рухи:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:20
+msgid "Navigate back or forward with a two-finger swipe on your trackpad"
+msgstr "Переходьте вперед чи назад провівши двома пальцями по вашому трекпаду"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:21
+msgid "Add a website to the URL suggestions with the ⭐️ icon or Ctrl+D"
+msgstr ""
+"Додайте вебсайт до пропозицій URL-адрес натисканням на піктограму ⭐️ або Ctrl+D"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:161
+msgid "Find text on the page with Ctrl+F"
+msgstr "Шукайте текст на сторінці натиснувши Ctrl+F"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:23
+msgid "Zoom in or out with Ctrl+Plus and Ctrl+Minus"
+msgstr "Збільшуйте або зменшуйте масштаб натисканням Ctrl+Плюс and Ctrl+Мінус"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:24
+msgid "Open a new window with Ctrl+N"
+msgstr "Відкривайте нове вікно натисканням Ctrl+N"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
+msgid "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
+msgstr ""
+"Натисніть Ctrl+W, щоби закрити поточне вікно чи Ctrl+Q, щоби закрити усі вікна"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
+msgid "Ephemeral protects you in five key ways:"
+msgstr "Ephemeral захищає вас п'ятьма основними способами:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:28
+msgid ""
+"1️⃣ Always incognito. From the second you open an Ephemeral window until you close "
+"it (or hit the Erase button), Ephemeral is in private browsing mode. That means "
+"history, cookies, local storage, passwords, etc. are all blown away as soon as "
+"you leave."
+msgstr ""
+"1️⃣ Завжди потаємний режим. Коли ви вдруге відкриєте вікно Ephemeral, доки не "
+"закриєте його (або не натиснете кнопку Стерти), Ephemeral знаходиться в режимі "
+"приватного перегляду. Це означає, що історія перегляду, куки, локальне сховище, "
+"паролі тощо все зникне, як тільки ви закриєте його."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:29
+msgid ""
+"2️⃣ Sandboxed. Each window uses a separate instance of the browser engine, domains "
+"inside each window are rendered using different processes, and the engine’s "
+"processes are sandboxed from one another to keep you safe. Sign into a service "
+"in one window, and sites in other windows will have no idea."
+msgstr ""
+"2️⃣ Ізольовано в пісочниці. Кожне вікно є окремим екземпляром рушія переглядача, "
+"домени всередині кожного вікна обробляються за допомогою окремих процесів, а "
+"процеси рушія ізольовано один від одного, щоби захистити вас. Якщо увійти до "
+"служби в одному вікні, то сайти в інших вікнах не матимуть уявлення, що в ньому "
+"відбувається."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:30
+msgid ""
+"3️⃣ No third-party cookies. Ephemeral blocks cookies from third-party sources, "
+"which cuts down on advertising cookies and other unwanted forms of cross-site "
+"tracking."
+msgstr ""
+"3️⃣ Жодних сторонніх кук. Ephemeral блокує куки зі сторонніх джерел, що зменшує "
+"кількість рекламних кук та інших небажаних форм стеження між сайтами."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:31
+msgid ""
+"4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly load a "
+"web page or perform a search. Even then, no usage data is ever collected—I have "
+"no idea what you do with Ephemeral, and I don't want to know!"
+msgstr ""
+"4️⃣ Жодного надсилання даних телеметрії. Ephemeral не з'єднується з мережею, доки "
+"ви явно не завантажите вебсторінку або не виконаєте пошук. Навіть тоді, жодні "
+"дані про користування ніколи не збираються — я уявлення не маю, що ви робите з "
+"Ephemeral та не хочу знати!"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:32
+msgid ""
+"5️⃣️ Ephemeral uses DuckDuckGo—the search engine that doesn’t track you—by default "
+"to avoid as much Google tracking as possible. You can also choose StartPage.com "
+"from the menu if that’s your preference, or even set your own entirely custom "
+"search engine."
+msgstr ""
+"5️⃣️ Ephemeral типово застосовує DuckDuckGo — рушій пошуку, що не стежить за вашими "
+"діями — для якнайбільшого уникнення можливості стеження Google. Ви, також, "
+"можете вибрати StartPage.com у меню, якщо він вам до вподоби, або, навіть, "
+"додати ваш власний спеціалізований рушій пошуку."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:33
+msgid ""
+"Make privacy a habit by opening links in Ephemeral by default, knowing you can "
+"always jump back into a traditional browser like Epiphany, Firefox, Chrome, "
+"Opera, Brave—or any other installed browser—with one click. Perfect in case you "
+"want to use saved passwords or other extensions."
+msgstr ""
+"Зробіть звичкою, завжди відкривати посилання за допомогою Ephemeral, знаючи, що "
+"ви можете одним натисканням кнопки перейти до перегляду у традиційному "
+"переглядачі, наприклад Epiphany, Firefox, Chrome, Opera, Brave, або будь-якому "
+"іншому встановленому переглядачі. Ідеально підходить вам, якщо ви хочете "
+"користуватися збереженими паролями чи іншими розширеннями."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:34
+msgid ""
+"Remember, Ephemeral and any browser's incognito or private mode can only do so "
+"much: they mitigate some tracking and don't store data on your device, but they "
+"won't stop your ISP, government, or determined websites from tracking you."
+msgstr ""
+"Пам’ятайте, що Ephemeral та потаємний чи приватний режим будь-якого переглядача "
+"мережі можуть зробити лише наступне: блокують деякі елементи стеження та не "
+"зберігають дані на вашому пристрої, але вони не зупинять вашого провайдера, "
+"уряду чи певні вебсайти від стеження за вами."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:35
+msgid "For the best protection, always use a VPN."
+msgstr "Для кращого захисту завжди користуйтеся VPN."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:43
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:181
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:245
+msgid "Updated Spanish translations thanks to Adolfo Jayme-Barrientos"
+msgstr "Оновлено переклад іспанською завдяки Adolfo Jayme-Barrientos"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:48
+msgid "Sandboxing"
+msgstr "Пісочниця"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:50
+msgid "Enabled WebKit’s subprocess sandboxing"
+msgstr "Увімкнено підпроцес пісочниці WebKit"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:51
+msgid ""
+"Enabled WebKit’s process swapping on cross-site navigation, meaning separate "
+"domains are sandboxed from one another"
+msgstr ""
+"Увімкнено обмін процесами WebKit для переходу між сайтами, тобто, окремі домени "
+"ізольовано один від одного"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:53
+msgid "Search engine changes"
+msgstr "Зміна рушіїв пошуку"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:55
+msgid "Switched to DuckDuckGo search by default since it supports a dark style"
+msgstr ""
+"DuckDuckGo став типовим рушієм пошуку, оскільки він підтримує темне оформлення"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:56
+msgid ""
+"Enabled strict Safe Browsing by default for DuckDuckGo to avoid unwanted results"
+msgstr ""
+"Одразу увімкнено надійний режим безпечного перегляду у DuckDuckGo для "
+"запобігання отриманню небажаних результатів пошуку"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:57
+msgid "StartPage.com remains an available option in the menu"
+msgstr "StartPage.com залишається доступним для вибору в меню"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:58
+msgid ""
+"Other search engines or configurations can be added under “Custom Search "
+"Engine…” in the menu, as always"
+msgstr ""
+"Інші рушії пошуку або параметри можна додати у “Власний пошуковий рушій…” у "
+"меню, як і раніше"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:64
+msgid "Updated Italian translations thanks to Mirko Brombin"
+msgstr "Оновлено переклад італійською завдяки Mirko Brombin"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:69
+msgid "Fool me twice…"
+msgstr "Одурений двічі…"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:71
+msgid ""
+"Remove sometimes-problematic dark style workaround CSS since it was fixed in "
+"WebKit"
+msgstr ""
+"Вилучено тимчасові темні CSS-стилі, які інколи завдавали клопоту, оскільки їх "
+"було полагоджено у WebKit"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:72
+msgid "Ensure correct browser icon size is set"
+msgstr "Забезпечено встановлення правильного розміру піктограми браузера"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:73
+msgid "Remove dark style toggle when forcing a -dark stylesheet"
+msgstr "Вилучено перемикач темного стилю, якщо у системі застосовано темні кольори"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:79
+msgid "Minor Fixes"
+msgstr "Незначні виправлення"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:81
+msgid "Fix entry selection color when using the light style"
+msgstr "Виправлено помилкові кольори у полях вводу, якщо застосовано світлий стиль"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:82
+msgid "Improve styling on other platforms/stylesheets by being less ambitious"
+msgstr ""
+"Покращено підтримку тем на інших платформах/менше впливу вбудованої таблиці "
+"стилів"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:88
+msgid "Helping Hand"
+msgstr "Рука допомоги"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:90
+msgid ""
+"Suggest turning on \"Close when opening externally\" if Ephemeral notices you "
+"frequently doing it yourself"
+msgstr ""
+"Порада ввімкнути функцію \"Закривати вікно після відкриття в іншому застосунку\" "
+"якщо Ephemeral помітив, що ви часто роблю це самостійно"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:91
+msgid "Turkish translations thanks to Safak GENISOL"
+msgstr "Перекладено турецькою завдяки Safak GENISOL"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:93
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:118
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:140
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:152
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:164
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:173
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:183
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:193
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:207
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:217
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:232
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:238
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:248
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:258
+msgid ""
+"Additional translations for new features will appear in future updates as "
+"translators have a chance to do their thing."
+msgstr ""
+"Додаткові рядки для перекладу нових функцій з'являться у наступних оновленнях, "
+"тож перекладачі матимуть змогу зробити їхню роботу."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:98
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:113
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:136
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:169
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:178
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:212
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:227
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:253
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:279
+msgid "Translation updates"
+msgstr "Оновлено переклади"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:100
+msgid "Translation system improved thanks to @NathanBnm"
+msgstr "Покращено систему перекладів завдяки @NathanBnm"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:106
+msgid "Dark Style Rises"
+msgstr "З'явився темний стиль"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:108
+msgid ""
+"A new toggle lets you choose light or dark style for sites, assuming they "
+"support the `prefers-color-scheme` CSS query"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:109
+msgid "Stopped defaulting to dark style by default since it can break some sites"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:110
+msgid "Set the window title to help distinguish different pages from the dock"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:111
+msgid "Simplified \"Open page in…\" menu and logic to always expose all options"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:115
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:138
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:171
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:205
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:255
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:271
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:345
+msgid "Updated Dutch translations thanks to Heimen Stoffels"
+msgstr "Оновлено переклад нідерландською завдяки Heimen Stoffels"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:116
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:215
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:230
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:272
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:282
+msgid "Updated French translations thanks to @NathanBnm"
+msgstr "Оновлено переклад французькою завдяки @NathanBnm"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:123
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:243
+msgid "Minor updates"
+msgstr "Незначні виправлення"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:125
+msgid "Fixed checkbox and radio button styling"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:126
+msgid "Treat “localhost” as a valid domain"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:127
+msgid "Improved dark styling when building with newer versions of WebKit"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:128
+msgid "Under the hood changes to make translations easier"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:129
+msgid "Updated Spanish translations thanks to Adolfo Jayme-Barrientos and @riesp"
+msgstr "Оновлено переклад іспанською завдяки Adolfo Jayme-Barrientos та @riesp"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:135
+msgid ""
+"🎉️ Emoji (and international character) support for domains! Punycode means "
+"domains like i❤tacos.ws will show up properly in the URL entry, while phishing "
+"domains should still show up like xn--80ak6aa92e.com"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:145
+msgid "Adding Some Polish 💅️"
+msgstr "Причепурено зовнішній вигляд 💅️"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:147
+msgid ""
+"💻️ Touchpad gesture navigation: Use a two-finger swipe to move back or forward "
+"through your browsing history"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:148
+msgid ""
+"🔗️ More room for the URL entry to breathe: spacing on each side plus a maximum "
+"width means the window is easier to grab and move around"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:149
+msgid "UI styling fixes, plus dark style fixes for newer versions of WebKit"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:150
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:399
+msgid "Code cleaning to keep things fresh and clean"
+msgstr "Очищено код"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:157
+msgid "McSipes"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:160
+msgid "Use Ctrl+D to add/remove a site from the suggestions"
+msgstr "Скористайтеся Ctrl+D для додавання/вилучення сайту з пропозицій"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:162
+msgid "New Paste and Go item in the URL bar context menu"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:180
+msgid "Updated Italian translations thanks to @meliurwen"
+msgstr "Оновлено переклад італійською завдяки @meliurwen"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:188
+msgid "Hello from Thessaloniki"
+msgstr "Привіт із Салонік"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:190
+msgid "Fixed window closing: now closing the first window does not close the rest"
+msgstr ""
+"Виправлено закривання вікон: відтепер, закривання одного вікна не закриває інші"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:191
+msgid ""
+"Simplified “Erase” to always close the window instead of sometimes opening a new "
+"one"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:198
+msgid "Summer cleaning! Because that’s a thing, right?"
+msgstr "Літнє прибирання! Адже це потрібно, правда?"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:200
+msgid "Fixed the “Open Link in New Window” menu item to actually do what it says"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:201
+msgid ""
+"Fixed opening target=\"_blank\" links in a new window with Ctrl- or middle-click"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:202
+msgid ""
+"Updated the base color in menus and dialog windows from the default elementary "
+"slate-ish black to a new deep, dark blue-ish purple"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:203
+msgid ""
+"Tweaked the “Open Link Externally” dialog to better isolate protocols like "
+"“mailto” or “tel”"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:204
+msgid ""
+"Significantly cleaned up and reorganized the codebase to make future features "
+"and fixes easier"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:214
+msgid "Updated Catalán and Spanish translations thanks to Mario Rodrigo"
+msgstr "Оновлено переклади каталонською та іспанською завдяки Mario Rodrigo"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:222
+msgid "Some great UI refinements!"
+msgstr "Деякі покращення інтерфейсу!"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:224
+msgid "URL entry suggestions are much snazzier thanks to Hannes Schulze"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:225
+msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
+msgstr ""
+"Відтепер, попередження JavaScript відповідають elementary HIG завдяки David "
+"Hewitt"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:229
+msgid "Ciao! Translated to Italian thanks to @meliurwen"
+msgstr "Ciao! перекладено італійською завдяки @meliurwen"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:237
+msgid "Updated Catalan translations thanks to Mario Rodrigo."
+msgstr "Оновлено переклад каталонською завдяки Mario Rodrigo."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:246
+msgid "Code cleanup"
+msgstr "Очищено програмний код"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:256
+msgid "Updated Russian translations thanks to Artem Polishchuk"
+msgstr "Оновлено переклад російською завдяки Artem Polishchuk"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:263
+msgid "No foolin'. Two major new features:"
+msgstr "Без жартів. Дві необхідні нові функції:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:265
+msgid "🔍️ New Custom Search Engine setting in the Menu"
+msgstr "🔍️ Нові параметри налаштування власного рушія пошуку в меню"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:266
+msgid ""
+"⭐️ Add your own websites to the suggestions using the new button in the URL entry"
+msgstr ""
+"⭐️ Додавайте власні сайти до рекомендованих натисканням нової кнопки у панелі "
+"адреси"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:268
+msgid "Plus the usual iterative improvements:"
+msgstr "Та як завжди чергові покращення:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:270
+msgid "Various URL entry fixes and tweaks"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:274
+msgid ""
+"Translations for new features will appear in future updates as translators have "
+"a chance to do their thing."
+msgstr ""
+"Додаткові рядки для перекладу нових функцій з'являться у наступних оновленнях, "
+"тож перекладачі матимуть змогу зробити їхню роботу."
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:281
+msgid "Cześć! Translated to Polish thanks to Paweł Jerzy Przybysz"
+msgstr "Cześć! Перекладено польською завдяки Paweł Jerzy Przybysz"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:283
+msgid "Updated Lithuanian translations thanks to @welaq"
+msgstr "Оновлено переклад литовською завдяки @welaq"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:289
+msgid "Blaze It"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:291
+msgid "New option to close the window when opening a page in an external browser"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:292
+msgid "The web view is now focused when navigating"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:298
+msgid "URL Entry Fixes"
+msgstr "Виправлено вади панелі адреси"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:300
+msgid "Updated and corrected several autocomplete domains"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:301
+msgid ""
+"No longer attempt to force HTTPS on protocol-less domains—fixes several popular "
+"sites"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:302
+msgid ""
+"Strip whitespace from URL entry before navigating—fixes instances where trying "
+"to navigate to a domain would perform a search"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:308
+msgid "URL Suggestion Fixes"
+msgstr "Виправлено вади URL-пропозицій"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:310
+msgid "Corrected joinmastodon.org TLD"
+msgstr "Виправлено joinmastodon.org TLD"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:311
+msgid "Added additional useful sites"
+msgstr "Додано додаткові корисні сайти"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:312
+msgid "Added descriptions for more sites"
+msgstr "Додано опис більшої кількості сайтів"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:313
+msgid "Removed dead sites"
+msgstr "Вилучено недійсні сайти"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:314
+msgid "Updated translations"
+msgstr "Оновлено переклади"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:320
+msgid "All New Search + Suggestions"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:322
+msgid "The URL entry will offer to complete over 400 popular sites*"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:323
+msgid "New Search Engine choice in the Menu"
+msgstr "Нові параметри налаштування власного рушія пошуку в меню"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:324
+msgid "Switched to Startpage.com by default"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:325
+msgid "Happy birthday, Katie!"
+msgstr "З Днем народження, Katie!"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:327
+msgid ""
+"*This data is all shipped with Ephemeral itself, and Ephemeral still does not "
+"touch the network until you explicitly navigate somewhere. The list of domains "
+"is heavily inspired by a similar feature in Firefox Focus. Domains being "
+"included in completion suggestions are not an endorsement, it simply means that "
+"domain is relatively popular."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:332
+msgid "Guten Tag! German translations thanks to Hannes Schulze"
+msgstr "Guten Tag! Перекладено німецькою завдяки Hannes Schulze"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:337
+msgid "Здравствуйте! Russian translations thanks to Artem Polishchuk"
+msgstr "Здравствуйте! Перекладено російською завдяки Artem Polishchuk"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:342
+msgid "More translations:"
+msgstr "Ще переклади:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:344
+msgid "Lithuanian translations thanks to @welaq"
+msgstr "Перекладено литовською завдяки @welaq"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:351
+msgid ""
+"Fixed some missed translations and updated French translations. Thanks again, "
+"@NathanBnm!"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:356
+msgid "Lots o' goodies:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:358
+msgid "The last-used browser is remembered for next time"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:359
+msgid "New \"Reset Preferences\" menu item and dialog"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:360
+msgid "Ctrl+O to open the current page in another browser"
+msgstr "Ctrl+O відкриває поточну сторінку  в іншому переглядачі"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:361
+msgid "Refined (ever-so-subtly less flat) HeaderBar design"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:362
+msgid "Ephemeral is now translatable!"
+msgstr "Відтепер Ephemeral можна локалізувати!"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:364
+msgid "Translations:"
+msgstr "Переклади:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:366
+msgid ""
+"¡Hola! Spanish translations thanks to Adolfo Jayme-Barrientos and Mario Rodrigo"
+msgstr ""
+"¡Hola! Перекладено іспанською завдяки Adolfo Jayme-Barrientos та Mario Rodrigo"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:367
+msgid "salut! French translations thanks to Nathan (@NathanBnm)"
+msgstr "salut! Перекладено французькою завдяки Nathan (@NathanBnm)"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:368
+msgid "Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
+msgstr "Olá! Перекладено бразильською іспанською завдяки Lucas Sanchez dos Anjos"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:369
+msgid "Hallo! Dutch translations thanks to Heimen Stoffels"
+msgstr "Hallo! Перекладено нідерландською завдяки Heimen Stoffels"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:375
+msgid "Styling fixes for non-native platforms."
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:380
+msgid "Fixed a few small issues with zoom:"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:382
+msgid "Zoom controls are now only sensitive when the web view is visible"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:383
+msgid "Reported zoom level is now correct when opening a new window"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:384
+msgid "Reported zoom level is now kept in sync across open windows"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:390
+msgid "Zoom! And more…"
+msgstr "Масштаб! Та багато більше…"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:392
+msgid "A new menu to keep the UI tidy and balanced"
+msgstr "Оновлено меню зробило інтерфейс користувача чистішим та збалансованішим"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:393
+msgid "Zoom in, out, and default from the new menu or with the keyboard"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:394
+msgid "New Window action moved into the menu"
+msgstr "До меню додано нову дію"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:395
+msgid "Added a Quit All Windows action to the menu"
+msgstr "До меню додано дію закривання всіх вікон"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:396
+msgid "Smooth scrolling when using the keyboard or a scrollwheel"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:397
+msgid "Fixed Twitch livestreams"
+msgstr ""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:398
+msgid "Fixed YouTube resolution support: now up to 4K!"
+msgstr "Полагоджено підтримку роздільної здатності YouTube: відтепер в 4K!"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:405
+msgid "Better error handling and quality of life improvements all around:"
+msgstr "Покращено обробку помилок та полегшення життя такими вдосконаленнями:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:407
+msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
+msgstr ""
+"Нові діалогові вікна для зовнішніх застосунків, як-от appstream:// чи ftp://"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:408
+msgid "New warning when no network connection"
+msgstr "Новий вигляд попередження, коли немає зʼєднання з мережею"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:409
+msgid "Prettier errors using native views"
+msgstr "Використано вбудовані повідомлення про помилки для охайнішого вигляду"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:410
+msgid "Stopped throwing away text when unfocusing URL entry"
+msgstr "Текст більше не зникає з панелі адреси, якщо перемістити фокус"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:411
+msgid "Stopped searching when the URL entry is empty"
+msgstr "Якщо панель адреси порожня, пошук не відбувається"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:412
+msgid "Code cleaning to keep things smelling fresh"
+msgstr "Очищено код"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:418
+msgid "Fresh styles to keep things funky, plus more:"
+msgstr "Нові стилі для витонченості та багато іншого:"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:420
+msgid ""
+"The new start page makes Ephemeral faster and makes it not touch the network "
+"until you're ready to browse"
+msgstr ""
+"Нова сторінка домівки робить Ephemeral швидшим та не зʼєднується з мережею, доки "
+"ви не почнете перегляд"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:421
+msgid "Middle- or Ctrl-click a link to open it in a new window"
+msgstr ""
+"Натискання середньою кнопкою миші чи Ctrl з натисканням лівою кнопкою миші на "
+"посилання відкриє його у новому вікні"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:422
+msgid ""
+"Displayed URLs are kept in sync for pages that manually update the URL without a "
+"page load"
+msgstr ""
+"Показані URL-адреси синхронізуються для сторінок, на яких вручну оновлено URL-"
+"адресу без завантаження сторінки"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:423
+msgid "Local HTML files can now be opened"
+msgstr "Відтепер, можна відкривати локальні HTML-файли"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:430
+msgid "More informative \"set as default\" infobar"
+msgstr "Розгорнутіший опис у панелі інформації \"зробити типовим\""
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:431
+msgid "Tweaked \"set as default\" infobar styling"
+msgstr "Запит \"зробити типовим\", тепер, пасує до інформаційної панелі"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:438
+msgid "Search from URL entry!"
+msgstr "Пошук з панелі адреси!"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:439
+msgid "Asks (politely!) to be set as the default browser"
+msgstr "Запит (чемний!) зробити типовим переглядачем"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:440
+msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
+msgstr ""
+"Відкриття непідтримуваних посилань (як-от для центру програм) у типових "
+"застосунках операційної системи"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:447
+msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
+msgstr ""
+"Додано елемент \"Нове вікно\" до панелі заголовка, меню піктограми запуску "
+"застосунку та комбінації клавіш"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:448
+msgid "Collapse external browsers into a menu when there's more than one"
+msgstr "Зовнішні переглядачі впорядковано до меню, яке згортається"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:454
+msgid "Add several useful keyboard and mouse shortcuts"
+msgstr "Додано кілька корисних комбінацій клавіш та рухів мишею"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:459
+msgid "Fix links that try to open in a new window"
+msgstr "Виправлено ваду посилань, які намагаються відкритися у новому вікні"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:464
+msgid "Initial release for AppCenter"
+msgstr "Початковий випуск у центрі програм"
+
+#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:511
+msgid "Cassidy James Blaede"
+msgstr "Cassidy James Blaede"
