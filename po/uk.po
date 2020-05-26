@@ -114,21 +114,21 @@ msgstr "Пропозицію додано"
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
 msgid "Open Link Externally?"
-msgstr "Відкрити посилання в іншій програмі?"
+msgstr "Відкрити посилання в іншому застосунку?"
 
 #: src/Dialogs/ExternalDialog.vala:37
 #, c-format
 msgid "This page is trying to open an app for <b>%s</b> links."
-msgstr "Ця сторінка намагається відкрити програму посилань <b>%s</b>."
+msgstr "Ця сторінка намагається відкрити застосунок для посилань <b>%s</b>."
 
 #: src/Dialogs/ExternalDialog.vala:39
 msgid "This page is trying to open an app."
-msgstr "Ця сторінка намагається відкрити програму."
+msgstr "Ця сторінка намагається відкрити застосунок."
 
 #: src/Dialogs/ExternalDialog.vala:42
 msgid "Your data may not be kept private by the opened app."
 msgstr ""
-"Програма, яку ви відкриваєте, може не зберігати приватність ваших даних."
+"Застосунок, який ви відкриваєте, може не зберігати приватність ваших даних."
 
 #: src/Dialogs/ExternalDialog.vala:47
 msgid "Don’t Open"
@@ -187,7 +187,7 @@ msgid ""
 "You can always change this later in <i>System Settings</i> → "
 "<i>Applications</i>."
 msgstr ""
-"Ви можете змінити це пізніше у <i>Системні налаштування</i> → <i>Програми</"
+"Ви можете змінити це пізніше у <i>Системні налаштування</i> → <i>Застосунки</"
 "i>."
 
 #: src/InfoBars/DefaultInfoBar.vala:46
@@ -200,7 +200,7 @@ msgstr "Зробити типовим"
 
 #: src/InfoBars/NativeInfoBar.vala:31
 msgid "Ephemeral is a paid app designed for elementary OS."
-msgstr "Ephemeral є платною програмою, розробленою для elementary OS."
+msgstr "Ephemeral є платним застосунком, розробленою для elementary OS."
 
 #: src/InfoBars/NativeInfoBar.vala:32
 msgid ""
@@ -215,7 +215,7 @@ msgid ""
 "Ephemeral is also typically funded by elementary AppCenter purchases. "
 "Consider donating if you find value in using Ephemeral on other platforms."
 msgstr ""
-"Ephemeral, зазвичай, фінансується за рахунок покупок через центр програм "
+"Ephemeral, зазвичай, фінансується за рахунок покупок через центр застосунків "
 "elementary. Розгляньте можливість внеску, якщо вам подобається "
 "користуватися Ephemeral на інших платформах."
 
@@ -248,12 +248,12 @@ msgstr "Мережні параметри…"
 #. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
 #: src/InfoBars/PaidInfoBar.vala:32
 msgid "Ephemeral is a paid app"
-msgstr "Ephemeral є платною програмою"
+msgstr "Ephemeral є платним застосунком"
 
 #. TRANSLATORS: This continues the previous string, with terminating punctuation
 #: src/InfoBars/PaidInfoBar.vala:34
 msgid "funded by AppCenter purchases."
-msgstr "фінансується за рахунок покупок через центр програм."
+msgstr "фінансується за рахунок покупок через центр застосунків."
 
 #: src/InfoBars/PaidInfoBar.vala:35
 msgid "Consider purchasing or funding if you find value in using Ephemeral."
