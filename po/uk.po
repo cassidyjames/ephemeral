@@ -200,7 +200,7 @@ msgstr "Зробити типовим"
 
 #: src/InfoBars/NativeInfoBar.vala:31
 msgid "Ephemeral is a paid app designed for elementary OS."
-msgstr "Ephemeral є платним застосунком, розробленою для elementary OS."
+msgstr "Ephemeral є платним застосунком, який розроблено для elementary OS."
 
 #: src/InfoBars/NativeInfoBar.vala:32
 msgid ""
