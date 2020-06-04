@@ -8,19 +8,18 @@ msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 21:53+0000\n"
-"PO-Revision-Date: 2020-05-25 22:46+0300\n"
+"PO-Revision-Date: 2020-06-04 22:09+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.3.1\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 "
-"&& (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<12 || n%100>14) ? 1 : 2);\n"
 "Language: uk\n"
 
-#: data/launcher.desktop.in:3
-#: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
+#: data/launcher.desktop.in:3 data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
 msgid "Ephemeral"
 msgstr "Ephemeral"
 
@@ -39,8 +38,8 @@ msgstr "com.github.cassidyjames.ephemeral"
 #: data/launcher.desktop.in:12
 msgid "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
 msgstr ""
-"WWW;web;browser;internet;private;incognito;focus;temporary;cookies;мережа;"
-"браузер;інтернет;приватний;інкогніто;потаємний;тимчасово;куки;"
+"WWW;web;browser;internet;private;incognito;focus;temporary;cookies;мережа;браузер;"
+"інтернет;приватний;інкогніто;потаємний;тимчасово;куки;"
 
 #: data/launcher.desktop.in:17
 msgid "New Window"
@@ -52,10 +51,10 @@ msgstr "Переглядач, який завжди в потаємному ре
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:10
 msgid ""
-"Browse the Internet in private without leaving a trace of history on your "
-"computer. Ephemeral is a stripped down private browser that's perfect for "
-"avoiding persistent cookies or web trackers. Close the window and all traces of "
-"your browsing are removed from your device."
+"Browse the Internet in private without leaving a trace of history on your computer. "
+"Ephemeral is a stripped down private browser that's perfect for avoiding persistent "
+"cookies or web trackers. Close the window and all traces of your browsing are "
+"removed from your device."
 msgstr ""
 "Переглядайте в Інтернеті у приватному режимі не залишаючи й сліду від історії "
 "перегляду на вашому комп'ютері. Ephemeral є полегшеним приватним переглядачем "
@@ -77,7 +76,7 @@ msgstr "Вводьте пошукові запити прямо у панель 
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
 msgid "Pick between privacy-respecting search engines from the menu"
-msgstr "Вибирайте з-поміж рушіїв пошуку, які поважають вашу приватність, у меню"
+msgstr "Вибирайте з-поміж засобів пошуку, які поважають вашу приватність, у меню"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:16
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:159
@@ -121,10 +120,10 @@ msgstr "Ephemeral захищає вас п'ятьма основними спо�
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:28
 msgid ""
-"1️⃣ Always incognito. From the second you open an Ephemeral window until you close "
-"it (or hit the Erase button), Ephemeral is in private browsing mode. That means "
-"history, cookies, local storage, passwords, etc. are all blown away as soon as "
-"you leave."
+"1️⃣ Always incognito. From the second you open an Ephemeral window until you close it "
+"(or hit the Erase button), Ephemeral is in private browsing mode. That means "
+"history, cookies, local storage, passwords, etc. are all blown away as soon as you "
+"leave."
 msgstr ""
 "1️⃣ Завжди потаємний режим. Коли ви вдруге відкриєте вікно Ephemeral, доки не "
 "закриєте його (або не натиснете кнопку Стерти), Ephemeral знаходиться в режимі "
@@ -135,20 +134,19 @@ msgstr ""
 msgid ""
 "2️⃣ Sandboxed. Each window uses a separate instance of the browser engine, domains "
 "inside each window are rendered using different processes, and the engine’s "
-"processes are sandboxed from one another to keep you safe. Sign into a service "
-"in one window, and sites in other windows will have no idea."
+"processes are sandboxed from one another to keep you safe. Sign into a service in "
+"one window, and sites in other windows will have no idea."
 msgstr ""
 "2️⃣ Ізольовано в пісочниці. Кожне вікно є окремим екземпляром рушія переглядача, "
 "домени всередині кожного вікна обробляються за допомогою окремих процесів, а "
-"процеси рушія ізольовано один від одного, щоби захистити вас. Якщо увійти до "
-"служби в одному вікні, то сайти в інших вікнах не матимуть уявлення, що в ньому "
+"процеси рушія ізольовано один від одного, щоби захистити вас. Якщо увійти до служби "
+"в одному вікні, то сайти в інших вікнах не матимуть уявлення, що в ньому "
 "відбувається."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:30
 msgid ""
-"3️⃣ No third-party cookies. Ephemeral blocks cookies from third-party sources, "
-"which cuts down on advertising cookies and other unwanted forms of cross-site "
-"tracking."
+"3️⃣ No third-party cookies. Ephemeral blocks cookies from third-party sources, which "
+"cuts down on advertising cookies and other unwanted forms of cross-site tracking."
 msgstr ""
 "3️⃣ Жодних сторонніх кук. Ephemeral блокує куки зі сторонніх джерел, що зменшує "
 "кількість рекламних кук та інших небажаних форм стеження між сайтами."
@@ -156,38 +154,38 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:31
 msgid ""
 "4️⃣ No telemetry. Ephemeral does not touch the network until you explicitly load a "
-"web page or perform a search. Even then, no usage data is ever collected—I have "
-"no idea what you do with Ephemeral, and I don't want to know!"
+"web page or perform a search. Even then, no usage data is ever collected—I have no "
+"idea what you do with Ephemeral, and I don't want to know!"
 msgstr ""
-"4️⃣ Жодного надсилання даних телеметрії. Ephemeral не з'єднується з мережею, доки "
-"ви явно не завантажите вебсторінку або не виконаєте пошук. Навіть тоді, жодні "
-"дані про користування ніколи не збираються — я уявлення не маю, що ви робите з "
-"Ephemeral та не хочу знати!"
+"4️⃣ Жодного надсилання даних телеметрії. Ephemeral не з'єднується з мережею, доки ви "
+"явно не завантажите вебсторінку або не здійсните пошук. Навіть тоді, жодні дані про "
+"користування ніколи не збираються — я уявлення не маю, що ви робите з Ephemeral та "
+"не хочу знати!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:32
 msgid ""
-"5️⃣️ Ephemeral uses DuckDuckGo—the search engine that doesn’t track you—by default "
-"to avoid as much Google tracking as possible. You can also choose StartPage.com "
-"from the menu if that’s your preference, or even set your own entirely custom "
-"search engine."
+"5️⃣️ Ephemeral uses DuckDuckGo—the search engine that doesn’t track you—by default to "
+"avoid as much Google tracking as possible. You can also choose StartPage.com from "
+"the menu if that’s your preference, or even set your own entirely custom search "
+"engine."
 msgstr ""
-"5️⃣️ Ephemeral типово застосовує DuckDuckGo — рушій пошуку, що не стежить за вашими "
-"діями — для якнайбільшого уникнення можливості стеження Google. Ви, також, "
-"можете вибрати StartPage.com у меню, якщо він вам до вподоби, або, навіть, "
-"додати ваш власний спеціалізований рушій пошуку."
+"5️⃣️ Ephemeral типово застосовує DuckDuckGo — засіб пошуку, що не стежить за вашими "
+"діями — для якнайбільшого уникнення можливості стеження Google. Ви, також, можете "
+"вибрати StartPage.com у меню, якщо він вам до вподоби, або, навіть, додати ваш "
+"власний спеціалізований рушій пошуку."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:33
 msgid ""
 "Make privacy a habit by opening links in Ephemeral by default, knowing you can "
-"always jump back into a traditional browser like Epiphany, Firefox, Chrome, "
-"Opera, Brave—or any other installed browser—with one click. Perfect in case you "
-"want to use saved passwords or other extensions."
+"always jump back into a traditional browser like Epiphany, Firefox, Chrome, Opera, "
+"Brave—or any other installed browser—with one click. Perfect in case you want to "
+"use saved passwords or other extensions."
 msgstr ""
-"Зробіть звичкою, завжди відкривати посилання за допомогою Ephemeral, знаючи, що "
-"ви можете одним натисканням кнопки перейти до перегляду у традиційному "
-"переглядачі, наприклад Epiphany, Firefox, Chrome, Opera, Brave, або будь-якому "
-"іншому встановленому переглядачі. Ідеально підходить вам, якщо ви хочете "
-"користуватися збереженими паролями чи іншими розширеннями."
+"Зробіть звичкою, завжди відкривати посилання за допомогою Ephemeral, знаючи, що ви "
+"можете одним натисканням кнопки перейти до перегляду у традиційному переглядачі, "
+"наприклад Epiphany, Firefox, Chrome, Opera, Brave, або будь-якому іншому "
+"встановленому переглядачі. Ідеально підходить вам, якщо ви хочете користуватися "
+"збереженими паролями чи іншими розширеннями."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:34
 msgid ""
@@ -197,8 +195,8 @@ msgid ""
 msgstr ""
 "Пам’ятайте, що Ephemeral та потаємний чи приватний режим будь-якого переглядача "
 "мережі можуть зробити лише наступне: блокують деякі елементи стеження та не "
-"зберігають дані на вашому пристрої, але вони не зупинять вашого провайдера, "
-"уряду чи певні вебсайти від стеження за вами."
+"зберігають дані на вашому пристрої, але вони не зупинять вашого провайдера, уряду "
+"чи певні вебсайти від стеження за вами."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:35
 msgid "For the best protection, always use a VPN."
@@ -228,19 +226,19 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:53
 msgid "Search engine changes"
-msgstr "Зміна рушіїв пошуку"
+msgstr "Зміна засобів пошуку"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:55
 msgid "Switched to DuckDuckGo search by default since it supports a dark style"
 msgstr ""
-"DuckDuckGo став типовим рушієм пошуку, оскільки він підтримує темне оформлення"
+"DuckDuckGo став усталеним засобом пошуку, оскільки він підтримує темне оформлення"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:56
 msgid ""
 "Enabled strict Safe Browsing by default for DuckDuckGo to avoid unwanted results"
 msgstr ""
-"Одразу увімкнено надійний режим безпечного перегляду у DuckDuckGo для "
-"запобігання отриманню небажаних результатів пошуку"
+"Одразу увімкнено надійний режим безпечного перегляду у DuckDuckGo для запобігання "
+"отриманню небажаних результатів пошуку"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:57
 msgid "StartPage.com remains an available option in the menu"
@@ -248,11 +246,11 @@ msgstr "StartPage.com залишається доступним для вибо�
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:58
 msgid ""
-"Other search engines or configurations can be added under “Custom Search "
-"Engine…” in the menu, as always"
+"Other search engines or configurations can be added under “Custom Search Engine…” "
+"in the menu, as always"
 msgstr ""
-"Інші рушії пошуку або параметри можна додати у “Власний пошуковий рушій…” у "
-"меню, як і раніше"
+"Інші засоби пошуку або параметри можна додати у “Власний пошуковий рушій…” у меню, "
+"як і раніше"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:64
 msgid "Updated Italian translations thanks to Mirko Brombin"
@@ -264,11 +262,10 @@ msgstr "Одурений двічі…"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:71
 msgid ""
-"Remove sometimes-problematic dark style workaround CSS since it was fixed in "
-"WebKit"
+"Remove sometimes-problematic dark style workaround CSS since it was fixed in WebKit"
 msgstr ""
-"Вилучено тимчасові темні CSS-стилі, які інколи завдавали клопоту, оскільки їх "
-"було полагоджено у WebKit"
+"Вилучено тимчасові темні CSS-стилі, які інколи завдавали клопоту, оскільки їх було "
+"полагоджено у WebKit"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:72
 msgid "Ensure correct browser icon size is set"
@@ -289,8 +286,7 @@ msgstr "Виправлено помилкові кольори у полях в�
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:82
 msgid "Improve styling on other platforms/stylesheets by being less ambitious"
 msgstr ""
-"Покращено підтримку тем на інших платформах/менше впливу вбудованої таблиці "
-"стилів"
+"Покращено підтримку тем на інших платформах/менше впливу вбудованої таблиці стилів"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:88
 msgid "Helping Hand"
@@ -326,8 +322,8 @@ msgid ""
 "Additional translations for new features will appear in future updates as "
 "translators have a chance to do their thing."
 msgstr ""
-"Додаткові рядки для перекладу нових функцій з'являться у наступних оновленнях, "
-"тож перекладачі матимуть змогу зробити їхню роботу."
+"Додаткові рядки для перекладу нових функцій з'являться у наступних оновленнях, тож "
+"перекладачі матимуть змогу зробити їхню роботу."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:98
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:113
@@ -351,8 +347,8 @@ msgstr "З'явився темний стиль"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:108
 msgid ""
-"A new toggle lets you choose light or dark style for sites, assuming they "
-"support the `prefers-color-scheme` CSS query"
+"A new toggle lets you choose light or dark style for sites, assuming they support "
+"the `prefers-color-scheme` CSS query"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:109
@@ -412,9 +408,9 @@ msgstr "Оновлено переклад іспанською завдяки Ad
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:135
 msgid ""
-"🎉️ Emoji (and international character) support for domains! Punycode means "
-"domains like i❤tacos.ws will show up properly in the URL entry, while phishing "
-"domains should still show up like xn--80ak6aa92e.com"
+"🎉️ Emoji (and international character) support for domains! Punycode means domains "
+"like i❤tacos.ws will show up properly in the URL entry, while phishing domains "
+"should still show up like xn--80ak6aa92e.com"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:145
@@ -429,8 +425,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:148
 msgid ""
-"🔗️ More room for the URL entry to breathe: spacing on each side plus a maximum "
-"width means the window is easier to grab and move around"
+"🔗️ More room for the URL entry to breathe: spacing on each side plus a maximum width "
+"means the window is easier to grab and move around"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:149
@@ -469,8 +465,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:191
 msgid ""
-"Simplified “Erase” to always close the window instead of sometimes opening a new "
-"one"
+"Simplified “Erase” to always close the window instead of sometimes opening a new one"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:198
@@ -494,14 +489,14 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:203
 msgid ""
-"Tweaked the “Open Link Externally” dialog to better isolate protocols like "
-"“mailto” or “tel”"
+"Tweaked the “Open Link Externally” dialog to better isolate protocols like “mailto” "
+"or “tel”"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:204
 msgid ""
-"Significantly cleaned up and reorganized the codebase to make future features "
-"and fixes easier"
+"Significantly cleaned up and reorganized the codebase to make future features and "
+"fixes easier"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:214
@@ -519,8 +514,7 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:225
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
 msgstr ""
-"Відтепер, попередження JavaScript відповідають elementary HIG завдяки David "
-"Hewitt"
+"Відтепер, попередження JavaScript відповідають elementary HIG завдяки David Hewitt"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:229
 msgid "Ciao! Translated to Italian thanks to @meliurwen"
@@ -544,14 +538,13 @@ msgstr "Без жартів. Дві необхідні нові функції:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:265
 msgid "🔍️ New Custom Search Engine setting in the Menu"
-msgstr "🔍️ Нові параметри налаштування власного рушія пошуку в меню"
+msgstr "🔍️ Нові параметри налаштування власного засобу пошуку в меню"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:266
 msgid ""
 "⭐️ Add your own websites to the suggestions using the new button in the URL entry"
 msgstr ""
-"⭐️ Додавайте власні сайти до рекомендованих натисканням нової кнопки у панелі "
-"адреси"
+"⭐️ Додавайте власні сайти до рекомендованих натисканням нової кнопки у панелі адреси"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:268
 msgid "Plus the usual iterative improvements:"
@@ -563,11 +556,11 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:274
 msgid ""
-"Translations for new features will appear in future updates as translators have "
-"a chance to do their thing."
+"Translations for new features will appear in future updates as translators have a "
+"chance to do their thing."
 msgstr ""
-"Додаткові рядки для перекладу нових функцій з'являться у наступних оновленнях, "
-"тож перекладачі матимуть змогу зробити їхню роботу."
+"Додаткові рядки для перекладу нових функцій з'являться у наступних оновленнях, тож "
+"перекладачі матимуть змогу зробити їхню роботу."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:281
 msgid "Cześć! Translated to Polish thanks to Paweł Jerzy Przybysz"
@@ -605,8 +598,8 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:302
 msgid ""
-"Strip whitespace from URL entry before navigating—fixes instances where trying "
-"to navigate to a domain would perform a search"
+"Strip whitespace from URL entry before navigating—fixes instances where trying to "
+"navigate to a domain would perform a search"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:308
@@ -643,7 +636,7 @@ msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:323
 msgid "New Search Engine choice in the Menu"
-msgstr "Нові параметри налаштування власного рушія пошуку в меню"
+msgstr "Нові параметри налаштування власного засобу пошуку в меню"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:324
 msgid "Switched to Startpage.com by default"
@@ -655,11 +648,11 @@ msgstr "З Днем народження, Katie!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:327
 msgid ""
-"*This data is all shipped with Ephemeral itself, and Ephemeral still does not "
-"touch the network until you explicitly navigate somewhere. The list of domains "
-"is heavily inspired by a similar feature in Firefox Focus. Domains being "
-"included in completion suggestions are not an endorsement, it simply means that "
-"domain is relatively popular."
+"*This data is all shipped with Ephemeral itself, and Ephemeral still does not touch "
+"the network until you explicitly navigate somewhere. The list of domains is heavily "
+"inspired by a similar feature in Firefox Focus. Domains being included in "
+"completion suggestions are not an endorsement, it simply means that domain is "
+"relatively popular."
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:332
@@ -788,8 +781,7 @@ msgstr "Покращено обробку помилок та полегшенн
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:407
 msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
-msgstr ""
-"Нові діалогові вікна для зовнішніх застосунків, як-от appstream:// чи ftp://"
+msgstr "Нові діалогові вікна для зовнішніх застосунків, як-от appstream:// чи ftp://"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:408
 msgid "New warning when no network connection"
@@ -805,7 +797,7 @@ msgstr "Текст більше не зникає з панелі адреси, 
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:411
 msgid "Stopped searching when the URL entry is empty"
-msgstr "Якщо панель адреси порожня, пошук не відбувається"
+msgstr "Якщо панель адреси порожня, пошук не здійснюється"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:412
 msgid "Code cleaning to keep things smelling fresh"
@@ -817,11 +809,11 @@ msgstr "Нові стилі для витонченості та багато і
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:420
 msgid ""
-"The new start page makes Ephemeral faster and makes it not touch the network "
-"until you're ready to browse"
+"The new start page makes Ephemeral faster and makes it not touch the network until "
+"you're ready to browse"
 msgstr ""
-"Нова сторінка домівки робить Ephemeral швидшим та не зʼєднується з мережею, доки "
-"ви не почнете перегляд"
+"Нова сторінка домівки робить Ephemeral швидшим та не зʼєднується з мережею, доки ви "
+"не почнете перегляд"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:421
 msgid "Middle- or Ctrl-click a link to open it in a new window"
@@ -860,8 +852,8 @@ msgstr "Запит (чемний!) зробити типовим перегля�
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:440
 msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
 msgstr ""
-"Відкриття непідтримуваних посилань (як-от для центру програм) у типових "
-"застосунках операційної системи"
+"Відкриття непідтримуваних посилань (як-от для центру програм) у типових застосунках "
+"операційної системи"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:447
 msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"

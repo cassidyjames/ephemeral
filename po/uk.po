@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-30 21:53+0000\n"
-"PO-Revision-Date: 2020-05-25 00:15+0300\n"
+"PO-Revision-Date: 2020-06-04 22:00+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,15 +90,15 @@ msgstr "Закрити всі вікна та стерти всю історію
 
 #: src/MainWindow.vala:257
 msgid "DuckDuckGo Search"
-msgstr "Пошук DuckDuckGo"
+msgstr "Пошук з DuckDuckGo"
 
 #: src/MainWindow.vala:260
 msgid "Startpage.com Search"
-msgstr "Пошук Startpage.com"
+msgstr "Пошук зі Startpage.com"
 
 #: src/MainWindow.vala:265
 msgid "Custom Search Engine…"
-msgstr "Власний рушій пошуку…"
+msgstr "Власний засіб пошуку…"
 
 #: src/MainWindow.vala:269
 msgid "Reset Preferences…"
@@ -216,8 +216,8 @@ msgid ""
 "Consider donating if you find value in using Ephemeral on other platforms."
 msgstr ""
 "Ephemeral, зазвичай, фінансується за рахунок покупок через центр застосунків "
-"elementary. Розгляньте можливість внеску, якщо вам подобається "
-"користуватися Ephemeral на інших платформах."
+"elementary. Розгляньте можливість внеску, якщо вам подобається користуватися "
+"Ephemeral на інших платформах."
 
 #: src/InfoBars/NativeInfoBar.vala:41 src/InfoBars/PaidInfoBar.vala:43
 msgid "Dismiss"
