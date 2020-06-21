@@ -10,3 +10,5 @@ jobs:
     - uses: elementary/actions/gettext-template@master
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_USER_TOKEN }}
+      with:
+        translation_branch: 'main'
