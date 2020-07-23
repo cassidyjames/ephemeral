@@ -19,11 +19,11 @@ msgstr ""
 
 #: src/MainWindow.vala:63
 msgid "Undo"
-msgstr ""
+msgstr "Desfazer"
 
 #: src/MainWindow.vala:77
 msgid "Back"
-msgstr ""
+msgstr "Voltar"
 
 #: src/MainWindow.vala:83
 msgid "Forward"
@@ -39,19 +39,19 @@ msgstr "Interromper carregamento"
 
 #: src/MainWindow.vala:105
 msgid "Close window and erase history"
-msgstr ""
+msgstr "Fechar janela e apagar histórico"
 
 #: src/MainWindow.vala:113
 msgid "Menu"
-msgstr ""
+msgstr "Menu"
 
 #: src/MainWindow.vala:122
 msgid "Light content"
-msgstr ""
+msgstr "Conteúdo claro"
 
 #: src/MainWindow.vala:123
 msgid "Dark content"
-msgstr ""
+msgstr "Conteúdo escuro"
 
 #: src/MainWindow.vala:135
 msgid "Zoom out"
@@ -67,7 +67,7 @@ msgstr "Ampliar"
 
 #: src/MainWindow.vala:164
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
-msgstr ""
+msgstr "<b>Nota:</b> Desabilitar JavaScript provavelemte irá quebrar muitos sites"
 
 #: src/MainWindow.vala:180
 msgid "JavaScript"
@@ -80,11 +80,11 @@ msgstr "Abrir nova Janela"
 #: src/MainWindow.vala:212
 #, fuzzy
 msgid "Quit Ephemeral"
-msgstr "Ephemeral"
+msgstr "Sair do Ephemeral"
 
 #: src/MainWindow.vala:217
 msgid "Close all windows and erase all history"
-msgstr ""
+msgstr "Fechar todas as janelas e apagar todo o histórico"
 
 #: src/MainWindow.vala:238
 msgid "Startpage.com Search"
@@ -96,7 +96,7 @@ msgstr ""
 
 #: src/MainWindow.vala:246
 msgid "Custom Search Engine…"
-msgstr ""
+msgstr "Busca personalizada..."
 
 #: src/MainWindow.vala:250
 msgid "Reset Preferences…"
@@ -104,21 +104,21 @@ msgstr "Redefinir Preferências…"
 
 #: src/MainWindow.vala:682
 msgid "Suggestion removed"
-msgstr ""
+msgstr "Sugestão removida"
 
 #: src/MainWindow.vala:686
 msgid "Suggestion added"
-msgstr ""
+msgstr "Sugestão adicionada"
 
 #: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
 #, fuzzy
 msgid "Open Link Externally?"
-msgstr "Abrir Externamente?"
+msgstr "Abrir Link Externamente?"
 
 #: src/Dialogs/ExternalDialog.vala:37
 #, fuzzy, c-format
 msgid "This page is trying to open an app for <b>%s</b> links."
-msgstr "Esta página está tentando abrir links “%s” ."
+msgstr "Esta página está tentando abrir um aplicativo para os links “%s” ."
 
 #: src/Dialogs/ExternalDialog.vala:39
 msgid "This page is trying to open an app."
@@ -160,16 +160,16 @@ msgstr "Redefinir Preferências"
 
 #: src/Dialogs/ScriptDialog.vala:27 src/Dialogs/ScriptDialog.vala:28
 msgid "Message From Page"
-msgstr ""
+msgstr "Mensage da página"
 
 #: src/Dialogs/ScriptDialog.vala:39 src/Dialogs/ScriptDialog.vala:47
 #: src/Dialogs/ScriptDialog.vala:69
 msgid "Close"
-msgstr ""
+msgstr "Fechar"
 
 #: src/Dialogs/ScriptDialog.vala:49 src/Dialogs/ScriptDialog.vala:71
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: src/InfoBars/DefaultInfoBar.vala:31
 msgid "Make privacy a habit."
@@ -185,8 +185,8 @@ msgid ""
 "You can always change this later in <i>System Settings</i> → "
 "<i>Applications</i>."
 msgstr ""
-"Você sempre poderá alterar isso em  <i>System Settings</i> → "
-"<i>Applications</i>."
+"Você sempre poderá alterar isso em <i>Configurações do Sistema</i> → "
+"<i>Aplicativos</i>."
 
 #: src/InfoBars/DefaultInfoBar.vala:46
 msgid "Never Ask Again"
@@ -255,8 +255,7 @@ msgstr "financiado pelas compras no AppCenter."
 
 #: src/InfoBars/PaidInfoBar.vala:35
 msgid "Consider purchasing or funding if you find value in using Ephemeral."
-msgstr ""
-"Considere comprar ou financiar se você encontrar valor em usar o Ephemeral."
+msgstr "Considere comprar ou financiar se você encontrar valor em usar o Ephemeral."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
 #: src/InfoBars/PaidInfoBar.vala:50
@@ -282,7 +281,7 @@ msgid ""
 "but they won’t stop your ISP, government, or determined websites from "
 "tracking you."
 msgstr ""
-"Lembre-se, Ephemerale qualquer modo privado de outros navegadores não fazem "
+"Lembre-se, Ephemeral e qualquer modo privado de outros navegadores não fazem "
 "milagre: eles conseguem impedir algum rastreamento e não guardam dados no "
 "dispositivo, mas eles não impedem que sua operadora, o governo, ou "
 "determinados sites de te rastrear."
@@ -298,7 +297,7 @@ msgstr "Abrir página no…"
 
 #: src/Widgets/BrowserButton.vala:62
 msgid "Close Window When Opening Externally"
-msgstr ""
+msgstr "Fechar janela quando abrir externamente"
 
 #: src/Widgets/BrowserButton.vala:141
 #, c-format
@@ -312,12 +311,12 @@ msgstr "Digite o endereço ou um termo de pesquisa"
 #: src/Widgets/UrlEntry.vala:185
 #, c-format
 msgid "Go to \"%s\""
-msgstr ""
+msgstr "Ir para \"%s\""
 
 #: src/Widgets/UrlEntry.vala:185
 #, c-format
 msgid "Search for \"%s\""
-msgstr ""
+msgstr "Procurar por \"%s\""
 
 #: src/Widgets/UrlEntry.vala:251
 msgid "Popular website"
@@ -325,7 +324,7 @@ msgstr ""
 
 #: src/Widgets/UrlEntry.vala:284
 msgid "Favorite website"
-msgstr ""
+msgstr "Favoritar website"
 
 #: src/Widgets/UrlEntry.vala:723
 msgid "Go"
@@ -333,11 +332,11 @@ msgstr "Ir"
 
 #: src/Widgets/UrlEntry.vala:735
 msgid "Remove Website from Suggestions"
-msgstr ""
+msgstr "Remover Website das Sugestões"
 
 #: src/Widgets/UrlEntry.vala:739
 msgid "Add Website to Suggestions"
-msgstr ""
+msgstr "Adicionar Website a Sugestões"
 
 #: src/Widgets/WebView.vala:105
 #, fuzzy
