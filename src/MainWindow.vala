@@ -128,8 +128,14 @@ public class Ephemeral.MainWindow : Gtk.Window {
         style_switch.margin = 12;
         style_switch.margin_bottom = 6;
 
-        style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
-        Application.settings.bind ("dark-style", style_switch, "active", SettingsBindFlags.DEFAULT);
+        style_switch.bind_property ("active", gtk_settings, "gtk-application-prefer-dark-theme", GLib.BindingFlags.BIDIRECTIONAL);
+
+        var granite_settings = Granite.Settings.get_default ();
+        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        });
 
         var style_switch_revealer = new Gtk.Revealer ();
         style_switch_revealer.add (style_switch);
@@ -137,8 +143,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         // WebKit uses -dark to set a dark style, and some OSes expose -dark
         // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS).
         // As such, if the OS or user is forcing a -dark stylesheet, just take
-        // away the style switch. This is probably similar to how I'd treat a
-        // real dark mode, anyway.
+        // away the style switch.
         gtk_settings.bind_property ("gtk-theme-name", style_switch_revealer, "reveal-child",
             BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {

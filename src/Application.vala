@@ -69,9 +69,6 @@ public class Ephemeral.Application : Gtk.Application {
     }
 
     protected override void activate () {
-        var gtk_settings = Gtk.Settings.get_default ();
-        gtk_settings.gtk_application_prefer_dark_theme = settings.get_boolean ("dark-style");
-
         var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/global.css");
         Gtk.StyleContext.add_provider_for_screen (

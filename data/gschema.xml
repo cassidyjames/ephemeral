@@ -11,11 +11,6 @@
       <summary>Close when opening externally</summary>
       <description>Whether or not the current Ephemeral window should be closed when opening a link in an external browser</description>
     </key>
-    <key name="dark-style" type="b">
-      <default>false</default>
-      <summary>Prefer a dark style</summary>
-      <description>Whether or not Ephemeral should ask sites to render in a dark style where supported</description>
-    </key>
     <key name="enable-javascript" type="b">
       <default>true</default>
       <summary>Enable JavaScript</summary>
