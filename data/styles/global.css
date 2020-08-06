@@ -74,3 +74,19 @@ label.primary {
   font-weight: 700;
   font-size: 1.2em;
 }
+
+.color-button radio,
+.color-button radio:checked {
+   padding: 1.25em;
+   -gtk-icon-shadow: none;
+}
+
+.color-light radio {
+    background: #fafafa;
+    color: #333;
+}
+
+.color-dark radio {
+    background: #333;
+    color: #fafafa;
+}
