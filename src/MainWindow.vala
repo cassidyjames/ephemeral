@@ -142,14 +142,12 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         var color_button_grid = new Gtk.Grid () {
             column_homogeneous = true,
+            margin_bottom = 12,
             margin_top = 6
         };
 
-        color_button_grid.add (color_button_light);
-        color_button_grid.add (color_button_dark);
-
-        var color_button_revealer = new Gtk.Revealer ();
-        color_button_revealer.add (color_button_grid);
+        color_button_grid.attach (color_button_light, 0, 0);
+        color_button_grid.attach (color_button_dark, 1, 0);
 
         var color_default_label = new Gtk.Label (_("Follow system style")) {
             halign = Gtk.Align.START,
@@ -170,11 +168,14 @@ public class Ephemeral.MainWindow : Gtk.Window {
         set_menu_style_classes (color_default_button);
         color_default_button.add (color_default_grid);
 
+        var color_button_revealer = new Gtk.Revealer ();
+        color_button_revealer.add (color_button_grid);
+
         var color_section_grid = new Gtk.Grid () {
             orientation = Gtk.Orientation.VERTICAL
         };
-        color_section_grid.add (color_button_revealer);
         color_section_grid.add (color_default_button);
+        color_section_grid.add (color_button_revealer);
 
         var color_section_revealer = new Gtk.Revealer ();
         color_section_revealer.add (color_section_grid);
