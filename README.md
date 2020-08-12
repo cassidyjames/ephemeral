@@ -1,6 +1,6 @@
 [![Ethical Design](https://img.shields.io/badge/Ethical_Design-_▲_❤_-blue.svg)](https://ind.ie/ethical-design)
-![Lint](https://github.com/cassidyjames/ephemeral/workflows/Lint/badge.svg)
-![Gettext updates](https://github.com/cassidyjames/ephemeral/workflows/Gettext%20updates/badge.svg)
+[![Lint](https://github.com/cassidyjames/ephemeral/workflows/Lint/badge.svg)](https://github.com/cassidyjames/ephemeral/actions?query=workflow%3A%22Lint%22)
+[![Gettext updates](https://github.com/cassidyjames/ephemeral/workflows/Gettext%20updates/badge.svg)](https://github.com/cassidyjames/ephemeral/actions?query=workflow%3A%22Gettext+updates%22)
 [![Build Status](https://travis-ci.com/cassidyjames/ephemeral.svg?branch=master)](https://travis-ci.com/cassidyjames/ephemeral)
 
 <p align="center">
