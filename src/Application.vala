@@ -121,19 +121,6 @@ public class Ephemeral.Application : Gtk.Application {
                 break;
         }
 
-        // if (stylesheet ()) {
-        //     Application.instance.icon_size = Gtk.IconSize.LARGE_TOOLBAR;
-        //     Application.instance.icon_pixel_size = 24;
-
-        //     var elementary_provider = new Gtk.CssProvider ();
-        //     elementary_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/hera.css");
-        //     Gtk.StyleContext.add_provider_for_screen (
-        //         Gdk.Screen.get_default (),
-        //         elementary_provider,
-        //         Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        //     );
-        // }
-
         if (!opening_link) {
             var app_window = new MainWindow (this);
             app_window.show_all ();
@@ -164,7 +151,7 @@ public class Ephemeral.Application : Gtk.Application {
         return app.run (args);
     }
 
-    private static int stylesheet () {
+    public static int stylesheet () {
         var full_stylesheet = Gtk.Settings.get_default ().gtk_theme_name;
 
         if (full_stylesheet.has_prefix ("elementary")) {

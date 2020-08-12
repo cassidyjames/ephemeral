@@ -181,9 +181,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
         color_section_revealer.add (color_section_grid);
 
         // WebKit uses -dark to set a dark style, and some OSes expose -dark
-        // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS).
-        // As such, if the OS or user is forcing a -dark stylesheet, just take
-        // away the style preference.
+        // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS),
+        // and other OSes might expose a "Tweaks" app that overrides app styles.
+        // As such, if the OS or user is not using an elementary stylesheet,
+        // just hide the dark style switcher.
         gtk_settings.bind_property (
             "gtk-theme-name",
             color_section_revealer,
@@ -191,7 +192,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
             BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
                 string gtk_theme_name = (string) srcval;
-                targetval.set_boolean (!gtk_theme_name.has_suffix ("-dark"));
+                targetval.set_boolean (Application.stylesheet () > 0);
                 return true;
             }
         );
