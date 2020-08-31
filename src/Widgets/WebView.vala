@@ -86,6 +86,11 @@ public class Ephemeral.WebView : WebKit.WebView {
                     WebKit.ContextMenuAction.COPY_LINK_TO_CLIPBOARD
                 )
             );
+            context_menu.append (
+                new WebKit.ContextMenuItem.from_stock_action (
+                    WebKit.ContextMenuAction.DOWNLOAD_LINK_TO_DISK
+                )
+            );
 
             new_window_action.activate.connect (() => {
                 Application.new_window (hit_test_result.link_uri);
