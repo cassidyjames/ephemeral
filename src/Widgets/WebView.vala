@@ -36,6 +36,7 @@ public class Ephemeral.WebView : WebKit.WebView {
         webkit_settings.enable_mediasource = true;
         webkit_settings.enable_plugins = false;
         webkit_settings.enable_smooth_scrolling = true;
+        webkit_settings.enable_developer_extras = true;
 
         settings = webkit_settings;
         web_context = new Ephemeral.WebContext ();
