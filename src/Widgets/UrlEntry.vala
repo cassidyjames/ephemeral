@@ -286,6 +286,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
 
         // elementary sites
         load_suggestion ("appcenter.elementary.io", "elementary AppCenter", _("elementary Site"));
+        load_suggestion ("blog.elementary.io", "elementary Blog", _("elementary Site"));
         load_suggestion ("developer.elementary.io", "Publish on AppCenter", _("elementary Site"));
         load_suggestion ("elementary.io", "elementary OS", _("elementary Site"));
         load_suggestion ("valadoc.org", "Valadoc");
@@ -293,21 +294,27 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         // Friends of Ephemeral
         load_suggestion ("cassidyjames.com", "Cassidy James", _("Creator of Ephemeral"));
         load_suggestion ("danielfore.com", "Daniel Foré", _("Friend of Ephemeral"));
+        load_suggestion ("destinationlinux.network", "Destination Linux Network");
         load_suggestion ("gettogether.community", "Get Together");
         load_suggestion ("gnome.org", "GNOME");
         load_suggestion ("heavyelement.io", "The Heavy Element Web Zone");
         load_suggestion ("ind.ie", "Indie");
         load_suggestion ("jblive.tv", "Jupiter Broadcasting LIVE!");
         load_suggestion ("jupiterbroadcasting.com", "Jupiter Broadcasting");
+        load_suggestion ("laptopwithlinux.com", "Laptop with Linux");
         load_suggestion ("linuxacademy.com", "Linux Academy");
+        load_suggestion ("linux4everyone.com", "Linux For Everyone");
         load_suggestion ("linuxunplugged.com", "LINUX Unplugged");
-        load_suggestion ("lunduke.com", "Bryan Lunduke", _("Friend of Ephemeral"));
         load_suggestion ("offtopical.net", "The Offtopical Podcast");
         load_suggestion ("omgubuntu.co.uk", "OMG! Ubuntu!");
+        load_suggestion ("pine64.org", "PINE64");
+        load_suggestion ("plausible.io", "Plausible Analytics");
         load_suggestion ("puri.sm", "Purism");
         load_suggestion ("slimbook.es", "SLIMBOOK");
+        load_suggestion ("starlabs.systems", "Star Labs");
         load_suggestion ("startpage.com", "Startpage.com");
         load_suggestion ("system76.com", "System76");
+        load_suggestion ("thelinuxexp.com", "The Linux Experiment");
 
         // Popular sites
         load_suggestion ("247sports.com", "247Sports");
