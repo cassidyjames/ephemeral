@@ -40,8 +40,7 @@ public class Ephemeral.WelcomeView : Gtk.Grid {
         copy.wrap = true;
         copy.get_style_context ().add_class (Gtk.STYLE_CLASS_DIM_LABEL);
 
-        var subtitle_context = subtitle.get_style_context ();
-        subtitle_context.add_class (Granite.STYLE_CLASS_H2_LABEL);
+        subtitle.get_style_context ().add_class (Granite.STYLE_CLASS_H2_LABEL);
 
         var alignment_grid = new Gtk.Grid ();
         alignment_grid.halign = Gtk.Align.CENTER;

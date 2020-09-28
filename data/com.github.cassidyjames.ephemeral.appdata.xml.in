@@ -38,13 +38,14 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="6.4.2" date="2020-09-28">
+    <release version="7.0.0" date="2020-09-27">
       <description>
         <p>Developers, Developers, Developers!</p>
         <ul>
-          <li>Enabled WebKit’s Developer Tools and Inspect Element</li>
-          <li>Added a hard refresh (bypassing the cache) with Shift+Ctrl+R</li>
-          <li>Added several site suggestions</li>
+          <li>Access WebKit Web Inspector and developer tools via Inspect Element</li>
+          <li>New hard refresh action (bypassing the cache) with Shift+Ctrl+R</li>
+          <li>Support for elementary OS 6, including the dark style preference</li>
+          <li>Several new site suggestions</li>
         </ul>
         <p>Translation updates</p>
         <ul>
@@ -52,6 +53,7 @@
           <li>Updated Brazilian Portuguese translations thanks to Karl Prieb</li>
           <li>Updated Turkish translations thanks to Safak GENISOL</li>
         </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
       </description>
     </release>
     <release version="6.4.1" date="2020-04-30">

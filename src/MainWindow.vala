@@ -23,6 +23,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
     public string uri { get; construct set; }
     public SimpleActionGroup actions { get; construct; }
 
+    public static Gtk.Settings gtk_settings;
+
     private Gtk.Button zoom_default_button;
     private Gtk.Stack stack;
     private WebView web_view;
@@ -50,9 +52,11 @@ public class Ephemeral.MainWindow : Gtk.Window {
         );
     }
 
-    construct {
-        var gtk_settings = Gtk.Settings.get_default ();
+    static construct {
+        gtk_settings = Gtk.Settings.get_default ();
+    }
 
+    construct {
         default_height = 800;
         default_width = 1280;
 
@@ -72,7 +76,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var web_overlay_bar = new Granite.Widgets.OverlayBar (web_overlay);
         web_overlay_bar.visible = false;
 
-        var web_overlay_bar_context = web_overlay_bar.get_style_context ();
+        unowned Gtk.StyleContext web_overlay_bar_context = web_overlay_bar.get_style_context ();
         web_overlay_bar_context.add_class ("hidden");
 
         back_button = new Gtk.Button.from_icon_name ("go-previous-symbolic", Application.instance.icon_size);
@@ -108,12 +112,14 @@ public class Ephemeral.MainWindow : Gtk.Window {
         erase_button.tooltip_text = _("Close window and erase history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
-        browser_button = new BrowserButton (this, web_view);
-        browser_button.sensitive = false;
+        browser_button = new BrowserButton (this, web_view) {
+            sensitive = false
+        };
 
-        var settings_button = new Gtk.MenuButton ();
-        settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Application.instance.icon_size);
-        settings_button.tooltip_text = _("Menu");
+        var settings_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu", Application.instance.icon_size),
+            tooltip_text = _("Menu")
+        };
 
         var settings_popover = new Gtk.Popover (settings_button);
         settings_button.popover = settings_popover;
@@ -121,25 +127,30 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var style_switch = new Granite.ModeSwitch.from_icon_name (
             "display-brightness-symbolic",
             "weather-clear-night-symbolic"
-        );
-        style_switch.primary_icon_tooltip_text = _("Light content");
-        style_switch.secondary_icon_tooltip_text = _("Dark content");
-        style_switch.halign = Gtk.Align.CENTER;
-        style_switch.margin = 12;
-        style_switch.margin_bottom = 6;
+        ) {
+            primary_icon_tooltip_text = _("Light content"),
+            secondary_icon_tooltip_text = _("Dark content"),
+            halign = Gtk.Align.CENTER,
+            margin = 12
+        };
 
-        style_switch.bind_property ("active", gtk_settings, "gtk_application_prefer_dark_theme");
-        Application.settings.bind ("dark-style", style_switch, "active", SettingsBindFlags.DEFAULT);
+        style_switch.bind_property (
+            "active",
+            gtk_settings,
+            "gtk_application_prefer_dark_theme",
+            BindingFlags.BIDIRECTIONAL
+        );
 
         var style_switch_revealer = new Gtk.Revealer ();
         style_switch_revealer.add (style_switch);
 
-        // WebKit uses -dark to set a dark style, and some OSes expose -dark
-        // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS).
-        // As such, if the OS or user is forcing a -dark stylesheet, just take
-        // away the style switch. This is probably similar to how I'd treat a
-        // real dark mode, anyway.
-        gtk_settings.bind_property ("gtk-theme-name", style_switch_revealer, "reveal-child",
+        /* WebKit uses -dark to set a dark style, and some OSes expose -dark
+        stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS). As
+        such, if we have a -dark stylesheet, hide the style switcher. */
+        gtk_settings.bind_property (
+            "gtk-theme-name",
+            style_switch_revealer,
+            "reveal-child",
             BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
                 string gtk_theme_name = (string) srcval;
@@ -174,6 +185,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         zoom_grid.hexpand = true;
         zoom_grid.margin = 12;
         zoom_grid.margin_bottom = 6;
+        zoom_grid.margin_top = 6;
         zoom_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
 
         zoom_grid.add (zoom_out_button);
@@ -277,6 +289,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         var settings_popover_grid = new Gtk.Grid ();
         settings_popover_grid.margin_bottom = 3;
+        settings_popover_grid.margin_top = 6;
         settings_popover_grid.orientation = Gtk.Orientation.VERTICAL;
         settings_popover_grid.width_request = 200;
 
@@ -297,7 +310,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover.add (settings_popover_grid);
 
         var back_forward_grid = new Gtk.Grid ();
-        back_forward_grid.get_style_context ().add_class (Gtk.STYLE_CLASS_LINKED);
+        unowned Gtk.StyleContext back_forward_context = back_forward_grid.get_style_context ();
+        back_forward_context.add_class (Gtk.STYLE_CLASS_LINKED);
+        back_forward_context.add_class ("navigation");
 
         back_forward_grid.add (back_button);
         back_forward_grid.add (forward_button);
@@ -754,6 +769,13 @@ public class Ephemeral.MainWindow : Gtk.Window {
         );
 
         add_accel_group (accel_group);
+
+        var granite_settings = Granite.Settings.get_default ();
+        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        });
     }
 
     protected override bool delete_event (Gdk.EventAny event) {
@@ -876,7 +898,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void set_menu_style_classes (Gtk.Widget widget) {
-        var context = widget.get_style_context ();
+        unowned Gtk.StyleContext context = widget.get_style_context ();
         context.add_class (Gtk.STYLE_CLASS_FLAT);
         context.add_class (Gtk.STYLE_CLASS_MENUITEM);
     }

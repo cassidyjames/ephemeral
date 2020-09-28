@@ -6,63 +6,69 @@
       <summary>Ask to be default</summary>
       <description>Whether or not Ephemeral should ask to be the default web browser (if it isn't already)</description>
     </key>
+
     <key name="close-when-opening-externally" type="b">
       <default>false</default>
       <summary>Close when opening externally</summary>
       <description>Whether or not the current Ephemeral window should be closed when opening a link in an external browser</description>
     </key>
-    <key name="dark-style" type="b">
-      <default>false</default>
-      <summary>Prefer a dark style</summary>
-      <description>Whether or not Ephemeral should ask sites to render in a dark style where supported</description>
-    </key>
+
     <key name="enable-javascript" type="b">
       <default>true</default>
       <summary>Enable JavaScript</summary>
       <description>Whether or not JavaScript executes within pages</description>
     </key>
+
     <key type="as" name="favorite-websites">
         <default>[]</default>
         <summary>User-added favorite websites</summary>
         <description>List of favorite websites added by the user, i.e. to be used in autocomplete suggestions. Should contain bare hosts (i.e. subdomain.example.com) to be more easily completable by the user.</description>
     </key>
+
     <key name="last-native-response" type="x">
       <!-- int64 min -->
       <default>-9223372036854775808</default>
       <summary>Last native response</summary>
       <description>The last time (Unix timestamp in UTC) the user responded to the notice about running Ephemeral somewhere other than elementary OS</description>
     </key>
+
     <key name="last-paid-response" type="x">
       <!-- int64 min -->
       <default>-9223372036854775808</default>
       <summary>Last paid response</summary>
       <description>The last time (Unix timestamp in UTC) the user responded to the notice about Ephemeral being a paid app</description>
     </key>
+
     <key name="last-used-browser" type="s">
       <default>""</default>
       <summary>Last used browser</summary>
       <description>The id of the last-used browser (the browser selected in the menu)</description>
     </key>
+
     <key name="manual-closes-after-opening-externally" type="i">
       <default>0</default>
       <summary>Manual closes after opening externally</summary>
       <description>Number of times the user manually closed Ephemeral shortly after opening a page externally</description>
     </key>
+
     <key name="search-engine" type="s">
       <default>"https://duckduckgo.com/?q=%s&amp;kp=1&amp;t=elementary"</default>
       <summary>Search engine</summary>
       <description>A search string using "%s" as a placeholder for a query</description>
     </key>
+
     <key name="suggest-close-when-opening-externally" type="b">
       <default>true</default>
       <summary>Suggest "Close when opening externally"</summary>
       <description>Whether or not Ephemeral should suggest to turn on the "Close when opening externally" setting if the user is manually doing it a lot</description>
     </key>
+
     <key name="warn-network" type="b">
       <default>true</default>
       <summary>Warn on no network connection</summary>
       <description>Whether or not Ephemeral should warn when there is no network available connection</description>
     </key>
+
     <key name="zoom" type="d">
       <default>1.0</default>
       <summary>Zoom level</summary>

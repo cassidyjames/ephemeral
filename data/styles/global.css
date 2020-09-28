@@ -24,11 +24,6 @@
 
 @define-color textColorPrimary alpha(white, 0.9);
 
-.titlebar button {
-  -gtk-icon-style: symbolic;
-  color: inherit;
-}
-
 .browser-button .raised:last-child {
   padding: 0;
 }
@@ -44,7 +39,7 @@
 
 .h1 {
   color: inherit;
-  font-family: Raleway, "Open Sans", sans-serif;
+  font-family: Inter, Raleway, "Open Sans", sans-serif;
   font-size: 24pt;
   font-weight: 900;
 }
@@ -78,4 +73,20 @@ popover radio {
 label.primary {
   font-weight: 700;
   font-size: 1.2em;
+}
+
+.color-button radio,
+.color-button radio:checked {
+   padding: 1.25em;
+   -gtk-icon-shadow: none;
+}
+
+.color-light radio {
+    background: #fafafa;
+    color: #333;
+}
+
+.color-dark radio {
+    background: #333;
+    color: #fafafa;
 }

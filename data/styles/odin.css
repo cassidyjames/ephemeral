@@ -1,0 +1,75 @@
+/*
+* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+*
+* This program is free software; you can redistribute it and/or
+* modify it under the terms of the GNU General Public
+* License as published by the Free Software Foundation; either
+* version 3 of the License, or (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+* General Public License for more details.
+*
+* You should have received a copy of the GNU General Public
+* License along with this program; if not, write to the
+* Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+* Boston, MA 02110-1301 USA
+*
+* Authored by: Cassidy James Blaede <c@ssidyjam.es>
+*/
+
+@define-color color_primary mix(@GRAPE_900, @BLUEBERRY_900, 0.33);
+@define-color color_accent @GRAPE_500;
+
+.titlebar {
+  background-image:
+    linear-gradient(
+      to bottom,
+      alpha(@highlight_color, 0.2),
+      rgba(255, 255, 255, 0)
+    ),
+    linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
+}
+
+.titlebar .image-button,
+.titlebar .titlebutton {
+  background: transparent;
+  color: white;
+  text-shadow: none;
+  -gtk-icon-shadow: none;
+}
+
+.titlebar .image-button.raised,
+.titlebar .linked .image-button {
+  background: rgba(255, 255, 255, 0.125);
+}
+
+.titlebar entry,
+.titlebar entry image {
+  color: white;
+}
+
+.titlebar entry {
+  background-color: rgba(0, 0, 0, 0.25);
+}
+
+.titlebar .image-button:disabled {
+    opacity: 0.5;
+}
+
+.titlebar .linked .image-button:first-child {
+  border-top-left-radius: 9999px;
+  border-bottom-left-radius: 9999px;
+  padding-left: 0.5rem;
+}
+
+.titlebar .linked .image-button:last-child {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  padding-right: 0.25rem;
+}
+
+.titlebar .linked.navigation .image-button:last-child {
+  padding-right: 0.5rem;
+}
