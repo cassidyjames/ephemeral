@@ -38,6 +38,15 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="6.4.2" date="2020-09-28">
+      <description>
+        <p>Quality of life improvements</p>
+        <ul>
+          <li>Added a hard refresh (bypassing the cache) with Shift+Ctrl+R</li>
+          <li>Added several site suggestions</li>
+        </ul>
+      </description>
+    </release>
     <release version="6.4.1" date="2020-04-30">
       <description>
         <p>Updated Spanish translations thanks to Adolfo Jayme-Barrientos</p>

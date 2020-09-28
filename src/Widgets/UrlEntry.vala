@@ -284,6 +284,40 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
             load_suggestion (favorite, null, _("Favorite website"), "starred-symbolic");
         }
 
+        // elementary sites
+        load_suggestion ("appcenter.elementary.io", "elementary AppCenter", _("elementary Site"));
+        load_suggestion ("blog.elementary.io", "elementary Blog", _("elementary Site"));
+        load_suggestion ("developer.elementary.io", "Publish on AppCenter", _("elementary Site"));
+        load_suggestion ("elementary.io", "elementary OS", _("elementary Site"));
+        load_suggestion ("valadoc.org", "Valadoc");
+
+        // Friends of Ephemeral
+        load_suggestion ("cassidyjames.com", "Cassidy James", _("Creator of Ephemeral"));
+        load_suggestion ("danielfore.com", "Daniel Foré", _("Friend of Ephemeral"));
+        load_suggestion ("destinationlinux.network", "Destination Linux Network");
+        load_suggestion ("gettogether.community", "Get Together");
+        load_suggestion ("gnome.org", "GNOME");
+        load_suggestion ("heavyelement.io", "The Heavy Element Web Zone");
+        load_suggestion ("ind.ie", "Indie");
+        load_suggestion ("jblive.tv", "Jupiter Broadcasting LIVE!");
+        load_suggestion ("jupiterbroadcasting.com", "Jupiter Broadcasting");
+        load_suggestion ("laptopwithlinux.com", "Laptop with Linux");
+        load_suggestion ("linuxacademy.com", "Linux Academy");
+        load_suggestion ("linux4everyone.com", "Linux For Everyone");
+        load_suggestion ("linuxunplugged.com", "LINUX Unplugged");
+        load_suggestion ("offtopical.net", "The Offtopical Podcast");
+        load_suggestion ("omgubuntu.co.uk", "OMG! Ubuntu!");
+        load_suggestion ("pine64.org", "PINE64");
+        load_suggestion ("plausible.io", "Plausible Analytics");
+        load_suggestion ("puri.sm", "Purism");
+        load_suggestion ("slimbook.es", "SLIMBOOK");
+        load_suggestion ("small-tech.org", "Small Technology Foundation");
+        load_suggestion ("starlabs.systems", "Star Labs");
+        load_suggestion ("startpage.com", "Startpage.com");
+        load_suggestion ("system76.com", "System76");
+        load_suggestion ("thelinuxexp.com", "The Linux Experiment");
+
+        // Popular sites
         load_suggestion ("247sports.com", "247Sports");
         load_suggestion ("6pm.com", "6pm");
         load_suggestion ("aa.com", "American Airlines");
@@ -305,7 +339,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("androidpolice.com", "Android Police");
         load_suggestion ("answers.com", "Answers");
         load_suggestion ("aol.com", "AOL");
-        load_suggestion ("appcenter.elementary.io", "elementary AppCenter");
         load_suggestion ("archive.org", "Internet Archive");
         load_suggestion ("arstechnica.com", "Ars Technica");
         load_suggestion ("att.com", "AT&amp;T");
@@ -343,7 +376,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("cars.com", "Cars.com");
         load_suggestion ("cartoonnetwork.com", "Cartoon Network");
         load_suggestion ("cash.app", "Cash App");
-        load_suggestion ("cassidyjames.com", "Cassidy James");
         load_suggestion ("cbs.com", "CBS");
         load_suggestion ("cbsnews.com", "CBS News");
         load_suggestion ("cbssports.com", "CBS Sports");
@@ -369,7 +401,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("cvs.com", "CVS");
         load_suggestion ("dailykos.com", "Daily Kos");
         load_suggestion ("dailymotion.com", "Dailymotion");
-        load_suggestion ("danielfore.com", "Daniel Foré");
         load_suggestion ("deadspin.com", "Deadspin");
         load_suggestion ("dell.com", "Dell");
         load_suggestion ("delta.com", "Delta Air Lines");
@@ -398,7 +429,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("edmunds.com", "Edmunds");
         load_suggestion ("eff.org", "Electronic Frontier Foundation");
         load_suggestion ("ehow.com", "eHow");
-        load_suggestion ("elementary.io", "elementary");
         load_suggestion ("engadget.com", "Engadget");
         load_suggestion ("eonline.com", "E! News");
         load_suggestion ("epicurious.com", "Epicurious");
@@ -431,10 +461,10 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("gap.com", "Gap");
         load_suggestion ("gawker.com", "Gawker");
         load_suggestion ("genius.com", "Genius");
-        load_suggestion ("gettogether.community", "Get Together");
         load_suggestion ("gfycat.com", "Gfycat");
         load_suggestion ("giphy.com", "Giphy");
         load_suggestion ("github.com", "GitHub");
+        load_suggestion ("gitlab.com", "GitLab");
         load_suggestion ("gizmodo.com", "Gizmodo");
         load_suggestion ("glassdoor.com", "Glassdoor");
         load_suggestion ("gmail.com", "Gmail");
@@ -466,20 +496,17 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("independent.co.uk", "The Independent");
         load_suggestion ("indiatimes.com", "Indiatimes");
         load_suggestion ("indiegogo.com", "Indiegogo");
-        load_suggestion ("ind.ie", "Indie");
         load_suggestion ("instagram.com", "Instagram");
         load_suggestion ("instructables.com", "Instructables");
         load_suggestion ("intuit.com", "Intuit");
         load_suggestion ("io9.com", "io9");
         load_suggestion ("irs.gov", "Internal Revenue Service");
         load_suggestion ("jalopnik.com", "Jalopnik");
-        load_suggestion ("jblive.tv", "Jupiter Broadcasting LIVE!");
         load_suggestion ("jcpenny.com", "JCPenny");
         load_suggestion ("jcrew.com", "J.Crew");
         load_suggestion ("jet.com", "Jet.com");
         load_suggestion ("jezebel.com", "Jezebel");
         load_suggestion ("joinmastodon.org", "The Mastodon Project");
-        load_suggestion ("jupiterbroadcasting.com", "Jupiter Broadcasting");
         load_suggestion ("kbb.com", "Kelly Blue Book");
         load_suggestion ("kickstarter.com", "Kickstarter");
         load_suggestion ("kinja.com", "Kinja");
@@ -491,16 +518,14 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("latimes.com", "LA Times");
         load_suggestion ("legacy.com", "Legacy.com");
         load_suggestion ("lego.com", "LEGO");
+        load_suggestion ("letterboxd.com", "Letterboxd");
         load_suggestion ("lifehacker.com", "Lifehacker");
         load_suggestion ("linkedin.com", "LinkedIn");
-        load_suggestion ("linuxacademy.com", "Linux Academy");
-        load_suggestion ("linuxunplugged.com", "LINUX Unplugged");
         load_suggestion ("littlethings.com", "LittleThings");
         load_suggestion ("liveleak.com", "LiveLeak");
         load_suggestion ("livestrong.com", "Livestrong");
         load_suggestion ("livingsocial.com", "LivingSocial");
         load_suggestion ("llbean.com", "L.L.Bean");
-        load_suggestion ("lunduke.com", "Bryan Lunduke");
         load_suggestion ("lowes.com", "Lowes");
         load_suggestion ("macys.com", "Macy's");
         load_suggestion ("mailchimp.com", "Mailchimp");
@@ -545,7 +570,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("office365.com", "Office 365");
         load_suggestion ("officedepot.com", "Office Depot &amp; OfficeMax");
         load_suggestion ("okcupid.com", "OKCupid");
-        load_suggestion ("omgubuntu.co.uk", "OMG! Ubuntu!");
         load_suggestion ("opentable.com", "OpenTable");
         load_suggestion ("oracle.com", "Oracle");
         load_suggestion ("orbitz.com", "Orbitz");
@@ -568,7 +592,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("potterybarn.com", "Pottery Barn");
         load_suggestion ("priceline.com", "Priceline");
         load_suggestion ("purdue.edu", "Purdue University");
-        load_suggestion ("puri.sm", "Purism");
         load_suggestion ("qq.com", "QQ.com");
         load_suggestion ("qualtrics.com", "Qualtrics");
         load_suggestion ("quizlet.com", "Quizlet");
@@ -608,7 +631,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("slate.com", "Slate");
         load_suggestion ("slides.google.com", "Google Slides");
         load_suggestion ("slideshare.net", "SlideShare");
-        load_suggestion ("slimbook.es", "SLIMBOOK");
         load_suggestion ("soundcloud.com", "SoundCloud");
         load_suggestion ("sourceforge.net", "SourceForge");
         load_suggestion ("southwest.com", "Southwest Airlines");
@@ -621,14 +643,13 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("stanford.edu", "Stanford University");
         load_suggestion ("staples.com", "Staples");
         load_suggestion ("starbucks.com", "Starbucks");
-        load_suggestion ("startpage.com", "Startpage.com");
         load_suggestion ("steamcommunity.com", "Steam Community");
         load_suggestion ("steampowered.com", "Steam");
         load_suggestion ("stripe.com", "Stripe");
         load_suggestion ("stubhub.com", "StubHub");
         load_suggestion ("surveymonkey.com", "SurveyMonkey");
         load_suggestion ("swagbucks.com", "Swagbucks");
-        load_suggestion ("system76.com", "System76");
+        load_suggestion ("swappa.com", "Swappa");
         load_suggestion ("taobao.com", "Taobao");
         load_suggestion ("target.com", "Target");
         load_suggestion ("tdbank.com", "TD Bank");
@@ -673,7 +694,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("usmagazine.com", "Us Weekly");
         load_suggestion ("usnews.com", "US News &amp; World Report");
         load_suggestion ("usps.com", "USPS");
-        load_suggestion ("valadoc.org", "Valadoc");
         load_suggestion ("vanguard.com", "Vanguard");
         load_suggestion ("verizon.com", "Verizon");
         load_suggestion ("vice.com", "VICE");
