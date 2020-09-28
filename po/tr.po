@@ -47,11 +47,11 @@ msgstr "Menü"
 
 #: src/MainWindow.vala:122
 msgid "Light content"
-msgstr "Açık İçerik"
+msgstr "Açık Tema"
 
 #: src/MainWindow.vala:123
 msgid "Dark content"
-msgstr "Karanlık İçerik"
+msgstr "Karanlık Tema"
 
 #: src/MainWindow.vala:135
 msgid "Zoom out"
@@ -262,7 +262,7 @@ msgstr "Satın Alma veya Fon…"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
-msgstr "Hoppala vede Cupala :D"
+msgstr "Whoops"
 
 #: src/Views/ErrorView.vala:31
 msgid "Could not display the page."
@@ -270,7 +270,7 @@ msgstr "Sayfa görüntülenemedi."
 
 #: src/Views/WelcomeView.vala:31
 msgid "The always-incognito web browser"
-msgstr "Her zaman gizli web tarayıcısı"
+msgstr "Gizli web tarayıcınız"
 
 #: src/Views/WelcomeView.vala:33
 msgid ""
@@ -338,4 +338,4 @@ msgstr "Önerilere Web Sitesi Ekle"
 
 #: src/Widgets/WebView.vala:105
 msgid "Open Link in New _Window"
-msgstr "Bağlantıyı Teni Pencerede aç"
+msgstr "Bağlantıyı Yeni Pencerede aç"
