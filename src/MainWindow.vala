@@ -123,14 +123,13 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_button.popover = settings_popover;
 
         var style_switch = new Granite.ModeSwitch.from_icon_name (
-             "display-brightness-symbolic",
-             "weather-clear-night-symbolic"
-         );
-         style_switch.primary_icon_tooltip_text = _("Light content");
-         style_switch.secondary_icon_tooltip_text = _("Dark content");
-         style_switch.halign = Gtk.Align.CENTER;
-         style_switch.margin = 12;
-         // style_switch.margin_bottom = 6;
+            "display-brightness-symbolic",
+            "weather-clear-night-symbolic"
+        );
+        style_switch.primary_icon_tooltip_text = _("Light content");
+        style_switch.secondary_icon_tooltip_text = _("Dark content");
+        style_switch.halign = Gtk.Align.CENTER;
+        style_switch.margin = 12;
 
         style_switch.bind_property (
             "active",
@@ -145,7 +144,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
         /* WebKit uses -dark to set a dark style, and OSes expose -dark
         stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS). As
         such, if we have a -dark stylesheet, hide the style switcher. */
-
         gtk_settings.bind_property (
             "gtk-theme-name",
             style_switch_revealer,
