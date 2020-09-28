@@ -1,49 +1,51 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the extra package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+# Safak <bjksafak45@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-17 18:05+0000\n"
-"PO-Revision-Date: 2020-03-02 01.43+0300\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2020-09-28 11:52+0300\n"
+"Last-Translator: Safak <bjksafak45@gmail.com>\n"
+"Language-Team: Turkish\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: data/launcher.desktop.in:3
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:7
 msgid "Ephemeral"
-msgstr ""
+msgstr "Ephemeral"
 
 #: data/launcher.desktop.in:4
 msgid "Private browser"
-msgstr ""
+msgstr "Özel tarayıcı"
 
 #: data/launcher.desktop.in:5
 msgid "Browse the web in private"
-msgstr ""
+msgstr "Web'e gizlilik içinde göz atın"
 
 #: data/launcher.desktop.in:8
 msgid "com.github.cassidyjames.ephemeral"
-msgstr ""
+msgstr "com.github.cassidyjames.ephemeral"
 
 #: data/launcher.desktop.in:12
 msgid "WWW;web;browser;internet;private;incognito;focus;temporary;cookies;"
 msgstr ""
+"WWW; web; tarayıcı; internet; özel; gizli; odak; geçici; tanımlama bilgileri;"
 
 #: data/launcher.desktop.in:17
 msgid "New Window"
-msgstr ""
+msgstr "Yeni Pencere"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
 msgid "The always-incognito web browser"
-msgstr ""
+msgstr "Her zaman gizli web tarayıcınız"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:10
 msgid ""
@@ -52,48 +54,57 @@ msgid ""
 "avoiding persistent cookies or web trackers. Close the window and all traces "
 "of your browsing are removed from your device."
 msgstr ""
+"Bilgisayarınızda herhangi bir geçmiş izi bırakmadan internette gizli olarak"
+" gezinin."
+"Ephemeral, aşağıdakiler için mükemmel olan özel bir tarayıcıdır."
+"Kalıcı çerezlerden veya web izleyicilerinden kaçınmak. Pencereyi ve tüm"
+" izleri kapatır"
+"göz atma sürenizi cihazınızdan kaldırılır."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:11
 msgid "Handy features:"
-msgstr ""
+msgstr "Kullanışlı özellikler:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:13
 msgid "Easily open pages in any other installed browser"
-msgstr ""
+msgstr "Sayfaları yüklü başka bir tarayıcıda kolayca açın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:14
 msgid "Search right from the URL bar"
-msgstr ""
+msgstr "Doğrudan URL çubuğundan arayın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:15
 msgid "Set as your default browser for true privacy by default"
-msgstr ""
+msgstr "Gerçek bir gizlilik için varsayılan tarayıcınız olarak ayarlayın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:16
 msgid "Hit Ctrl+W to close the current window or Ctrl+Q to quit all windows"
 msgstr ""
+"Geçerli pencereyi kapatmak için Ctrl + W tuşlarına veya tüm pencerelerden"
+" çıkmak için Ctrl + Q tuşlarına basın."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:17
 msgid "Pick between privacy-respecting search engines from the menu"
-msgstr ""
+msgstr "Menüden arama motorları arasından seçim yapın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:18
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:101
 msgid "Quickly disable or re-enable JavaScript from the menu"
 msgstr ""
+"Menüden JavaScript'i hızla devre dışı bırakın veya yeniden etkinleştirin"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:19
 msgid "Add a website to the URL suggestions with the ⭐️ icon or Ctrl+D"
-msgstr ""
+msgstr "⭐️ simgesi veya Ctrl + D ile URL önerilenlere ekleyin"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:20
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:103
 msgid "Find text on the page with Ctrl+F"
-msgstr ""
+msgstr "Ctrl+F ile sayfadaki metni bulun"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:22
 msgid "Ephemeral protects you in five key ways:"
-msgstr ""
+msgstr "Ephemeral sizi beş temel yolla korur:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:23
 msgid ""
@@ -102,6 +113,10 @@ msgid ""
 "That means history, cookies, local storage, passwords, etc. are all blown "
 "away as soon as you leave."
 msgstr ""
+"1️⃣ Her zaman gizli. Saniyeler içinede geçici pencere açın veya"
+"kapatın (veya Sil düğmesine basın), Ephemeral özel tarama modunda, "
+"geçmiş, çerezler, yerel depolama, şifreler vb. kapatır kapatmaz "
+"hepsi silinir."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:24
 msgid ""
@@ -110,6 +125,10 @@ msgid ""
 "service in one window, and other Ephemeral windows will have no idea you’re "
 "signed in."
 msgstr ""
+"2️⃣ Her Geçici pencere, tarayıcının ayrı bir örneğidir"
+"motor. Bu, sayfaların birbirinden ayrı tutulduğu anlamına gelir. Giriş yap"
+"hizmet tek bir pencerede ve diğer Geçici pencereler,"
+"giriş yapıldı."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:25
 msgid ""
@@ -117,6 +136,9 @@ msgid ""
 "third-party sources. This cuts down on advertising cookies and other "
 "unwanted forms of cross-site tracking."
 msgstr ""
+"3️⃣ Üçüncü taraf çerezleri yok. Ephemeral, kutunun dışında çerezleri engeller:"
+"Üçüncü Taraf Kaynaklar. Bu, reklam çerezlerini ve diğer"
+"siteler arası izlemenin istenmeyen biçimleri engeller."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:26
 msgid ""
@@ -125,6 +147,10 @@ msgid ""
 "collected—I have no idea what you do with Ephemeral, and I don't want to "
 "know!"
 msgstr ""
+"4️⃣ Telemetri yok. Ephemeral, siz açıkça belirtmedikçe ağa dokunmaz"
+"bir web sayfası yükleyin veya bir arama yapın. O zaman bile hiçbir kullanım"
+" verisi toplamaz — "
+"Ephemeral ile ne yaptığınız hakkında hiçbir fikrim yok."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:27
 msgid ""
@@ -133,11 +159,19 @@ msgid ""
 "DuckDuckGo from the menu if that’s your preference, or even set your own "
 "entirely custom search engine."
 msgstr ""
+"5️⃣️ Ephemeral, dünyanın en özel arama motoru olan Startpage.com'u kullanıyor"
+" -"
+"mümkün olduğunca fazla Google izlemesinden kaçınmak için varsayılan. Ayrıca"
+" seçim yapabilirsiniz"
+"Tercihiniz buysa menüden DuckDuckGo veya hatta kendiniz ayarlayın"
+"tamamen özel arama motorunuzu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:28
 msgid ""
 "The best part of Ephemeral comes when you use it as your default browser:"
 msgstr ""
+"Ephemeral'ın en iyi yanı, onu varsayılan tarayıcınız olarak kullandığınızda"
+" ortaya çıkar:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:29
 msgid ""
@@ -145,6 +179,10 @@ msgid ""
 "knowing you can always jump back into something less private like Firefox, "
 "Chrome, Opera, Brave—or any other installed browser—with one click."
 msgstr ""
+"Varsayılan olarak bağlantıları özel bir tarayıcıda açarak gizliliği bir"
+" alışkanlık haline getirin,"
+"Firefox gibi daha az özel bir şeye her zaman geri dönebileceğinizi bilerek,"
+"Chrome, Opera, Brave - veya herhangi bir yüklü tarayıcı - tek bir tıklama ile."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:30
 msgid ""
@@ -153,6 +191,10 @@ msgid ""
 "but they won't stop your ISP, government, or determined websites from "
 "tracking you."
 msgstr ""
+"Unutmayın, Ephemeral ve herhangi bir tarayıcının gizli veya özel modundan "
+"daha fazlası: izlemeyi azaltırlar ve cihazınıza veri depolamazlar,"
+"ancak ISS'nizi, hükümeti veya belirli web sitelerini"
+"seni izliyor."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:31
 msgid ""
@@ -162,10 +204,16 @@ msgid ""
 "the header and the current page is opened up there—optionally closing the "
 "window to get out of your way."
 msgstr ""
+"İzleme nedeniyle bir site uyumluluğu sorunuyla karşılaşırsanız ne olur?"
+"önleme veya başka bir tarayıcının kaydedilmiş olduğu bir sitede oturum açmak"
+" istiyorsanız"
+"şifreler? Ephemeral kapsam dahilinde: diğer tarayıcınızın simgesine"
+" tıklamanız yeterli"
+"başlık ve geçerli sayfa orada açılır - isteğe bağlı olarak"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:32
 msgid "For the best protection, always use a VPN."
-msgstr ""
+msgstr "En iyi koruma için her zaman bir VPN kullanın."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:40
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:55
@@ -177,35 +225,43 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:195
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:221
 msgid "Translation updates"
-msgstr ""
+msgstr "Çeviri güncellemeleri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:42
 msgid "Translation system improved thanks to @NathanBnm"
-msgstr ""
+msgstr "@NathanBnm sayesinde geliştirilmiş çeviri sistemi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:48
 msgid "Dark Style Rises"
-msgstr ""
+msgstr "Dark Style Yükseliyor"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:50
 msgid ""
 "A new toggle lets you choose light or dark style for sites, assuming they "
 "support the `prefers-color-scheme` CSS query"
 msgstr ""
+"Yeni bir geçiş, siteler için açık veya koyu stil seçmenize olanak tanır,"
+"`tercihler-renk düzeni` CSS sorgusunu destekler"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:51
 msgid ""
 "Stopped defaulting to dark style by default since it can break some sites"
 msgstr ""
+"Bazı siteleri bozabileceği için varsayılan olarak koyu stile varsayılan"
+" olarak geçiş durduruldu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:52
 msgid "Set the window title to help distinguish different pages from the dock"
 msgstr ""
+"Dock'tan farklı sayfaları ayırt etmeye yardımcı olması için pencere başlığını"
+" ayarlayın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:53
 msgid ""
 "Simplified \"Open page in…\" menu and logic to always expose all options"
 msgstr ""
+"Basitleştirilmiş \"Sayfayı… konumunda aç\" menüsü ve tüm seçenekleri her"
+" zaman çıkacak"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:57
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:80
@@ -215,7 +271,7 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:213
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:287
 msgid "Updated Dutch translations thanks to Heimen Stoffels"
-msgstr ""
+msgstr "Heimen Stoffels sayesinde güncellenmiş Felemenkçe çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:58
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:157
@@ -223,7 +279,7 @@ msgstr ""
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:214
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:224
 msgid "Updated French translations thanks to @NathanBnm"
-msgstr ""
+msgstr "@NathanBnm sayesinde güncellenmiş Fransızca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:60
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:82
@@ -242,32 +298,37 @@ msgid ""
 "Additional translations for new features will appear in future updates as "
 "translators have a chance to do their thing."
 msgstr ""
+"Yeni özellikler için ek çeviriler gelecekteki güncellemelerde şu şekilde"
+" görünecektir:"
+"çevirmenlerin işlerini yapma şansı var."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:65
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:185
 msgid "Minor updates"
-msgstr ""
+msgstr "Küçük güncellemeler"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:67
 msgid "Fixed checkbox and radio button styling"
-msgstr ""
+msgstr "Onay kutusu ve radyo düğmesi stili düzeltildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:68
 msgid "Treat “localhost” as a valid domain"
-msgstr ""
+msgstr "\"Localhost\" u geçerli bir etki alanı olarak ele alın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:69
 msgid "Improved dark styling when building with newer versions of WebKit"
 msgstr ""
+"WebKit'in daha yeni sürümleriyle derleme yapılırken geliştirilmiş koyu tema"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:70
 msgid "Under the hood changes to make translations easier"
-msgstr ""
+msgstr "Çeviriyi kolaylaştırmak için kapsamlı değişiklikler"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:71
 msgid ""
 "Updated Spanish translations thanks to Adolfo Jayme-Barrientos and @riesp"
 msgstr ""
+"Adolfo Jayme-Barrientos ve @riesp sayesinde güncellenmiş İspanyolca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:77
 msgid ""
@@ -275,245 +336,286 @@ msgid ""
 "domains like i❤tacos.ws will show up properly in the URL entry, while "
 "phishing domains should still show up like xn--80ak6aa92e.com"
 msgstr ""
+"🎉️ Etki alanları için Emoji (ve uluslararası karakter) desteği! Zayıf kod"
+" anlamına gelir"
+"i❤tacos.ws gibi alanlar URL girişinde düzgün bir şekilde görünürken"
+"phishing alan adları yine de xn--80ak6aa92e.com gibi görünmelidir"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:87
 msgid "Adding Some Polish 💅️"
-msgstr ""
+msgstr "Biraz Lehçe Ekleme 💅️"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:89
 msgid ""
 "💻️ Touchpad gesture navigation: Use a two-finger swipe to move back or "
 "forward through your browsing history"
 msgstr ""
+"💻️ Dokunmatik yüzeyde hareketle gezinme: Geri gitmek için iki parmakla"
+" kaydırın veya"
+"göz atma geçmişinizde ilerleyin"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:90
 msgid ""
 "🔗️ More room for the URL entry to breathe: spacing on each side plus a "
 "maximum width means the window is easier to grab and move around"
 msgstr ""
+"🔗️ URL girişinin nefes alması için daha fazla alan: her iki taraftaki boşluk"
+" artı bir"
+"maksimum genişlik, pencerenin daha kolay kavranması ve hareket etmesi"
+" anlamına gelir"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:91
 msgid "UI styling fixes, plus dark style fixes for newer versions of WebKit"
 msgstr ""
+"UI stil düzeltmeleri ve WebKit'in daha yeni sürümleri için koyu stil"
+" düzeltmeleri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:92
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:341
 msgid "Code cleaning to keep things fresh and clean"
-msgstr ""
+msgstr "Her şeyi taze ve temiz tutmak için kod temizleme"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:99
 msgid "McSipes"
-msgstr ""
+msgstr "McSipes"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:102
 msgid "Use Ctrl+D to add/remove a site from the suggestions"
 msgstr ""
+"Önerilere bir site eklemek / kaldırmak için Ctrl + D tuşlarını kullanın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:104
 msgid "New Paste and Go item in the URL bar context menu"
-msgstr ""
+msgstr "URL çubuğunde bağlam menüsünde yeni Yapıştır ve Git "
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:122
 msgid "Updated Italian translations thanks to @meliurwen"
-msgstr ""
+msgstr "@Meliurwen sayesinde güncellenmiş İtalyanca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:123
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:187
 msgid "Updated Spanish translations thanks to Adolfo Jayme-Barrientos"
-msgstr ""
+msgstr "Adolfo Jayme-Barrientos sayesinde güncellenmiş İspanyolca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:130
 msgid "Hello from Thessaloniki"
-msgstr ""
+msgstr "Selanik'ten merhaba"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:132
 msgid ""
 "Fixed window closing: now closing the first window does not close the rest"
 msgstr ""
+"Sabit pencere kapanması: artık ilk pencerenin kapatılması geri kalanı"
+" kapatmıyor"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:133
 msgid ""
 "Simplified “Erase” to always close the window instead of sometimes opening a "
 "new one"
 msgstr ""
+"Bazen bir pencere açmak yerine pencereyi her zaman kapatmak için"
+" basitleştirilmiş yeni bir 'Sil' "
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:140
 msgid "Summer cleaning! Because that’s a thing, right?"
-msgstr ""
+msgstr "Yaz temizliği! Çünkü bu bir şey, değil mi?"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:142
 msgid ""
 "Fixed the “Open Link in New Window” menu item to actually do what it says"
 msgstr ""
+"\"Bağlantıyı Yeni Pencerede Aç\" menü öğesinin söylediği şeyi gerçekten"
+" yapması düzeltildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:143
 msgid ""
 "Fixed opening target=\"_blank\" links in a new window with Ctrl- or middle-"
 "click"
 msgstr ""
+"Ctrl- veya orta- ile yeni bir pencerede açılış hedefi = \"_ blank\""
+" bağlantıları düzeltildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:144
 msgid ""
 "Updated the base color in menus and dialog windows from the default "
 "elementary slate-ish black to a new deep, dark blue-ish purple"
 msgstr ""
+"Menülerdeki ve iletişim pencerelerindeki temel renk tonu varsayılandan"
+" güncellendi"
+"yeni bir derin, koyu mavimsi mor"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:145
 msgid ""
 "Tweaked the “Open Link Externally” dialog to better isolate protocols like "
 "“mailto” or “tel”"
 msgstr ""
+"\"Bağlantıyı Harici Olarak Aç\" iletişim kutusu gibi protokolleri daha iyi"
+" izole etmek için"
+"\"Mailto\" veya \"tel\""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:146
 msgid ""
 "Significantly cleaned up and reorganized the codebase to make future "
 "features and fixes easier"
 msgstr ""
+"Geleceği yapmak için kod tabanını önemli ölçüde temizledi ve yeniden düzenledi"
+"özellikler ve düzeltmeler daha kolay"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:156
 msgid "Updated Catalán and Spanish translations thanks to Mario Rodrigo"
-msgstr ""
+msgstr "Mario Rodrigo sayesinde Katalonya ve İspanyolca çevirileri güncellendi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:164
 msgid "Some great UI refinements!"
-msgstr ""
+msgstr "Bazı harika kullanıcı arayüzü iyileştirmeleri!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:166
 msgid "URL entry suggestions are much snazzier thanks to Hannes Schulze"
-msgstr ""
+msgstr "Hannes Schulze sayesinde URL girişi önerileri çok daha hızlı"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:167
 msgid "JavaScript alerts now follow the elementary HIG thanks to David Hewitt"
 msgstr ""
+"David Hewitt sayesinde JavaScript uyarıları artık temel HIG'yi takip ediyor"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:171
 msgid "Ciao! Translated to Italian thanks to @meliurwen"
-msgstr ""
+msgstr "Ciao! @Meliurwen sayesinde İtalyanca'ya çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:179
 msgid "Updated Catalan translations thanks to Mario Rodrigo."
-msgstr ""
+msgstr "Mario Rodrigo sayesinde güncellenmiş Katalanca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:188
 msgid "Code cleanup"
-msgstr ""
+msgstr "Kod temizleme"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:198
 msgid "Updated Russian translations thanks to Artem Polishchuk"
-msgstr ""
+msgstr "Artem Polishchuk sayesinde güncellenmiş Rusça çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:205
 msgid "No foolin'. Two major new features:"
-msgstr ""
+msgstr "Aptallık yok. İki büyük yeni özellik:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:207
 msgid "🔍️ New Custom Search Engine setting in the Menu"
-msgstr ""
+msgstr "🔍️ Menüdeki Yeni Özel Arama Motoru ayarı"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:208
 msgid ""
 "⭐️ Add your own websites to the suggestions using the new button in the URL "
 "entry"
 msgstr ""
+"⭐️ URL'deki yeni düğmeyi kullanarak önerilere kendi web sitelerinizi girişe"
+" ekleyin"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:210
 msgid "Plus the usual iterative improvements:"
-msgstr ""
+msgstr "Ayrıca olağan yinelemeli iyileştirmeler:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:212
 msgid "Various URL entry fixes and tweaks"
-msgstr ""
+msgstr "Çeşitli URL girişi düzeltmeleri ve ince ayarları"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:216
 msgid ""
 "Translations for new features will appear in future updates as translators "
 "have a chance to do their thing."
 msgstr ""
+"Yeni özelliklerin çevirileri, gelecekteki güncellemelerde çevirmen olarak"
+" görünecek"
+"kendi işlerini yapma şansı verin."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:223
 msgid "Cześć! Translated to Polish thanks to Paweł Jerzy Przybysz"
-msgstr ""
+msgstr "Cześć! Paweł Jerzy Przybysz sayesinde Lehçe'ye çevri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:225
 msgid "Updated Lithuanian translations thanks to @welaq"
-msgstr ""
+msgstr "@Welaq sayesinde güncellenmiş Litvanca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:231
 msgid "Blaze It"
-msgstr ""
+msgstr "Onu Yak!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:233
 msgid ""
 "New option to close the window when opening a page in an external browser"
 msgstr ""
+"Harici bir tarayıcıda bir sayfa açarken pencereyi kapatmak için yeni seçenek"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:234
 msgid "The web view is now focused when navigating"
-msgstr ""
+msgstr "Web görünümü artık gezinirken odaklanmıştır"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:240
 msgid "URL Entry Fixes"
-msgstr ""
+msgstr "URL Giriş Düzeltmeleri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:242
 msgid "Updated and corrected several autocomplete domains"
-msgstr ""
+msgstr "Birkaç otomatik tamamlama alanı güncellendi ve düzeltildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:243
 msgid ""
 "No longer attempt to force HTTPS on protocol-less domains—fixes several "
 "popular sites"
 msgstr ""
+"Artık protokol içermeyen alanlarda HTTPS'yi zorlamaya çalışmayın;"
+"popüler siteler"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:244
 msgid ""
 "Strip whitespace from URL entry before navigating—fixes instances where "
 "trying to navigate to a domain would perform a search"
 msgstr ""
+"Gezinmeden önce URL girişindeki beyaz boşlukları çıkarın;"
+"bir etki alanına gitmeye çalışmak bir arama gerçekleştirir"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:250
 msgid "URL Suggestion Fixes"
-msgstr ""
+msgstr "URL Önerisi Düzeltmeleri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:252
 msgid "Corrected joinmastodon.org TLD"
-msgstr ""
+msgstr "Joinmastodon.org TLD'si düzeltildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:253
 msgid "Added additional useful sites"
-msgstr ""
+msgstr "Ek yararlı siteler eklendi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:254
 msgid "Added descriptions for more sites"
-msgstr ""
+msgstr "Daha fazla site için açıklamalar eklendi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:255
 msgid "Removed dead sites"
-msgstr ""
+msgstr "Ölü siteler kaldırıldı"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:256
 msgid "Updated translations"
-msgstr ""
+msgstr "Güncellenen çeviriler"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:262
 msgid "All New Search + Suggestions"
-msgstr ""
+msgstr "Tüm Yeni Arama + Öneriler"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:264
 msgid "The URL entry will offer to complete over 400 popular sites*"
-msgstr ""
+msgstr "URL girişi 400'den fazla popüler siteyi tamamlamayı önerecek *"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:265
 msgid "New Search Engine choice in the Menu"
-msgstr ""
+msgstr "Menüde yeni Arama Motoru seçeneği"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:266
 msgid "Switched to Startpage.com by default"
-msgstr ""
+msgstr "Varsayılan olarak Startpage.com'a geçildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:267
 msgid "Happy birthday, Katie!"
-msgstr ""
+msgstr "Mutlu yıllar Katie!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:269
 msgid ""
@@ -523,220 +625,248 @@ msgid ""
 "being included in completion suggestions are not an endorsement, it simply "
 "means that domain is relatively popular."
 msgstr ""
+"* Bu verilerin tümü Ephemeral'ın kendisiyle birlikte gönderilir ve Ephemeral"
+" hala"
+"açıkça bir yere gidene kadar ağa dokunmayın. Listesi"
+"alan adları büyük ölçüde Firefox Focus'taki benzer bir özellikten"
+" esinlenmiştir. Alanlar"
+"tamamlama önerilerine dahil edilmek bir onay değildir, sadece"
+"alanın nispeten popüler olduğu anlamına gelir."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:274
 msgid "Guten Tag! German translations thanks to Hannes Schulze"
-msgstr ""
+msgstr " Guten Tag! Hannes Schulze sayesinde Almanca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:279
 msgid "Здравствуйте! Russian translations thanks to Artem Polishchuk"
-msgstr ""
+msgstr "Здравствуйте! Artem Polishchuk sayesinde Rusça çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:284
 msgid "More translations:"
-msgstr ""
+msgstr "Daha fazla çeviri:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:286
 msgid "Lithuanian translations thanks to @welaq"
-msgstr ""
+msgstr "@Welaq sayesinde Litvanca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:293
 msgid ""
 "Fixed some missed translations and updated French translations. Thanks "
 "again, @NathanBnm!"
 msgstr ""
+"Bazı cevapsız çeviriler ve güncellenmiş Fransızca çeviriler düzeltildi."
+" Teşekkürler"
+"tekrar, @NathanBnm!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:298
 msgid "Lots o' goodies:"
-msgstr ""
+msgstr "Bir sürü güzellik:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:300
 msgid "The last-used browser is remembered for next time"
-msgstr ""
+msgstr "Son kullanılan tarayıcı bir dahaki sefere hatırlanır"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:301
 msgid "New \"Reset Preferences\" menu item and dialog"
-msgstr ""
+msgstr "Yeni \"Tercihleri Sıfırla\" menü öğesi ve iletişim kutusu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:302
 msgid "Ctrl+O to open the current page in another browser"
-msgstr ""
+msgstr "Mevcut sayfayı başka bir tarayıcıda açmak için Ctrl + O"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:303
 msgid "Refined (ever-so-subtly less flat) HeaderBar design"
-msgstr ""
+msgstr "Rafine (her zamankinden daha az düz) HeaderBar tasarımı"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:304
 msgid "Ephemeral is now translatable!"
-msgstr ""
+msgstr "Ephemeral artık tercüme edilebilir!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:306
 msgid "Translations:"
-msgstr ""
+msgstr "Çeviriler:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:308
 msgid ""
 "¡Hola! Spanish translations thanks to Adolfo Jayme-Barrientos and Mario "
 "Rodrigo"
 msgstr ""
+"¡Hola! Adolfo Jayme-Barrientos ve Mario Rodrigo sayesinde İspanyolca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:309
 msgid "salut! French translations thanks to Nathan (@NathanBnm)"
-msgstr ""
+msgstr "selam! Nathan sayesinde Fransızca çeviri (@NathanBnm)"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:310
 msgid ""
 "Olá! Brazilian Portuguese translations thanks to Lucas Sanchez dos Anjos"
-msgstr ""
+msgstr "Olá! Lucas Sanchez dos Anjos sayesinde Brezilya Portekizcesi çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:311
 msgid "Hallo! Dutch translations thanks to Heimen Stoffels"
-msgstr ""
+msgstr "Hallo! Heimen Stoffels sayesinde Hollandaca çeviri"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:317
 msgid "Styling fixes for non-native platforms."
-msgstr ""
+msgstr "Yerel olmayan platformlar için stil düzeltmeleri."
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:322
 msgid "Fixed a few small issues with zoom:"
-msgstr ""
+msgstr "Yakınlaştırma ile ilgili birkaç küçük sorun düzeltildi:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:324
 msgid "Zoom controls are now only sensitive when the web view is visible"
-msgstr ""
+msgstr "Yakınlaştırma kontrolleri artık yalnızca web görünümümde görünür"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:325
 msgid "Reported zoom level is now correct when opening a new window"
 msgstr ""
+"Bildirilen yakınlaştırma düzeyi artık yeni bir pencere açılırken düzeltildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:326
 msgid "Reported zoom level is now kept in sync across open windows"
 msgstr ""
+"Bildirilen yakınlaştırma seviyesi artık açık pencerelerde senkronize tutulur"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:332
 msgid "Zoom! And more…"
-msgstr ""
+msgstr "Yakınlaştır! Ve dahası…"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:334
 msgid "A new menu to keep the UI tidy and balanced"
-msgstr ""
+msgstr "Kullanıcı arayüzünü düzenli ve dengeli tutmak için yeni bir menü"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:335
 msgid "Zoom in, out, and default from the new menu or with the keyboard"
-msgstr ""
+msgstr "Zoom menüde ve klavyede varsayılan olarak ayarlandı"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:336
 msgid "New Window action moved into the menu"
-msgstr ""
+msgstr "Yeni Pencere eylemi menüye taşındı"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:337
 msgid "Added a Quit All Windows action to the menu"
-msgstr ""
+msgstr "Menüye Tüm Pencereden Çık eylemi eklendi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:338
 msgid "Smooth scrolling when using the keyboard or a scrollwheel"
-msgstr ""
+msgstr "Klavyeyi veya bir kaydırma tekerleğini kullanırken yumuşak kaydırma"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:339
 msgid "Fixed Twitch livestreams"
-msgstr ""
+msgstr "Twitch canlı akışları düzeltildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:340
 msgid "Fixed YouTube resolution support: now up to 4K!"
-msgstr ""
+msgstr "Sabit YouTube çözünürlük desteği: şimdi 4K'ya kadar!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:347
 msgid "Better error handling and quality of life improvements all around:"
-msgstr ""
+msgstr "Daha iyi hata işleme ve  kalitesi iyileştirmeleri her yerde:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:349
 msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
 msgstr ""
+"Harici uygulamalar için yeni onay iletişim kutuları, ör. appstream: // veya"
+" ftp: //"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:350
 msgid "New warning when no network connection"
-msgstr ""
+msgstr "Ağ bağlantısı olmadığında yeni uyarı"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:351
 msgid "Prettier errors using native views"
-msgstr ""
+msgstr "Yerel görünümleri kullanırken daha güzel hatalar"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:352
 msgid "Stopped throwing away text when unfocusing URL entry"
-msgstr ""
+msgstr "URL girişinin odağı kaldırılırken metni atmayı durdurdu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:353
 msgid "Stopped searching when the URL entry is empty"
-msgstr ""
+msgstr "URL girişi boş olduğunda arama durduruldu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:354
 msgid "Code cleaning to keep things smelling fresh"
-msgstr ""
+msgstr "Her şeyin taze kokmasını sağlamak için kod temizleme"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:360
 msgid "Fresh styles to keep things funky, plus more:"
-msgstr ""
+msgstr "Her şeyi ilginç kılan yeni stiller ve daha fazlası:"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:362
 msgid ""
 "The new start page makes Ephemeral faster and makes it not touch the network "
 "until you're ready to browse"
 msgstr ""
+"Yeni başlangıç sayfası Ephemeral'ı daha hızlı hale getiriyor ve ağa"
+" dokunmamasını sağlıyor"
+"göz atmaya hazır olana kadar"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:363
 msgid "Middle- or Ctrl-click a link to open it in a new window"
 msgstr ""
+"Yeni bir pencerede açmak için bir bağlantıyı orta veya Ctrl tuşunu basılı"
+" tutarak tıklayın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:364
 msgid ""
 "Displayed URLs are kept in sync for pages that manually update the URL "
 "without a page load"
 msgstr ""
+"Görünen URL'ler, URL'yi manuel olarak güncelleyen sayfalar için senkronize"
+" tutulur"
+"sayfa yüklemesi olmadan"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:365
 msgid "Local HTML files can now be opened"
-msgstr ""
+msgstr "Yerel HTML dosyaları artık açılabilir"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:372
 msgid "More informative \"set as default\" infobar"
-msgstr ""
+msgstr "Daha bilgilendirici \"varsayılan olarak ayarla\" bilgi çubuğu"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:373
 msgid "Tweaked \"set as default\" infobar styling"
-msgstr ""
+msgstr "\"Varsayılan olarak ayarla\" bilgi çubuğu stili değiştirildi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:380
 msgid "Search from URL entry!"
-msgstr ""
+msgstr "URL girişinden ara!"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:381
 msgid "Asks (politely!) to be set as the default browser"
-msgstr ""
+msgstr "Varsayılan tarayıcı olarak ayarlanma"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:382
 msgid "Open unsupported links (like AppCenter ones) in the OS-default app"
 msgstr ""
+"İşletim sistemi varsayılan uygulamasında desteklenmeyen bağlantıları"
+" (AppCenter olanlar gibi) açın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:389
 msgid "Add \"New Window\" to headerbar, app launcher, and keyboard shortcuts"
 msgstr ""
+"Başlık çubuğuna, uygulama başlatıcıya ve klavye kısayollarına \"Yeni"
+" Pencere\" eklendi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:390
 msgid "Collapse external browsers into a menu when there's more than one"
 msgstr ""
+"Birden fazla tarayıcı olduğunda harici tarayıcıları bir menüye daraltın"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:396
 msgid "Add several useful keyboard and mouse shortcuts"
-msgstr ""
+msgstr "Birkaç kullanışlı klavye ve fare kısayolu eklendi"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:401
 msgid "Fix links that try to open in a new window"
-msgstr ""
+msgstr "Yeni bir pencerede açmaya çalışan bağlantıları düzeltin"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:406
 msgid "Initial release for AppCenter"
-msgstr ""
+msgstr "AppCenter için ilk sürüm"
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:453
 msgid "Cassidy James Blaede"
-msgstr ""
+msgstr "Cassidy James Blaede"
