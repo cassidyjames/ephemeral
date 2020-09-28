@@ -311,6 +311,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         load_suggestion ("plausible.io", "Plausible Analytics");
         load_suggestion ("puri.sm", "Purism");
         load_suggestion ("slimbook.es", "SLIMBOOK");
+        load_suggestion ("small-tech.org", "Small Technology Foundation");
         load_suggestion ("starlabs.systems", "Star Labs");
         load_suggestion ("startpage.com", "Startpage.com");
         load_suggestion ("system76.com", "System76");
