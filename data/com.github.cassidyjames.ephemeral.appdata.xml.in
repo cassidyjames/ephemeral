@@ -40,8 +40,9 @@
   <releases>
     <release version="6.4.2" date="2020-09-28">
       <description>
-        <p>Quality of life improvements</p>
+        <p>Developers, Developers, Developers!</p>
         <ul>
+          <li>Enabled WebKit’s Developer Tools and Inspect Element</li>
           <li>Added a hard refresh (bypassing the cache) with Shift+Ctrl+R</li>
           <li>Added several site suggestions</li>
         </ul>
