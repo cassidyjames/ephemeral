@@ -30,6 +30,7 @@ public class Ephemeral.Application : Gtk.Application {
         "application/xhtml+xml",
         "application/x-extension-xht"
     };
+
     // Once a month
     public const int64 NOTICE_SECS = 60 * 60 * 24 * 30;
     public const string DONATE_URL = "https://cassidyjames.com/pay";
@@ -45,6 +46,12 @@ public class Ephemeral.Application : Gtk.Application {
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
     public int64 last_external_open = int64.MIN;
+
+    public enum PrefersColorScheme {
+      NO_PREFERENCE = 0,
+      DARK = 1,
+      LIGHT = 2
+    }
 
     private bool opening_link = false;
 
