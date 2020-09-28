@@ -21,7 +21,6 @@
 
 .titlebar button {
   -gtk-icon-style: symbolic;
-  color: inherit;
 }
 
 actionbar > separator,
