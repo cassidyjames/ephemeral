@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-28 17:17+0000\n"
+"POT-Creation-Date: 2020-09-28 17:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -337,6 +337,6 @@ msgstr ""
 msgid "Add Website to Suggestions"
 msgstr ""
 
-#: src/Widgets/WebView.vala:79
+#: src/Widgets/WebView.vala:80
 msgid "Open Link in New _Window"
 msgstr ""
