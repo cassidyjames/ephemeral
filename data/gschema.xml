@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
-  <enum id="com.github.cassidyjames.ephemeral.prefers-color-scheme-states">
-    <value nick="No Preference" value="0" />
-    <value nick="Dark" value="1" />
-    <value nick="Light" value="2" />
-  </enum>
-
   <schema path="/com/github/cassidyjames/ephemeral/" id="com.github.cassidyjames.ephemeral">
     <key name="ask-default" type="b">
       <default>true</default>
@@ -55,12 +49,6 @@
       <default>0</default>
       <summary>Manual closes after opening externally</summary>
       <description>Number of times the user manually closed Ephemeral shortly after opening a page externally</description>
-    </key>
-
-    <key name="prefers-color-scheme" enum="com.github.cassidyjames.ephemeral.prefers-color-scheme-states">
-      <default>"No Preference"</default>
-      <summary>Prefers color scheme</summary>
-      <description>What color scheme the user prefers for web content. "No Preference" defers to the operating system.</description>
     </key>
 
     <key name="search-engine" type="s">

@@ -122,77 +122,38 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var settings_popover = new Gtk.Popover (settings_button);
         settings_button.popover = settings_popover;
 
-        var color_button_light = new Gtk.RadioButton (null) {
-            halign = Gtk.Align.CENTER,
-            tooltip_text = _("Light content")
-        };
+        var style_switch = new Granite.ModeSwitch.from_icon_name (
+             "display-brightness-symbolic",
+             "weather-clear-night-symbolic"
+         );
+         style_switch.primary_icon_tooltip_text = _("Light content");
+         style_switch.secondary_icon_tooltip_text = _("Dark content");
+         style_switch.halign = Gtk.Align.CENTER;
+         style_switch.margin = 12;
+         // style_switch.margin_bottom = 6;
 
-        var color_button_light_context = color_button_light.get_style_context ();
-        color_button_light_context.add_class (Granite.STYLE_CLASS_COLOR_BUTTON);
-        color_button_light_context.add_class ("color-light");
+        style_switch.bind_property (
+            "active",
+            gtk_settings,
+            "gtk_application_prefer_dark_theme",
+            BindingFlags.BIDIRECTIONAL
+        );
 
-        var color_button_dark = new Gtk.RadioButton.from_widget (color_button_light) {
-            halign = Gtk.Align.CENTER,
-            tooltip_text = _("Dark content")
-        };
+        var style_switch_revealer = new Gtk.Revealer ();
+        style_switch_revealer.add (style_switch);
 
-        var color_button_dark_context = color_button_dark.get_style_context ();
-        color_button_dark_context.add_class (Granite.STYLE_CLASS_COLOR_BUTTON);
-        color_button_dark_context.add_class ("color-dark");
+        /* WebKit uses -dark to set a dark style, and OSes expose -dark
+        stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS). As
+        such, if we have a -dark stylesheet, hide the style switcher. */
 
-        var color_button_grid = new Gtk.Grid () {
-            column_homogeneous = true,
-            margin_bottom = 12,
-            margin_top = 6
-        };
-
-        color_button_grid.attach (color_button_light, 0, 0);
-        color_button_grid.attach (color_button_dark, 1, 0);
-
-        var color_default_label = new Gtk.Label (_("Follow system style")) {
-            halign = Gtk.Align.START,
-            hexpand = true,
-            margin_start = 6
-        };
-
-        var color_default_switch = new Gtk.Switch () {
-            halign = Gtk.Align.END,
-            valign = Gtk.Align.CENTER
-        };
-
-        var color_default_grid = new Gtk.Grid ();
-        color_default_grid.add (color_default_label);
-        color_default_grid.add (color_default_switch);
-
-        var color_default_button = new Gtk.Button ();
-        set_menu_style_classes (color_default_button);
-        color_default_button.add (color_default_grid);
-
-        var color_button_revealer = new Gtk.Revealer ();
-        color_button_revealer.add (color_button_grid);
-
-        var color_section_grid = new Gtk.Grid () {
-            orientation = Gtk.Orientation.VERTICAL
-        };
-        color_section_grid.add (color_default_button);
-        color_section_grid.add (color_button_revealer);
-
-        var color_section_revealer = new Gtk.Revealer ();
-        color_section_revealer.add (color_section_grid);
-
-        // WebKit uses -dark to set a dark style, and some OSes expose -dark
-        // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS),
-        // and other OSes might expose a "Tweaks" app that overrides app styles.
-        // As such, if the OS or user is not using an elementary stylesheet,
-        // just hide the dark style switcher and let the system control it.
         gtk_settings.bind_property (
             "gtk-theme-name",
-            color_section_revealer,
+            style_switch_revealer,
             "reveal-child",
             BindingFlags.SYNC_CREATE,
             (binding, srcval, ref targetval) => {
                 string gtk_theme_name = (string) srcval;
-                targetval.set_boolean (Application.stylesheet () > 0);
+                targetval.set_boolean (!gtk_theme_name.has_suffix ("-dark"));
                 return true;
             }
         );
@@ -331,7 +292,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         settings_popover_grid.orientation = Gtk.Orientation.VERTICAL;
         settings_popover_grid.width_request = 200;
 
-        settings_popover_grid.add (color_section_revealer);
+        settings_popover_grid.add (style_switch_revealer);
         settings_popover_grid.add (zoom_grid);
         settings_popover_grid.add (js_button);
         settings_popover_grid.add (new MenuSeparator ());
@@ -433,10 +394,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         quit_button.clicked.connect (() => {
             application.quit ();
-        });
-
-        color_default_button.clicked.connect (() => {
-            color_default_switch.activate ();
         });
 
         js_button.clicked.connect (() => {
@@ -623,8 +580,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 return true;
             }, () => { return true; }, null, null
         );
-
-        color_default_switch.bind_property ("active", color_button_revealer, "reveal-child", BindingFlags.INVERT_BOOLEAN);
 
         Application.settings.bind ("enable-javascript", js_switch, "active", SettingsBindFlags.DEFAULT);
         js_switch.bind_property ("active", js_revealer, "reveal-child", BindingFlags.INVERT_BOOLEAN);
@@ -813,6 +768,13 @@ public class Ephemeral.MainWindow : Gtk.Window {
         );
 
         add_accel_group (accel_group);
+
+        var granite_settings = Granite.Settings.get_default ();
+        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+
+        granite_settings.notify["prefers-color-scheme"].connect (() => {
+            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
+        });
     }
 
     protected override bool delete_event (Gdk.EventAny event) {

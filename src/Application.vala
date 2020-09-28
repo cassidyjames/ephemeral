@@ -38,7 +38,6 @@ public class Ephemeral.Application : Gtk.Application {
     public const string DDG = "https://duckduckgo.com/?q=%s&kp=1&t=elementary";
 
     public static GLib.Settings settings;
-    public static Gtk.Settings gtk_settings;
     public Gtk.IconSize icon_size = Gtk.IconSize.LARGE_TOOLBAR;
     public int icon_pixel_size = 24;
 
@@ -46,12 +45,6 @@ public class Ephemeral.Application : Gtk.Application {
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
     public int64 last_external_open = int64.MIN;
-
-    public enum PrefersColorScheme {
-      NO_PREFERENCE = 0,
-      DARK = 1,
-      LIGHT = 2
-    }
 
     private bool opening_link = false;
 
@@ -74,17 +67,9 @@ public class Ephemeral.Application : Gtk.Application {
 
     static construct {
         settings = new Settings (Application.instance.application_id);
-        gtk_settings = Gtk.Settings.get_default ();
     }
 
     protected override void activate () {
-        var granite_settings = Granite.Settings.get_default ();
-        gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-
-        granite_settings.notify["prefers-color-scheme"].connect (() => {
-            gtk_settings.gtk_application_prefer_dark_theme = granite_settings.prefers_color_scheme == Granite.Settings.ColorScheme.DARK;
-        });
-
         var provider = new Gtk.CssProvider ();
         provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/global.css");
         Gtk.StyleContext.add_provider_for_screen (
