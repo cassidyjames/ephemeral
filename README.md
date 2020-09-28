@@ -33,7 +33,7 @@ Versions of Ephemeral may have been built and made available elsewhere by third-
 
 Development is targeted at [elementary OS] Juno. If you want to hack on and build Ephemeral yourself, you'll need the following dependencies:
 
-* libgranite-dev
+* libgranite-dev (>=5.5)
 * libgtk-3-dev
 * libwebkit2gtk-4.0-dev
 * libdazzle-1.0-dev
