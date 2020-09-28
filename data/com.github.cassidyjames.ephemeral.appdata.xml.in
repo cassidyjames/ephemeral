@@ -53,6 +53,7 @@
           <li>Updated Brazilian Portuguese translations thanks to Karl Prieb</li>
           <li>Updated Turkish translations thanks to Safak GENISOL</li>
         </ul>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
       </description>
     </release>
     <release version="6.4.1" date="2020-04-30">
