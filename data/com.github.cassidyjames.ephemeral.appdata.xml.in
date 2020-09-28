@@ -45,6 +45,10 @@
           <li>Added a hard refresh (bypassing the cache) with Shift+Ctrl+R</li>
           <li>Added several site suggestions</li>
         </ul>
+        <p>Translation updates</p>
+        <ul>
+          <li>Translated to Ukranian thanks to Ihor Hordiichuk</li>
+        </ul>
       </description>
     </release>
     <release version="6.4.1" date="2020-04-30">
