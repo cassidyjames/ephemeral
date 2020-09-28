@@ -38,7 +38,7 @@ executable(
     join_paths('src', 'Widgets', 'WebView.vala'),
     asresources,
     dependencies: [
-        dependency('granite'),
+        dependency('granite', version: '>=5.5'),
         dependency('gtk+-3.0'),
         dependency('libdazzle-1.0'),
         dependency('javascriptcoregtk-4.0'),
