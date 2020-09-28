@@ -184,7 +184,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         // stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS),
         // and other OSes might expose a "Tweaks" app that overrides app styles.
         // As such, if the OS or user is not using an elementary stylesheet,
-        // just hide the dark style switcher.
+        // just hide the dark style switcher and let the system control it.
         gtk_settings.bind_property (
             "gtk-theme-name",
             color_section_revealer,
