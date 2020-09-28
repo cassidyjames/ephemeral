@@ -606,7 +606,19 @@ public class Ephemeral.MainWindow : Gtk.Window {
             Gdk.ModifierType.CONTROL_MASK,
             Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
             () => {
+                debug ("Reloading…");
                 web_view.reload ();
+                return true;
+            }
+        );
+
+        accel_group.connect (
+            Gdk.Key.R,
+            Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.SHIFT_MASK,
+            Gtk.AccelFlags.VISIBLE | Gtk.AccelFlags.LOCKED,
+            () => {
+                debug ("Hard reloading (bypassing cache)…");
+                web_view.reload_bypass_cache ();
                 return true;
             }
         );
