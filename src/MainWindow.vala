@@ -112,12 +112,14 @@ public class Ephemeral.MainWindow : Gtk.Window {
         erase_button.tooltip_text = _("Close window and erase history");
         erase_button.tooltip_markup = Granite.markup_accel_tooltip ({"<Ctrl>W"}, erase_button.tooltip_text);
 
-        browser_button = new BrowserButton (this, web_view);
-        browser_button.sensitive = false;
+        browser_button = new BrowserButton (this, web_view) {
+            sensitive = false
+        };
 
-        var settings_button = new Gtk.MenuButton ();
-        settings_button.image = new Gtk.Image.from_icon_name ("open-menu", Application.instance.icon_size);
-        settings_button.tooltip_text = _("Menu");
+        var settings_button = new Gtk.MenuButton () {
+            image = new Gtk.Image.from_icon_name ("open-menu", Application.instance.icon_size),
+            tooltip_text = _("Menu")
+        };
 
         var settings_popover = new Gtk.Popover (settings_button);
         settings_button.popover = settings_popover;
@@ -125,11 +127,12 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var style_switch = new Granite.ModeSwitch.from_icon_name (
             "display-brightness-symbolic",
             "weather-clear-night-symbolic"
-        );
-        style_switch.primary_icon_tooltip_text = _("Light content");
-        style_switch.secondary_icon_tooltip_text = _("Dark content");
-        style_switch.halign = Gtk.Align.CENTER;
-        style_switch.margin = 12;
+        ) {
+            primary_icon_tooltip_text = _("Light content"),
+            secondary_icon_tooltip_text = _("Dark content"),
+            halign = Gtk.Align.CENTER,
+            margin = 12
+        };
 
         style_switch.bind_property (
             "active",
@@ -141,7 +144,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         var style_switch_revealer = new Gtk.Revealer ();
         style_switch_revealer.add (style_switch);
 
-        /* WebKit uses -dark to set a dark style, and OSes expose -dark
+        /* WebKit uses -dark to set a dark style, and some OSes expose -dark
         stylesheets to users as a hacky dark mode (like Ubuntu and Pop!_OS). As
         such, if we have a -dark stylesheet, hide the style switcher. */
         gtk_settings.bind_property (
