@@ -9,6 +9,8 @@ jobs:
     - uses: actions/checkout@v1
     - uses: elementary/actions/gettext-template@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GIT_USER_TOKEN: "${{ secrets.GIT_USER_TOKEN }}"
+        GIT_USER_NAME: "cassidyjames"
+        GIT_USER_EMAIL: "c@ssidyjam.es"
       with:
         translation_branch: 'main'
