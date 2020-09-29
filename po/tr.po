@@ -47,11 +47,11 @@ msgstr "Menü"
 
 #: src/MainWindow.vala:122
 msgid "Light content"
-msgstr "Açık Tema"
+msgstr "Açık içerik"
 
 #: src/MainWindow.vala:123
 msgid "Dark content"
-msgstr "Karanlık Tema"
+msgstr "Karanlık içerik"
 
 #: src/MainWindow.vala:135
 msgid "Zoom out"
