@@ -1,3 +1,37 @@
+com.github.cassidyjames.ephemeral (7.0.0) bionic; urgency=medium
+
+  * Release 7.0.0 (#255)
+  * Update tr.po (#252)
+  * Update gettext.yml
+  * Update translation template
+  * Mention Granite version in README
+  * Meson: Require Granite >=5.5
+  * Support elementary OS 6 (#254)
+  * Update translation template
+  * Mention Developer Tools in AppData
+  * Developers tools activated (#251)
+  * Update translation template
+  * Update com.github.cassidyjames.ephemeral.appdata.xml.in
+  * Update translation template
+  * Update com.github.cassidyjames.ephemeral.appdata.xml.in
+  * Update tr.po (#253)
+  * Update translation template
+  * Add and fix pt-br translations (#249)
+  * add ukrainian localization (#246)
+  * Update translation template
+  * Suggested site updates (#245)
+  * Add hard refresh (#248)
+  * Update README.md
+  * Update README.md
+  * Update README.md
+  * Update gettext.yml
+  * Update gettext.yml
+  * Update gettext.yml
+  * Update release.yml
+  * Update translation template
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Wed, 30 Sep 2020 19:40:52 +0000
+
 com.github.cassidyjames.ephemeral (6.4.1) bionic; urgency=medium
 
   * Release 6.4.1 (#244)
