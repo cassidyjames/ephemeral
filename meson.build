@@ -1,7 +1,7 @@
 project(
     'com.github.cassidyjames.ephemeral',
     'vala', 'c',
-    version: '7.0.2'
+    version: '7.0.3'
 )
 
 gnome = import('gnome')
