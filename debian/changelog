@@ -1,3 +1,13 @@
+com.github.cassidyjames.ephemeral (7.0.1) bionic; urgency=medium
+
+  * Meson: Bump version to 7.0.1 (#257)
+  * Release action: Try using branch of action
+  * AppData: Bump version to 7.0.1
+  * Merge branch 'main' of github.com:cassidyjames/ephemeral into main
+  * AppData: master → main
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Thu, 01 Oct 2020 22:05:50 +0000
+
 com.github.cassidyjames.ephemeral (7.0.0) bionic; urgency=medium
 
   * Release 7.0.0 (#255)
