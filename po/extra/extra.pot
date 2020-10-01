@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-28 22:16+0000\n"
+"POT-Creation-Date: 2020-10-01 23:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -772,7 +772,7 @@ msgid "Better error handling and quality of life improvements all around:"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:425
-msgid "New approval dialogs for external apps, e.g. appstream:// or ftp://"
+msgid "New approval dialogs for external apps, e.g. appstream or ftp protocols"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:426
