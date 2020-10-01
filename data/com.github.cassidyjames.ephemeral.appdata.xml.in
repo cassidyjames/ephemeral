@@ -38,7 +38,7 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="7.0.0" date="2020-09-27">
+    <release version="7.0.0" date="2020-09-30">
       <description>
         <p>Developers, Developers, Developers!</p>
         <ul>
