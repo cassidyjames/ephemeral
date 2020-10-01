@@ -485,16 +485,16 @@
   </releases>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot@2x.png</image>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/main/data/screenshot@2x.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-many-browsers@2x.png</image>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/main/data/screenshot-many-browsers@2x.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-menu@2x.png</image>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/main/data/screenshot-menu@2x.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/master/data/screenshot-menu-dark@2x.png</image>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/main/data/screenshot-menu-dark@2x.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.1">
@@ -529,7 +529,7 @@
   <developer_name>Cassidy James Blaede</developer_name>
   <url type="homepage">https://cassidyjames.com</url>
   <url type="bugtracker">https://github.com/cassidyjames/ephemeral/issues</url>
-  <url type="translate">https://github.com/cassidyjames/ephemeral/tree/master/po#readme</url>
+  <url type="translate">https://github.com/cassidyjames/ephemeral/tree/main/po#readme</url>
   <url type="donation">https://cassidyjames.com/pay</url>
   <url type="help">https://cassidyjames.com/support</url>
   <!--url type="contact">https://cassidyjames.com/support</url-->
