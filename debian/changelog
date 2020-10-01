@@ -1,3 +1,9 @@
+com.github.cassidyjames.ephemeral (7.0.2) bionic; urgency=medium
+
+  * Release 7.0.2 (#258)
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Thu, 01 Oct 2020 22:13:59 +0000
+
 com.github.cassidyjames.ephemeral (7.0.1) bionic; urgency=medium
 
   * Meson: Bump version to 7.0.1 (#257)
