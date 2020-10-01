@@ -38,7 +38,7 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
-    <release version="7.0.3" date="2020-10-01">
+    <release version="7.0.4" date="2020-10-01">
       <description>
         <p>Developers, Developers, Developers!</p>
         <ul>
@@ -422,7 +422,7 @@
       <description>
         <p>Better error handling and quality of life improvements all around:</p>
         <ul>
-          <li>New approval dialogs for external apps, e.g. appstream:// or ftp://</li>
+          <li>New approval dialogs for external apps, e.g. appstream or ftp protocols</li>
           <li>New warning when no network connection</li>
           <li>Prettier errors using native views</li>
           <li>Stopped throwing away text when unfocusing URL entry</li>
