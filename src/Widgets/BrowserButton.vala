@@ -20,8 +20,11 @@
 */
 
 public class Ephemeral.BrowserButton : Gtk.Grid {
+    public Gtk.CheckButton external_check { get; set;}
+
     public Gtk.Window main_window { get; construct set; }
     public WebView web_view { get; construct set; }
+
     private Gtk.Button open_button { get; set; }
     private List<AppInfo> external_apps = AppInfo.get_all_for_type (Application.CONTENT_TYPES[0]);
 
@@ -59,7 +62,9 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         var list_grid = new Gtk.Grid ();
         list_grid.orientation = Gtk.Orientation.VERTICAL;
 
-        var external_check = new Gtk.CheckButton.with_label (_("Always Open This Site Externally"));
+        external_check = new Gtk.CheckButton.with_label (_("Always Open This Site Externally")) {
+            active = new Soup.URI (web_view.get_uri ()).get_host () in Application.settings.get_strv ("external-websites")
+        };
 
         unowned Gtk.StyleContext external_check_context = external_check.get_style_context ();
         external_check_context.add_class (Gtk.STYLE_CLASS_MENUITEM);

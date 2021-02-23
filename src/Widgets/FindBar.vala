@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
               2018 Christian Dywan <christian@twotoats.de>
 *
 * This program is free software; you can redistribute it and/or

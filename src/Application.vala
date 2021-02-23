@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -42,7 +42,7 @@ public class Ephemeral.Application : Gtk.Application {
     public int icon_pixel_size = 24;
 
     public bool ask_default_for_session = true;
-    public bool user_navigated = false;
+    public bool manually_navigated = false;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
     public int64 last_external_open = int64.MIN;

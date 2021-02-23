@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -68,7 +68,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         });
 
         activate_suggestion.connect (() => {
-            Application.instance.user_navigated = true;
+            Application.instance.manually_navigated = true;
 
             // Format the currently selected id as a url and load it
             if (text == "" || text == null) {
@@ -784,7 +784,7 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         popup.insert (item, 3);
 
         item.activate.connect (() => {
-            Application.instance.user_navigated = true;
+            Application.instance.manually_navigated = true;
 
             debug ("item.activate.connect: %s", clipboard_text);
 

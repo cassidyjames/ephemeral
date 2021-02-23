@@ -490,25 +490,28 @@ public class Ephemeral.MainWindow : Gtk.Window {
                         uri
                     );
 
-                    // TODO: don't fire this if the user typed in the UrlEntry.
                     // Check if site is in external sites list; if so, open in
                     // the preferred browser and close the Ephemeral window.
                     if (
-                        !Application.instance.user_navigated &&
-                        soup_uri.get_host () in Application.settings.get_strv ("external-websites")
+                        !Application.instance.manually_navigated &&
+                        soup_uri.get_host () in Application.settings.get_strv ("external-websites") &&
+                        (navigation_type == WebKit.NavigationType.LINK_CLICKED || navigation_type == WebKit.NavigationType.OTHER) &&
+                        // TODO: don't open externally if we're already on the same domain
+                        soup_uri.get_host () != new Soup.URI (web_view.get_uri ()).get_host ()
                     ) {
                         var uris = new List<string> ();
                         uris.append (uri);
 
                         foreach (AppInfo app_info in AppInfo.get_all ()) {
-                            // Get the app_info for the preffered browser
                             if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
                                 try {
                                     app_info.launch_uris (uris, null);
                                     Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
 
                                     decision.ignore ();
-                                    close ();
+
+                                    // TODO: respect close-when-opening-externally setting here
+                                    // close ();
 
                                     return true;
                                 } catch (Error e) {
@@ -843,17 +846,19 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
         if (web_view.is_loading) {
             refresh_stop_stack.visible_child = stop_button;
+            // FIXME: somehow this is broken
             web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
         } else {
             refresh_stop_stack.visible_child = refresh_button;
             url_entry.progress_fraction = 0;
+            browser_button.external_check.active = new Soup.URI (web_view.get_uri ()).get_host () in Application.settings.get_strv ("external-websites");
 
             if (!url_entry.has_focus) {
                 url_entry.text = WebKit.uri_for_display (web_view.get_uri ());
             }
 
             // Reset back to default
-            Application.instance.user_navigated = false;
+            Application.instance.manually_navigated = false;
         }
     }
 
