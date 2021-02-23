@@ -481,28 +481,27 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
             var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
             var navigation_type = action.get_navigation_type ();
-            string uri = action.get_request ().get_uri ();
-            var soup_uri = new Soup.URI (uri);
+            string action_uri = action.get_request ().get_uri ();
+            var soup_uri = new Soup.URI (action_uri);
+            string action_domain = soup_uri.get_host ();
+
+            var action_uris = new List<string> ();
+            action_uris.append (action_uri);
 
             switch (type) {
                 case WebKit.PolicyDecisionType.NAVIGATION_ACTION:
-                    stack.visible_child_name = "web-view";
-
-                    // Check if site is in external sites list; if so, open in
-                    // the preferred browser and close the Ephemeral window.
                     if (
                         !Application.instance.manually_navigated &&
-                        soup_uri.get_host () in external_websites &&
+                        action_domain in external_websites &&
                         (navigation_type == WebKit.NavigationType.LINK_CLICKED || navigation_type == WebKit.NavigationType.OTHER)
-                        // soup_uri.get_host () != new Soup.URI (web_view.get_uri ()).get_host ()
-                    ) {
-                        var uris = new List<string> ();
-                        uris.append (uri);
 
+                        // FIXME: don't open if we're on the same domain, except without breaking opening external links
+                        // action_domain != new Soup.URI (web_view.get_uri ()).get_host ()
+                    ) {
                         foreach (AppInfo app_info in AppInfo.get_all ()) {
                             if (app_info.get_id () == last_used_browser) {
                                 try {
-                                    app_info.launch_uris (uris, null);
+                                    app_info.launch_uris (action_uris, null);
                                     Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
 
                                     if (Application.settings.get_boolean ("close-when-opening-externally")) {
@@ -525,28 +524,28 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             action.get_mouse_button () == 2 ||
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
-                            Application.new_window (uri);
+                            Application.new_window (action_uri);
 
                             decision.ignore ();
                             return true;
                         }
                     }
 
+                    stack.visible_child_name = "web-view";
                     decision.use ();
                     break;
 
                 case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
-                    // Check if site is in external sites list; if so, open in
-                    // the preferred browser and close the Ephemeral window.
-                    if (soup_uri.get_host () in external_websites) {
-                        var uris = new List<string> ();
-                        uris.append (uri);
-
+                    if (action_domain in external_websites) {
                         foreach (AppInfo app_info in AppInfo.get_all ()) {
                             if (app_info.get_id () == last_used_browser) {
                                 try {
-                                    app_info.launch_uris (uris, null);
+                                    app_info.launch_uris (action_uris, null);
                                     Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
+
+                                    if (Application.settings.get_boolean ("close-when-opening-externally")) {
+                                        close ();
+                                    }
 
                                     decision.ignore ();
                                     return true;
@@ -564,15 +563,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             action.get_mouse_button () == 2 ||
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
-                            Application.new_window (uri);
+                            Application.new_window (action_uri);
 
                             decision.ignore ();
                             return true;
                         }
                     }
 
-                    if (is_location (uri)) {
-                        web_view.load_uri (uri);
+                    if (is_location (action_uri)) {
+                        web_view.load_uri (action_uri);
                     }
             }
 
