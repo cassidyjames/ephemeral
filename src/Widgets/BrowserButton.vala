@@ -62,7 +62,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         var list_grid = new Gtk.Grid ();
         list_grid.orientation = Gtk.Orientation.VERTICAL;
 
-        external_check = new Gtk.CheckButton.with_label (_("Always Open This Site Externally")) {
+        external_check = new Gtk.CheckButton.with_label (_("Automatically Open This Site Externally")) {
             active = new Soup.URI (web_view.get_uri ()).get_host () in Application.settings.get_strv ("external-websites")
         };
 

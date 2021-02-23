@@ -19,10 +19,10 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-public class Ephemeral.ExternalDialog : Granite.MessageDialog {
+public class Ephemeral.ProtocolDialog : Granite.MessageDialog {
     public string? protocol { get; construct set; }
 
-    public ExternalDialog (string? _protocol = null) {
+    public ProtocolDialog (string? _protocol = null) {
         Object (
             image_icon: new ThemedIcon ("dialog-warning"),
             primary_text: _("Open Link Externally?"),

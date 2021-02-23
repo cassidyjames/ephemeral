@@ -476,43 +476,40 @@ public class Ephemeral.MainWindow : Gtk.Window {
         web_view.notify["is-loading"].connect (update_progress);
 
         web_view.decide_policy.connect ((decision, type) => {
+            var external_websites = Application.settings.get_strv ("external-websites");
+            string last_used_browser = Application.settings.get_string ("last-used-browser");
+
+            var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
+            var navigation_type = action.get_navigation_type ();
+            string uri = action.get_request ().get_uri ();
+            var soup_uri = new Soup.URI (uri);
+
             switch (type) {
                 case WebKit.PolicyDecisionType.NAVIGATION_ACTION:
                     stack.visible_child_name = "web-view";
-                    var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
-                    var navigation_type = action.get_navigation_type ();
-                    string uri = action.get_request ().get_uri ();
-                    var soup_uri = new Soup.URI (uri);
-
-                    debug (
-                        "Navigation type: %s\nURL: %s\n",
-                        navigation_type.to_string (),
-                        uri
-                    );
 
                     // Check if site is in external sites list; if so, open in
                     // the preferred browser and close the Ephemeral window.
                     if (
                         !Application.instance.manually_navigated &&
-                        soup_uri.get_host () in Application.settings.get_strv ("external-websites") &&
-                        (navigation_type == WebKit.NavigationType.LINK_CLICKED || navigation_type == WebKit.NavigationType.OTHER) &&
-                        // TODO: don't open externally if we're already on the same domain
-                        soup_uri.get_host () != new Soup.URI (web_view.get_uri ()).get_host ()
+                        soup_uri.get_host () in external_websites &&
+                        (navigation_type == WebKit.NavigationType.LINK_CLICKED || navigation_type == WebKit.NavigationType.OTHER)
+                        // soup_uri.get_host () != new Soup.URI (web_view.get_uri ()).get_host ()
                     ) {
                         var uris = new List<string> ();
                         uris.append (uri);
 
                         foreach (AppInfo app_info in AppInfo.get_all ()) {
-                            if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
+                            if (app_info.get_id () == last_used_browser) {
                                 try {
                                     app_info.launch_uris (uris, null);
                                     Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
 
+                                    if (Application.settings.get_boolean ("close-when-opening-externally")) {
+                                        close ();
+                                    }
+
                                     decision.ignore ();
-
-                                    // TODO: respect close-when-opening-externally setting here
-                                    // close ();
-
                                     return true;
                                 } catch (Error e) {
                                     critical (e.message);
@@ -539,8 +536,26 @@ public class Ephemeral.MainWindow : Gtk.Window {
                     break;
 
                 case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
-                    var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
-                    string uri = action.get_request ().get_uri ();
+                    // Check if site is in external sites list; if so, open in
+                    // the preferred browser and close the Ephemeral window.
+                    if (soup_uri.get_host () in external_websites) {
+                        var uris = new List<string> ();
+                        uris.append (uri);
+
+                        foreach (AppInfo app_info in AppInfo.get_all ()) {
+                            if (app_info.get_id () == last_used_browser) {
+                                try {
+                                    app_info.launch_uris (uris, null);
+                                    Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
+
+                                    decision.ignore ();
+                                    return true;
+                                } catch (Error e) {
+                                    critical (e.message);
+                                }
+                            }
+                        }
+                    }
 
                     if (action.is_user_gesture ()) {
                         // Middle- or ctrl-click
@@ -550,6 +565,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
                             Application.new_window (uri);
+
                             decision.ignore ();
                             return true;
                         }
@@ -574,7 +590,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 // A frame load is cancelled because of a download
                 return false;
             } else if (load_error is WebKit.PolicyError.CANNOT_SHOW_URI) {
-                open_externally (uri);
+                open_protocol (uri);
             } else {
                 stack.visible_child_name = "error-view";
             }
@@ -844,10 +860,10 @@ public class Ephemeral.MainWindow : Gtk.Window {
         browser_button.sensitive = true;
         erase_button.sensitive = true;
 
+        web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
+
         if (web_view.is_loading) {
             refresh_stop_stack.visible_child = stop_button;
-            // FIXME: somehow this is broken
-            web_view.bind_property ("estimated-load-progress", url_entry, "progress-fraction");
         } else {
             refresh_stop_stack.visible_child = refresh_button;
             url_entry.progress_fraction = 0;
@@ -862,13 +878,13 @@ public class Ephemeral.MainWindow : Gtk.Window {
         }
     }
 
-    private void open_externally (string uri) {
+    private void open_protocol (string uri) {
         string? protocol = Uri.parse_scheme (uri);
 
-        var external_dialog = new ExternalDialog (protocol);
-        external_dialog.transient_for = (Gtk.Window) get_toplevel ();
+        var protocol_dialog = new ProtocolDialog (protocol);
+        protocol_dialog.transient_for = (Gtk.Window) get_toplevel ();
 
-        external_dialog.response.connect ((response_id) => {
+        protocol_dialog.response.connect ((response_id) => {
             switch (response_id) {
                 case Gtk.ResponseType.OK:
                     try {
@@ -876,20 +892,20 @@ public class Ephemeral.MainWindow : Gtk.Window {
                     } catch (Error e) {
                         critical (e.message);
                     }
-                    external_dialog.close ();
+                    protocol_dialog.close ();
                     break;
                 case Gtk.ResponseType.CANCEL:
                 case Gtk.ResponseType.CLOSE:
                 case Gtk.ResponseType.DELETE_EVENT:
-                    external_dialog.close ();
+                    protocol_dialog.close ();
                     break;
                 default:
                     assert_not_reached ();
             }
         });
 
-        external_dialog.run ();
-        external_dialog.destroy ();
+        protocol_dialog.run ();
+        protocol_dialog.destroy ();
     }
 
     private bool is_location (string uri) {
