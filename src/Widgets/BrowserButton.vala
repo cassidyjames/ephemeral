@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -23,7 +23,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
     public Gtk.Window main_window { get; construct set; }
     public WebView web_view { get; construct set; }
     private Gtk.Button open_button { get; set; }
-    private List<AppInfo> external_apps = GLib.AppInfo.get_all_for_type (Application.CONTENT_TYPES[0]);
+    private List<AppInfo> external_apps = AppInfo.get_all_for_type (Application.CONTENT_TYPES[0]);
 
     public BrowserButton (Gtk.Window _main_window, WebView _web_view) {
         Object (
@@ -58,6 +58,12 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
 
         var list_grid = new Gtk.Grid ();
         list_grid.orientation = Gtk.Orientation.VERTICAL;
+
+        var external_check = new Gtk.CheckButton.with_label (_("Always Open This Site Externally"));
+
+        unowned Gtk.StyleContext external_check_context = external_check.get_style_context ();
+        external_check_context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+        external_check_context.add_class (Gtk.STYLE_CLASS_FLAT);
 
         var close_check = new Gtk.CheckButton.with_label (_("Close Window When Opening Externally"));
         close_check.margin_bottom = 3;
@@ -101,6 +107,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         separator.margin_top = separator.margin_bottom = 3;
 
         list_grid.add (separator);
+        list_grid.add (external_check);
         list_grid.add (close_check);
         list_grid.show_all ();
 
@@ -109,9 +116,35 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         attach (open_button, 0, 0);
         attach (list_button, 1, 0);
 
-
         Application.settings.changed["last-used-browser"].connect (() => {
             setup_preferred_browser ();
+        });
+
+        // TODO: Add external sites to the setting
+        external_check.toggled.connect (() => {
+            string domain = new Soup.URI (web_view.get_uri ()).get_host ();
+            var external_websites = Application.settings.get_strv ("external-websites");
+
+            if (external_check.active) {
+                if (! (domain in external_websites)) {
+                    // Add
+                    external_websites += domain;
+                }
+            } else {
+                if (domain in external_websites) {
+                   // Remove
+                   string[] pruned_domains = {};
+                    foreach (string existing_domain in external_websites) {
+                        if (existing_domain != domain) {
+                            pruned_domains += existing_domain;
+                        }
+                    }
+
+                    external_websites = pruned_domains;
+                }
+            }
+
+            Application.settings.set_strv ("external-websites", external_websites);
         });
 
         Application.settings.bind (
@@ -151,7 +184,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
         }
     }
 
-    private void try_opening (AppInfo app_info, string uri) {
+    public void try_opening (AppInfo app_info, string uri) {
         var uris = new List<string> ();
         uris.append (uri);
 
@@ -163,7 +196,7 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             } else {
                 Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
             }
-        } catch (GLib.Error e) {
+        } catch (Error e) {
             critical (e.message);
         }
     }

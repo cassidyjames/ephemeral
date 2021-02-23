@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -481,6 +481,33 @@ public class Ephemeral.MainWindow : Gtk.Window {
                     stack.visible_child_name = "web-view";
                     var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
                     string uri = action.get_request ().get_uri ();
+                    var soup_uri = new Soup.URI (uri);
+
+                    // TODO: don't fire this if the user typed in the UrlEntry.
+                    // Check if site is in external sites list; if so, open in
+                    // the preferred browser and close the Ephemeral window.
+                    if (soup_uri.get_host () in Application.settings.get_strv ("external-websites")) {
+                        var uris = new List<string> ();
+                        uris.append (uri);
+
+                        foreach (AppInfo app_info in AppInfo.get_all ()) {
+                            // Get the app_info for the preffered browser
+                            if (app_info.get_id () == Application.settings.get_string ("last-used-browser")) {
+                                try {
+                                    app_info.launch_uris (uris, null);
+                                    Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
+
+                                    decision.ignore ();
+                                    close ();
+
+                                    return true;
+                                } catch (Error e) {
+                                    critical (e.message);
+                                }
+                            }
+                        }
+                    }
+
                     if (action.is_user_gesture ()) {
                         // Middle- or ctrl-click
                         bool has_ctrl = (action.get_modifiers () & Gdk.ModifierType.CONTROL_MASK) != 0;
@@ -489,12 +516,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
                             (has_ctrl && action.get_mouse_button () == 1)
                         ) {
                             Application.new_window (uri);
+
                             decision.ignore ();
                             return true;
                         }
                     }
+
                     decision.use ();
                     break;
+
                 case WebKit.PolicyDecisionType.NEW_WINDOW_ACTION:
                     var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
                     string uri = action.get_request ().get_uri ();
@@ -516,6 +546,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
                         web_view.load_uri (uri);
                     }
             }
+
             return false;
         });
 
@@ -824,7 +855,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 case Gtk.ResponseType.OK:
                     try {
                         Gtk.show_uri (get_screen (), uri, Gtk.get_current_event_time ());
-                    } catch (GLib.Error e) {
+                    } catch (Error e) {
                         critical (e.message);
                     }
                     external_dialog.close ();
