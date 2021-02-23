@@ -480,13 +480,23 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 case WebKit.PolicyDecisionType.NAVIGATION_ACTION:
                     stack.visible_child_name = "web-view";
                     var action = ((WebKit.NavigationPolicyDecision)decision).navigation_action;
+                    var navigation_type = action.get_navigation_type ();
                     string uri = action.get_request ().get_uri ();
                     var soup_uri = new Soup.URI (uri);
+
+                    debug (
+                        "Navigation type: %s\nURL: %s\n",
+                        navigation_type.to_string (),
+                        uri
+                    );
 
                     // TODO: don't fire this if the user typed in the UrlEntry.
                     // Check if site is in external sites list; if so, open in
                     // the preferred browser and close the Ephemeral window.
-                    if (soup_uri.get_host () in Application.settings.get_strv ("external-websites")) {
+                    if (
+                        !Application.instance.user_navigated &&
+                        soup_uri.get_host () in Application.settings.get_strv ("external-websites")
+                    ) {
                         var uris = new List<string> ();
                         uris.append (uri);
 
@@ -841,6 +851,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
             if (!url_entry.has_focus) {
                 url_entry.text = WebKit.uri_for_display (web_view.get_uri ());
             }
+
+            // Reset back to default
+            Application.instance.user_navigated = false;
         }
     }
 

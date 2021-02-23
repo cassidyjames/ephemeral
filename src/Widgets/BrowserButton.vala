@@ -120,19 +120,16 @@ public class Ephemeral.BrowserButton : Gtk.Grid {
             setup_preferred_browser ();
         });
 
-        // TODO: Add external sites to the setting
         external_check.toggled.connect (() => {
             string domain = new Soup.URI (web_view.get_uri ()).get_host ();
             var external_websites = Application.settings.get_strv ("external-websites");
 
             if (external_check.active) {
                 if (! (domain in external_websites)) {
-                    // Add
                     external_websites += domain;
                 }
             } else {
                 if (domain in external_websites) {
-                   // Remove
                    string[] pruned_domains = {};
                     foreach (string existing_domain in external_websites) {
                         if (existing_domain != domain) {

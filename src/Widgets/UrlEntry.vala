@@ -68,6 +68,8 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         });
 
         activate_suggestion.connect (() => {
+            Application.instance.user_navigated = true;
+
             // Format the currently selected id as a url and load it
             if (text == "" || text == null) {
                 Gdk.beep ();
@@ -782,10 +784,14 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         popup.insert (item, 3);
 
         item.activate.connect (() => {
-            critical ("item.activate.connect: %s", clipboard_text);
+            Application.instance.user_navigated = true;
+
+            debug ("item.activate.connect: %s", clipboard_text);
+
             string url = "";
             format_url (clipboard_text, out url);
-            critical (url);
+
+            debug ("Dazzle item activated: %s", url);
 
             web_view.load_uri (url);
             web_view.grab_focus ();

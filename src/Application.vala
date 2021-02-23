@@ -42,6 +42,7 @@ public class Ephemeral.Application : Gtk.Application {
     public int icon_pixel_size = 24;
 
     public bool ask_default_for_session = true;
+    public bool user_navigated = false;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
     public int64 last_external_open = int64.MIN;
