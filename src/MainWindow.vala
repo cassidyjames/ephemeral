@@ -490,33 +490,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
             switch (type) {
                 case WebKit.PolicyDecisionType.NAVIGATION_ACTION:
-                    if (
-                        !Application.instance.manually_navigated &&
-                        action_domain in external_websites &&
-                        (navigation_type == WebKit.NavigationType.LINK_CLICKED || navigation_type == WebKit.NavigationType.OTHER)
-
-                        // FIXME: don't open if we're on the same domain, except without breaking opening external links
-                        // action_domain != new Soup.URI (web_view.get_uri ()).get_host ()
-                    ) {
-                        foreach (AppInfo app_info in AppInfo.get_all ()) {
-                            if (app_info.get_id () == last_used_browser) {
-                                try {
-                                    app_info.launch_uris (action_uris, null);
-                                    Application.instance.last_external_open = new DateTime.now_utc ().to_unix ();
-
-                                    if (Application.settings.get_boolean ("close-when-opening-externally")) {
-                                        close ();
-                                    }
-
-                                    decision.ignore ();
-                                    return true;
-                                } catch (Error e) {
-                                    critical (e.message);
-                                }
-                            }
-                        }
-                    }
-
                     if (action.is_user_gesture ()) {
                         // Middle- or ctrl-click
                         bool has_ctrl = (action.get_modifiers () & Gdk.ModifierType.CONTROL_MASK) != 0;
@@ -871,9 +844,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
             if (!url_entry.has_focus) {
                 url_entry.text = WebKit.uri_for_display (web_view.get_uri ());
             }
-
-            // Reset back to default
-            Application.instance.manually_navigated = false;
         }
     }
 
