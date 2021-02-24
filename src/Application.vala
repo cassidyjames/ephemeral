@@ -42,12 +42,10 @@ public class Ephemeral.Application : Gtk.Application {
     public int icon_pixel_size = 24;
 
     public bool ask_default_for_session = true;
-    public bool manually_navigated = false;
+    public bool opening_link = false;
     public bool warn_native_for_session = true;
     public bool warn_paid_for_session = true;
     public int64 last_external_open = int64.MIN;
-
-    private bool opening_link = false;
 
     public Application () {
         Object (
@@ -134,8 +132,32 @@ public class Ephemeral.Application : Gtk.Application {
         opening_link = false;
 
         foreach (var file in files) {
-            var app_window = new MainWindow (this, file.get_uri ());
-            app_window.show_all ();
+            // TODO: check if local file first, fix protocol handling
+            var uri = file.get_uri ();
+            var uris = new List<string> ();
+            uris.append (uri);
+            string? domain = new Soup.URI (file.get_uri ()).get_host ();
+
+            if (domain != null && domain != "") {
+                critical (domain);
+
+                if (domain in settings.get_strv ("external-websites")) {
+                    foreach (AppInfo app_info in AppInfo.get_all ()) {
+                        if (app_info.get_id () == settings.get_string ("last-used-browser")) {
+                            try {
+                                app_info.launch_uris (uris, null);
+                            } catch (Error e) {
+                                critical (e.message);
+                            }
+                        }
+                    }
+                } else {
+                    var app_window = new MainWindow (this, uri);
+                    app_window.show_all ();
+                }
+            } else {
+                critical ("Could not open %s; it doesn't look like a website.", uri);
+            }
         }
     }
 
