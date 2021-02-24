@@ -139,25 +139,19 @@ public class Ephemeral.Application : Gtk.Application {
             uris.append (uri);
             string? domain = new Soup.URI (file.get_uri ()).get_host ();
 
-            if (domain != null && domain != "") {
-                critical (domain);
-
-                if (domain in settings.get_strv ("external-websites")) {
-                    foreach (AppInfo app_info in AppInfo.get_all ()) {
-                        if (app_info.get_id () == settings.get_string ("last-used-browser")) {
-                            try {
-                                app_info.launch_uris (uris, null);
-                            } catch (Error e) {
-                                critical (e.message);
-                            }
+            if (domain in settings.get_strv ("external-websites")) {
+                foreach (AppInfo app_info in AppInfo.get_all ()) {
+                    if (app_info.get_id () == settings.get_string ("last-used-browser")) {
+                        try {
+                            app_info.launch_uris (uris, null);
+                        } catch (Error e) {
+                            critical (e.message);
                         }
                     }
-                } else {
-                    var app_window = new MainWindow (this, uri);
-                    app_window.show_all ();
                 }
             } else {
-                critical ("Could not open %s; it doesn't look like a website.", uri);
+                var app_window = new MainWindow (this, uri);
+                app_window.show_all ();
             }
         }
     }
