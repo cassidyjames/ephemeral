@@ -68,6 +68,8 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         });
 
         activate_suggestion.connect (() => {
+            Application.instance.manually_navigated = true;
+
             // Format the currently selected id as a url and load it
             if (text == "" || text == null) {
                 Gdk.beep ();
