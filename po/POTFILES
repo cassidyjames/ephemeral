@@ -1,7 +1,8 @@
 src/Application.vala
 src/MainWindow.vala
-src/Dialogs/ExternalDialog.vala
+src/Dialogs/CustomSearchDialog.vala
 src/Dialogs/PreferencesDialog.vala
+src/Dialogs/ProtocolDialog.vala
 src/Dialogs/ScriptDialog.vala
 src/InfoBars/DefaultInfoBar.vala
 src/InfoBars/NativeInfoBar.vala

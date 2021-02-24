@@ -19,6 +19,12 @@
       <description>Whether or not JavaScript executes within pages</description>
     </key>
 
+    <key type="as" name="external-websites">
+        <default>[]</default>
+        <summary>User-added websites to always open externally</summary>
+        <description>List of websites added by the user to always open in the default external browser. Should contain the bare host (i.e. subdomain.example.com).</description>
+    </key>
+
     <key type="as" name="favorite-websites">
         <default>[]</default>
         <summary>User-added favorite websites</summary>

@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -31,12 +31,14 @@ public class Ephemeral.NetworkInfoBar : Gtk.InfoBar {
         string title = _("Network Not Available.");
         string details = _("Connect to the Internet to browse the Web.");
 
-        var default_label = new Gtk.Label ("<b>%s</b> %s".printf (title, details));
-        default_label.use_markup = true;
-        default_label.wrap = true;
+        var default_label = new Gtk.Label ("<b>%s</b> %s".printf (title, details)) {
+            use_markup = true,
+            wrap = true
+        };
 
-        var never_button = new Gtk.Button.with_label (_("Never Warn Again"));
-        never_button.halign = Gtk.Align.END;
+        var never_button = new Gtk.Button.with_label (_("Never Warn Again")) {
+            halign = Gtk.Align.END
+        };
         never_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         get_content_area ().add (default_label);
