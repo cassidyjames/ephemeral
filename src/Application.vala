@@ -199,9 +199,7 @@ public class Ephemeral.Application : Gtk.Application {
             var clipboard = Gtk.Clipboard.get_default (display);
 
             var uri = clipboard.wait_for_text ();
-            if (uri != null) {
-                open ({File.new_for_uri (uri)}, "");
-            }
+            open ({File.new_for_uri (uri)}, "");
         } else {
             activate ();
         }
