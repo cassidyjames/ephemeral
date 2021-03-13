@@ -51,7 +51,7 @@ public class Ephemeral.Application : Gtk.Application {
     private static bool open_from_clipboard = false;
 
     private const OptionEntry[] OPTIONS = {
-        { "open-from-clipboard", 'c', 0, OptionArg.NONE, ref open_from_clipboard,
+        { "clipboard", 'c', 0, OptionArg.NONE, ref open_from_clipboard,
             "Open links from clipboard" },
         { null }
     };
