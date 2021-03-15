@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extra\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-24 00:10+0000\n"
+"POT-Creation-Date: 2021-03-15 17:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,6 +40,10 @@ msgstr ""
 
 #: data/launcher.desktop.in:17
 msgid "New Window"
+msgstr ""
+
+#: data/launcher.desktop.in:21
+msgid "Open from Clipboard"
 msgstr ""
 
 #: data/com.github.cassidyjames.ephemeral.appdata.xml.in:8
