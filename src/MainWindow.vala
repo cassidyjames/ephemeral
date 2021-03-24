@@ -824,8 +824,16 @@ public class Ephemeral.MainWindow : Gtk.Window {
         return false;
     }
 
+    web_view.notify["title"].connect (() => {
+        string? title_to_set = web_view.title;
+        if (title_to_set != null && title_to_set != "") {
+            title = title_to_set;
+        } else {
+            title = "Ephemeral";
+        }
+    });
+
     private void update_progress () {
-        title = web_view.title;
         back_button.sensitive = web_view.can_go_back ();
         forward_button.sensitive = web_view.can_go_forward ();
 
