@@ -1,0 +1,3 @@
+- [ ] Release version, description, and date in AppData.xml
+- [ ] Bumped version in meson
+- [ ] Updated screenshots
