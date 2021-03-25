@@ -10,12 +10,8 @@ Type=Application
 X-GNOME-Gettext-Domain=com.github.cassidyjames.ephemeral
 Keywords=WWW;web;browser;internet;private;incognito;focus;temporary;cookies;
 MimeType=x-scheme-handler/http;x-scheme-handler/https;text/html;application/xhtml+xml;application/x-extension-htm;application/x-extension-html;application/x-extension-shtml;application/x-extension-xht;application/x-extension-mhtml;
-Actions=New;Clipboard;
+Actions=New;
 
 [Desktop Action New]
 Name=New Window
 Exec=com.github.cassidyjames.ephemeral
-
-[Desktop Action Clipboard]
-Name=Open from Clipboard
-Exec=com.github.cassidyjames.ephemeral --clipboard
