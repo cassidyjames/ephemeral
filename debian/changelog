@@ -1,3 +1,17 @@
+com.github.cassidyjames.ephemeral (7.1.0) bionic; urgency=medium
+
+  * Release 7.1.0 (#278)
+  * Create release.md
+  * Update translation template
+  * Revert "Open from clipboard (#277)"
+  * Put title connection in right place
+  * Correctly connect to title changes
+  * Open from clipboard (#277)
+  * Simplify opening chosen websites externally (#275)
+  * Automatically open chosen domains externally (#274)
+
+ -- Cassidy James Blaede <c@ssidyjam.es>  Thu, 25 Mar 2021 17:37:44 +0000
+
 com.github.cassidyjames.ephemeral (7.0.5) bionic; urgency=medium
 
   * Release 7.0.5 (#272)
