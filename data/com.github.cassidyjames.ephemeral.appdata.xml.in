@@ -14,10 +14,12 @@
       <li>Search right from the URL bar</li>
       <li>Pick between privacy-respecting search engines from the menu</li>
       <li>Quickly disable or re-enable JavaScript from the menu</li>
+      <li>Choose to automatically open certain sites in another browser from the "Open page in…" menu</li>
     </ul>
     <p>Useful keyboard shortcuts and gestures:</p>
     <ul>
       <li>Navigate back or forward with a two-finger swipe on your trackpad</li>
+      <li>Open page in another browser with Ctrl+O</li>
       <li>Add a website to the URL suggestions with the ⭐️ icon or Ctrl+D</li>
       <li>Find text on the page with Ctrl+F</li>
       <li>Zoom in or out with Ctrl+Plus and Ctrl+Minus</li>
@@ -38,6 +40,14 @@
     <binary>com.github.cassidyjames.ephemeral</binary>
   </provides>
   <releases>
+    <release version="7.1.0" date="2021-03-25">
+      <description>
+        <p>Automatically Open Sites Externally</p>
+        <p>You can now always open chosen sites externally, bypassing Ephemeral! On a page, open the "Open page in…" menu and check the new "Automatically Open This Site Externally". Opening a link to that site will now open in your selected other browser instead of in Ephemeral; super handy for things like Twitter or GitHub where you always want to be logged in. To revert it, just open the site in Ephemeral and uncheck "Automatically Open This Site Externally" from the "Open page in…" menu.</p>
+        <p>Improved reliability of setting the window title; the title seen in the Dock menu or Multitasking View should now more reliably match the page's title, especially when updated with JavaScript.</p>
+        <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
+      </description>
+    </release>
     <release version="7.0.5" date="2021-01-15">
       <description>
         <p>Translation updates</p>
@@ -498,7 +508,7 @@
       <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/main/data/screenshot@2x.png</image>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/main/data/screenshot-many-browsers@2x.png</image>
+      <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/main/data/screenshot-many-browsers.png</image>
     </screenshot>
     <screenshot>
       <image>https://raw.githubusercontent.com/cassidyjames/ephemeral/main/data/screenshot-menu@2x.png</image>
