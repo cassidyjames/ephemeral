@@ -43,7 +43,7 @@
     <release version="7.1.0" date="2021-03-25">
       <description>
         <p>Automatically Open Sites Externally</p>
-        <p>You can now open chosen sites externally! On a page, open the "Open page in…" menu and check the new "Automatically Open This Site Externally". Opening a link to that site will now open in your selected other browser instead of in Ephemeral; super handy for things like Twitter or GitHub where you always want to be logged in.</p>
+        <p>You can now always open chosen sites externally, bypassing Ephemeral! On a page, open the "Open page in…" menu and check the new "Automatically Open This Site Externally". Opening a link to that site will now open in your selected other browser instead of in Ephemeral; super handy for things like Twitter or GitHub where you always want to be logged in. To revert it, just open the site in Ephemeral and uncheck "Automatically Open This Site Externally" from the "Open page in…" menu.</p>
         <p>Improved reliability of setting the window title; the title seen in the Dock menu or Multitasking View should now more reliably match the page's title, especially when updated with JavaScript.</p>
         <p>Additional translations for new features will appear in future updates as translators have a chance to do their thing.</p>
       </description>
