@@ -605,6 +605,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
             url_entry.toggle_suggestion (new Soup.URI (web_view.get_uri ()));
         });
 
+        web_view.notify["title"].connect (() => {
+            string? title_to_set = web_view.title;
+            if (title_to_set != null && title_to_set != "") {
+                title = title_to_set;
+            } else {
+                title = "Ephemeral";
+            }
+        });
+
         Application.settings.bind ("zoom", web_view, "zoom-level", SettingsBindFlags.DEFAULT);
 
         Application.settings.bind_with_mapping ("zoom", zoom_default_button, "label", SettingsBindFlags.DEFAULT,
@@ -825,7 +834,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
     }
 
     private void update_progress () {
-        title = web_view.title;
         back_button.sensitive = web_view.can_go_back ();
         forward_button.sensitive = web_view.can_go_forward ();
 

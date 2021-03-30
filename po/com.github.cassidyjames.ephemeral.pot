@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-24 00:10+0000\n"
+"POT-Creation-Date: 2021-03-25 17:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,11 +101,11 @@ msgstr ""
 msgid "Reset Preferences…"
 msgstr ""
 
-#: src/MainWindow.vala:788
+#: src/MainWindow.vala:770
 msgid "Suggestion removed"
 msgstr ""
 
-#: src/MainWindow.vala:792
+#: src/MainWindow.vala:774
 msgid "Suggestion added"
 msgstr ""
 
@@ -312,48 +312,48 @@ msgstr ""
 msgid "Enter a URL or search term"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:187
+#: src/Widgets/UrlEntry.vala:185
 #, c-format
 msgid "Go to \"%s\""
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:187
+#: src/Widgets/UrlEntry.vala:185
 #, c-format
 msgid "Search for \"%s\""
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:253
+#: src/Widgets/UrlEntry.vala:251
 msgid "Popular website"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:286
+#: src/Widgets/UrlEntry.vala:284
 msgid "Favorite website"
 msgstr ""
 
 #. elementary sites
+#: src/Widgets/UrlEntry.vala:288 src/Widgets/UrlEntry.vala:289
 #: src/Widgets/UrlEntry.vala:290 src/Widgets/UrlEntry.vala:291
-#: src/Widgets/UrlEntry.vala:292 src/Widgets/UrlEntry.vala:293
 msgid "elementary Site"
 msgstr ""
 
 #. Friends of Ephemeral
-#: src/Widgets/UrlEntry.vala:297
+#: src/Widgets/UrlEntry.vala:295
 msgid "Creator of Ephemeral"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:298
+#: src/Widgets/UrlEntry.vala:296
 msgid "Friend of Ephemeral"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:745
+#: src/Widgets/UrlEntry.vala:743
 msgid "Go"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:757
+#: src/Widgets/UrlEntry.vala:755
 msgid "Remove Website from Suggestions"
 msgstr ""
 
-#: src/Widgets/UrlEntry.vala:761
+#: src/Widgets/UrlEntry.vala:759
 msgid "Add Website to Suggestions"
 msgstr ""
 
