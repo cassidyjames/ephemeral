@@ -201,7 +201,7 @@ public class Ephemeral.Application : Gtk.Application {
             for (int i = 0; i < args.length; i++) {
                 files[i] = File.new_for_uri (args[i + 1]);
             }
-       
+
             open (files, "");
         }
 
