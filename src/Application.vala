@@ -176,10 +176,6 @@ public class Ephemeral.Application : Gtk.Application {
     private int handle_command_line (ApplicationCommandLine command_line) {
         string[] args = command_line.get_arguments ();
 
-        if (args.length == 1) {
-            args = { args[0], "." };
-        }
-
         unowned string[] tmp = args;
 
         try {
@@ -201,7 +197,12 @@ public class Ephemeral.Application : Gtk.Application {
             var uri = clipboard.wait_for_text ();
             open ({File.new_for_uri (uri)}, "");
         } else {
-            activate ();
+            File[] files = new File[args.length - 1];
+            for (int i = 0; i < args.length; i++) {
+                files[i] = File.new_for_uri (args[i + 1]);
+            }
+       
+            open (files, "");
         }
 
         return 0;
