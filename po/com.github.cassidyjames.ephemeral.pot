@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-01 23:47+0000\n"
+"POT-Creation-Date: 2021-03-25 17:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -101,37 +101,32 @@ msgstr ""
 msgid "Reset Preferences…"
 msgstr ""
 
-#: src/MainWindow.vala:729
+#: src/MainWindow.vala:770
 msgid "Suggestion removed"
 msgstr ""
 
-#: src/MainWindow.vala:733
+#: src/MainWindow.vala:774
 msgid "Suggestion added"
 msgstr ""
 
-#: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
-msgid "Open Link Externally?"
+#: src/Dialogs/CustomSearchDialog.vala:26
+#: src/Dialogs/CustomSearchDialog.vala:28
+msgid "Set a Custom Search Engine"
 msgstr ""
 
-#: src/Dialogs/ExternalDialog.vala:37
+#: src/Dialogs/CustomSearchDialog.vala:27
 #, c-format
-msgid "This page is trying to open an app for <b>%s</b> links."
+msgid ""
+"Searches from the URL entry will be sent to this custom URL. <b>%s</b> will "
+"be replaced with the search query."
 msgstr ""
 
-#: src/Dialogs/ExternalDialog.vala:39
-msgid "This page is trying to open an app."
+#: src/Dialogs/CustomSearchDialog.vala:35 src/Dialogs/PreferencesDialog.vala:33
+msgid "Never Mind"
 msgstr ""
 
-#: src/Dialogs/ExternalDialog.vala:42
-msgid "Your data may not be kept private by the opened app."
-msgstr ""
-
-#: src/Dialogs/ExternalDialog.vala:47
-msgid "Don’t Open"
-msgstr ""
-
-#: src/Dialogs/ExternalDialog.vala:50
-msgid "Open Anyway"
+#: src/Dialogs/CustomSearchDialog.vala:38
+msgid "Set Search Engine"
 msgstr ""
 
 #: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
@@ -145,12 +140,33 @@ msgid ""
 "opened."
 msgstr ""
 
-#: src/Dialogs/PreferencesDialog.vala:33
-msgid "Never Mind"
-msgstr ""
-
 #: src/Dialogs/PreferencesDialog.vala:36
 msgid "Reset Preferences"
+msgstr ""
+
+#: src/Dialogs/ProtocolDialog.vala:28 src/Dialogs/ProtocolDialog.vala:30
+msgid "Open Link Externally?"
+msgstr ""
+
+#: src/Dialogs/ProtocolDialog.vala:37
+#, c-format
+msgid "This page is trying to open an app for <b>%s</b> links."
+msgstr ""
+
+#: src/Dialogs/ProtocolDialog.vala:39
+msgid "This page is trying to open an app."
+msgstr ""
+
+#: src/Dialogs/ProtocolDialog.vala:42
+msgid "Your data may not be kept private by the opened app."
+msgstr ""
+
+#: src/Dialogs/ProtocolDialog.vala:47
+msgid "Don’t Open"
+msgstr ""
+
+#: src/Dialogs/ProtocolDialog.vala:50
+msgid "Open Anyway"
 msgstr ""
 
 #: src/Dialogs/ScriptDialog.vala:28 src/Dialogs/ScriptDialog.vala:30
@@ -158,11 +174,11 @@ msgid "Message From Page"
 msgstr ""
 
 #: src/Dialogs/ScriptDialog.vala:40 src/Dialogs/ScriptDialog.vala:48
-#: src/Dialogs/ScriptDialog.vala:70
+#: src/Dialogs/ScriptDialog.vala:71
 msgid "Close"
 msgstr ""
 
-#: src/Dialogs/ScriptDialog.vala:50 src/Dialogs/ScriptDialog.vala:72
+#: src/Dialogs/ScriptDialog.vala:50 src/Dialogs/ScriptDialog.vala:73
 msgid "Confirm"
 msgstr ""
 
@@ -205,12 +221,12 @@ msgid ""
 "Consider donating if you find value in using Ephemeral on other platforms."
 msgstr ""
 
-#: src/InfoBars/NativeInfoBar.vala:41 src/InfoBars/PaidInfoBar.vala:43
+#: src/InfoBars/NativeInfoBar.vala:42 src/InfoBars/PaidInfoBar.vala:44
 msgid "Dismiss"
 msgstr ""
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
-#: src/InfoBars/NativeInfoBar.vala:46
+#: src/InfoBars/NativeInfoBar.vala:48
 msgid "Donate…"
 msgstr ""
 
@@ -222,12 +238,12 @@ msgstr ""
 msgid "Connect to the Internet to browse the Web."
 msgstr ""
 
-#: src/InfoBars/NetworkInfoBar.vala:38
+#: src/InfoBars/NetworkInfoBar.vala:39
 msgid "Never Warn Again"
 msgstr ""
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
-#: src/InfoBars/NetworkInfoBar.vala:45
+#: src/InfoBars/NetworkInfoBar.vala:47
 msgid "Network Settings…"
 msgstr ""
 
@@ -246,7 +262,7 @@ msgid "Consider purchasing or funding if you find value in using Ephemeral."
 msgstr ""
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
-#: src/InfoBars/PaidInfoBar.vala:50
+#: src/InfoBars/PaidInfoBar.vala:52
 msgid "Purchase or Fund…"
 msgstr ""
 
@@ -275,15 +291,19 @@ msgid "For the best protection, always use a VPN."
 msgstr ""
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
-#: src/Widgets/BrowserButton.vala:50
+#: src/Widgets/BrowserButton.vala:53
 msgid "Open page in…"
 msgstr ""
 
-#: src/Widgets/BrowserButton.vala:62
+#: src/Widgets/BrowserButton.vala:65
+msgid "Automatically Open This Site Externally"
+msgstr ""
+
+#: src/Widgets/BrowserButton.vala:73
 msgid "Close Window When Opening Externally"
 msgstr ""
 
-#: src/Widgets/BrowserButton.vala:141
+#: src/Widgets/BrowserButton.vala:176
 #, c-format
 msgid "Open page in %s"
 msgstr ""
@@ -337,6 +357,6 @@ msgstr ""
 msgid "Add Website to Suggestions"
 msgstr ""
 
-#: src/Widgets/WebView.vala:80
+#: src/Widgets/WebView.vala:81
 msgid "Open Link in New _Window"
 msgstr ""

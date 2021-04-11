@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -34,17 +34,20 @@ public class Ephemeral.NativeInfoBar : Gtk.InfoBar {
 
         var default_label = new Gtk.Label ("<b>%s</b> %s\n<small>%s</small>".printf (
             designed_for_elementary, disclaimer, fund
-        ));
-        default_label.use_markup = true;
-        default_label.wrap = true;
+        )) {
+            use_markup = true,
+            wrap = true
+        };
 
-        var dismiss_button = new Gtk.Button.with_label (_("Dismiss"));
-        dismiss_button.halign = Gtk.Align.END;
+        var dismiss_button = new Gtk.Button.with_label (_("Dismiss")) {
+            halign = Gtk.Align.END
+        };
         dismiss_button.get_style_context ().add_class (Gtk.STYLE_CLASS_FLAT);
 
         // TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
-        var donate_button = new Gtk.Button.with_label (_("Donate…"));
-        donate_button.tooltip_text = Application.DONATE_URL;
+        var donate_button = new Gtk.Button.with_label (_("Donate…")) {
+            tooltip_text = Application.DONATE_URL
+        };
 
         get_content_area ().add (default_label);
         add_action_widget (dismiss_button, Gtk.ResponseType.REJECT);

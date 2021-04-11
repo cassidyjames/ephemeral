@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -772,7 +772,6 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
             get_display (),
             Gdk.SELECTION_CLIPBOARD
         ).wait_for_text ();
-        critical ("populate_popupt: %s", clipboard_text);
 
         var item = new Gtk.MenuItem.with_mnemonic ("Paste and _Go");
         item.sensitive = clipboard_text != null;
@@ -782,10 +781,8 @@ public class Ephemeral.UrlEntry : Dazzle.SuggestionEntry {
         popup.insert (item, 3);
 
         item.activate.connect (() => {
-            critical ("item.activate.connect: %s", clipboard_text);
             string url = "";
             format_url (clipboard_text, out url);
-            critical (url);
 
             web_view.load_uri (url);
             web_view.grab_focus ();

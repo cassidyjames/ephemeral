@@ -1,7 +1,7 @@
 project(
     'com.github.cassidyjames.ephemeral',
     'vala', 'c',
-    version: '7.0.4'
+    version: '7.1.0'
 )
 
 gnome = import('gnome')
@@ -22,8 +22,8 @@ executable(
     join_paths('src', 'MainWindow.vala'),
     join_paths('src', 'WebContext.vala'),
     join_paths('src', 'Dialogs', 'CustomSearchDialog.vala'),
-    join_paths('src', 'Dialogs', 'ExternalDialog.vala'),
     join_paths('src', 'Dialogs', 'PreferencesDialog.vala'),
+    join_paths('src', 'Dialogs', 'ProtocolDialog.vala'),
     join_paths('src', 'Dialogs', 'ScriptDialog.vala'),
     join_paths('src', 'InfoBars', 'CloseWhenOpeningExternallyInfoBar.vala'),
     join_paths('src', 'InfoBars', 'DefaultInfoBar.vala'),

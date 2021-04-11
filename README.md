@@ -13,7 +13,7 @@
 
 
 
-| ![Screenshot](data/screenshot@2x.png)      | ![Screenshot](data/screenshot-many-browsers@2x.png) |
+| ![Screenshot](data/screenshot@2x.png)      | ![Screenshot](data/screenshot-many-browsers.png) |
 |--------------------------------------------|-----------------------------------------------------|
 | ![Screenshot](data/screenshot-menu@2x.png) | ![Screenshot](data/screenshot-menu-dark@2x.png)     |
 

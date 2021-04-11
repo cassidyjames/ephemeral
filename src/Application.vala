@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -133,8 +133,26 @@ public class Ephemeral.Application : Gtk.Application {
         opening_link = false;
 
         foreach (var file in files) {
-            var app_window = new MainWindow (this, file.get_uri ());
-            app_window.show_all ();
+            // TODO: check if local file first, fix protocol handling
+            var uri = file.get_uri ();
+            var uris = new List<string> ();
+            uris.append (uri);
+            string? domain = new Soup.URI (file.get_uri ()).get_host ();
+
+            if (domain in settings.get_strv ("external-websites")) {
+                foreach (AppInfo app_info in AppInfo.get_all ()) {
+                    if (app_info.get_id () == settings.get_string ("last-used-browser")) {
+                        try {
+                            app_info.launch_uris (uris, null);
+                        } catch (Error e) {
+                            critical (e.message);
+                        }
+                    }
+                }
+            } else {
+                var app_window = new MainWindow (this, uri);
+                app_window.show_all ();
+            }
         }
     }
 

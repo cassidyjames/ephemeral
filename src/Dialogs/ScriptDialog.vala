@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -60,10 +60,11 @@ public class Ephemeral.ScriptDialog : Granite.MessageDialog {
             case WebKit.ScriptDialogType.PROMPT:
                 image_icon = new ThemedIcon ("dialog-question");
 
-                var prompt_entry = new Gtk.Entry ();
+                var prompt_entry = new Gtk.Entry () {
+                    activates_default = true,
+                    text = dialog_info.prompt_get_default_text ()
+                };
                 prompt_entry.show ();
-                prompt_entry.activates_default = true;
-                prompt_entry.text = dialog_info.prompt_get_default_text ();
 
                 custom_bin.add (prompt_entry);
 
