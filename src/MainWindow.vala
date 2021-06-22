@@ -24,8 +24,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
     public SimpleActionGroup actions { get; construct; }
 
     public static Gtk.Settings gtk_settings;
-    public static Gtk.CssProvider style_provider;
-    private unowned Gtk.StyleContext style_context;
 
     private Gtk.Button zoom_default_button;
     private Gtk.Stack stack;
@@ -42,6 +40,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private string theme_color;
 
     private uint overlay_timeout_id = 0;
+    private uint theme_color_timeout_id = 0;
 
     private const string THEME_COLOR_CSS = """
         @define-color html_meta_theme_color_bg %s;
@@ -64,22 +63,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
     static construct {
         gtk_settings = Gtk.Settings.get_default ();
-
-        style_provider = new Gtk.CssProvider ();
-        // TODO: Figure out why this is not applying
-        style_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/App.css");
     }
 
     construct {
         default_height = 800;
         default_width = 1280;
 
-        style_context = get_style_context ();
-        style_context.add_provider (style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-
-        var header = new Gtk.HeaderBar ();
-        header.show_close_button = true;
-        header.has_subtitle = false;
+        var header_bar = new Gtk.HeaderBar ();
+        header_bar.show_close_button = true;
+        header_bar.has_subtitle = false;
 
         web_view = new WebView ();
 
@@ -334,15 +326,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
         back_forward_grid.add (back_button);
         back_forward_grid.add (forward_button);
 
-        header.pack_start (back_forward_grid);
-        header.pack_start (refresh_stop_stack);
-        header.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-        header.pack_end (settings_button);
-        header.pack_end (browser_button);
-        header.pack_end (erase_button);
-        header.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        header_bar.pack_start (back_forward_grid);
+        header_bar.pack_start (refresh_stop_stack);
+        header_bar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        header_bar.pack_end (settings_button);
+        header_bar.pack_end (browser_button);
+        header_bar.pack_end (erase_button);
+        header_bar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
 
-        header.custom_title = url_entry;
+        header_bar.custom_title = url_entry;
 
         var close_when_opening_externally_info_bar = new CloseWhenOpeningExternallyInfoBar ();
         var default_info_bar = new DefaultInfoBar ();
@@ -372,7 +364,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         grid.add (stack);
         grid.add (find_bar);
 
-        set_titlebar (header);
+        set_titlebar (header_bar);
         add (grid);
 
         show_all ();
@@ -871,16 +863,26 @@ public class Ephemeral.MainWindow : Gtk.Window {
                 url_entry.text = WebKit.uri_for_display (web_view.get_uri ());
             }
 
-            web_view.run_javascript.begin ("""
-                document.querySelector("meta[name=theme-color]").getAttribute("content");
-            """, null, (object, result) => {
-                try {
-                    theme_color = web_view.run_javascript.end (result).get_js_value ().to_string ();
-                    use_theme_color (theme_color);
-                } catch (Error e) {
-                    use_theme_color (DEFAULT_THEME_COLOR);
-                    warning (e.message);
+            // Throttle
+            theme_color_timeout_id = Timeout.add (100, () => {
+                web_view.run_javascript.begin ("""
+                    document.querySelector("meta[name=theme-color]").getAttribute("content");
+                """, null, (object, result) => {
+                    try {
+                        theme_color = web_view.run_javascript.end (result).get_js_value ().to_string ();
+                        use_theme_color (theme_color);
+                    } catch (Error e) {
+                        use_theme_color (DEFAULT_THEME_COLOR);
+                        warning (e.message);
+                    }
+                });
+
+                if (theme_color_timeout_id != 0) {
+                    Source.remove (theme_color_timeout_id);
+                    theme_color_timeout_id = 0;
                 }
+
+                return false;
             });
         }
     }
@@ -986,11 +988,14 @@ public class Ephemeral.MainWindow : Gtk.Window {
         debug ("css: %s", css);
         Granite.Widgets.Utils.set_color_primary (this, theme_color_rgba);
 
-        var provider = new Gtk.CssProvider ();
         try {
+            var provider = new Gtk.CssProvider ();
             provider.load_from_data (css, css.length);
-
-            style_context.add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+            Gtk.StyleContext.add_provider_for_screen (
+                Gdk.Screen.get_default (),
+                provider,
+                Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+            );
         } catch (GLib.Error e) {
             critical (e.message);
         }

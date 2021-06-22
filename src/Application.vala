@@ -70,13 +70,13 @@ public class Ephemeral.Application : Gtk.Application {
     }
 
     protected override void activate () {
-        // var provider = new Gtk.CssProvider ();
-        // provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/App.css");
-        // Gtk.StyleContext.add_provider_for_screen (
-        //     Gdk.Screen.get_default (),
-        //     provider,
-        //     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        // );
+        var provider = new Gtk.CssProvider ();
+        provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/App.css");
+        Gtk.StyleContext.add_provider_for_screen (
+            Gdk.Screen.get_default (),
+            provider,
+            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        );
 
         if (!opening_link) {
             var app_window = new MainWindow (this);

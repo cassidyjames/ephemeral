@@ -24,6 +24,13 @@
 
 @define-color textColorPrimary alpha(white, 0.9);
 
+.titlebar,
+.titlebar button {
+    transition:
+      200ms ease background,
+      200ms ease color;
+}
+
 .titlebar button {
   -gtk-icon-style: symbolic;
   color: @html_meta_theme_color_fg;
@@ -48,7 +55,7 @@
 }
 
 .titlebar entry {
-  background-color: rgba(0, 0, 0, 0.125);
+  background-color: mix(@html_meta_theme_color_bg, @html_meta_theme_color_fg, 0.125);
 }
 
 .titlebar .image-button:disabled {
