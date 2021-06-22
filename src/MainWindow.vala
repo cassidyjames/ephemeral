@@ -24,6 +24,8 @@ public class Ephemeral.MainWindow : Gtk.Window {
     public SimpleActionGroup actions { get; construct; }
 
     public static Gtk.Settings gtk_settings;
+    public static Gtk.CssProvider style_provider;
+    private unowned Gtk.StyleContext style_context;
 
     private Gtk.Button zoom_default_button;
     private Gtk.Stack stack;
@@ -37,8 +39,16 @@ public class Ephemeral.MainWindow : Gtk.Window {
     private UrlEntry url_entry;
     private BrowserButton browser_button;
     private Gtk.Button erase_button;
+    private string theme_color;
 
     private uint overlay_timeout_id = 0;
+
+    private const string THEME_COLOR_CSS = """
+        @define-color html_meta_theme_color_bg %s;
+        @define-color html_meta_theme_color_fg %s;
+    """;
+
+    private const string DEFAULT_THEME_COLOR = "#452981";
 
     public MainWindow (Gtk.Application application, string? _uri = null) {
         Object (
@@ -54,11 +64,18 @@ public class Ephemeral.MainWindow : Gtk.Window {
 
     static construct {
         gtk_settings = Gtk.Settings.get_default ();
+
+        style_provider = new Gtk.CssProvider ();
+        // TODO: Figure out why this is not applying
+        style_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/App.css");
     }
 
     construct {
         default_height = 800;
         default_width = 1280;
+
+        style_context = get_style_context ();
+        style_context.add_provider (style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         var header = new Gtk.HeaderBar ();
         header.show_close_button = true;
@@ -359,6 +376,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         add (grid);
 
         show_all ();
+        use_theme_color (DEFAULT_THEME_COLOR);
 
         if (uri != null && uri != "") {
             web_view.load_uri (uri);
@@ -852,6 +870,18 @@ public class Ephemeral.MainWindow : Gtk.Window {
             if (!url_entry.has_focus) {
                 url_entry.text = WebKit.uri_for_display (web_view.get_uri ());
             }
+
+            web_view.run_javascript.begin ("""
+                document.querySelector("meta[name=theme-color]").getAttribute("content");
+            """, null, (object, result) => {
+                try {
+                    theme_color = web_view.run_javascript.end (result).get_js_value ().to_string ();
+                    use_theme_color (theme_color);
+                } catch (Error e) {
+                    use_theme_color (DEFAULT_THEME_COLOR);
+                    warning (e.message);
+                }
+            });
         }
     }
 
@@ -943,6 +973,27 @@ public class Ephemeral.MainWindow : Gtk.Window {
         unowned Gtk.StyleContext context = widget.get_style_context ();
         context.add_class (Gtk.STYLE_CLASS_FLAT);
         context.add_class (Gtk.STYLE_CLASS_MENUITEM);
+    }
+
+    // TODO: Throttle this
+    private void use_theme_color (string theme_color) {
+        var theme_color_rgba = Gdk.RGBA ();
+        theme_color_rgba.parse (theme_color);
+
+        var fg_color = Granite.contrasting_foreground_color (theme_color_rgba).to_string ();
+
+        var css = THEME_COLOR_CSS.printf (theme_color, fg_color);
+        debug ("css: %s", css);
+        Granite.Widgets.Utils.set_color_primary (this, theme_color_rgba);
+
+        var provider = new Gtk.CssProvider ();
+        try {
+            provider.load_from_data (css, css.length);
+
+            style_context.add_provider (provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+        } catch (GLib.Error e) {
+            critical (e.message);
+        }
     }
 
     private class MenuSeparator : Gtk.Separator {

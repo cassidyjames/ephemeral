@@ -70,48 +70,13 @@ public class Ephemeral.Application : Gtk.Application {
     }
 
     protected override void activate () {
-        var provider = new Gtk.CssProvider ();
-        provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/global.css");
-        Gtk.StyleContext.add_provider_for_screen (
-            Gdk.Screen.get_default (),
-            provider,
-            Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-        );
-
-        switch (stylesheet ()) {
-            case -1:
-                Application.instance.icon_size = Gtk.IconSize.SMALL_TOOLBAR;
-                Application.instance.icon_pixel_size = 16;
-
-                var non_native_provider = new Gtk.CssProvider ();
-                non_native_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/non-native.css");
-                Gtk.StyleContext.add_provider_for_screen (
-                    Gdk.Screen.get_default (),
-                    non_native_provider,
-                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-                );
-                break;
-            case 5:
-                var hera_provider = new Gtk.CssProvider ();
-                hera_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/hera.css");
-                Gtk.StyleContext.add_provider_for_screen (
-                    Gdk.Screen.get_default (),
-                    hera_provider,
-                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-                );
-                break;
-            case 6:
-                var odin_provider = new Gtk.CssProvider ();
-                odin_provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/odin.css");
-                Gtk.StyleContext.add_provider_for_screen (
-                    Gdk.Screen.get_default (),
-                    odin_provider,
-                    Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
-                );
-                break;
-            default:
-                break;
-        }
+        // var provider = new Gtk.CssProvider ();
+        // provider.load_from_resource ("/com/github/cassidyjames/ephemeral/styles/App.css");
+        // Gtk.StyleContext.add_provider_for_screen (
+        //     Gdk.Screen.get_default (),
+        //     provider,
+        //     Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION
+        // );
 
         if (!opening_link) {
             var app_window = new MainWindow (this);

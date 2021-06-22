@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
   <gresource prefix="/com/github/cassidyjames/ephemeral">
-    <file alias="styles/global.css">styles/global.css</file>
-    <file alias="styles/hera.css">styles/hera.css</file>
-    <file alias="styles/odin.css">styles/odin.css</file>
-    <file alias="styles/non-native.css">styles/non-native.css</file>
+    <file alias="styles/App.css">styles/App.css</file>
   </gresource>
 </gresources>
