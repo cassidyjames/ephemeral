@@ -862,29 +862,29 @@ public class Ephemeral.MainWindow : Gtk.Window {
             if (!url_entry.has_focus) {
                 url_entry.text = WebKit.uri_for_display (web_view.get_uri ());
             }
-
-            // Throttle
-            theme_color_timeout_id = Timeout.add (100, () => {
-                web_view.run_javascript.begin ("""
-                    document.querySelector("meta[name=theme-color]").getAttribute("content");
-                """, null, (object, result) => {
-                    try {
-                        theme_color = web_view.run_javascript.end (result).get_js_value ().to_string ();
-                        use_theme_color (theme_color);
-                    } catch (Error e) {
-                        use_theme_color (DEFAULT_THEME_COLOR);
-                        warning (e.message);
-                    }
-                });
-
-                if (theme_color_timeout_id != 0) {
-                    Source.remove (theme_color_timeout_id);
-                    theme_color_timeout_id = 0;
-                }
-
-                return false;
-            });
         }
+
+        // Throttle
+        theme_color_timeout_id = Timeout.add (100, () => {
+            web_view.run_javascript.begin ("""
+                document.querySelector("meta[name=theme-color]").getAttribute("content");
+            """, null, (object, result) => {
+                try {
+                    theme_color = web_view.run_javascript.end (result).get_js_value ().to_string ();
+                    use_theme_color (theme_color);
+                } catch (Error e) {
+                    use_theme_color (DEFAULT_THEME_COLOR);
+                    warning (e.message);
+                }
+            });
+
+            if (theme_color_timeout_id != 0) {
+                Source.remove (theme_color_timeout_id);
+                theme_color_timeout_id = 0;
+            }
+
+            return false;
+        });
     }
 
     private void open_protocol (string uri) {
