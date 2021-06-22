@@ -69,9 +69,9 @@ public class Ephemeral.MainWindow : Gtk.Window {
         default_height = 800;
         default_width = 1280;
 
-        var header_bar = new Gtk.HeaderBar ();
-        header_bar.show_close_button = true;
-        header_bar.has_subtitle = false;
+        var header = new Gtk.HeaderBar ();
+        header.show_close_button = true;
+        header.has_subtitle = false;
 
         web_view = new WebView ();
 
@@ -326,15 +326,15 @@ public class Ephemeral.MainWindow : Gtk.Window {
         back_forward_grid.add (back_button);
         back_forward_grid.add (forward_button);
 
-        header_bar.pack_start (back_forward_grid);
-        header_bar.pack_start (refresh_stop_stack);
-        header_bar.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
-        header_bar.pack_end (settings_button);
-        header_bar.pack_end (browser_button);
-        header_bar.pack_end (erase_button);
-        header_bar.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        header.pack_start (back_forward_grid);
+        header.pack_start (refresh_stop_stack);
+        header.pack_start (new Gtk.Separator (Gtk.Orientation.VERTICAL));
+        header.pack_end (settings_button);
+        header.pack_end (browser_button);
+        header.pack_end (erase_button);
+        header.pack_end (new Gtk.Separator (Gtk.Orientation.VERTICAL));
 
-        header_bar.custom_title = url_entry;
+        header.custom_title = url_entry;
 
         var close_when_opening_externally_info_bar = new CloseWhenOpeningExternallyInfoBar ();
         var default_info_bar = new DefaultInfoBar ();
@@ -364,7 +364,7 @@ public class Ephemeral.MainWindow : Gtk.Window {
         grid.add (stack);
         grid.add (find_bar);
 
-        set_titlebar (header_bar);
+        set_titlebar (header);
         add (grid);
 
         show_all ();
