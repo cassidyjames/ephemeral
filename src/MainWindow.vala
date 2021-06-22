@@ -977,7 +977,6 @@ public class Ephemeral.MainWindow : Gtk.Window {
         context.add_class (Gtk.STYLE_CLASS_MENUITEM);
     }
 
-    // TODO: Throttle this
     private void use_theme_color (string theme_color) {
         var theme_color_rgba = Gdk.RGBA ();
         theme_color_rgba.parse (theme_color);
