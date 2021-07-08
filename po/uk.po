@@ -7,136 +7,132 @@ msgid ""
 msgstr ""
 "Project-Id-Version: com.github.cassidyjames.ephemeral\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-30 21:53+0000\n"
-"PO-Revision-Date: 2020-06-04 22:00+0300\n"
+"POT-Creation-Date: 2021-03-25 17:37+0000\n"
+"PO-Revision-Date: 2021-07-08 04:38+0300\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 3.0\n"
 "Last-Translator: Ihor Hordiichuk <igor_ck@outlook.com>\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "Language: uk\n"
 
-#: src/MainWindow.vala:66
+#: src/MainWindow.vala:70
 msgid "Undo"
 msgstr "Скасувати"
 
-#: src/MainWindow.vala:80
+#: src/MainWindow.vala:84
 msgid "Back"
 msgstr "Назад"
 
-#: src/MainWindow.vala:86
+#: src/MainWindow.vala:90
 msgid "Forward"
 msgstr "Вперед"
 
-#: src/MainWindow.vala:91
+#: src/MainWindow.vala:95
 msgid "Reload page"
-msgstr "Оновити сторінку"
+msgstr "Перезавантажити сторінку"
 
-#: src/MainWindow.vala:96
+#: src/MainWindow.vala:100
 msgid "Stop loading"
 msgstr "Зупинити завантаження"
 
-#: src/MainWindow.vala:108
+#: src/MainWindow.vala:112
 msgid "Close window and erase history"
-msgstr "Закрити вікно і стерти історію"
+msgstr "Закрити вікно та стерти історію"
 
-#: src/MainWindow.vala:116
+#: src/MainWindow.vala:121
 msgid "Menu"
 msgstr "Меню"
 
-#: src/MainWindow.vala:125
+#: src/MainWindow.vala:131
 msgid "Light content"
 msgstr "Світлий вміст"
 
-#: src/MainWindow.vala:126
+#: src/MainWindow.vala:132
 msgid "Dark content"
 msgstr "Темний вміст"
 
-#: src/MainWindow.vala:154
+#: src/MainWindow.vala:165
 msgid "Zoom out"
 msgstr "Зменшити"
 
-#: src/MainWindow.vala:161
+#: src/MainWindow.vala:172
 msgid "Default zoom level"
 msgstr "Типовий масштаб"
 
-#: src/MainWindow.vala:168
+#: src/MainWindow.vala:179
 msgid "Zoom in"
 msgstr "Збільшити"
 
-#: src/MainWindow.vala:183
+#: src/MainWindow.vala:195
 msgid "<b>Note:</b> Disabling JavaScript will likely break many sites"
 msgstr ""
-"<b>Зауважте:</b> Вимкнення JavaScript, може пошкодити роботу багатьох сайтів"
+"<b>Примітка:</b> Вимкнення JavaScript, може нашкодити роботі багатьох сайтів"
 
-#: src/MainWindow.vala:199
+#: src/MainWindow.vala:211
 msgid "JavaScript"
 msgstr "JavaScript"
 
-#: src/MainWindow.vala:213
+#: src/MainWindow.vala:225
 msgid "Open New Window"
 msgstr "Відкрити нове вікно"
 
-#: src/MainWindow.vala:231
+#: src/MainWindow.vala:243
 msgid "Quit Ephemeral"
-msgstr "Закрити Ephemeral"
+msgstr "Вийти з Ephemeral"
 
-#: src/MainWindow.vala:236
+#: src/MainWindow.vala:248
 msgid "Close all windows and erase all history"
 msgstr "Закрити всі вікна та стерти всю історію"
 
-#: src/MainWindow.vala:257
+#: src/MainWindow.vala:269
 msgid "DuckDuckGo Search"
 msgstr "Пошук з DuckDuckGo"
 
-#: src/MainWindow.vala:260
+#: src/MainWindow.vala:272
 msgid "Startpage.com Search"
 msgstr "Пошук зі Startpage.com"
 
-#: src/MainWindow.vala:265
+#: src/MainWindow.vala:277
 msgid "Custom Search Engine…"
 msgstr "Власний засіб пошуку…"
 
-#: src/MainWindow.vala:269
+#: src/MainWindow.vala:281
 msgid "Reset Preferences…"
 msgstr "Скинути налаштування…"
 
-#: src/MainWindow.vala:702
+#: src/MainWindow.vala:770
 msgid "Suggestion removed"
 msgstr "Пропозицію вилучено"
 
-#: src/MainWindow.vala:706
+#: src/MainWindow.vala:774
 msgid "Suggestion added"
 msgstr "Пропозицію додано"
 
-#: src/Dialogs/ExternalDialog.vala:28 src/Dialogs/ExternalDialog.vala:30
-msgid "Open Link Externally?"
-msgstr "Відкрити посилання в іншому застосунку?"
+#: src/Dialogs/CustomSearchDialog.vala:26
+#: src/Dialogs/CustomSearchDialog.vala:28
+msgid "Set a Custom Search Engine"
+msgstr "Встановити власний засіб пошуку"
 
-#: src/Dialogs/ExternalDialog.vala:37
+#: src/Dialogs/CustomSearchDialog.vala:27
 #, c-format
-msgid "This page is trying to open an app for <b>%s</b> links."
-msgstr "Ця сторінка намагається відкрити застосунок для посилань <b>%s</b>."
-
-#: src/Dialogs/ExternalDialog.vala:39
-msgid "This page is trying to open an app."
-msgstr "Ця сторінка намагається відкрити застосунок."
-
-#: src/Dialogs/ExternalDialog.vala:42
-msgid "Your data may not be kept private by the opened app."
+msgid ""
+"Searches from the URL entry will be sent to this custom URL. <b>%s</b> will "
+"be replaced with the search query."
 msgstr ""
-"Застосунок, який ви відкриваєте, може не зберігати приватність ваших даних."
+"Запити з панелі URL-адреси буде надіслано на обрану URL-адресу. <b>%s</b> "
+"буде замінено пошуковим запитом."
 
-#: src/Dialogs/ExternalDialog.vala:47
-msgid "Don’t Open"
-msgstr "Не відкривати"
+#: src/Dialogs/CustomSearchDialog.vala:35 src/Dialogs/PreferencesDialog.vala:33
+msgid "Never Mind"
+msgstr "Скасувати"
 
-#: src/Dialogs/ExternalDialog.vala:50
-msgid "Open Anyway"
-msgstr "Все одно відкрити"
+#: src/Dialogs/CustomSearchDialog.vala:38
+msgid "Set Search Engine"
+msgstr "Встановити засіб пошуку"
 
 #: src/Dialogs/PreferencesDialog.vala:26 src/Dialogs/PreferencesDialog.vala:28
 msgid "Reset Preferences?"
@@ -148,28 +144,49 @@ msgid ""
 "alerts, warnings, etc. will be displayed again the next time Ephemeral is "
 "opened."
 msgstr ""
-"Усі додані пропозиції вебсайтів буде видалено. Будь-які, відхилені або "
-"прийняті, сповіщення, попередження тощо, зʼявляться знову, за наступного "
-"запуску Ephemeral."
-
-#: src/Dialogs/PreferencesDialog.vala:33
-msgid "Never Mind"
-msgstr "Скасувати"
+"Усі додані пропозиції вебсайту буде вилучено. Будь-які відхилені або "
+"дозволені сповіщення, попередження тощо знову показуватимуться під час "
+"наступного відкриття Ephemeral."
 
 #: src/Dialogs/PreferencesDialog.vala:36
 msgid "Reset Preferences"
 msgstr "Скинути налаштування"
+
+#: src/Dialogs/ProtocolDialog.vala:28 src/Dialogs/ProtocolDialog.vala:30
+msgid "Open Link Externally?"
+msgstr "Відкрити посилання у іншому застосунку?"
+
+#: src/Dialogs/ProtocolDialog.vala:37
+#, c-format
+msgid "This page is trying to open an app for <b>%s</b> links."
+msgstr "Ця сторінка намагається відкрити застосунок для посилань <b>%s</b>."
+
+#: src/Dialogs/ProtocolDialog.vala:39
+msgid "This page is trying to open an app."
+msgstr "Ця сторінка намагається відкрити застосунок."
+
+#: src/Dialogs/ProtocolDialog.vala:42
+msgid "Your data may not be kept private by the opened app."
+msgstr "Інший застосунок може не зберігати приватність ваших даних."
+
+#: src/Dialogs/ProtocolDialog.vala:47
+msgid "Don’t Open"
+msgstr "Не відкривати"
+
+#: src/Dialogs/ProtocolDialog.vala:50
+msgid "Open Anyway"
+msgstr "Все одно відкрити"
 
 #: src/Dialogs/ScriptDialog.vala:28 src/Dialogs/ScriptDialog.vala:30
 msgid "Message From Page"
 msgstr "Повідомлення зі сторінки"
 
 #: src/Dialogs/ScriptDialog.vala:40 src/Dialogs/ScriptDialog.vala:48
-#: src/Dialogs/ScriptDialog.vala:70
+#: src/Dialogs/ScriptDialog.vala:71
 msgid "Close"
 msgstr "Закрити"
 
-#: src/Dialogs/ScriptDialog.vala:50 src/Dialogs/ScriptDialog.vala:72
+#: src/Dialogs/ScriptDialog.vala:50 src/Dialogs/ScriptDialog.vala:73
 msgid "Confirm"
 msgstr "Підтвердити"
 
@@ -187,7 +204,7 @@ msgid ""
 "You can always change this later in <i>System Settings</i> → "
 "<i>Applications</i>."
 msgstr ""
-"Ви можете змінити це пізніше у <i>Системні налаштування</i> → <i>Застосунки</"
+"Пізніше ви можете змінити це у <i>Налаштування системи</i> → <i>Застосунки</"
 "i>."
 
 #: src/InfoBars/DefaultInfoBar.vala:46
@@ -196,11 +213,11 @@ msgstr "Не запитувати знову"
 
 #: src/InfoBars/DefaultInfoBar.vala:52
 msgid "Set as Default"
-msgstr "Зробити типовим"
+msgstr "Встановити типовим"
 
 #: src/InfoBars/NativeInfoBar.vala:31
 msgid "Ephemeral is a paid app designed for elementary OS."
-msgstr "Ephemeral є платним застосунком, який розроблено для elementary OS."
+msgstr "Ephemeral є платним застосунком, розробленим для elementary OS."
 
 #: src/InfoBars/NativeInfoBar.vala:32
 msgid ""
@@ -219,12 +236,12 @@ msgstr ""
 "elementary. Розгляньте можливість внеску, якщо вам подобається користуватися "
 "Ephemeral на інших платформах."
 
-#: src/InfoBars/NativeInfoBar.vala:41 src/InfoBars/PaidInfoBar.vala:43
+#: src/InfoBars/NativeInfoBar.vala:42 src/InfoBars/PaidInfoBar.vala:44
 msgid "Dismiss"
 msgstr "Відхилити"
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
-#: src/InfoBars/NativeInfoBar.vala:46
+#: src/InfoBars/NativeInfoBar.vala:48
 msgid "Donate…"
 msgstr "Підтримати…"
 
@@ -234,16 +251,16 @@ msgstr "Немає зʼєднання з мережею."
 
 #: src/InfoBars/NetworkInfoBar.vala:32
 msgid "Connect to the Internet to browse the Web."
-msgstr "Підʼєднайтеся до Інтернету для перегляду вебсайтів."
+msgstr "Підʼєднайтеся до Інтернету для перегляду в Мережі."
 
-#: src/InfoBars/NetworkInfoBar.vala:38
+#: src/InfoBars/NetworkInfoBar.vala:39
 msgid "Never Warn Again"
-msgstr "Не попереджати знову"
+msgstr "Більше не попереджати"
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
-#: src/InfoBars/NetworkInfoBar.vala:45
+#: src/InfoBars/NetworkInfoBar.vala:47
 msgid "Network Settings…"
-msgstr "Мережні параметри…"
+msgstr "Налаштування мережі…"
 
 #. TRANSLATORS: This is an emphasized part at the beginning of a complete sentence, no terminating punctuation
 #: src/InfoBars/PaidInfoBar.vala:32
@@ -258,17 +275,16 @@ msgstr "фінансується за рахунок покупок через �
 #: src/InfoBars/PaidInfoBar.vala:35
 msgid "Consider purchasing or funding if you find value in using Ephemeral."
 msgstr ""
-"Розгляньте можливість внеску, якщо вам подобається користуватися Ephemeral "
-"на інших платформах."
+"Розгляньте можливість внеску, якщо вам подобається користуватися Ephemeral."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in a new window
-#: src/InfoBars/PaidInfoBar.vala:50
+#: src/InfoBars/PaidInfoBar.vala:52
 msgid "Purchase or Fund…"
 msgstr "Купити або профінансувати…"
 
 #: src/Views/ErrorView.vala:28
 msgid "Whoops"
-msgstr "Ой, лишенько"
+msgstr "Халепа"
 
 #: src/Views/ErrorView.vala:31
 msgid "Could not display the page."
@@ -286,24 +302,28 @@ msgid ""
 "tracking you."
 msgstr ""
 "Пам’ятайте, що Ephemeral та потаємний чи приватний режим будь-якого "
-"переглядача мережі можуть зробити лише наступне: блокують деякі елементи "
-"стеження та не зберігають дані на вашому пристрої, але вони не зупинять "
-"вашого провайдера, уряду чи певні вебсайти від стеження за вами."
+"переглядача мережі роблять лише таке: блокують деякі елементи стеження та не "
+"зберігають дані на вашому пристрої, але вони не зупинять вашого "
+"постачальника інтернету, уряду чи певні вебсайти від стеження за вами."
 
 #: src/Views/WelcomeView.vala:34
 msgid "For the best protection, always use a VPN."
-msgstr "Для кращого захисту завжди користуйтеся VPN."
+msgstr "Для найкращого захисту завжди користуйтеся VPN."
 
 #. TRANSLATORS: Includes an ellipsis (…) in English to signify the action will be performed in another menu
-#: src/Widgets/BrowserButton.vala:50
+#: src/Widgets/BrowserButton.vala:53
 msgid "Open page in…"
 msgstr "Відкрити сторінку в…"
 
-#: src/Widgets/BrowserButton.vala:62
+#: src/Widgets/BrowserButton.vala:65
+msgid "Automatically Open This Site Externally"
+msgstr "Автоматично відкривати цей сайт в іншому застосунку"
+
+#: src/Widgets/BrowserButton.vala:73
 msgid "Close Window When Opening Externally"
 msgstr "Закривати вікно після відкриття в іншому застосунку"
 
-#: src/Widgets/BrowserButton.vala:141
+#: src/Widgets/BrowserButton.vala:176
 #, c-format
 msgid "Open page in %s"
 msgstr "Відкрити сторінку в %s"
@@ -324,24 +344,39 @@ msgstr "Пошук \"%s\""
 
 #: src/Widgets/UrlEntry.vala:251
 msgid "Popular website"
-msgstr "Часті вебсайти"
+msgstr "Популярний вебсайт"
 
 #: src/Widgets/UrlEntry.vala:284
 msgid "Favorite website"
-msgstr "Улюблені вебсайти"
+msgstr "Улюблений вебсайт"
 
-#: src/Widgets/UrlEntry.vala:723
+#. elementary sites
+#: src/Widgets/UrlEntry.vala:288 src/Widgets/UrlEntry.vala:289
+#: src/Widgets/UrlEntry.vala:290 src/Widgets/UrlEntry.vala:291
+msgid "elementary Site"
+msgstr "Вебсайт elementary"
+
+#. Friends of Ephemeral
+#: src/Widgets/UrlEntry.vala:295
+msgid "Creator of Ephemeral"
+msgstr "Творець Ephemeral"
+
+#: src/Widgets/UrlEntry.vala:296
+msgid "Friend of Ephemeral"
+msgstr "Друзі Ephemeral"
+
+#: src/Widgets/UrlEntry.vala:743
 msgid "Go"
 msgstr "Перейти"
 
-#: src/Widgets/UrlEntry.vala:735
+#: src/Widgets/UrlEntry.vala:755
 msgid "Remove Website from Suggestions"
-msgstr "Вилучити вебсайт з пропонованих"
+msgstr "Видалити вебсайт із пропонованих"
 
-#: src/Widgets/UrlEntry.vala:739
+#: src/Widgets/UrlEntry.vala:759
 msgid "Add Website to Suggestions"
 msgstr "Додати вебсайт до пропонованих"
 
-#: src/Widgets/WebView.vala:79
+#: src/Widgets/WebView.vala:81
 msgid "Open Link in New _Window"
 msgstr "Відкрити посилання у новому _вікні"
