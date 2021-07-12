@@ -48,10 +48,18 @@ public class Ephemeral.Application : Gtk.Application {
 
     private bool opening_link = false;
 
+    private static bool open_from_clipboard = false;
+
+    private const OptionEntry[] OPTIONS = {
+        { "clipboard", 'c', 0, OptionArg.NONE, ref open_from_clipboard,
+            "Open links from clipboard" },
+        { null }
+    };
+
     public Application () {
         Object (
             application_id: "com.github.cassidyjames.ephemeral",
-            flags: ApplicationFlags.HANDLES_OPEN
+            flags: ApplicationFlags.HANDLES_OPEN | ApplicationFlags.HANDLES_COMMAND_LINE
         );
     }
 
@@ -154,6 +162,50 @@ public class Ephemeral.Application : Gtk.Application {
                 app_window.show_all ();
             }
         }
+    }
+
+    public override int command_line (ApplicationCommandLine command_line) {
+        this.hold ();
+
+        int res = handle_command_line (command_line);
+
+        this.release ();
+        return res;
+    }
+
+    private int handle_command_line (ApplicationCommandLine command_line) {
+        string[] args = command_line.get_arguments ();
+
+        unowned string[] tmp = args;
+
+        try {
+            var option_context = new OptionContext ();
+            option_context.set_help_enabled (true);
+            option_context.add_main_entries (OPTIONS, null);
+
+            option_context.parse (ref tmp);
+        } catch (OptionError e) {
+            command_line.print (_("Error: %s") + "\n", e.message);
+            command_line.print (_("Run '%s --help' to see a full list of available options.") + "\n", args[0]);
+            return 1;
+        }
+
+        if (open_from_clipboard) {
+            var display = Gdk.Display.get_default ();
+            var clipboard = Gtk.Clipboard.get_default (display);
+
+            var uri = clipboard.wait_for_text ();
+            open ({File.new_for_uri (uri)}, "");
+        } else {
+            File[] files = new File[args.length - 1];
+            for (int i = 0; i < args.length; i++) {
+                files[i] = File.new_for_uri (args[i + 1]);
+            }
+
+            open (files, "");
+        }
+
+        return 0;
     }
 
     public static int main (string[] args) {
