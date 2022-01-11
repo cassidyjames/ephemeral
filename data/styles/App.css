@@ -1,5 +1,5 @@
 /*
-* Copyright © 2019–2020 Cassidy James Blaede (https://cassidyjames.com)
+* Copyright © 2019–2021 Cassidy James Blaede (https://cassidyjames.com)
 *
 * This program is free software; you can redistribute it and/or
 * modify it under the terms of the GNU General Public
@@ -19,23 +19,27 @@
 * Authored by: Cassidy James Blaede <c@ssidyjam.es>
 */
 
-@define-color color_primary mix(@GRAPE_900, @BLUEBERRY_900, 0.33);
-@define-color color_accent @GRAPE_500;
+@define-color BLUEBERRY_900 #002e99;
+@define-color GRAPE_900 #452981;
 
-.titlebar {
-  background-image:
-    linear-gradient(
-      to bottom,
-      alpha(@highlight_color, 0.2),
-      rgba(255, 255, 255, 0)
-    ),
-    linear-gradient(120deg, @BLUEBERRY_700, @GRAPE_700 67%);
+@define-color textColorPrimary alpha(white, 0.9);
+
+.titlebar,
+.titlebar button {
+    transition:
+      200ms ease background,
+      200ms ease color;
+}
+
+.titlebar button {
+  -gtk-icon-style: symbolic;
+  color: @html_meta_theme_color_fg;
 }
 
 .titlebar .image-button,
 .titlebar .titlebutton {
   background: transparent;
-  color: white;
+  color: @html_meta_theme_color_fg;
   text-shadow: none;
   -gtk-icon-shadow: none;
 }
@@ -47,11 +51,11 @@
 
 .titlebar entry,
 .titlebar entry image {
-  color: white;
+  color: @html_meta_theme_color_fg;
 }
 
 .titlebar entry {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: mix(@html_meta_theme_color_bg, @html_meta_theme_color_fg, 0.125);
 }
 
 .titlebar .image-button:disabled {
@@ -72,4 +76,71 @@
 
 .titlebar .linked.navigation .image-button:last-child {
   padding-right: 0.5rem;
+}
+
+.browser-button .raised:last-child {
+  padding: 0;
+}
+
+.welcome {
+  background-image: linear-gradient(120deg, @BLUEBERRY_900, @GRAPE_900 67%);
+  color: white;
+}
+
+.welcome * {
+  color: inherit;
+}
+
+.h1 {
+  color: inherit;
+  font-family: Inter, Raleway, "Open Sans", sans-serif;
+  font-size: 24pt;
+  font-weight: 900;
+}
+
+.h2 {
+  font-size: 18pt;
+  font-weight: 300;
+}
+
+dzlsuggestionpopover row {
+  padding: 5px;
+}
+
+dzlsuggestionpopover row image {
+  -gtk-icon-palette: warning #fff;
+}
+
+.overlay-bar {
+  padding: 3px 6px;
+  transition: opacity 200ms ease;
+}
+
+.hidden .overlay-bar {
+  opacity: 0;
+}
+
+popover radio {
+  margin-left: 6px;
+}
+
+label.primary {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.color-button radio,
+.color-button radio:checked {
+   padding: 1.25em;
+   -gtk-icon-shadow: none;
+}
+
+.color-light radio {
+    background: #fafafa;
+    color: #333;
+}
+
+.color-dark radio {
+    background: #333;
+    color: #fafafa;
 }
